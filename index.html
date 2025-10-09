@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banimal ID Finder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Calm Harmony -->
+    <!-- Application Structure Plan: The application transforms the static guide into an interactive, task-oriented tool. The structure is a simple, single-view wizard. The user first selects the type of ID they need ('User' or 'Product'). This choice dynamically updates the view to show only the relevant instructions and a visual mock-up of the WordPress interface, highlighting the key areas. This structure was chosen to reduce cognitive load and guide the user through a single, focused task, making the process faster and less error-prone than reading through static documentation with conditional steps. The user flow is: 1. Select ID Type -> 2. View tailored visual instructions -> 3. See highlighted URL example. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: Welcome/Title -> Goal: Branding/Inform -> Presentation: Large H1/H2 with Unicode icon -> Interaction: None -> Justification: Establishes purpose immediately with brand's playful tone. -> Method: HTML/Tailwind.
+        - Report Info: Choice between User/Product ID -> Goal: Guide User Choice -> Presentation: Interactive Buttons -> Interaction: Click to update view -> Justification: Creates a clear, interactive starting point for the user's specific task. -> Method: HTML/Tailwind/JS.
+        - Report Info: Step-by-step instructions -> Goal: Instruct Visually -> Presentation: Mock-up of WP Admin UI -> Interaction: Content updates dynamically based on user's choice -> Justification: A visual mock-up is far more intuitive for locating UI elements than text descriptions alone. -> Method: HTML/Tailwind/JS.
+        - Report Info: URL examples -> Goal: Clarify Critical Info -> Presentation: Styled `<code>` block representing a URL -> Interaction: The specific ID part of the URL is highlighted -> Justification: Draws the user's direct attention to the exact piece of data they need to find. -> Method: HTML/Tailwind/JS/CSS.
+        - All choices adhere to the NO SVG/Mermaid constraint. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F5F2;
+            color: #413F3D;
+        }
+        .btn-primary {
+            background-color: #A8DADC;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn-primary:hover {
+            background-color: #8ac9ca;
+            transform: translateY(-2px);
+        }
+        .btn-primary.active {
+            background-color: #413F3D;
+            color: #F8F5F2;
+        }
+        .instruction-card {
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .instruction-card.hidden-view {
+            opacity: 0;
+            transform: translateY(20px);
+            height: 0;
+            overflow: hidden;
+            padding-top: 0;
+            padding-bottom: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        .wp-sidebar-item.highlight {
+            background-color: rgba(168, 218, 220, 0.4);
+            color: #413F3D;
+            border-left: 3px solid #A8DADC;
+        }
+        .url-highlight {
+            background-color: #E07A5F;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <main class="container mx-auto px-4 py-8 md:py-16">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-2">
+                🦍 Welcome to your Banimal Store!
+            </h1>
+            <h2 class="text-lg md:text-xl text-gray-600 mb-8">
+                Your "kind creature connector noodle juice gorilla comb 40D store" Quick-Start Guide
+            </h2>
+            <p class="max-w-2xl mx-auto mb-12">
+                To connect your data, you need the right ID from WordPress. This interactive guide will show you exactly where to find it. Start by selecting what you're looking for.
+            </p>
+        </div>
+
+        <div id="interactive-guide" class="max-w-4xl mx-auto">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                <div class="text-center mb-6">
+                    <p class="font-semibold text-lg">Step 1: What ID do you need to find?</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <button id="user-btn" class="btn-primary w-full text-lg font-bold py-4 px-6 rounded-xl">👤 User ID</button>
+                    <button id="product-btn" class="btn-primary w-full text-lg font-bold py-4 px-6 rounded-xl">📦 Product ID</button>
+                </div>
+            </div>
+
+            <div id="instruction-view" class="instruction-card hidden-view mt-8">
+                <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-200">
+                    <h3 class="text-2xl font-bold text-center mb-6">Step 2: Follow the Visual Guide</h3>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                        <div class="prose max-w-none">
+                            <h4 id="instruction-title" class="text-xl font-semibold mb-3"></h4>
+                            <ol class="list-decimal pl-5 space-y-3">
+                                <li id="instruction-step-1"></li>
+                                <li id="instruction-step-2"></li>
+                                <li id="instruction-step-3"></li>
+                            </ol>
+                        </div>
+                        
+                        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                            <p class="text-sm font-semibold text-gray-500 mb-2 text-center">Visual Example</p>
+                            <div class="flex bg-white rounded-lg shadow-inner overflow-hidden">
+                                <div class="wp-sidebar w-1/3 bg-gray-800 text-gray-300 p-3 text-sm space-y-2">
+                                    <div class="font-bold text-white mb-2">WordPress</div>
+                                    <div class="wp-sidebar-item p-1.5 rounded-md cursor-pointer">Dashboard</div>
+                                    <div id="wp-users" class="wp-sidebar-item p-1.5 rounded-md cursor-pointer">👤 Users</div>
+                                    <div id="wp-woocommerce" class="wp-sidebar-item p-1.5 rounded-md cursor-pointer">🛒 WooCommerce</div>
+                                    <div id="wp-products" class="wp-sidebar-item p-1.5 rounded-md cursor-pointer ml-4">📦 Products</div>
+                                    <div class="wp-sidebar-item p-1.5 rounded-md cursor-pointer">Settings</div>
+                                </div>
+                                <div class="w-2/3 p-4">
+                                    <div class="h-4 bg-gray-200 rounded w-3/4 mb-4"></div>
+                                    <div class="h-3 bg-gray-200 rounded w-full mb-2"></div>
+                                    <div class="h-3 bg-gray-200 rounded w-5/6"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                        <h3 class="text-2xl font-bold text-center mb-4">Step 3: Find the ID in the URL</h3>
+                        <p class="text-center text-gray-600 mb-4">Hover over or edit the item, then look at your browser's address bar. The ID is the number.</p>
+                        <div class="bg-gray-100 rounded-lg p-4 text-center">
+                            <p class="text-sm text-gray-500 mb-2">Example URL</p>
+                            <code id="url-example" class="text-sm md:text-base break-all"></code>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 text-center">
+                        <p class="font-semibold">This number is the ID you need to connect your data using the API.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        const guideData = {
+            user: {
+                title: 'Finding a User ID',
+                steps: [
+                    "Go to your website's admin login page (e.g., `yourwebsite.com/wp-admin`).",
+                    "In the left-hand menu, go to the <strong>Users</strong> section.",
+                    "Hover over or click to edit the user you need. Look at the URL in your browser's address bar."
+                ],
+                urlPrefix: '.../user-edit.php?',
+                urlHighlight: 'user_id=123',
+                urlSuffix: ''
+            },
+            product: {
+                title: 'Finding a Product ID',
+                steps: [
+                    "Go to your website's admin login page (e.g., `yourwebsite.com/wp-admin`).",
+                    "Go to the <strong>Products</strong> section (often under <strong>WooCommerce</strong>).",
+                    "Hover over or click to edit the product you need. Look at the URL in your browser's address bar."
+                ],
+                urlPrefix: '.../post.php?',
+                urlHighlight: 'post=456',
+                urlSuffix: '&action=edit'
+            }
+        };
+
+        const userBtn = document.getElementById('user-btn');
+        const productBtn = document.getElementById('product-btn');
+        const instructionView = document.getElementById('instruction-view');
+        
+        const instructionTitle = document.getElementById('instruction-title');
+        const instructionStep1 = document.getElementById('instruction-step-1');
+        const instructionStep2 = document.getElementById('instruction-step-2');
+        const instructionStep3 = document.getElementById('instruction-step-3');
+        const allSteps = [instructionStep1, instructionStep2, instructionStep3];
+
+        const wpUsers = document.getElementById('wp-users');
+        const wpProducts = document.getElementById('wp-products');
+        const wpWooCommerce = document.getElementById('wp-woocommerce');
+
+        const urlExample = document.getElementById('url-example');
+
+        function updateGuide(idType) {
+            const data = guideData[idType];
+            
+            instructionView.classList.remove('hidden-view');
+            
+            instructionTitle.textContent = data.title;
+            allSteps.forEach((stepEl, index) => {
+                stepEl.innerHTML = data.steps[index];
+            });
+
+            urlExample.innerHTML = `${data.urlPrefix}<span class="url-highlight">${data.urlHighlight}</span>${data.urlSuffix}`;
+
+            wpUsers.classList.remove('highlight');
+            wpProducts.classList.remove('highlight');
+            wpWooCommerce.classList.remove('highlight');
+
+            if (idType === 'user') {
+                wpUsers.classList.add('highlight');
+                userBtn.classList.add('active');
+                productBtn.classList.remove('active');
+            } else {
+                wpProducts.classList.add('highlight');
+                wpWooCommerce.classList.add('highlight');
+                productBtn.classList.add('active');
+                userBtn.classList.remove('active');
+            }
+        }
+        
+        userBtn.addEventListener('click', () => updateGuide('user'));
+        productBtn.addEventListener('click', () => updateGuide('product'));
+
+    </script>
+</body>
+</html>
