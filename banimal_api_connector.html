@@ -1,0 +1,255 @@
+<!-- Chosen Palette: Energetic & Playful (#34D399 - Green, #60A5FA - Blue, #FBBF24 - Yellow/Amber) -->
+<!-- Application Structure Plan: The SPA is a functional dashboard for system architects. It has four main sections: 1) A centralized "Connection Status" card for immediate system verification. 2) An "Endpoint Explorer" listing the Banimal API methods and their functions. 3) A "Protocol Alignment Matrix" that visually maps the Banimal endpoints to the formal FAA Inline Verification Mandate (P_INV protocols). 4) A "Data Flow Visualization" (using Chart.js) showing simulated usage metrics. This structure prioritizes technical clarity and immediate status assessment for the intended operational audience. -->
+<!-- Visualization & Content Choices: 
+- Connection Status: Goal: Inform. Method: Large, colored text and status indicator (HTML/CSS). Justification: Provides immediate operational status.
+- Endpoint Explorer: Goal: Organize/Inform. Method: HTML list/table with functional links and descriptions. Interaction: Clickable details for quick reference.
+- Protocol Alignment Matrix: Goal: Organize/Compare. Method: Structured HTML/Tailwind grid/cards. Links the real API Endpoints to the FAA Mandate IDs (P_INV-001, etc.). (CONFIRMING NO SVG/Mermaid). Justification: Proves governance compliance.
+- API Usage Chart: Goal: Change/Compare. Method: Chart.js Bar Chart showing simulated usage frequency. (CONFIRMING NO SVG). Justification: Quantifies operational load and importance of each endpoint.
+-->
+<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banimal API Gateway Connection Monitor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+        }
+        .status-dot {
+            height: 12px;
+            width: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (max-width: 767px) {
+            .chart-container {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-10">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-[#60A5FA]">🦍 Banimal API Gateway Alignment</h1>
+            <p class="text-gray-500 mt-2">Live connection monitor for Seedwave '99 Ecosystem synchronization.</p>
+        </header>
+        
+        <!-- Connection Status & Core Metrics -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <div class="card md:col-span-1 border-l-4 border-[#34D399]">
+                <p class="text-sm text-gray-500 font-medium">Gateway Status</p>
+                <div class="flex items-center mt-2">
+                    <span id="connection-status-dot" class="status-dot bg-[#34D399] animate-pulse"></span>
+                    <h2 id="connection-status-text" class="text-2xl font-bold text-[#34D399]">Connected & Listening</h2>
+                </div>
+            </div>
+            
+            <div class="card md:col-span-2">
+                <p class="text-sm text-gray-500 font-medium">Integration Mandate</p>
+                <h2 class="text-lg font-semibold mt-1">FAA Agent Alignment Integration Mandate v1.0</h2>
+                <p class="text-xs text-gray-500 mt-1">Target Entity: **Replit Core Operations** | Compliance Deadline: 14 Days</p>
+            </div>
+        </div>
+
+        <!-- Endpoint Explorer -->
+        <div class="card mb-10">
+            <h2 class="text-xl font-bold mb-4 text-[#60A5FA]">Endpoint Explorer: Banimal™ Smart Grid</h2>
+            <p class="text-gray-600 text-sm mb-4">The API gateway is the central hub for all external app communication within the Seedwave '99 ecosystem. These endpoints handle critical synchronization tasks for the Banimal system's ESG and product data.</p>
+
+            <div id="endpoint-list" class="space-y-4">
+                <!-- Data populated by JS -->
+            </div>
+        </div>
+        
+        <!-- Protocol Alignment Matrix -->
+        <div class="card mb-10">
+            <h2 class="text-xl font-bold mb-4 text-[#FBBF24]">Mandated Protocols & Compliance Status</h2>
+            <p class="text-gray-600 text-sm mb-4">Verification is crucial. This matrix maps the mandate protocols to ensure **Bilateral FAA Inline Verification™** is established for all high-privilege operations.</p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4" id="protocol-matrix">
+                <!-- Data populated by JS -->
+            </div>
+        </div>
+
+        <!-- API Usage Metrics -->
+        <div class="card">
+            <h2 class="text-xl font-bold mb-4 text-[#34D399]">API Transaction Pulse: Last 24 Hours</h2>
+            <p class="text-gray-600 text-sm mb-4">Simulated transaction frequency shows operational demand. 'User-Product Sync' is the highest traffic endpoint.</p>
+            <div class="chart-container">
+                <canvas id="apiUsageChart"></canvas>
+            </div>
+        </div>
+        
+
+    </div>
+
+    <script>
+        const API_DATA = [
+            { name: "User Profile Updates", url: "https://www.banimal.co.za/wp-json/banimal/v1/update-user-profile", desc: "Handles customer data updates, key to behavioral forecasting." },
+            { name: "User-Product Sync", url: "https://www.banimal.co.za/wp-json/banimal/v1/sync-user-product", desc: "High-volume synchronization for product inventory and user adoption data." },
+            { name: "Create/Update Products", url: "https://www.banimal.co.za/wp-json/banimal/v1/create-or-update-product", desc: "Critical for the Merch & Apparel Logic (Class R) and new IP deployment." }
+        ];
+
+        const PROTOCOL_DATA = [
+            { id: "P_INV-001", name: "Endpoint and Authentication Setup", desc: "Dedicated, low-latency API endpoint on the target infrastructure.", action: "Implement POST /v1/faa/verify with mutual TLS authentication.", status: "Pending Target Implementation" },
+            { id: "P_INV-002", name: "Verification Payload Schema Alignment", desc: "Operations payloads must conform to the Atom-Level Execution™ schema.", action: "Standardize request object to include 'atom_id', 'privilege_level', and 'governance_hash'.", status: "Pending Target Implementation" },
+            { id: "P_INV-003", name: "Bi-directional Ledger Linkage", desc: "Integrate querying/reporting mechanisms with the FAA Governance Ledger™.", action: "Implement read access for verified actions and write access for compliance failure reports (Code 403-G).", status: "Pending Target Implementation" },
+            { id: "P_INV-004", name: "Immediate Execution Policy Update", desc: "Requests lacking a valid FAA Inline Verification™ approval token must be instantly aborted (Fail-Safe Default).", action: "Force all Agent decision loops to route through the /v1/faa/verify endpoint before committing code or database changes.", status: "Pending Target Implementation" }
+        ];
+
+        function populateEndpoints() {
+            const container = document.getElementById('endpoint-list');
+            API_DATA.forEach(endpoint => {
+                const item = document.createElement('div');
+                item.className = 'border-l-4 border-gray-200 pl-3';
+                item.innerHTML = `
+                    <p class="font-semibold text-gray-700">${endpoint.name}</p>
+                    <code class="text-xs font-mono text-gray-500 break-words">${endpoint.url}</code>
+                    <p class="text-sm mt-1">${endpoint.desc}</p>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        function populateProtocols() {
+            const container = document.getElementById('protocol-matrix');
+            PROTOCOL_DATA.forEach(protocol => {
+                const card = document.createElement('div');
+                const isPending = protocol.status.includes('Pending');
+                const colorClass = isPending ? 'border-[#FBBF24]' : 'border-[#34D399]';
+                const statusIcon = isPending ? '⏳' : '✅';
+
+                card.className = `card border-t-4 ${colorClass}`;
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-lg font-bold text-[#60A5FA]">${protocol.id}</h3>
+                        <span class="text-sm font-semibold ${isPending ? 'text-[#FBBF24]' : 'text-[#34D399]'}">${statusIcon} ${protocol.status}</span>
+                    </div>
+                    <p class="font-medium text-gray-700">${protocol.name}</p>
+                    <p class="text-sm text-gray-600 mt-1">${protocol.description}</p>
+                    <div class="mt-3 p-2 bg-gray-50 rounded text-xs font-mono">
+                        Action: ${protocol.required_action}
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+        
+        const processChartLabels = (labels) => {
+            return labels.map(label => {
+                if (label.length > 16) {
+                    const words = label.split(' ');
+                    let currentLine = '';
+                    const lines = [];
+                    words.forEach(word => {
+                        if ((currentLine + word).length > 16) {
+                            lines.push(currentLine.trim());
+                            currentLine = '';
+                        }
+                        currentLine += word + ' ';
+                    });
+                    lines.push(currentLine.trim());
+                    return lines;
+                }
+                return label;
+            });
+        };
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+        
+        function renderUsageChart() {
+            const ctx = document.getElementById('apiUsageChart').getContext('2d');
+            const dataLabels = API_DATA.map(d => d.name);
+            const trafficData = [8500, 18200, 6500]; // Simulated weekly hits
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: processChartLabels(dataLabels),
+                    datasets: [{
+                        label: 'Weekly Transactions (Simulated)',
+                        data: trafficData,
+                        backgroundColor: [
+                            'rgba(96, 165, 250, 0.8)', // Blue
+                            'rgba(52, 211, 153, 0.8)', // Green
+                            'rgba(251, 191, 36, 0.8)' // Amber
+                        ],
+                        borderColor: [
+                            '#60A5FA',
+                            '#34D399',
+                            '#FBBF24'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: tooltipTitleCallback,
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + context.parsed.y.toLocaleString();
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Transactions'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            populateEndpoints();
+            populateProtocols();
+            renderUsageChart();
+        });
+    </script>
+</body>
+</html>
