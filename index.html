@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🐾Banimal Ecosystem API - Developer Hub</title>
+    <title>Banimal Ecosystem API - Developer Hub</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -230,17 +230,39 @@
             background: #667eea;
             color: white;
             border: none;
-            padding: 8px 16px;
+            padding: 10px 20px;
             border-radius: 6px;
             cursor: pointer;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 600;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             margin-top: 10px;
         }
         
         .copy-btn:hover {
             background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        
+        .copy-btn:active {
+            transform: translateY(0);
+        }
+        
+        .copy-btn.copied {
+            background: #48bb78;
+        }
+        
+        .copy-btn::before {
+            content: "📋";
+            font-size: 1.1em;
+        }
+        
+        .copy-btn.copied::before {
+            content: "✓";
         }
         
         .services-grid {
@@ -291,7 +313,18 @@
         <div class="container">
             <h1>🐾 Banimal Ecosystem API</h1>
             <p>Your comprehensive integration hub for global commerce</p>
-            <div class="version-badge">v4.7.8 - Latest Stable</div>
+            <div class="version-badge">v4.7.9 - Latest Stable | 🌍 Now Available in Multiple Languages</div>
+            
+            <!-- Language Selector -->
+            <div style="margin-top: 20px;">
+                <select id="languageSelector" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid rgba(255,255,255,0.3); padding: 10px 20px; border-radius: 8px; font-size: 16px; cursor: pointer; backdrop-filter: blur(10px);">
+                    <option value="en">🇺🇸 English</option>
+                    <option value="zh">🇨🇳 简体中文</option>
+                    <option value="es" disabled>🇪🇸 Español (Coming Soon)</option>
+                    <option value="fr" disabled>🇫🇷 Français (Coming Soon)</option>
+                    <option value="de" disabled>🇩🇪 Deutsch (Coming Soon)</option>
+                </select>
+            </div>
         </div>
     </header>
 
@@ -446,6 +479,55 @@
                     <div class="service-tag">Webhooks</div>
                 </div>
             </div>
+            
+            <!-- Languages Section -->
+            <div class="section">
+                <h2 class="section-title">🌍 Multilingual Support</h2>
+                <div class="info-note">
+                    <strong>🎉 NEW: Global Language Support</strong>
+                    <p style="margin-top: 10px;">The Banimal Ecosystem Connector now supports multiple languages! The plugin automatically adapts to your WordPress language settings.</p>
+                </div>
+                
+                <h3 style="margin-top: 30px; margin-bottom: 15px;">✅ Currently Available Languages</h3>
+                <div class="services-grid">
+                    <div class="service-tag" style="background: #48bb78; color: white;">🇺🇸 English</div>
+                    <div class="service-tag" style="background: #48bb78; color: white;">🇨🇳 简体中文 (Chinese Simplified)</div>
+                </div>
+                
+                <h3 style="margin-top: 30px; margin-bottom: 15px;">🔜 Coming Soon</h3>
+                <div class="services-grid">
+                    <div class="service-tag">🇪🇸 Español (Spanish)</div>
+                    <div class="service-tag">🇫🇷 Français (French)</div>
+                    <div class="service-tag">🇩🇪 Deutsch (German)</div>
+                    <div class="service-tag">🇧🇷 Português (Portuguese)</div>
+                    <div class="service-tag">🇷🇺 Русский (Russian)</div>
+                    <div class="service-tag">🇯🇵 日本語 (Japanese)</div>
+                    <div class="service-tag">🇰🇷 한국어 (Korean)</div>
+                    <div class="service-tag">🇸🇦 العربية (Arabic)</div>
+                    <div class="service-tag">🇮🇳 हिन्दी (Hindi)</div>
+                    <div class="service-tag">🇰🇪 Kiswahili (Swahili)</div>
+                    <div class="service-tag">🇿🇦 isiZulu (Zulu)</div>
+                    <div class="service-tag">🇿🇦 Afrikaans</div>
+                </div>
+                
+                <div style="margin-top: 30px; padding: 20px; background: #f7fafc; border-radius: 8px; border-left: 4px solid #667eea;">
+                    <p style="font-weight: 600; margin-bottom: 10px;">🎯 How to Change Language</p>
+                    <ol style="margin-left: 20px; line-height: 1.8;">
+                        <li>Log into your WordPress admin</li>
+                        <li>Go to <strong>Settings → General</strong></li>
+                        <li>Select your preferred <strong>Site Language</strong></li>
+                        <li>Click <strong>Save Changes</strong></li>
+                        <li>The Banimal plugin will automatically display in your chosen language!</li>
+                    </ol>
+                </div>
+                
+                <div style="margin-top: 20px; padding: 20px; background: #fff5f5; border-radius: 8px; border-left: 4px solid #fc8181;">
+                    <p style="font-weight: 600; margin-bottom: 10px;">🤝 Want to Contribute a Translation?</p>
+                    <p>We're looking for translators to help make Banimal accessible worldwide! If you're fluent in any of the languages above, we'd love your help.</p>
+                    <p style="margin-top: 10px;"><strong>Contact:</strong> translations@banimal.co.za</p>
+                    <p style="margin-top: 5px; font-size: 0.95rem; opacity: 0.9;">Contributors receive credit in the plugin, a link to their profile, and early access to new features.</p>
+                </div>
+            </div>
 
             <!-- Getting Started -->
             <div class="section">
@@ -460,7 +542,57 @@
                         <li>Click <strong>Save Configuration</strong></li>
                         <li>Go to <strong>Banimal → API Status</strong></li>
                         <li>Click <strong>Test Supply Chain</strong> to verify setup</li>
+                        <li>Use <strong>Banimal → ID Finder</strong> to locate User and Product IDs for API calls</li>
                     </ol>
+                </div>
+            </div>
+            
+            <!-- ID Finder Section -->
+            <div class="section">
+                <h2 class="section-title">🔍 Finding User and Product IDs</h2>
+                <p style="margin-bottom: 20px;">
+                    To connect your data using the Banimal API, you need the right WordPress IDs. 
+                    Use the interactive <strong>ID Finder</strong> tool in your WordPress admin: 
+                    <a href="https://banimal.co.za/wp-admin/admin.php?page=banimal-ecosystem-connector-id-finder" style="color: #667eea; font-weight: 600;">Banimal → ID Finder</a>
+                </p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px;">
+                    <!-- User ID -->
+                    <div class="endpoint-card">
+                        <h3 class="endpoint-title">👤 Finding a User ID</h3>
+                        <ol style="margin-left: 20px; line-height: 1.8;">
+                            <li>In the WordPress sidebar, click on <strong>Users → All Users</strong>.</li>
+                            <li>Find the user you need and hover over their name.</li>
+                            <li>Look at the bottom left of your browser (or the address bar when you click Edit). You'll see the URL.</li>
+                        </ol>
+                        <div style="margin-top: 15px; background: #f5f5f5; padding: 15px; border-radius: 8px;">
+                            <p style="font-size: 12px; color: #666; margin-bottom: 8px;">EXAMPLE URL:</p>
+                            <code style="font-size: 13px; word-break: break-all;">
+                                yoursite.com/wp-admin/user-edit.php?<span style="background: #E07A5F; color: white; padding: 2px 6px; border-radius: 4px; font-weight: 600;">user_id=123</span>&wp_http_referer=...
+                            </code>
+                        </div>
+                    </div>
+                    
+                    <!-- Product ID -->
+                    <div class="endpoint-card">
+                        <h3 class="endpoint-title">📦 Finding a Product ID</h3>
+                        <ol style="margin-left: 20px; line-height: 1.8;">
+                            <li>In the WordPress sidebar, click on <strong>WooCommerce → Products</strong> (or just <strong>Products</strong>).</li>
+                            <li>Find the product you need and hover over its name.</li>
+                            <li>Look at the bottom left of your browser (or the address bar when you click Edit). You'll see the URL.</li>
+                        </ol>
+                        <div style="margin-top: 15px; background: #f5f5f5; padding: 15px; border-radius: 8px;">
+                            <p style="font-size: 12px; color: #666; margin-bottom: 8px;">EXAMPLE URL:</p>
+                            <code style="font-size: 13px; word-break: break-all;">
+                                yoursite.com/wp-admin/post.php?<span style="background: #E07A5F; color: white; padding: 2px 6px; border-radius: 4px; font-weight: 600;">post=456</span>&action=edit
+                            </code>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px; text-align: center; padding: 20px; background: #e8f4f8; border-radius: 8px;">
+                    <p style="font-weight: 600; font-size: 16px; margin-bottom: 10px;">💡 Pro Tip</p>
+                    <p style="color: #666;">This ID number is what you'll use in your API calls to connect user or product data to the Banimal ecosystem. For a visual, interactive guide, visit <strong>Banimal → ID Finder</strong> in your WordPress admin.</p>
                 </div>
             </div>
 
@@ -522,6 +654,52 @@
                         <h3>🌐 Website</h3>
                         <p>Visit banimal.co.za for updates, news, and additional resources</p>
                     </div>
+                    <div class="quick-link-card" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        <h3>🌍 Translations</h3>
+                        <p>Help translate to your language<br>Email: translations@banimal.co.za</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Version History -->
+            <div class="section">
+                <h2 class="section-title">📝 What's New</h2>
+                
+                <div class="endpoint-card" style="border-left: 4px solid #48bb78;">
+                    <h3 style="color: #48bb78; margin-bottom: 10px;">🎉 Version 4.7.9 - October 27, 2025 (Current)</h3>
+                    <p><strong>NEW: Multilingual Support!</strong></p>
+                    <ul class="features-list" style="margin-top: 10px;">
+                        <li>Complete internationalization framework</li>
+                        <li>Chinese Simplified (简体中文) translation available</li>
+                        <li>Easy language switching via WordPress settings</li>
+                        <li>Translation template ready for community contributions</li>
+                        <li>150+ UI strings fully translatable</li>
+                        <li>Support for 12+ additional languages coming soon</li>
+                    </ul>
+                </div>
+                
+                <div class="endpoint-card">
+                    <h3 style="margin-bottom: 10px;">Version 4.7.8 - October 27, 2025</h3>
+                    <ul class="features-list">
+                        <li>Added interactive ID Finder tool</li>
+                        <li>Visual guide for finding User and Product IDs</li>
+                        <li>Improved user experience for API integration</li>
+                        <li>Enhanced documentation</li>
+                    </ul>
+                </div>
+                
+                <div class="endpoint-card">
+                    <h3 style="margin-bottom: 10px;">Version 4.7.7</h3>
+                    <ul class="features-list">
+                        <li>Added sidebar menu with Banimal icon</li>
+                        <li>Configuration page for API keys</li>
+                        <li>API Status dashboard with testing tools</li>
+                        <li>Enhanced security with encryption</li>
+                        <li>Multiple payment gateway support</li>
+                        <li>WooCommerce webhook integration</li>
+                        <li>Automated supply chain management</li>
+                        <li>Cloud storage synchronization</li>
+                    </ul>
                 </div>
             </div>
 
@@ -531,32 +709,125 @@
     <footer>
         <div class="container">
             <p style="font-size: 1.2rem; margin-bottom: 10px;"><strong>Banimal Ecosystem Connector</strong></p>
-            <p>Version 4.7.8 | Powered by Fruitful Global Mac</p>
+            <p>Version 4.7.9 | Powered by Fruitful Global Mac</p>
+            <p style="margin-top: 10px; opacity: 0.9;">🌍 Available in English & 简体中文 | More languages coming soon!</p>
             <p style="margin-top: 20px; opacity: 0.8;">🐾 Empowering your WordPress ecosystem with seamless integrations</p>
             <p style="margin-top: 30px; font-size: 0.9rem;">
                 <a href="https://banimal.co.za" style="color: white; text-decoration: none; opacity: 0.8;">banimal.co.za</a> | 
-                <a href="https://github.com/fruitful-global-planet" style="color: white; text-decoration: none; opacity: 0.8; margin-left: 15px;">GitHub</a>
+                <a href="https://github.com/fruitful-global-planet" style="color: white; text-decoration: none; opacity: 0.8; margin-left: 15px;">GitHub</a> |
+                <a href="mailto:translations@banimal.co.za" style="color: white; text-decoration: none; opacity: 0.8; margin-left: 15px;">Translations</a>
             </p>
         </div>
     </footer>
 
     <script>
-        function copyToClipboard(text) {
+        // Translation data
+        const translations = {
+            en: {
+                copyCommand: "Copy",
+                copied: "Copied!",
+                copyUrl: "Copy URL"
+            },
+            zh: {
+                copyCommand: "复制",
+                copied: "已复制！",
+                copyUrl: "复制网址"
+            }
+        };
+
+        let currentLang = 'en';
+
+        // Language selector
+        const langSelector = document.getElementById('languageSelector');
+        if (langSelector) {
+            langSelector.addEventListener('change', function() {
+                currentLang = this.value;
+                updateCopyButtons();
+            });
+        }
+
+        function updateCopyButtons() {
+            const t = translations[currentLang];
+            document.querySelectorAll('.copy-btn:not(.copied)').forEach(btn => {
+                if (btn.getAttribute('data-type') === 'url') {
+                    btn.textContent = t.copyUrl;
+                } else {
+                    btn.textContent = t.copyCommand;
+                }
+            });
+        }
+
+        function copyToClipboard(text, button) {
+            const t = translations[currentLang];
             const textarea = document.createElement('textarea');
             textarea.value = text;
             textarea.style.position = 'fixed';
             textarea.style.opacity = '0';
             document.body.appendChild(textarea);
             textarea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textarea);
             
-            // Show feedback
-            event.target.textContent = '✓ Copied!';
-            setTimeout(() => {
-                event.target.textContent = '📋 Copy cURL Command';
-            }, 2000);
+            try {
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                
+                // Show feedback
+                const originalContent = button.textContent;
+                button.textContent = t.copied;
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    button.textContent = originalContent;
+                    button.classList.remove('copied');
+                }, 2000);
+            } catch (err) {
+                document.body.removeChild(textarea);
+                console.error('Failed to copy:', err);
+            }
         }
+
+        function copyEndpoint(endpoint) {
+            const fullUrl = 'https://banimal.co.za' + endpoint;
+            copyToClipboard(fullUrl, event.target);
+        }
+
+        // Add copy buttons to all code blocks on page load
+        window.addEventListener('load', function() {
+            const t = translations[currentLang];
+            
+            // Add copy buttons to code blocks
+            document.querySelectorAll('.code-block').forEach((block, index) => {
+                // Skip if already has a button
+                if (block.nextElementSibling && block.nextElementSibling.classList.contains('copy-btn')) {
+                    return;
+                }
+                
+                const button = document.createElement('button');
+                button.className = 'copy-btn';
+                button.textContent = t.copyCommand;
+                button.onclick = function() {
+                    copyToClipboard(block.textContent.trim(), button);
+                };
+                
+                block.parentNode.insertBefore(button, block.nextSibling);
+            });
+            
+            // Add compact copy buttons to endpoint URLs
+            document.querySelectorAll('.endpoint-url').forEach((url) => {
+                const button = document.createElement('button');
+                button.className = 'copy-btn';
+                button.style.padding = '6px 12px';
+                button.style.fontSize = '0.8rem';
+                button.style.margin = '0 0 0 10px';
+                button.textContent = '📋';
+                button.title = t.copyUrl;
+                button.setAttribute('data-type', 'url');
+                button.onclick = function() {
+                    copyToClipboard(url.textContent.trim(), button);
+                };
+                
+                url.parentNode.insertBefore(button, url.nextSibling);
+            });
+        });
     </script>
 </body>
 </html>
