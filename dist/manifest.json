@@ -1,0 +1,13 @@
+{
+  "name": "Banimal",
+  "short_name": "Banimal",
+  "description": "Premium 100% cotton babygrows and bibs from South Africa",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f1e7",
+  "theme_color": "#f6f1e7",
+  "icons": [
+    { "src": "https://banimal.co.za/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "https://banimal.co.za/favicon.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
