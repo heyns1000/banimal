@@ -8,4 +8,4 @@ delete p.devDependencies['@getmocha/vite-plugins'];
 delete p.devDependencies['@getmocha/users-service'];
 fs.writeFileSync('package.json',JSON.stringify(p,null,2));
 "
-npm install
+npm install --include=dev
