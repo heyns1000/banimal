@@ -1,14 +1,10 @@
 {
-  "buildCommand": "echo 'pre-built Banimal3 static site'",
+  "buildCommand": "echo 'pre-built Banimal2 static site'",
   "installCommand": "true",
   "outputDirectory": "dist",
   "rewrites": [
     {
-      "source": "/assets/:path*",
-      "destination": "https://banimal.co.za/assets/:path*"
-    },
-    {
-      "source": "/((?!api|sw\\.js|manifest\\.json|robots\\.txt|sitemap\\.xml|og-image\\.png|favicon|icon|apple-touch).*)",
+      "source": "/((?!api|assets|sw\\.js|manifest\\.json|robots\\.txt|sitemap\\.xml|og-image\\.png|favicon|icon|apple-touch).*)",
       "destination": "/index.html"
     }
   ],
