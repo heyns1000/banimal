@@ -1,5 +1,6 @@
 {
   "buildCommand": "npx vite build --config vite.config.vercel.ts",
   "outputDirectory": "dist",
+  "installCommand": "node -e \"const fs=require('fs');const p=JSON.parse(fs.readFileSync('package.json','utf8'));delete p.devDependencies['@getmocha/vite-plugins'];delete p.devDependencies['@getmocha/users-service'];fs.writeFileSync('package.json',JSON.stringify(p,null,2));\" && npm install",
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
