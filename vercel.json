@@ -1,5 +1,6 @@
 {
-  "buildCommand": "echo 'pre-built Banimal3 static site — no build step'",
+  "buildCommand": "echo 'pre-built Banimal3 static site'",
+  "installCommand": "true",
   "outputDirectory": "dist",
   "rewrites": [
     {
