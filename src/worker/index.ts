@@ -10,6 +10,7 @@ import analytics from './routes/analytics'
 import coupons from './routes/coupons'
 import email from './routes/email'
 import giving from './routes/giving'
+import orders from './routes/orders'
 
 const app = new Hono<{ Bindings: Env }>()
 
@@ -40,6 +41,7 @@ app.route('/api/analytics', analytics)
 app.route('/api/coupons', coupons)
 app.route('/api/email', email)
 app.route('/api/giving', giving)
+app.route('/api/orders', orders)
 
 // Health check
 app.get('/api/health', (c) =>
