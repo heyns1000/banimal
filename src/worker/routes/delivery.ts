@@ -23,10 +23,13 @@ function bobgoHeaders(apiKey: string): Record<string, string> {
 delivery.post('/rates', async (c) => {
   const body = await c.req.json() as {
     toPostalCode: string
-    orderValueZAR: number
+    orderValueZAR?: number
+    cartValueZar?: number
     parcelWeightKg?: number
     fromPostalCode?: string
   }
+  // The deployed frontend sends `cartValueZar`; accept either name.
+  const orderValueZAR = body.orderValueZAR ?? body.cartValueZar
 
   const apiKey = (c.env as any).BOBGO_API_KEY as string
 
@@ -54,7 +57,7 @@ delivery.post('/rates', async (c) => {
           submitted_height_cm: 10,
           submitted_weight_kg: body.parcelWeightKg || 0.5,
         }],
-        declared_value: body.orderValueZAR,
+        declared_value: orderValueZAR,
       }),
     })
 
