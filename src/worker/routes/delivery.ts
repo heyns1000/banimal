@@ -21,27 +21,39 @@ function bobgoHeaders(apiKey: string): Record<string, string> {
 
 // Get delivery rates from BobGo
 delivery.post('/rates', async (c) => {
+  // The deployed checkout bundle POSTs { address, city, postal, province,
+  // country, itemCount, cartValueZar } — not the { toPostalCode,
+  // orderValueZAR } shape this route was originally written against. Accept
+  // both so this keeps working for any other caller too.
   const body = await c.req.json() as {
-    toPostalCode: string
-    orderValueZAR?: number
+    postal?: string
+    toPostalCode?: string
     cartValueZar?: number
+    orderValueZAR?: number
     parcelWeightKg?: number
     fromPostalCode?: string
   }
-  // The deployed frontend sends `cartValueZar`; accept either name.
-  const orderValueZAR = body.orderValueZAR ?? body.cartValueZar
+  const toPostalCode = body.postal ?? body.toPostalCode
+  const orderValueZAR = body.cartValueZar ?? body.orderValueZAR
 
   const apiKey = (c.env as any).BOBGO_API_KEY as string
 
+  // The checkout UI reads rate.id / rate.amountZar / rate.courier /
+  // rate.estimatedDays — not service/price/carrier/days. Every rate
+  // returned from this route (real or fallback) must use that shape or
+  // the UI renders "NaN" for the price and can't tell rates apart.
   if (!apiKey) {
-    // Return sensible defaults when not configured
     return c.json({
       rates: [
-        { service: 'Standard Delivery', carrier: 'Courier Guy', price: 85, days: '3–5 business days' },
-        { service: 'Express Delivery', carrier: 'Fastway', price: 145, days: '1–2 business days' },
-        { service: 'Economy Delivery', carrier: 'Pargo', price: 55, days: '5–7 business days' },
+        { id: 'standard', service: 'Standard Delivery', courier: 'Courier Guy', amountZar: 85, estimatedDays: '3–5 business days' },
+        { id: 'express', service: 'Express Delivery', courier: 'Fastway', amountZar: 145, estimatedDays: '1–2 business days' },
+        { id: 'economy', service: 'Economy Delivery', courier: 'Pargo', amountZar: 55, estimatedDays: '5–7 business days' },
       ],
     })
+  }
+
+  if (!toPostalCode) {
+    return c.json({ rates: [], error: 'missing delivery postal code' })
   }
 
   try {
@@ -50,7 +62,7 @@ delivery.post('/rates', async (c) => {
       headers: bobgoHeaders(apiKey),
       body: JSON.stringify({
         collection_address: { postal_code: body.fromPostalCode || '7550' },
-        delivery_address: { postal_code: body.toPostalCode },
+        delivery_address: { postal_code: toPostalCode },
         parcels: [{
           submitted_length_cm: 35,
           submitted_width_cm: 25,
@@ -62,17 +74,17 @@ delivery.post('/rates', async (c) => {
     })
 
     const data = await resp.json() as any
-    const rates = (data.rates || []).map((r: any) => ({
+    const rates = (data.rates || []).map((r: any, idx: number) => ({
+      id: r.service_code || r.code || `rate-${idx}`,
       service: r.service_name || r.service_level,
-      carrier: r.carrier_name || r.courier,
-      price: Math.round(r.rate || r.price || 0),
-      days: r.estimated_delivery_days ? `${r.estimated_delivery_days} business days` : 'Contact for ETA',
-      serviceCode: r.service_code || r.code,
+      courier: r.carrier_name || r.courier,
+      amountZar: Math.round(r.rate || r.price || 0),
+      estimatedDays: r.estimated_delivery_days ? `${r.estimated_delivery_days} business days` : 'Contact for ETA',
     }))
 
     return c.json({ rates })
   } catch (err) {
-    return c.json({ error: 'Could not fetch BobGo rates', message: String(err) }, 502)
+    return c.json({ rates: [], error: 'Could not fetch BobGo rates', message: String(err) }, 502)
   }
 })
 
