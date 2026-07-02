@@ -36,6 +36,10 @@ app.route('/api/payments', payments)
 // Enhanced storefront routes
 app.route('/api/auth', auth)
 app.route('/api/delivery', delivery)
+// The deployed frontend bundle calls /api/shipping/rates (not /api/delivery/rates),
+// so BobGo rates were 404ing at checkout. Mount the same handler at both paths
+// rather than touching the built bundle.
+app.route('/api/shipping', delivery)
 app.route('/api/notifications', notifications)
 app.route('/api/analytics', analytics)
 app.route('/api/coupons', coupons)
