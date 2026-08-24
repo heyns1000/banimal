@@ -11,6 +11,7 @@ import coupons from './routes/coupons'
 import email from './routes/email'
 import giving from './routes/giving'
 import orders from './routes/orders'
+import wpBridge from './routes/wp-bridge'
 
 const app = new Hono<{ Bindings: Env }>()
 
@@ -46,6 +47,11 @@ app.route('/api/coupons', coupons)
 app.route('/api/email', email)
 app.route('/api/giving', giving)
 app.route('/api/orders', orders)
+
+// WordPress plugin bridge — signed events from the thin-client connector.
+// The plugin never calls Paystack/BobGo/GitHub directly; this is the only
+// path it has into the Worker. See wordpress-plugin/banimal-ecosystem-connector/.
+app.route('/api/wp', wpBridge)
 
 // Health check
 app.get('/api/health', (c) =>
