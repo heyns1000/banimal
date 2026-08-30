@@ -1,4 +1,4 @@
-<title>Banimal Connector Manual</title>
+<title>Banimal™ Connector Manual</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Georgia&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -56,8 +56,9 @@
     width:var(--sidebar-w); flex:none; position:sticky; top:0; align-self:flex-start;
     height:100vh; overflow-y:auto; padding:28px 20px 40px; border-right:1px solid var(--rule);
   }
-  .sidebar .brand{ font-family:'Baloo 2',sans-serif; font-weight:700; font-size:15px; margin-bottom:4px; display:flex; align-items:center; gap:8px; }
-  .sidebar .brand img{ width:22px; height:22px; }
+  .sidebar .brand{ display:flex; align-items:center; gap:8px; margin-bottom:4px; }
+  .sidebar .brand img{ height:19px; width:auto; }
+  .sidebar .brand span{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); }
   .sidebar .ver{ font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--muted); margin-bottom:26px; display:block; }
   .navgroup{ margin-bottom:22px; }
   .navgroup .label{ font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
@@ -128,13 +129,26 @@
   .faq dt{ font-weight:700; margin-top:18px; }
   .faq dd{ margin:6px 0 0; color:var(--muted); max-width:66ch; font-size:14.5px; }
 
-  footer{ border-top:1px solid var(--rule); padding:30px 0; margin-top:20px; }
-  footer p{ font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--muted); letter-spacing:.04em; text-transform:uppercase; }
+  footer{ padding:30px 0 10px; }
+  footer .fwrap{
+    display:grid; grid-template-columns:auto 1fr; gap:14px 24px; align-items:center;
+    border-top:2px solid var(--ink); padding-top:20px;
+  }
+  footer .fmark{ background:#FFFFFF; border:2px solid var(--ink); border-radius:10px; padding:8px 12px; width:fit-content; }
+  footer .fmark img{ height:26px; width:auto; display:block; filter:grayscale(1); }
+  footer .finfo{ text-align:right; }
+  footer p{ font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--muted); letter-spacing:.04em; text-transform:uppercase; margin:0; }
+  footer .copyright{ font-size:12px; color:var(--muted); margin-top:4px; font-family:Georgia,serif; text-transform:none; letter-spacing:0; }
+  footer .fsuper{ grid-column:1/-1; text-align:right; font-size:11px; color:var(--muted); margin-top:2px; text-transform:none; letter-spacing:0; font-family:'JetBrains Mono',monospace; }
+  @media (max-width:560px){
+    footer .fwrap{ grid-template-columns:1fr; }
+    footer .finfo, footer .fsuper{ text-align:left; }
+  }
 </style>
 
 <div class="shell">
   <nav class="sidebar">
-    <div class="brand"><img src="../brand/assets/samfox-icon-verified-ink.png" alt="" /> Banimal Connector</div>
+    <div class="brand"><img data-icon-ink="../brand/assets/banimal-logo-ink.png" data-icon-cream="../brand/assets/banimal-logo-white.png" src="../brand/assets/banimal-logo-ink.png" alt="Banimal™" /><span>Connector</span></div>
     <span class="ver">Manual · v5.1.0</span>
 
     <div class="navgroup">
@@ -169,13 +183,13 @@
   <main>
     <div class="doctitle">
       <div class="part-eyebrow">wordpress-plugin/banimal-ecosystem-connector · v5.1.0</div>
-      <h1>Banimal Connector Manual</h1>
+      <h1>Banimal™ Connector Manual</h1>
     </div>
     <p class="doc-sub">Everything needed to install, configure, and verify the Connector — on a WordPress site today, in a Claude Code profile today, and on every other environment it's headed to next. Every step below matches the real, shipped code; nothing here is aspirational unless it's marked <span class="status-pill planned"><i></i>planned</span>.</p>
 
     <section id="overview">
       <h2>Overview</h2>
-      <p>Banimal Connector is one product doing two jobs through a single thin client: it relays WooCommerce order events to the Banimal Cloudflare Worker, and it pulls the verified Sam Fox™ CI Guide from that same Worker to keep a site's brand tokens correct automatically. Nothing about payments, delivery, or brand assets is ever stored twice — the Worker is the one place that holds the truth, and every connected surface reads from it.</p>
+      <p>Banimal™ Connector is one product doing two jobs through a single thin client: it relays WooCommerce order events to the Banimal™ Cloudflare Worker, and it pulls the verified Sam Fox™ CI Guide from that same Worker to keep a site's brand tokens correct automatically. Nothing about payments, delivery, or brand assets is ever stored twice — the Worker is the one place that holds the truth, and every connected surface reads from it.</p>
       <p>This manual covers it in the two places it actually runs today, and where it's headed next:</p>
       <ul>
         <li><b>WordPress</b> — the real plugin, installable now.</li>
@@ -191,7 +205,7 @@
       <ol class="steps">
         <li><b>Check requirements.</b>WordPress 5.9 or later, PHP 7.4 or later.</li>
         <li><b>Copy the plugin folder.</b>Place <code>wordpress-plugin/banimal-ecosystem-connector/</code> into your site's <code>wp-content/plugins/</code> directory.</li>
-        <li><b>Activate it.</b>Plugins → Installed Plugins → Banimal Ecosystem Connector → Activate. A new "Banimal" menu appears in the admin sidebar.</li>
+        <li><b>Activate it.</b>Plugins → Installed Plugins → Banimal™ Ecosystem Connector → Activate. A new "Banimal™" menu appears in the admin sidebar.</li>
       </ol>
       <div class="callout warn">
         <b>Before you configure a secret</b>
@@ -202,7 +216,7 @@
     <section id="wp-configure">
       <div class="part-eyebrow">WordPress · Part 2</div>
       <h2>Configure the connection</h2>
-      <p>Banimal → Configuration. Two fields — nothing else is ever stored here:</p>
+      <p>Banimal™ → Configuration. Two fields — nothing else is ever stored here:</p>
       <table class="field-table">
         <tr><th>Field</th><th>What it is</th></tr>
         <tr><td><code>Worker API Base URL</code></td><td>The Cloudflare Worker's URL, e.g. <code>https://banimal-worker.example.workers.dev</code>.</td></tr>
@@ -219,7 +233,7 @@
     <section id="wp-verify">
       <div class="part-eyebrow">WordPress · Part 3</div>
       <h2>Verify it's working</h2>
-      <p>Banimal → Diagnostics has two live checks, each hitting the real Worker — never a cached or simulated result:</p>
+      <p>Banimal™ → Diagnostics has two live checks, each hitting the real Worker — never a cached or simulated result:</p>
       <ul>
         <li><b>Check Worker Health</b> — calls the Worker's <code>/api/health</code> and shows the raw response.</li>
         <li><b>Check Brand Guide</b> — calls <code>/api/brand-guide</code> live (bypassing the plugin's own cache) and shows the current palette and themes.</li>
@@ -293,7 +307,7 @@ cp -r /path/to/banimal-connector/skills/samfox-ci-guide ~/.claude/skills/</code>
     <section id="api-reference">
       <div class="part-eyebrow">Reference</div>
       <h2>API reference</h2>
-      <p>All three endpoints below are served by the same Banimal Worker your <code>Worker API Base URL</code> points to.</p>
+      <p>All three endpoints below are served by the same Banimal™ Worker your <code>Worker API Base URL</code> points to.</p>
       <div class="endpoint"><span class="method get">GET</span> /api/brand-guide</div>
       <p>Public, unauthenticated. Returns the palette, the 9 themes, icon URLs, typography, and compliance text as JSON. Cache-Control: 1 hour.</p>
       <div class="endpoint"><span class="method get">GET</span> /api/brand-guide/icon/ink.png</div>
@@ -330,13 +344,46 @@ cp -r /path/to/banimal-connector/skills/samfox-ci-guide ~/.claude/skills/</code>
         <dd>Yes — it's public and unauthenticated by design. Palette and icon rules aren't secrets; only order events require signing.</dd>
         <dt>What happens if Sam Fox revises the CI Guide?</dt>
         <dd>Update <code>docs/brand/ci-guide.html</code> and the matching values in <code>src/worker/routes/brand-guide.ts</code>. Every connected WordPress site picks up the change within an hour; no plugin update required.</dd>
-        <dt>Can I use this outside the Banimal/Fruitful ecosystem?</dt>
+        <dt>Can I use this outside the Banimal™/Fruitful ecosystem?</dt>
         <dd>The commerce bridge is specific to this Worker. The brand-guide pattern — pull tokens and an icon from one endpoint — is general and is exactly what a future non-WordPress adapter would reuse.</dd>
       </dl>
     </section>
 
     <footer>
-      <p>Banimal Connector Manual · v5.1.0 · heyns1000/banimal</p>
+      <div class="fwrap">
+        <div class="fmark"><img src="../brand/assets/banimal-logo-ink.png" alt="Banimal™" /></div>
+        <div class="finfo">
+          <p>Banimal™ Connector Manual · v5.1.0 · heyns1000/banimal</p>
+          <div class="copyright">© 2026 Fruitful Shops (Pty) Ltd · Artwork © Sam Fox™</div>
+        </div>
+        <div class="fsuper">Companion to the Sam Fox™ Core CI Guide Master — see docs/brand/ci-guide.html.</div>
+      </div>
     </footer>
   </main>
 </div>
+
+<script>
+(function () {
+  // Sam Fox CI rule: a mark reverses to its light render only on an ink
+  // (dark) background. This page's own dark mode is an ink background, so
+  // the sidebar mark needs to swap the same way automatically.
+  function pageIsDark() {
+    var explicit = document.documentElement.getAttribute('data-theme');
+    if (explicit === 'dark') return true;
+    if (explicit === 'light') return false;
+    return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  }
+  function applyIconTheme() {
+    var dark = pageIsDark();
+    document.querySelectorAll('[data-icon-ink]').forEach(function (el) {
+      var src = dark ? el.getAttribute('data-icon-cream') : el.getAttribute('data-icon-ink');
+      if (el.tagName.toLowerCase() === 'image') el.setAttribute('href', src);
+      else el.setAttribute('src', src);
+    });
+  }
+  applyIconTheme();
+  if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyIconTheme);
+  }
+})();
+</script>

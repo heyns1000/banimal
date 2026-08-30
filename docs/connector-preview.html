@@ -1,0 +1,412 @@
+<title>Banimal Connector Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:#231F20; --cream:#FBF4E4; --artcream:#F0EEDA; --paper:#FFFFFF;
+    --rule:#DED5BE; --muted:#6B655A;
+    --sage:#577D60; --sage-soft:#E4EEE6;
+    --coral:#F16B6E; --coral-soft:#FCE7E7;
+    --dustyrose:#B95F56;
+    --teal:#1E9F97; --teal-soft:#E1F0EE;
+    --red:#E63946; --red-soft:#FBE4E5;
+    --good-bg:#E4EEE6; --good-fg:#3F5E48; --good-bd:#BFDBC7;
+    --warn-bg:#FCF0DE; --warn-fg:#9A5B14; --warn-bd:#F3D5AE;
+    --bad-bg:#FCE7E7; --bad-fg:#A23434; --bad-bd:#F0C6C6;
+    --wp-bg:#f0f0f1; --wp-panel:#ffffff; --wp-side:#1d2327;
+    --wp-blue:#2271b1; --wp-text:#1d2327; --wp-border:#c3c4c7; --wp-muted:#646970;
+    --shadow: 0 1px 2px rgba(35,31,32,0.06), 0 6px 20px rgba(35,31,32,0.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink:#EDE7DA; --cream:#1B1A17; --artcream:#232019; --paper:#201D18;
+      --rule:#3A362E; --muted:#B3AA98;
+      --sage:#8FB89A; --sage-soft:#23302A;
+      --coral:#E2938B; --coral-soft:#332521;
+      --dustyrose:#E2938B;
+      --teal:#7FC9C2; --teal-soft:#1E2E2C;
+      --red:#E2938B; --red-soft:#332521;
+      --good-bg:#23302A; --good-fg:#8FB89A; --good-bd:#3A5044;
+      --warn-bg:#34260F; --warn-fg:#F0B15C; --warn-bd:#543D18;
+      --bad-bg:#332521; --bad-fg:#F0A0A0; --bad-bd:#5C2A2A;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink:#EDE7DA; --cream:#1B1A17; --artcream:#232019; --paper:#201D18;
+    --rule:#3A362E; --muted:#B3AA98;
+    --sage:#8FB89A; --sage-soft:#23302A;
+    --coral:#E2938B; --coral-soft:#332521;
+    --dustyrose:#E2938B;
+    --teal:#7FC9C2; --teal-soft:#1E2E2C;
+    --red:#E2938B; --red-soft:#332521;
+    --good-bg:#23302A; --good-fg:#8FB89A; --good-bd:#3A5044;
+    --warn-bg:#34260F; --warn-fg:#F0B15C; --warn-bd:#543D18;
+    --bad-bg:#332521; --bad-fg:#F0A0A0; --bad-bd:#5C2A2A;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--cream); color: var(--ink);
+    font-family: Georgia, 'Times New Roman', serif; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .mono { font-family: 'JetBrains Mono', Menlo, monospace; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 56px 28px 40px; }
+  h1, h2, h3 { font-family: 'Baloo 2', sans-serif; letter-spacing: -0.01em; margin: 0; text-wrap: balance; }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--dustyrose); margin-bottom: 10px;
+  }
+  header.page { margin-bottom: 44px; }
+  header.page h1 { font-size: clamp(30px, 4vw, 40px); font-weight: 700; color: var(--ink); }
+  header.page p { font-size: 16px; color: var(--muted); max-width: 640px; margin: 12px 0 0; line-height: 1.6; }
+
+  .swatchrow { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
+  .swatch { display: flex; align-items: center; gap: 6px; background: var(--artcream); border: 1px solid var(--rule); border-radius: 100px; padding: 4px 10px 4px 4px; }
+  .swatch i { width: 16px; height: 16px; border-radius: 50%; display: block; border: 1px solid rgba(0,0,0,0.15); }
+  .swatch span { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); }
+
+  section { margin-top: 56px; }
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
+  .section-head h2 { font-size: 22px; font-weight: 700; }
+  .section-head .note { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--muted); }
+
+  .debrief {
+    background: var(--ink); color: var(--cream); border-radius: 16px;
+    padding: 24px 26px; position: relative; box-shadow: var(--shadow);
+  }
+  .debrief .label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--coral); margin-bottom: 12px; }
+  .debrief pre {
+    font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.7; white-space: pre-wrap;
+    margin: 0; color: var(--cream);
+  }
+  .copy-btn {
+    position: absolute; top: 20px; right: 20px; font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    background: rgba(255,255,255,0.08); color: var(--cream); border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px; padding: 6px 12px; cursor: pointer; transition: background 0.15s ease;
+  }
+  .copy-btn:hover { background: rgba(255,255,255,0.16); }
+  .copy-btn:focus-visible { outline: 2px solid var(--coral); outline-offset: 2px; }
+
+  .callout {
+    background: var(--warn-bg); border: 1px solid var(--warn-bd); color: var(--warn-fg);
+    border-radius: 12px; padding: 14px 18px; font-size: 14px; line-height: 1.6; margin-bottom: 22px;
+  }
+  .callout.fixnote { background: var(--good-bg); border-color: var(--good-bd); color: var(--good-fg); }
+  .callout b { color: inherit; }
+
+  .screens { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .screen-card { background: var(--wp-panel); border: 1px solid var(--wp-border); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); }
+  .screen-card .titlebar { background: var(--wp-side); color: #f0f0f1; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 14px; display: flex; align-items: center; gap: 8px; }
+  .titlebar .dots { display: flex; gap: 5px; margin-right: 4px; }
+  .titlebar .dots span { width: 7px; height: 7px; border-radius: 50%; background: #52585d; display: block; }
+  .screen-body { display: flex; min-height: 300px; }
+  .wp-nav { width: 92px; flex: none; background: var(--wp-side); padding: 10px 0; }
+  .wp-nav .item { font-size: 10.5px; color: #b5bcc2; padding: 7px 12px; }
+  .wp-nav .item.active { background: var(--wp-blue); color: #fff; font-weight: 600; }
+  .wp-main { flex: 1; background: var(--wp-bg); padding: 16px 18px; font-size: 12px; color: var(--wp-text); }
+  .wp-main h4 { font-family: Georgia, serif; font-size: 15px; font-weight: 700; margin: 0 0 6px; color: var(--wp-text); display: flex; align-items: center; gap: 6px; }
+  .wp-main h4 img { height: 16px; width: auto; }
+  .wp-main p.desc { color: var(--wp-muted); font-size: 11.5px; line-height: 1.5; margin: 0 0 14px; }
+  .wp-field { margin-bottom: 12px; }
+  .wp-field label { display: block; font-size: 11px; font-weight: 600; color: var(--wp-text); margin-bottom: 4px; }
+  .wp-field input {
+    width: 100%; font-size: 11.5px; padding: 6px 8px; border: 1px solid var(--wp-border);
+    border-radius: 4px; background: #fff; color: #8c8f94; font-family: inherit;
+  }
+  .wp-btn {
+    display: inline-block; background: var(--wp-blue); color: #fff; font-size: 11.5px;
+    padding: 6px 14px; border-radius: 3px; border: 1px solid #135e96; font-weight: 500;
+  }
+  .wp-result {
+    margin-top: 12px; background: #fff; border: 1px solid var(--wp-border); border-radius: 4px;
+    padding: 10px 12px; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; line-height: 1.6; color: var(--wp-muted);
+  }
+  .wp-result .k { color: var(--sage); }
+  .id-btns { display: flex; gap: 8px; margin-bottom: 12px; }
+  .id-btns .b { flex: 1; text-align: center; font-size: 11px; font-weight: 600; padding: 10px 6px; border-radius: 8px; }
+  .id-btns .b.on { background: var(--wp-text); color: #fff; }
+  .id-btns .b.off { background: #A8DADC; color: #2b3a3a; }
+  .screen-caption { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--muted); text-align: center; padding: 8px 0 0; }
+
+  .routing { display: flex; flex-direction: column; gap: 10px; }
+  .route-row {
+    display: grid; grid-template-columns: 1.6fr 2fr auto auto; gap: 14px; align-items: center;
+    background: var(--artcream); border: 1px solid var(--rule); border-radius: 12px; padding: 14px 18px;
+  }
+  .route-row .item-name { font-weight: 700; font-size: 14px; }
+  .route-row .item-desc { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+  .chip {
+    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.04em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 100px; white-space: nowrap; border: 1px solid transparent;
+  }
+  .chip.good { background: var(--good-bg); color: var(--good-fg); border-color: var(--good-bd); }
+  .chip.warn { background: var(--warn-bg); color: var(--warn-fg); border-color: var(--warn-bd); }
+  .chip.bad  { background: var(--bad-bg);  color: var(--bad-fg);  border-color: var(--bad-bd); }
+  .dest { font-size: 12px; font-weight: 600; color: var(--dustyrose); text-align: right; white-space: nowrap; }
+  .group-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--sage); margin: 26px 0 10px; padding-top: 4px;
+  }
+  .group-label:first-child { margin-top: 0; }
+
+  @media (max-width: 680px) {
+    .route-row { grid-template-columns: 1fr; }
+    .dest { text-align: left; }
+    .screen-body { flex-direction: column; }
+    .wp-nav { width: 100%; display: flex; overflow-x: auto; }
+  }
+
+  footer { margin-top: 40px; padding: 20px 0 0; }
+  footer .fwrap {
+    display: grid; grid-template-columns: auto 1fr; gap: 14px 24px; align-items: center;
+    border-top: 2px solid var(--ink); padding-top: 20px;
+  }
+  footer .fmark { background: #FFFFFF; border: 2px solid var(--ink); border-radius: 10px; padding: 8px 12px; width: fit-content; }
+  footer .fmark img { height: 26px; width: auto; display: block; filter: grayscale(1); }
+  footer .finfo { text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); }
+  footer .finfo a { color: var(--dustyrose); }
+  footer .copyright { font-size: 12px; color: var(--muted); margin-top: 4px; font-family: Georgia, serif; }
+  footer .fsuper { grid-column: 1/-1; text-align: right; font-size: 11px; color: var(--muted); margin-top: 2px; font-family: 'JetBrains Mono', monospace; }
+  @media (max-width: 560px) {
+    footer .fwrap { grid-template-columns: 1fr; }
+    footer .finfo, footer .fsuper { text-align: left; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="page">
+    <div class="eyebrow">Banimal™ Ecosystem Connector · v5.0.0 (superseded by v5.1.0) · PR #14</div>
+    <h1>What you'll actually see when it's installed</h1>
+    <p>Real previews of the three admin screens as built in PR #14, plus a routing table for every source file reviewed in that session — what it is, whether it's verified, and where it belongs.</p>
+    <div class="swatchrow">
+      <div class="swatch"><i style="background:#231F20"></i><span>#231F20 ink — verified, Sam Fox™ CI Guide Master</span></div>
+      <div class="swatch"><i style="background:#577D60"></i><span>#577D60 sage — verified, Sam Fox™ CI Guide Master</span></div>
+      <div class="swatch"><i style="background:#F16B6E"></i><span>#F16B6E coral — verified, Sam Fox™ CI Guide Master</span></div>
+      <div class="swatch"><i style="background:#1E9F97"></i><span>#1E9F97 teal — verified, Sam Fox™ CI Guide Master</span></div>
+      <div class="swatch"><i style="background:#FBF4E4"></i><span>#FBF4E4 cream — verified, Sam Fox™ CI Guide Master</span></div>
+    </div>
+  </header>
+
+  <section>
+    <div class="callout fixnote">
+      <b>Correction, 2026-08-30 — read this before the debrief below.</b> The palette this page originally shipped with (sage <code class="mono">#869986</code>, coral <code class="mono">#F1857E</code>, art cream <code class="mono">#F2EEEB</code>, and others) was never cross-checked against a real asset — it was an approximation carried forward from an earlier, unverified pass. The actual verified palette was extracted directly from <code class="mono">docs/brand/banimal-connector-icons.html</code>'s live swatch stage in <code class="mono">heyns1000/banimal</code>: ink <code class="mono">#231F20</code>, sage <code class="mono">#577D60</code>, coral <code class="mono">#F16B6E</code>, dustyrose <code class="mono">#B95F56</code>, art cream <code class="mono">#F0EEDA</code>, teal <code class="mono">#1E9F97</code>, red <code class="mono">#E63946</code>, mint <code class="mono">#A7DACB</code>, cream <code class="mono">#FBF4E4</code> — nine colours, confirmed, not nine approximated. This page, the debrief text inside it, and its styling are corrected to that source below. Treat any earlier copy of this page as superseded.
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Debrief — for other agents working this repo</h2>
+      <span class="note">Paste this in cold</span>
+    </div>
+    <div class="debrief">
+      <div class="label">Ground truth, 2026-08-30 (supersedes the 2026-08-20 version of this page)</div>
+      <button class="copy-btn" id="copyBtn" type="button">Copy</button>
+      <pre id="debriefText">CANONICAL BACKEND: Cloudflare Worker, heyns1000/banimal, src/worker/. Hono + D1.
+Real routes: orders.ts (Paystack init/verify), delivery.ts (BobGo v2, working),
+wp-bridge.ts (signed WordPress event intake, HMAC-SHA256), brand-guide.ts
+(new since this debrief was last written — public /api/brand-guide, the
+single source every brand-facing surface now pulls the CI Guide from).
+payments.ts is a SEPARATE, orphaned PayPal/Stripe/manual stub — confirm before
+touching, do not assume it's live.
+
+WORDPRESS PLUGIN: full rewrite at wordpress-plugin/banimal-ecosystem-connector/
+(now v5.1.0 — v5.0.0 shipped the commerce bridge in PR #14; v5.1.0 added the
+brand-alignment module in PR #19). Thin signed client only — never calls
+Paystack/BobGo/GitHub/Drive directly. All prior 4.7.x single-file versions
+superseded, not merged. 4.7.8 kept verbatim under legacy/ for history only,
+not loaded.
+
+OPEN, UNANSWERED: does a production WooCommerce store actually exist?
+Bridge module is inert either way, but this decides real scope.
+
+VERIFIED BRAND PALETTE — corrected 2026-08-30, source is the live swatch
+stage in docs/brand/banimal-connector-icons.html (heyns1000/banimal), not
+a derivative document:
+  ink #231F20 · cream #FBF4E4 · art cream #F0EEDA · sage #577D60 ·
+  mint #A7DACB · coral #F16B6E · dusty rose #B95F56 · teal #1E9F97 ·
+  red #E63946 (reserved, alert only).
+The verified fox-head icon itself is samfox-icon-verified.png (ink/cream
+reversal variants), also confirmed pixel-for-pixel against that same page —
+never hand-redrawn. Do not carry forward hex values from any other document
+claiming to be a Sam Fox or Banimal palette reference without checking them
+against this file first; the previous version of this debrief did exactly
+that and was wrong.
+
+CURRENT PRs: heyns1000/banimal#14 (merged), #16, #17, #18 (merged),
+#19 (this correction). CI red on a Vercel account-balance block only
+(owner-confirmed, not a code issue) — no action needed there.</pre>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Admin screens, as built</h2>
+      <span class="note">wp-admin chrome, not the public brand skin</span>
+    </div>
+    <div class="callout">
+      <b>These render in WordPress's own admin styling</b> — grey chrome, admin blue, native form fields — because that's what the PHP in PR #14 actually produces, and because plugin admin screens conventionally don't inherit a site's public brand. The Sam Fox™ / Banimal™ identity shows up on the public storefront and in the brand tokens the plugin injects into the public theme (via <code class="mono">/api/brand-guide</code>, added in PR #19) — not inside wp-admin itself.
+    </div>
+
+    <div class="screens">
+      <div>
+        <div class="screen-card">
+          <div class="titlebar"><span class="dots"><span></span><span></span><span></span></span>Banimal™ → Configuration</div>
+          <div class="screen-body">
+            <div class="wp-nav">
+              <div class="item active">Configuration</div>
+              <div class="item">Diagnostics</div>
+              <div class="item">ID Finder</div>
+            </div>
+            <div class="wp-main">
+              <h4><img src="brand/assets/samfox-icon-verified-ink.png" alt="" />Banimal™ Connector Configuration</h4>
+              <p class="desc">Configure the connection to the Worker — the single source of truth for orders, payments, and delivery. Stores no payment, delivery, or storage credentials of its own.</p>
+              <div class="wp-field"><label>Worker API Base URL</label><input value="https://banimal-worker.example.workers.dev" readonly></div>
+              <div class="wp-field"><label>Signing Secret</label><input value="•••••••• (saved — leave blank to keep)" readonly></div>
+              <span class="wp-btn">Save Configuration</span>
+            </div>
+          </div>
+        </div>
+        <div class="screen-caption">class-plugin.php → render_settings_page()</div>
+      </div>
+
+      <div>
+        <div class="screen-card">
+          <div class="titlebar"><span class="dots"><span></span><span></span><span></span></span>Banimal™ → Diagnostics</div>
+          <div class="screen-body">
+            <div class="wp-nav">
+              <div class="item">Configuration</div>
+              <div class="item active">Diagnostics</div>
+              <div class="item">ID Finder</div>
+            </div>
+            <div class="wp-main">
+              <h4><img src="brand/assets/samfox-icon-verified-ink.png" alt="" />Connector Diagnostics</h4>
+              <p class="desc">Runs live checks against the Worker. No credentials are ever sent to your browser.</p>
+              <span class="wp-btn">Check Worker Health</span>
+              <div class="wp-result">{<br>&nbsp;&nbsp;<span class="k">"success"</span>: true,<br>&nbsp;&nbsp;<span class="k">"data"</span>: {<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">"ok"</span>: true, <span class="k">"status"</span>: 200,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">"body"</span>: { "version": "5.1.0" }<br>&nbsp;&nbsp;}<br>}</div>
+            </div>
+          </div>
+        </div>
+        <div class="screen-caption">class-admin-diagnostics.php → ajax_check_health() (+ ajax_check_brand_guide(), added PR #19)</div>
+      </div>
+
+      <div>
+        <div class="screen-card">
+          <div class="titlebar"><span class="dots"><span></span><span></span><span></span></span>Banimal™ → ID Finder</div>
+          <div class="screen-body">
+            <div class="wp-nav">
+              <div class="item">Configuration</div>
+              <div class="item">Diagnostics</div>
+              <div class="item active">ID Finder</div>
+            </div>
+            <div class="wp-main">
+              <h4><img src="brand/assets/samfox-icon-verified-ink.png" alt="" />Banimal™ ID Finder</h4>
+              <p class="desc">Find User and Product IDs for API integration. Purely informational — makes no external requests.</p>
+              <div class="id-btns"><div class="b on">👤 User ID</div><div class="b off">📦 Product ID</div></div>
+              <div class="wp-result">yoursite.com/wp-admin/user-edit.php?<span class="k">user_id=123</span>&amp;wp_http_referer=...</div>
+            </div>
+          </div>
+        </div>
+        <div class="screen-caption">class-id-finder.php → render_page() — unchanged from 4.7.8</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Routing — what goes where</h2>
+      <span class="note">Reply with an item name to redirect it</span>
+    </div>
+
+    <div class="routing">
+      <div class="group-label">Live — done</div>
+      <div class="route-row">
+        <div><div class="item-name">Thin connector plugin (now 5.1.0)</div><div class="item-desc">Settings, Worker client, WooCommerce bridge, diagnostics, ID finder, brand-alignment module</div></div>
+        <div class="item-desc">Full rewrite in PR #14 (5.0.0); brand module added in PR #19 (5.1.0)</div>
+        <span class="chip good">Verified</span>
+        <span class="dest">wordpress-plugin/</span>
+      </div>
+      <div class="route-row">
+        <div><div class="item-name">wp-bridge.ts + orders table</div><div class="item-desc">Signed event intake, WooCommerce status → order state mapping</div></div>
+        <div class="item-desc">Idempotent, terminal-state guarded, HMAC-verified</div>
+        <span class="chip good">Verified</span>
+        <span class="dest">src/worker/</span>
+      </div>
+      <div class="route-row">
+        <div><div class="item-name">brand-guide.ts</div><div class="item-desc">Public CI Guide + verified icon bytes, served live</div></div>
+        <div class="item-desc">Added in PR #19, after this debrief was first written</div>
+        <span class="chip good">Verified</span>
+        <span class="dest">src/worker/routes/</span>
+      </div>
+      <div class="route-row">
+        <div><div class="item-name">4.7.8 single-file source</div><div class="item-desc">Full read, real bugs found and documented</div></div>
+        <div class="item-desc">Preserved as historical baseline, not loaded</div>
+        <span class="chip good">Verified</span>
+        <span class="dest">legacy/</span>
+      </div>
+
+      <div class="group-label">Reference — use as ground truth</div>
+      <div class="route-row">
+        <div><div class="item-name">Sam Fox™ Core CI Guide Master</div><div class="item-desc">Palette, fox-head construction, typography, compliance</div></div>
+        <div class="item-desc">The single authority — see the correction note above this table</div>
+        <span class="chip good">Verified</span>
+        <span class="dest">docs/brand/ci-guide.html</span>
+      </div>
+
+      <div class="group-label">Not yet reviewed</div>
+      <div class="route-row">
+        <div><div class="item-name">banimal-geolocation.php</div><div class="item-desc">Separate plugin, 14.7 KB, own zip</div></div>
+        <div class="item-desc">Not opened yet — needs its own audit before any decision</div>
+        <span class="chip warn">Pending</span>
+        <span class="dest">Awaiting review</span>
+      </div>
+      <div class="route-row">
+        <div><div class="item-name">Multi-file zip modules</div><div class="item-desc">ecosystem-puller, noodle-juice-flow, vault-allocator, drive-connector, mac-database-puller, deploy-updates, hotstack-intake-frontend</div></div>
+        <div class="item-desc">Not opened individually; the one file read from this set (banimal-connector.php) was corrupted</div>
+        <span class="chip warn">Pending</span>
+        <span class="dest">Awaiting review</span>
+      </div>
+
+      <div class="group-label">Parking lot — do not build against</div>
+      <div class="route-row">
+        <div><div class="item-name">Ecosystem integrations research</div><div class="item-desc">"13,413 brands," "$5M pipeline," self-labeled "Generated by Replit Agent"</div></div>
+        <div class="item-desc">Numbers don't reconcile with any code read across this or the prior session</div>
+        <span class="chip bad">Unverified</span>
+        <span class="dest">Hold</span>
+      </div>
+      <div class="route-row">
+        <div><div class="item-name">18-part "Perplexity Spaces" landing-page dump</div><div class="item-desc">17 unbranded freight-tech mockups, one fake telemetry demo</div></div>
+        <div class="item-desc">Reviewed and archived — see Seedwave Atlas entry 28</div>
+        <span class="chip bad">Unverified</span>
+        <span class="dest">Archived</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="fwrap">
+      <div class="fmark"><img src="brand/assets/banimal-logo-ink.png" alt="Banimal™" /></div>
+      <div class="finfo">
+        <div>Banimal™ Connector · v5.1.0 · <a href="https://github.com/heyns1000/banimal/pull/19">github.com/heyns1000/banimal#19</a></div>
+        <div class="copyright">© 2026 Fruitful Shops (Pty) Ltd · Artwork © Sam Fox™</div>
+      </div>
+      <div class="fsuper">Companion to the Sam Fox™ Core CI Guide Master — see docs/brand/ci-guide.html.</div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('copyBtn').addEventListener('click', function () {
+    var text = document.getElementById('debriefText').innerText;
+    navigator.clipboard.writeText(text).then(function () {
+      var btn = document.getElementById('copyBtn');
+      var original = btn.textContent;
+      btn.textContent = 'Copied';
+      setTimeout(function () { btn.textContent = original; }, 1600);
+    });
+  });
+</script>

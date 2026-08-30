@@ -58,7 +58,9 @@
     max-width:920px; margin:0 auto; padding:12px 28px;
     display:flex; align-items:center; justify-content:space-between; gap:16px;
   }
-  .crumb{ font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:.02em; color:var(--muted); }
+  .crumb{ display:inline-flex; align-items:center; gap:7px; font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:.02em; color:var(--muted); }
+  .crumb img{ height:14px; width:auto; vertical-align:-2px; }
+  .crumb .banimal-logo{ height:11px; }
   .crumb b{ color:var(--ink); font-weight:600; }
   .verified{
     font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.04em;
@@ -177,19 +179,27 @@
     td.status{ width:auto; }
   }
 
-  footer{
-    border-top:2px solid var(--rule-strong); padding:26px 0 60px;
-  }
+  footer{ padding:26px 0 60px; }
   footer .wrap{
-    display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:14px;
+    display:grid; grid-template-columns:auto 1fr; gap:14px 24px; align-items:center;
+    border-top:2px solid var(--rule-strong); padding-top:22px;
   }
+  footer .fmark{ background:#FBF4E4; border:2px solid var(--rule-strong); border-radius:10px; padding:10px 14px; width:fit-content; }
+  footer .fmark img{ height:28px; width:auto; display:block; filter:grayscale(1); }
+  footer .finfo{ text-align:right; }
   footer .tag{ font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
   footer .tag b{ color:var(--ink); }
+  footer .copyright{ font-size:12px; color:var(--muted); margin-top:4px; }
+  footer .fsuper{ grid-column:1/-1; text-align:right; font-size:11px; color:var(--muted); margin-top:2px; }
+  @media (max-width:560px){
+    footer .wrap{ grid-template-columns:1fr; }
+    footer .finfo, footer .fsuper{ text-align:left; }
+  }
 </style>
 
 <div class="utilitybar">
   <div class="inner">
-    <span class="crumb"><b>Sam Fox™</b> / Banimal Connector / Seedwave Atlas</span>
+    <span class="crumb"><img data-icon-ink="../brand/assets/samfox-icon-verified-ink.png" data-icon-cream="../brand/assets/samfox-icon-verified-cream.png" src="../brand/assets/samfox-icon-verified-ink.png" alt="" /> <b>Sam Fox™</b> / <img class="banimal-logo" data-icon-ink="../brand/assets/banimal-logo-ink.png" data-icon-cream="../brand/assets/banimal-logo-white.png" src="../brand/assets/banimal-logo-ink.png" alt="Banimal™" /> Connector / Seedwave Atlas</span>
     <span class="verified">verified against 7 live repositories</span>
   </div>
 </div>
@@ -197,7 +207,7 @@
 <section class="preface">
   <div class="wrap">
     <div class="kicker">Preface</div>
-    <p class="measure">Before this, "the Banimal Connector" meant four different things depending on which conversation you caught — a freight dashboard, a WordPress plugin, a GitHub sweep, a device network. None of those were wrong. They were just unindexed.</p>
+    <p class="measure">Before this, "the Banimal™ Connector" meant four different things depending on which conversation you caught — a freight dashboard, a WordPress plugin, a GitHub sweep, a device network. None of those were wrong. They were just unindexed.</p>
     <p class="measure">This atlas exists to stop re-describing the ecosystem from memory. Every entry past this page was checked against an actual repository, an actual committed file, or an actual open pull request — not recalled, not assumed. Where something is a plan and not yet a fact, it's marked <em>planned</em>, not quietly promoted to real.</p>
     <p class="sign">— compiled for Heyns, from the seven repositories currently in reach.</p>
   </div>
@@ -242,9 +252,9 @@
     </g>
 
     <!-- the verified Sam Fox mark, on the ridge -->
-    <image href="../brand/assets/samfox-icon-verified-ink.png" x="522" y="352" width="76" height="76" />
+    <image data-icon-ink="../brand/assets/samfox-icon-verified-ink.png" data-icon-cream="../brand/assets/samfox-icon-verified-cream.png" href="../brand/assets/samfox-icon-verified-ink.png" x="522" y="352" width="76" height="76" />
 
-    <text x="580" y="410" class="mono" font-size="10.5" fill="var(--muted)" font-family="JetBrains Mono, monospace" text-anchor="middle">seedwave</text>
+    <text x="560" y="452" class="mono" font-size="10.5" fill="var(--muted)" font-family="JetBrains Mono, monospace" text-anchor="middle">seedwave</text>
   </svg>
   <div class="plate-title">The Seedwave<br/>Atlas</div>
 </figure>
@@ -256,16 +266,16 @@
 <section class="intro">
   <div class="wrap">
     <h1>What this document is</h1>
-    <p class="measure">This is the working index of the Banimal ecosystem — every system, worker, plugin, page, and repository that's real right now, listed against the one that's coming next. It reads like the documentation you'd expect from Cloudflare, Vercel, or GitHub: numbered entries, a status per row, a location you can go check yourself. The difference is that it's built around a hand-drawn brand instead of a company logo, and it answers to one master file instead of a style guide committee.</p>
+    <p class="measure">This is the working index of the Banimal™ ecosystem — every system, worker, plugin, page, and repository that's real right now, listed against the one that's coming next. It reads like the documentation you'd expect from Cloudflare, Vercel, or GitHub: numbered entries, a status per row, a location you can go check yourself. The difference is that it's built around a hand-drawn brand instead of a company logo, and it answers to one master file instead of a style guide committee.</p>
     <p class="measure">Two rules govern every row below. First, <strong>a system only earns a page number once it's been checked</strong> — read from the repository, not remembered from an earlier conversation. Second, <strong>status is honest</strong>: <span class="pill live" style="vertical-align:1px"><i></i>live</span> means it's running in a real repository today; <span class="pill draft" style="vertical-align:1px"><i></i>draft</span> means it exists as a file but isn't committed anywhere that matters yet; <span class="pill planned" style="vertical-align:1px"><i></i>planned</span> means it doesn't exist at all yet and is named here so it isn't reinvented twice.</p>
-    <div class="pull">The finding that reshaped this atlas mid-build: a plugin literally named <em>Banimal Ecosystem Connector</em> already ships from this repo, v5.0.0, live. It isn't the brand-alignment layer this atlas is building toward — it's a signed WooCommerce↔Worker commerce bridge — but the name collision is real, and the fix is one plugin with two modules, not two plugins.</div>
+    <div class="pull">The finding that reshaped this atlas mid-build: a plugin literally named <em>Banimal™ Ecosystem Connector</em> already ships from this repo, v5.0.0, live. It isn't the brand-alignment layer this atlas is building toward — it's a signed WooCommerce↔Worker commerce bridge — but the name collision is real, and the fix is one plugin with two modules, not two plugins.</div>
   </div>
 </section>
 
 <section class="index">
   <div class="wrap">
     <h2>Index</h2>
-    <p class="measure">28 entries across seven sections, page-numbered in reading order. <code class="mono">heyns1000/banimal</code> is now the canonical home for entries 01–02 and 05–08 — the product and its documentation live where the product runs.</p>
+    <p class="measure">31 entries across seven sections, page-numbered in reading order. <code class="mono">heyns1000/banimal</code> is now the canonical home for entries 01–02 and 05–08 — the product and its documentation live where the product runs.</p>
     <div class="legend">
       <span><i style="background:var(--live)"></i>Live — running in a real repo</span>
       <span><i style="background:var(--draft)"></i>Draft — file exists, not committed</span>
@@ -285,7 +295,7 @@
         </tr>
         <tr>
           <td class="num">02</td>
-          <td class="name"><b>Banimal Connector icon &amp; palette page</b><span class="loc mono">banimal / docs/brand/banimal-connector-icons.html</span></td>
+          <td class="name"><b>Banimal™ Connector icon &amp; palette page</b><span class="loc mono">banimal / docs/brand/banimal-connector-icons.html</span></td>
           <td class="desc">The fox-head icon rendered across all nine verified palette colours, cross-linked with the CI Guide.</td>
           <td class="status"><span class="pill reference"><i></i>reference</span></td>
         </tr>
@@ -305,7 +315,7 @@
     </div>
 
     <div class="cat">
-      <h3>Banimal Connector — the product</h3>
+      <h3>Banimal™ Connector — the product</h3>
       <div class="tablewrap"><table>
         <tr>
           <td class="num">05</td>
@@ -321,7 +331,7 @@
         </tr>
         <tr>
           <td class="num">07</td>
-          <td class="name"><b>Banimal Ecosystem Connector — WordPress plugin</b><span class="loc mono">banimal / wordpress-plugin/banimal-ecosystem-connector</span></td>
+          <td class="name"><b>Banimal™ Ecosystem Connector — WordPress plugin</b><span class="loc mono">banimal / wordpress-plugin/banimal-ecosystem-connector</span></td>
           <td class="desc">v5.0.0. A real, shipped plugin already named Connector — a thin, signed WooCommerce↔Worker client with no direct third-party calls. Solves commerce sync, not brand alignment; entry 06 belongs here as a module, not as a second plugin.</td>
           <td class="status"><span class="pill live"><i></i>live</span></td>
         </tr>
@@ -351,13 +361,13 @@
       <div class="tablewrap"><table>
         <tr>
           <td class="num">11</td>
-          <td class="name"><b>Banimal commerce Worker</b><span class="loc mono">banimal / src/worker/index.ts</span></td>
+          <td class="name"><b>Banimal™ commerce Worker</b><span class="loc mono">banimal / src/worker/index.ts</span></td>
           <td class="desc">Hono. Mounts licenses, Paystack payments, BobGo delivery/shipping, auth, notifications, analytics, coupons, email, giving, orders, and entry 08's wp-bridge.</td>
           <td class="status"><span class="pill live"><i></i>live</span></td>
         </tr>
         <tr>
           <td class="num">12</td>
-          <td class="name"><b>Banimal D1 tables</b><span class="loc mono">banimal / migrations</span></td>
+          <td class="name"><b>Banimal™ D1 tables</b><span class="loc mono">banimal / migrations</span></td>
           <td class="desc">brands · brand_systems · brand_tiers behind /api/brands, /api/systems, /api/tiers — plus <span class="mono">wp_bridge_events</span> and <span class="mono">orders</span>, added for entry 08.</td>
           <td class="status"><span class="pill live"><i></i>live</span></td>
         </tr>
@@ -415,7 +425,7 @@
     <div class="cat">
       <h3>Repositories in reach</h3>
       <div class="tablewrap"><table>
-        <tr><td class="num">19</td><td class="name"><b>heyns1000/banimal</b></td><td class="desc">Now the canonical home of the Banimal Connector product and its documentation — entries 01–02, 05–08, 11–13.</td><td class="status"><span class="pill live"><i></i>live</span></td></tr>
+        <tr><td class="num">19</td><td class="name"><b>heyns1000/banimal</b></td><td class="desc">Now the canonical home of the Banimal™ Connector product and its documentation — entries 01–02, 05–08, 11–13.</td><td class="status"><span class="pill live"><i></i>live</span></td></tr>
         <tr><td class="num">20</td><td class="name"><b>heyns1000/payment</b></td><td class="desc">Payment and pricing surface pages: global checkout, master license pricing, VaultMesh hub.</td><td class="status"><span class="pill live"><i></i>live</span></td></tr>
         <tr><td class="num">21</td><td class="name"><b>heyns1000/zerowaste.seedwave.faa.zone</b></td><td class="desc">Block Box™ — the zero-waste EPS cornice packaging patent site.</td><td class="status"><span class="pill live"><i></i>live</span></td></tr>
         <tr><td class="num">22</td><td class="name"><b>Fruitful-Global-Planet/banimal-global-loop</b></td><td class="desc">The Workers backend — entries 13–17.</td><td class="status"><span class="pill live"><i></i>live</span></td></tr>
@@ -431,17 +441,35 @@
         <tr>
           <td class="num">26</td>
           <td class="name"><b>samfox PR #1</b><span class="loc mono">Fruitful-Global-Planet/samfox#1</span></td>
-          <td class="desc">Heart of Her Hand pages plus the original Banimal Connector plugin commit, open as a draft, being watched for CI and review.</td>
-          <td class="status"><span class="pill open"><i></i>open</span></td>
+          <td class="desc">Heart of Her Hand pages plus the original Banimal™ Connector plugin commit.</td>
+          <td class="status"><span class="pill live"><i></i>merged</span></td>
         </tr>
         <tr>
           <td class="num">27</td>
-          <td class="name"><b>banimal PR — Connector docs &amp; plugin</b><span class="loc mono">heyns1000/banimal</span></td>
+          <td class="name"><b>banimal PR #16 — Connector docs &amp; plugin</b><span class="loc mono">heyns1000/banimal</span></td>
           <td class="desc">This atlas, the CI Guide mirror, and the banimal-connector plugin, landing in the repo the product actually runs from.</td>
-          <td class="status"><span class="pill open"><i></i>open</span></td>
+          <td class="status"><span class="pill live"><i></i>merged</span></td>
         </tr>
         <tr>
           <td class="num">28</td>
+          <td class="name"><b>banimal PR #17 — brand-guide endpoint</b><span class="loc mono">heyns1000/banimal</span></td>
+          <td class="desc">/api/brand-guide, the 9-theme palette toggle, and live icon serving (entries 07–08).</td>
+          <td class="status"><span class="pill live"><i></i>merged</span></td>
+        </tr>
+        <tr>
+          <td class="num">29</td>
+          <td class="name"><b>banimal PR #18 — CI Guide alignment</b><span class="loc mono">heyns1000/banimal</span></td>
+          <td class="desc">Diagram clear space, theme-aware icon/logo swap, the real Banimal™ logo, standardized footers. Merged without its final push landing — see entry 30.</td>
+          <td class="status"><span class="pill live"><i></i>merged</span></td>
+        </tr>
+        <tr>
+          <td class="num">30</td>
+          <td class="name"><b>banimal PR #19 — audit &amp; correction</b><span class="loc mono">heyns1000/banimal</span></td>
+          <td class="desc">Carries forward the fix that #18 didn't actually land, plus a cross-audit (a real overlap bug on this atlas's own hero, and a corrected palette in docs/connector-preview.html).</td>
+          <td class="status"><span class="pill open"><i></i>open</span></td>
+        </tr>
+        <tr>
+          <td class="num">31</td>
           <td class="name"><b>18-part "Perplexity Spaces" dump</b><span class="loc mono">reviewed, not adopted wholesale</span></td>
           <td class="desc">17 unbranded landing-page iterations plus one fake telemetry demo. Entry 16 is the only piece worth keeping from it.</td>
           <td class="status"><span class="pill archived"><i></i>archived</span></td>
@@ -453,7 +481,37 @@
 
 <footer>
   <div class="wrap">
-    <span class="tag">Seedwave Atlas · <b>28</b> entries · Sam Fox™ &amp; Banimal Connector</span>
-    <span class="tag">compiled 2026·08·30</span>
+    <div class="fmark"><img src="../brand/assets/banimal-logo-ink.png" alt="Banimal™" /></div>
+    <div class="finfo">
+      <div class="tag">Seedwave Atlas · <b>31</b> entries · Sam Fox™ &amp; Banimal™ Connector</div>
+      <div class="copyright">© 2026 Fruitful Shops (Pty) Ltd · Artwork © Sam Fox™</div>
+    </div>
+    <div class="fsuper">Compiled 2026·08·30 — every entry checked against its repository, not recalled.</div>
   </div>
 </footer>
+
+<script>
+(function () {
+  // Sam Fox CI rule: the icon reverses to its cream render only on an ink
+  // (dark) background. This page's own dark mode is an ink background, so
+  // the hero mark needs to swap the same way automatically.
+  function pageIsDark() {
+    var explicit = document.documentElement.getAttribute('data-theme');
+    if (explicit === 'dark') return true;
+    if (explicit === 'light') return false;
+    return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  }
+  function applyIconTheme() {
+    var dark = pageIsDark();
+    document.querySelectorAll('[data-icon-ink]').forEach(function (el) {
+      var src = dark ? el.getAttribute('data-icon-cream') : el.getAttribute('data-icon-ink');
+      if (el.tagName.toLowerCase() === 'image') el.setAttribute('href', src);
+      else el.setAttribute('src', src);
+    });
+  }
+  applyIconTheme();
+  if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyIconTheme);
+  }
+})();
+</script>
