@@ -149,6 +149,28 @@
     background:var(--artcream); border-radius:10px; padding:8px 14px; margin-top:18px;
   }
 
+  /* ---- palette toggle ---- */
+  .toggle-grid{ display:grid; grid-template-columns:1fr 1.3fr; gap:32px; align-items:center; }
+  @media (max-width:820px){ .toggle-grid{ grid-template-columns:1fr; } }
+  .stage{
+    border:2px solid var(--ink); border-radius:22px; padding:40px; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; gap:16px; min-height:260px; transition:background .25s ease;
+    background:var(--stage-bg, var(--paper));
+  }
+  .stage img{ width:120px; height:120px; display:block; }
+  .stage .stage-id{ font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--stage-fg, var(--ink)); }
+  .stage .stage-hex{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--stage-fg, var(--ink)); opacity:.75; }
+  .swatches{ display:flex; flex-wrap:wrap; gap:10px; }
+  .swatchbtn{
+    width:44px; height:44px; border-radius:50%; border:2px solid var(--ink); cursor:pointer; padding:0;
+    transition:transform .12s ease; position:relative;
+  }
+  .swatchbtn:hover{ transform:scale(1.08); }
+  .swatchbtn.active{ box-shadow:0 0 0 3px var(--paper), 0 0 0 5px var(--ink); }
+  .swatchbtn:focus-visible{ outline:3px solid var(--coral); outline-offset:2px; }
+  .toggle-note{ margin-top:18px; font-size:13.5px; color:var(--muted); max-width:60ch; }
+  .toggle-note code{ background:var(--artcream); padding:2px 6px; border-radius:6px; }
+
   footer{ padding:40px 0 60px; }
   footer .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
   footer .tag{ font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); }
@@ -238,6 +260,25 @@
           <li>Cached an hour, refetched automatically</li>
           <li>Silent no-op if unreachable — never breaks a page</li>
         </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="palette">
+  <div class="wrap">
+    <div class="kicker">Live in every app that installs this</div>
+    <h2 class="sec-title">Nine themes. One fox head. Instantly.</h2>
+    <p class="sec-lede">This is exactly the toggle every connected app gets for free: the same 9 verified themes and the same two icon files, served live from <code class="mono">/api/brand-guide</code> — never bundled, never redrawn.</p>
+    <div class="toggle-grid">
+      <div class="stage" id="paletteStage">
+        <img id="paletteIcon" src="../../docs/brand/assets/samfox-icon-verified-ink.png" alt="Sam Fox fox-head mark" />
+        <div class="stage-id" id="paletteId">CREAM</div>
+        <div class="stage-hex" id="paletteHex">#FBF4E4</div>
+      </div>
+      <div>
+        <div class="swatches" id="paletteSwatches"></div>
+        <p class="toggle-note">Click a swatch. The background, the accent, and the icon variant (<code>ink</code> or <code>cream</code>) all come from one <code>themes</code> array in the brand guide response — no app-side lookup table to keep in sync.</p>
       </div>
     </div>
   </div>
@@ -337,3 +378,54 @@
     <span class="tag">Sam Fox™ brand system applied via /api/brand-guide</span>
   </div>
 </footer>
+
+<script>
+(function () {
+  // Mirrors CI_GUIDE.themes in src/worker/routes/brand-guide.ts exactly.
+  // In production an app fetches this from GET /api/brand-guide instead of
+  // holding a local copy — embedded here only because this page previews
+  // standalone, before the Worker carrying it is deployed.
+  var THEMES = [
+    { id: 'ink', background: '#231F20', accentInk: '#F2EFE6', iconVariant: 'cream' },
+    { id: 'sage', background: '#577D60', accentInk: '#FFFFFF', iconVariant: 'ink' },
+    { id: 'mint', background: '#A7DACB', accentInk: '#111111', iconVariant: 'ink' },
+    { id: 'coral', background: '#F16B6E', accentInk: '#111111', iconVariant: 'ink' },
+    { id: 'dustyrose', background: '#B95F56', accentInk: '#FFFFFF', iconVariant: 'ink' },
+    { id: 'artcream', background: '#F0EEDA', accentInk: '#111111', iconVariant: 'ink' },
+    { id: 'teal', background: '#1E9F97', accentInk: '#FFFFFF', iconVariant: 'ink' },
+    { id: 'red', background: '#E63946', accentInk: '#FFFFFF', iconVariant: 'ink' },
+    { id: 'cream', background: '#FBF4E4', accentInk: '#111111', iconVariant: 'ink', default: true }
+  ];
+  var ICONS = { ink: '../../docs/brand/assets/samfox-icon-verified-ink.png', cream: '../../docs/brand/assets/samfox-icon-verified-cream.png' };
+
+  var stage = document.getElementById('paletteStage');
+  var icon = document.getElementById('paletteIcon');
+  var idLabel = document.getElementById('paletteId');
+  var hexLabel = document.getElementById('paletteHex');
+  var swatchWrap = document.getElementById('paletteSwatches');
+
+  function applyTheme(theme, btn) {
+    stage.style.setProperty('--stage-bg', theme.background);
+    stage.style.setProperty('--stage-fg', theme.accentInk);
+    icon.src = ICONS[theme.iconVariant];
+    idLabel.textContent = theme.id.toUpperCase();
+    hexLabel.textContent = theme.background;
+    var active = swatchWrap.querySelector('.swatchbtn.active');
+    if (active) active.classList.remove('active');
+    if (btn) btn.classList.add('active');
+  }
+
+  THEMES.forEach(function (theme) {
+    var btn = document.createElement('button');
+    btn.className = 'swatchbtn' + (theme.default ? ' active' : '');
+    btn.style.background = theme.background;
+    btn.setAttribute('aria-label', theme.id);
+    btn.setAttribute('title', theme.id);
+    btn.addEventListener('click', function () { applyTheme(theme, btn); });
+    swatchWrap.appendChild(btn);
+  });
+
+  var defaultTheme = THEMES.filter(function (t) { return t.default; })[0] || THEMES[0];
+  applyTheme(defaultTheme, swatchWrap.querySelector('.swatchbtn.active'));
+})();
+</script>
