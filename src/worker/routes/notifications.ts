@@ -1,4 +1,5 @@
 import { Hono } from 'hono'
+import { verifySession } from './auth'
 
 const notifications = new Hono<{ Bindings: Env }>()
 
@@ -25,10 +26,8 @@ notifications.post('/subscribe', async (c) => {
   const authHeader = c.req.header('Authorization')
   let userId: number | null = null
   if (authHeader) {
-    try {
-      const payload = JSON.parse(atob(authHeader.replace('Bearer ', '')))
-      userId = payload.userId
-    } catch {}
+    const payload = await verifySession(c.env as any, authHeader.replace('Bearer ', ''))
+    if (payload) userId = payload.userId
   }
 
   await db
