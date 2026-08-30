@@ -2,7 +2,6 @@ import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import licenses from './routes/licenses'
 import configuration from './routes/configuration'
-import payments from './routes/payments'
 import auth from './routes/auth'
 import delivery from './routes/delivery'
 import notifications from './routes/notifications'
@@ -33,7 +32,6 @@ app.use(
 // Core routes
 app.route('/api/licenses', licenses)
 app.route('/api/configuration', configuration)
-app.route('/api/payments', payments)
 
 // Enhanced storefront routes
 app.route('/api/auth', auth)

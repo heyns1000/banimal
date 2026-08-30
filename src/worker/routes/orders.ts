@@ -1,5 +1,6 @@
 import { Hono } from 'hono'
 import { nanoid } from 'nanoid'
+import { calculateGiving } from './giving'
 
 const orders = new Hono<{ Bindings: Env }>()
 
@@ -66,14 +67,17 @@ orders.post('/', async (c) => {
     try {
       const db = (c.env as any).DB
       if (db) {
+        // Paystack's amount is the VAT-inclusive total; calculateGiving()
+        // strips VAT before applying the 15.01% rate, same as /api/giving/calculate.
+        const { givingAmount, tier } = calculateGiving(body.totalZar)
         await db.prepare(`
           INSERT OR IGNORE INTO giving_allocations (order_id, order_total, giving_amount, tier_sku, email)
           VALUES (?, ?, ?, ?, ?)
         `).bind(
           reference,
           body.totalZar,
-          Math.round(body.totalZar * 0.02 * 100) / 100, // 2% giving
-          'standard',
+          givingAmount,
+          tier.sku,
           body.email
         ).run()
       }
