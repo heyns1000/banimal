@@ -1,0 +1,445 @@
+ARCHIVED — DO NOT SERVE
+
+This file was pulled out of the servable path on 2026-08-30 (was repo-root
+/Vito_Stroller.html, referenced by the top-level `assets` manifest) and
+deliberately broken so it can never render as a page: renamed to a
+non-.html extension, and every tag below is HTML-entity-escaped so no
+browser or static file server will ever parse it as markup, whatever the
+extension or content-type it's served with.
+
+It is kept only for provenance — an OEM/sourcing cost model for an
+unrelated stroller product, not part of the Banimal codebase. Do not
+restore this file to a servable path without deliberately re-enabling it
+(reversing the escaping and giving it back a .html extension).
+
+--- ORIGINAL CONTENT (escaped, inert) ---
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;🌿Little One Vito Stroller/Camp Cot Import Plan&lt;/title&gt;
+    &lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;
+    &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;style&gt;
+        body {
+            font-family: &#x27;Inter&#x27;, sans-serif;
+            background-color: #f7f9fb;
+        }
+        .card {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+        .header-bg {
+            background-color: #1a365d; /* Dark Blue */
+        }
+        .text-accent {
+            color: #d97706; /* Amber */
+        }
+        table {
+            border-collapse: collapse;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&quot;p-4 sm:p-8&quot;&gt;
+
+    &lt;div class=&quot;max-w-6xl mx-auto&quot;&gt;
+        &lt;!-- HEADER --&gt;
+        &lt;header class=&quot;header-bg text-white p-6 rounded-t-xl card&quot;&gt;
+            &lt;h1 class=&quot;text-3xl sm:text-4xl font-extrabold tracking-tight&quot;&gt;Little One Vito Stroller/Camp Cot Import Plan&lt;/h1&gt;
+            &lt;p class=&quot;mt-2 text-xl font-light text-gray-300&quot;&gt;40FT HQ &amp; 20FT Container Analysis (South Africa Retail Sourcing)&lt;/p&gt;
+            &lt;p class=&quot;mt-4 text-sm text-gray-400&quot;&gt;Prepared for Mr. More&lt;/p&gt;
+        &lt;/header&gt;
+
+        &lt;!-- EXECUTIVE SUMMARY (General) --&gt;
+        &lt;div class=&quot;bg-white p-6 sm:p-8 rounded-b-xl mb-8 card&quot;&gt;
+            &lt;h2 class=&quot;text-2xl font-semibold mb-4 border-b pb-2 text-gray-800&quot;&gt;1. Executive Financial Summary&lt;/h2&gt;
+
+            &lt;div class=&quot;grid grid-cols-1 md:grid-cols-4 gap-4&quot;&gt;
+                &lt;div class=&quot;p-4 bg-green-50 rounded-lg border-l-4 border-green-500&quot;&gt;
+                    &lt;p class=&quot;text-sm font-medium text-gray-500&quot;&gt;Target EXW Price (Unit)&lt;/p&gt;
+                    &lt;p class=&quot;text-2xl font-bold text-green-700 mt-1&quot;&gt;$14.50&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500&quot;&gt;
+                    &lt;p class=&quot;text-sm font-medium text-gray-500&quot;&gt;Wholesale WSP (Incl VAT)&lt;/p&gt;
+                    &lt;p class=&quot;text-2xl font-bold text-blue-700 mt-1&quot;&gt;R599.40&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-500&quot;&gt;
+                    &lt;p class=&quot;text-sm font-medium text-gray-500&quot;&gt;Wholesale Gross Profit (Our GP)&lt;/p&gt;
+                    &lt;p class=&quot;text-2xl font-bold text-yellow-700 mt-1&quot;&gt;R130.35&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;p-4 bg-indigo-50 rounded-lg border-l-4 border-indigo-500&quot;&gt;
+                    &lt;p class=&quot;text-sm font-medium text-gray-500&quot;&gt;Banimal Online Gross Margin&lt;/p&gt;
+                    &lt;p class=&quot;text-2xl font-bold text-indigo-700 mt-1&quot;&gt;50.00%&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- DETAILED FINANCIAL BREAKDOWN --&gt;
+        &lt;div class=&quot;bg-white p-6 sm:p-8 rounded-xl mb-8 card&quot;&gt;
+            &lt;h2 class=&quot;text-2xl font-semibold mb-4 border-b pb-2 text-gray-800&quot;&gt;2. Reverse Engineered Cost Model (Per Unit)&lt;/h2&gt;
+            &lt;p class=&quot;text-sm text-gray-500 mb-4&quot;&gt;This model uses standard South African VAT (15%) and retailer margin (50%) to reverse-engineer the manufacturer&#x27;s target EXW price. The mid-range EXW of $\text{\$14.50}$ is used for planning. ($\text{R}1 = \text{\$0.054}$, $\text{\$1} = \text{R}18.50$)&lt;/p&gt;
+
+            &lt;div class=&quot;overflow-x-auto&quot;&gt;
+                &lt;table class=&quot;min-w-full divide-y divide-gray-200&quot;&gt;
+                    &lt;thead class=&quot;bg-gray-50&quot;&gt;
+                        &lt;tr&gt;
+                            &lt;th scope=&quot;col&quot; class=&quot;px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider&quot;&gt;Metric&lt;/th&gt;
+                            &lt;th scope=&quot;col&quot; class=&quot;px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider&quot;&gt;Formula/Source&lt;/th&gt;
+                            &lt;th scope=&quot;col&quot; class=&quot;px-3 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider&quot;&gt;Value (USD)&lt;/th&gt;
+                            &lt;th scope=&quot;col&quot; class=&quot;px-3 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider&quot;&gt;Value (ZAR)&lt;/th&gt;
+                        &lt;/tr&gt;
+                    &lt;/thead&gt;
+                    &lt;tbody class=&quot;bg-white divide-y divide-gray-200&quot;&gt;
+                        &lt;tr&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap font-medium text-gray-900&quot;&gt;Reference Retail Sale Price (ZAR 899)&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-sm text-gray-500&quot;&gt;$\text{R899.00} / 18.50$&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-lg font-semibold text-accent&quot;&gt;$48.60&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-sm text-gray-900&quot;&gt;R899.00&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-700&quot;&gt;Retail Price (Excl VAT)&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-sm text-gray-500&quot;&gt;$\text{\$48.60} / 1.15$&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-sm text-gray-900&quot;&gt;$42.26&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-sm text-gray-500&quot;&gt;R781.74&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-700&quot;&gt;Retailer Gross Margin ($\text{50\%}$)&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-sm text-gray-500&quot;&gt;$\text{\$42.26} \times 0.50$&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-sm text-gray-900&quot;&gt;$21.13&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-sm text-gray-500&quot;&gt;R390.87&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr class=&quot;bg-gray-100&quot;&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-sm font-semibold text-gray-800&quot;&gt;Estimated Landed Cost (D)&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-sm text-gray-500&quot;&gt;Cost to Retailer Warehouse&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-sm font-semibold text-gray-800&quot;&gt;$21.13&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-sm font-semibold text-gray-800&quot;&gt;R390.87&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-700&quot;&gt;Estimated Freight/Duty/Logistics ($\text{45.7\%}$)&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-sm text-red-500&quot;&gt;Calculated as $\text{Landed Cost (D)} - \text{EXW Price (G)}$&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-sm text-gray-900&quot;&gt;$6.63&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-sm text-gray-500&quot;&gt;R122.61&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr class=&quot;bg-green-100&quot;&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-lg font-bold text-green-800&quot;&gt;TARGET EXW PRICE (G)&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-sm text-gray-500&quot;&gt;Input Price from Factory&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-lg font-extrabold text-green-800&quot;&gt;$14.50&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-sm font-semibold text-gray-800&quot;&gt;R268.27&lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/tbody&gt;
+                &lt;/table&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- PRODUCT &amp; SOURCING DETAILS (Full Width) --&gt;
+        &lt;div class=&quot;bg-white p-6 sm:p-8 rounded-xl card mb-8&quot;&gt;
+            &lt;h2 class=&quot;text-2xl font-semibold mb-4 border-b pb-2 text-gray-800&quot;&gt;3. Product, Sourcing &amp; Next Steps&lt;/h2&gt;
+
+            &lt;div class=&quot;space-y-4&quot;&gt;
+                &lt;h3 class=&quot;font-bold text-xl text-gray-700 mt-4&quot;&gt;Product Specification&lt;/h3&gt;
+                &lt;p class=&quot;text-gray-600&quot;&gt;The product is a high-volume, economy-grade Stroller/Camp Cot (same price point, single model for import efficiency). The confirmed **carton volume is $\text{0.050 CBM}$** per unit.&lt;/p&gt;
+
+                &lt;div class=&quot;p-3 bg-gray-50 rounded-lg&quot;&gt;
+                    &lt;p class=&quot;font-semibold text-sm mb-1&quot;&gt;Model &amp; Colors (Prioritizing Top Sellers)&lt;/p&gt;
+                    &lt;ul class=&quot;list-disc list-inside text-gray-600 ml-2&quot;&gt;
+                        &lt;li&gt;**Color 1 (Top Seller):** Deep Grey ($\text{40\%}$ Allocation)&lt;/li&gt;
+                        &lt;li&gt;**Color 2 (Second Top Seller):** Black ($\text{35\%}$ Allocation)&lt;/li&gt;
+                        &lt;li&gt;**Color 3 (Standard Stock):** Burgundy / Red ($\text{25\%}$ Allocation)&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+
+                &lt;h3 class=&quot;font-bold text-xl text-gray-700 mt-4&quot;&gt;Factory &amp; Metadata&lt;/h3&gt;
+                &lt;p class=&quot;text-gray-600&quot;&gt;The manufacturer is an OEM/ODM based in China. Here are suggested OEM contacts with direct links for easy communication:&lt;/p&gt;
+                &lt;div class=&quot;p-3 bg-gray-50 rounded-lg text-sm text-gray-700&quot;&gt;
+                    &lt;p class=&quot;font-semibold mb-1&quot;&gt;Recommended OEM Sourcing Targets:&lt;/p&gt;
+                    &lt;ul class=&quot;list-disc list-inside ml-2 space-y-2&quot;&gt;
+                        &lt;li&gt;
+                            **Henan Leshu E-Commerce Co., Ltd.** (Stroller/Crib focus): 
+                            &lt;a href=&quot;https://hnlsdzsw.en.alibaba.com/&quot; target=&quot;_blank&quot; class=&quot;text-blue-600 hover:underline font-medium&quot;&gt;Alibaba Store Link&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            **HEBEI GREENSKY INDUSTRY GROUP CO., LTD** (Stroller/Playpen focus): 
+                            &lt;a href=&quot;https://greenskygroup.en.alibaba.com/&quot; target=&quot;_blank&quot; class=&quot;text-blue-600 hover:underline font-medium&quot;&gt;Alibaba Store Link&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            **Ningbo Happy Island Baby Products Co., Ltd.** (Camp Cot focus): 
+                            &lt;a href=&quot;https://happyislandbaby.en.made-in-china.com/&quot; target=&quot;_blank&quot; class=&quot;text-blue-600 hover:underline font-medium&quot;&gt;Made-in-China Link&lt;/a&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                    &lt;p class=&quot;mt-4 font-semibold text-accent&quot;&gt;Action: Reverse image search on Alibaba is the fastest route to identifying the exact factory mold.&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- LOGISTICS COMPARISON GRID (Side-by-Side) --&gt;
+        &lt;div class=&quot;grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8&quot;&gt;
+            
+            &lt;!-- 40FT HQ ANALYSIS (Section 4) --&gt;
+            &lt;div class=&quot;bg-white p-6 sm:p-8 rounded-xl card&quot;&gt;
+                &lt;h2 class=&quot;text-2xl font-semibold mb-4 border-b pb-2 text-gray-800&quot;&gt;4. 40ft High Cube Container Logistics&lt;/h2&gt;
+
+                &lt;div class=&quot;space-y-6&quot;&gt;
+                    &lt;h3 class=&quot;font-bold text-lg text-gray-700&quot;&gt;Container Specifications ($\text{40&#x27; HQ}$)&lt;/h3&gt;
+                    &lt;div class=&quot;overflow-x-auto&quot;&gt;
+                        &lt;table class=&quot;w-full text-left text-gray-600&quot;&gt;
+                            &lt;tbody class=&quot;divide-y divide-gray-100&quot;&gt;
+                                &lt;tr&gt;
+                                    &lt;td class=&quot;py-2 pr-4 font-medium&quot;&gt;Internal Capacity&lt;/td&gt;
+                                    &lt;td class=&quot;py-2 text-right&quot;&gt;76.4 CBM&lt;/td&gt;
+                                &lt;/tr&gt;
+                                &lt;tr&gt;
+                                    &lt;td class=&quot;py-2 pr-4 font-medium&quot;&gt;Estimated Loadable Volume (Stackable)&lt;/td&gt;
+                                    &lt;td class=&quot;py-2 text-right text-accent font-semibold&quot;&gt;65.0 CBM&lt;/td&gt;
+                                &lt;/tr&gt;
+                                &lt;tr&gt;
+                                    &lt;td class=&quot;py-2 pr-4 font-medium&quot;&gt;Max Payload&lt;/td&gt;
+                                    &lt;td class=&quot;py-2 text-right&quot;&gt;28,600 KG&lt;/td&gt;
+                                &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                        &lt;/table&gt;
+                    &lt;/div&gt;
+
+                    &lt;h3 class=&quot;font-bold text-lg text-gray-700&quot;&gt;Volume &amp; Quantity Breakdown (Based on $\text{40\%/35\%/25\%}$ Split)&lt;/h3&gt;
+                    &lt;div class=&quot;overflow-x-auto&quot;&gt;
+                        &lt;table class=&quot;w-full text-left text-gray-600&quot;&gt;
+                            &lt;tbody class=&quot;divide-y divide-gray-100&quot;&gt;
+                                &lt;tr class=&quot;bg-yellow-50&quot;&gt;
+                                    &lt;td class=&quot;py-2 pr-4 font-extrabold text-yellow-800&quot;&gt;Actual Unit Carton Volume ($\text{CBM/Unit}$)&lt;/td&gt;
+                                    &lt;td class=&quot;py-2 text-right text-lg font-extrabold text-yellow-800&quot;&gt;0.050 CBM&lt;/td&gt;
+                                &lt;/tr&gt;
+                                &lt;tr class=&quot;bg-blue-50&quot;&gt;
+                                    &lt;td class=&quot;py-2 pr-4 font-extrabold text-blue-800&quot;&gt;ESTIMATED TOTAL UNITS ($\text{40&#x27; HQ}$)&lt;/td&gt;
+                                    &lt;td class=&quot;py-2 text-right text-xl font-extrabold text-blue-800&quot;&gt;1,300 Units&lt;/td&gt;
+                                &lt;/tr&gt;
+                                &lt;tr&gt;
+                                    &lt;td class=&quot;py-2 pr-4 font-medium&quot;&gt;Suggested Color Split (Grey / Black / Burgundy)&lt;/td&gt;
+                                    &lt;td class=&quot;py-2 text-right font-bold text-gray-800&quot;&gt;520 / 455 / 325 Units&lt;/td&gt;
+                                &lt;/tr&gt;
+                                &lt;tr class=&quot;bg-green-50&quot;&gt;
+                                    &lt;td class=&quot;py-2 pr-4 font-extrabold text-green-800&quot;&gt;TOTAL EXW ORDER VALUE&lt;/td&gt;
+                                    &lt;td class=&quot;py-2 text-right text-lg font-extrabold text-green-800&quot;&gt;$18,850&lt;/td&gt;
+                                &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                        &lt;/table&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            
+            &lt;!-- 20FT STANDARD ANALYSIS (Section 5) --&gt;
+            &lt;div class=&quot;bg-white p-6 sm:p-8 rounded-xl card&quot;&gt;
+                &lt;h2 class=&quot;text-2xl font-semibold mb-4 border-b pb-2 text-gray-800&quot;&gt;5. 20ft Standard Container Logistics&lt;/h2&gt;
+                
+                &lt;div class=&quot;space-y-6&quot;&gt;
+                    &lt;h3 class=&quot;font-bold text-lg text-gray-700&quot;&gt;Container Specifications ($\text{20&#x27; Std}$)&lt;/h3&gt;
+                    &lt;div class=&quot;overflow-x-auto&quot;&gt;
+                        &lt;table class=&quot;w-full text-left text-gray-600&quot;&gt;
+                            &lt;tbody class=&quot;divide-y divide-gray-100&quot;&gt;
+                                &lt;tr&gt;
+                                    &lt;td class=&quot;py-2 pr-4 font-medium&quot;&gt;Internal Capacity&lt;/td&gt;
+                                    &lt;td class=&quot;py-2 text-right&quot;&gt;33.2 CBM&lt;/td&gt;
+                                &lt;/tr&gt;
+                                &lt;tr&gt;
+                                    &lt;td class=&quot;py-2 pr-4 font-medium&quot;&gt;Estimated Loadable Volume (Stackable)&lt;/td&gt;
+                                    &lt;td class=&quot;py-2 text-right text-accent font-semibold&quot;&gt;28.0 CBM&lt;/td&gt;
+                                &lt;/tr&gt;
+                                &lt;tr&gt;
+                                    &lt;td class=&quot;py-2 pr-4 font-medium&quot;&gt;Max Payload&lt;/td&gt;
+                                    &lt;td class=&quot;py-2 text-right&quot;&gt;28,000 KG&lt;/td&gt;
+                                &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                        &lt;/table&gt;
+                    &lt;/div&gt;
+
+                    &lt;h3 class=&quot;font-bold text-lg text-gray-700&quot;&gt;Volume &amp; Quantity Breakdown (Based on $\text{40\%/35\%/25\%}$ Split)&lt;/h3&gt;
+                    &lt;div class=&quot;overflow-x-auto&quot;&gt;
+                        &lt;table class=&quot;w-full text-left text-gray-600&quot;&gt;
+                            &lt;tbody class=&quot;divide-y divide-gray-100&quot;&gt;
+                                &lt;tr class=&quot;bg-yellow-50&quot;&gt;
+                                    &lt;td class=&quot;py-2 pr-4 font-extrabold text-yellow-800&quot;&gt;Actual Unit Carton Volume ($\text{CBM/Unit}$)&lt;/td&gt;
+                                    &lt;td class=&quot;py-2 text-right text-lg font-extrabold text-yellow-800&quot;&gt;0.050 CBM&lt;/td&gt;
+                                &lt;/tr&gt;
+                                &lt;tr class=&quot;bg-blue-50&quot;&gt;
+                                    &lt;td class=&quot;py-2 pr-4 font-extrabold text-blue-800&quot;&gt;ESTIMATED TOTAL UNITS ($\text{20&#x27; Std}$)&lt;/td&gt;
+                                    &lt;td class=&quot;py-2 text-right text-xl font-extrabold text-blue-800&quot;&gt;560 Units&lt;/td&gt;
+                                &lt;/tr&gt;
+                                &lt;tr&gt;
+                                    &lt;td class=&quot;py-2 pr-4 font-medium&quot;&gt;Suggested Color Split (Grey / Black / Burgundy)&lt;/td&gt;
+                                    &lt;td class=&quot;py-2 text-right font-bold text-gray-800&quot;&gt;224 / 196 / 140 Units&lt;/td&gt;
+                                &lt;/tr&gt;
+                                &lt;tr class=&quot;bg-green-50&quot;&gt;
+                                    &lt;td class=&quot;py-2 pr-4 font-extrabold text-green-800&quot;&gt;TOTAL EXW ORDER VALUE&lt;/td&gt;
+                                    &lt;td class=&quot;py-2 text-right text-lg font-extrabold text-green-800&quot;&gt;$8,120&lt;/td&gt;
+                                &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                        &lt;/table&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- WHOLESALE &amp; COMPETITIVE PRICING --&gt;
+        &lt;div class=&quot;bg-white p-6 sm:p-8 rounded-xl card mb-8&quot;&gt;
+            &lt;h2 class=&quot;text-2xl font-semibold mb-4 border-b pb-2 text-gray-800&quot;&gt;6. Wholesale &amp; Competitive Pricing Strategy (ZAR)&lt;/h2&gt;
+            &lt;p class=&quot;text-sm text-gray-500 mb-4&quot;&gt;This section determines the optimal wholesale price (WSP) to sell to large retailers and the competitive **Banimal** price, calculated against the Landed Cost of $\text{R390.87}$ per unit.&lt;/p&gt;
+
+            &lt;h3 class=&quot;font-bold text-xl text-gray-700 mt-6&quot;&gt;6.1. Target Wholesale Price (WSP) for Retailer&lt;/h3&gt;
+            &lt;p class=&quot;text-sm text-gray-500 mb-4&quot;&gt;We establish a WSP that allows the retailer (e.g., Game) to achieve a $\text{40\%}$ Gross Profit margin at the standard $\text{R999}$ price, giving them flexibility to run a deep promo at $\text{R899}$.&lt;/p&gt;
+
+            &lt;div class=&quot;overflow-x-auto mb-8&quot;&gt;
+                &lt;table class=&quot;min-w-full divide-y divide-gray-200&quot;&gt;
+                    &lt;thead class=&quot;bg-gray-50&quot;&gt;
+                        &lt;tr&gt;
+                            &lt;th scope=&quot;col&quot; class=&quot;px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider&quot;&gt;Metric&lt;/th&gt;
+                            &lt;th scope=&quot;col&quot; class=&quot;px-3 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider&quot;&gt;R999 Standard Retail&lt;/th&gt;
+                            &lt;th scope=&quot;col&quot; class=&quot;px-3 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider&quot;&gt;R899 Promo Retail&lt;/th&gt;
+                            &lt;th scope=&quot;col&quot; class=&quot;px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider&quot;&gt;Calculation/Notes&lt;/th&gt;
+                        &lt;/tr&gt;
+                    &lt;/thead&gt;
+                    &lt;tbody class=&quot;bg-white divide-y divide-gray-200&quot;&gt;
+                        &lt;tr&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap font-medium text-gray-900&quot;&gt;Retail Price ($\text{Incl VAT}$)&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right font-semibold text-gray-900&quot;&gt;R999.00&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right font-semibold text-gray-900&quot;&gt;R899.00&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-sm text-gray-500&quot;&gt;Game&#x27;s Target Shelf Price&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-700&quot;&gt;Retail Price ($\text{Excl VAT}$)&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-gray-700&quot;&gt;R868.70&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-gray-700&quot;&gt;R781.74&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-sm text-gray-500&quot;&gt;$\text{Price} / 1.15$&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-700&quot;&gt;Target Retailer Margin (GP on Selling Price)&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-gray-700&quot;&gt;40.0%&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-gray-700&quot;&gt;35.0%&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-sm text-gray-500&quot;&gt;Standard Margin / Promo Margin&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-700&quot;&gt;Retailer Gross Profit (GP ZAR)&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-gray-700&quot;&gt;R347.48&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-gray-700&quot;&gt;R273.61&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-sm text-gray-500&quot;&gt;$\text{R868.70} \times 0.40$ (or $\text{R781.74} \times 0.35$)&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr class=&quot;bg-indigo-100&quot;&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-lg font-bold text-indigo-800&quot;&gt;Target WSP ($\text{Excl VAT}$)&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-lg font-extrabold text-indigo-800&quot;&gt;R521.22&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-lg font-extrabold text-indigo-800&quot;&gt;R508.13&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-sm text-gray-500&quot;&gt;$\text{Price Excl VAT} - \text{GP}$&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr class=&quot;bg-indigo-50&quot;&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-xl font-bold text-indigo-900&quot;&gt;FINAL WSP ($\text{Incl VAT}$)&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-xl font-extrabold text-indigo-900&quot;&gt;R599.40&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-xl font-extrabold text-indigo-900&quot;&gt;R584.35&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-sm text-gray-500&quot;&gt;($\text{R521.22} \times 1.15$). **R599.40 is the quoted WSP.**&lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/tbody&gt;
+                &lt;/table&gt;
+            &lt;/div&gt;
+
+            &lt;h3 class=&quot;font-bold text-xl text-gray-700 mt-6&quot;&gt;6.2. Our Profit Check: Wholesale (Game) vs. **Banimal** Online&lt;/h3&gt;
+            &lt;p class=&quot;text-sm text-gray-500 mb-4&quot;&gt;This confirms your profitability. The determined WSP ($\text{R599.40}$) ensures a **25.00% Gross Margin** and a healthy **R130.35 ZAR** profit per unit over your landed cost of $\text{R390.87}$.&lt;/p&gt;
+            
+            &lt;div class=&quot;overflow-x-auto&quot;&gt;
+                &lt;table class=&quot;min-w-full divide-y divide-gray-200&quot;&gt;
+                    &lt;thead class=&quot;bg-gray-50&quot;&gt;
+                        &lt;tr&gt;
+                            &lt;th scope=&quot;col&quot; class=&quot;px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider&quot;&gt;Metric&lt;/th&gt;
+                            &lt;th scope=&quot;col&quot; class=&quot;px-3 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider&quot;&gt;Wholesale (Game)&lt;/th&gt;
+                            &lt;th scope=&quot;col&quot; class=&quot;px-3 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider&quot;&gt;Banimal Online (Our Price)&lt;/th&gt;
+                            &lt;th scope=&quot;col&quot; class=&quot;px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider&quot;&gt;Calculation/Notes&lt;/th&gt;
+                        &lt;/tr&gt;
+                    &lt;/thead&gt;
+                    &lt;tbody class=&quot;bg-white divide-y divide-gray-200&quot;&gt;
+                        &lt;tr&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap font-medium text-gray-900&quot;&gt;Our Selling Price ($\text{Incl VAT}$)&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right font-semibold text-gray-900&quot;&gt;R599.40&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right font-semibold text-accent text-lg&quot;&gt;R899.00&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-sm text-gray-500&quot;&gt;Price to Game / Competitive Online Price&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-700&quot;&gt;Our Selling Price ($\text{Excl VAT}$)&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-gray-700&quot;&gt;R521.22&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-gray-700&quot;&gt;R781.74&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-sm text-gray-500&quot;&gt;$\text{Price} / 1.15$&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-700&quot;&gt;Our Landed Cost ($\text{Excl VAT}$)&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-gray-700&quot;&gt;R390.87&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-gray-700&quot;&gt;R390.87&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-sm text-gray-500&quot;&gt;From Section 2 (Cost to us)&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr class=&quot;bg-yellow-100&quot;&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-lg font-bold text-yellow-900&quot;&gt;Our Gross Profit ($\text{ZAR}$)&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-xl font-extrabold text-yellow-900&quot;&gt;R130.35&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-lg font-extrabold text-yellow-800&quot;&gt;R390.87&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-sm text-gray-500&quot;&gt;$\text{Selling Price Excl} - \text{Landed Cost}$&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr class=&quot;bg-green-100&quot;&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-xl font-bold text-green-800&quot;&gt;Our Gross Margin ($\text{\%}$)&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-xl font-extrabold text-green-800&quot;&gt;25.00%&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-xl font-extrabold text-green-800&quot;&gt;50.00%&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-sm text-gray-500&quot;&gt;$\text{GP} / \text{Selling Price Excl}$&lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/tbody&gt;
+                &lt;/table&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- NEW SECTION: TOTAL CONTAINER PROFIT SUMMARY --&gt;
+        &lt;div class=&quot;bg-white p-6 sm:p-8 rounded-xl card mb-8&quot;&gt;
+            &lt;h2 class=&quot;text-2xl font-semibold mb-4 border-b pb-2 text-gray-800&quot;&gt;7. Total Container Profit Summary (ZAR)&lt;/h2&gt;
+            &lt;p class=&quot;text-sm text-gray-500 mb-4&quot;&gt;This summarises the total potential gross profit for each container size based on selling the entire stock through the Wholesale (Game) channel or the **Banimal** Online channel at R899.00.&lt;/p&gt;
+
+            &lt;div class=&quot;overflow-x-auto&quot;&gt;
+                &lt;table class=&quot;min-w-full divide-y divide-gray-200&quot;&gt;
+                    &lt;thead class=&quot;bg-gray-100&quot;&gt;
+                        &lt;tr&gt;
+                            &lt;th scope=&quot;col&quot; class=&quot;px-3 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider&quot;&gt;Container Size &amp; Units&lt;/th&gt;
+                            &lt;th scope=&quot;col&quot; class=&quot;px-3 py-3 text-right text-sm font-medium text-gray-600 uppercase tracking-wider&quot;&gt;Per Unit Profit (ZAR)&lt;/th&gt;
+                            &lt;th scope=&quot;col&quot; class=&quot;px-3 py-3 text-right text-sm font-medium text-gray-600 uppercase tracking-wider&quot;&gt;Channel&lt;/th&gt;
+                            &lt;th scope=&quot;col&quot; class=&quot;px-3 py-3 text-right text-sm font-medium text-gray-600 uppercase tracking-wider&quot;&gt;TOTAL GROSS PROFIT (ZAR)&lt;/th&gt;
+                        &lt;/tr&gt;
+                    &lt;/thead&gt;
+                    &lt;tbody class=&quot;bg-white divide-y divide-gray-200&quot;&gt;
+                        &lt;!-- 40FT HQ --&gt;
+                        &lt;tr class=&quot;bg-blue-50&quot;&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap font-bold text-blue-900&quot;&gt;40ft HQ ($\text{1,300}$ Units)&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-gray-700&quot;&gt;R130.35&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap font-medium text-gray-700&quot;&gt;Wholesale ($\text{R599.40}$)&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-xl font-extrabold text-blue-900&quot;&gt;R169,455.00&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr class=&quot;bg-green-50&quot;&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap font-bold text-green-900&quot;&gt;40ft HQ ($\text{1,300}$ Units)&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-gray-700&quot;&gt;R390.87&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap font-medium text-gray-700&quot;&gt;**Banimal** Retail ($\text{R899.00}$)&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-xl font-extrabold text-green-900&quot;&gt;R508,131.00&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;!-- 20FT Std --&gt;
+                        &lt;tr class=&quot;bg-yellow-50&quot;&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap font-bold text-yellow-900&quot;&gt;20ft Std ($\text{560}$ Units)&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-gray-700&quot;&gt;R130.35&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap font-medium text-gray-700&quot;&gt;Wholesale ($\text{R599.40}$)&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-xl font-extrabold text-yellow-900&quot;&gt;R73,000.00&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr class=&quot;bg-red-50&quot;&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap font-bold text-red-900&quot;&gt;20ft Std ($\text{560}$ Units)&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-gray-700&quot;&gt;R390.87&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-medium text-gray-700&quot;&gt;**Banimal** Retail ($\text{R899.00}$)&lt;/td&gt;
+                            &lt;td class=&quot;px-3 py-4 whitespace-nowrap text-right text-xl font-extrabold text-red-900&quot;&gt;R218,887.20&lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/tbody&gt;
+                &lt;/table&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+
+        &lt;/div&gt; &lt;!-- END of your main content wrapper --&gt;
+
+&lt;footer class=&quot;w-full text-center mt-10 py-4 bg-gray-100 border-t border-gray-200&quot;&gt;
+    &lt;img src=&quot;New_stroller.png&quot; alt=&quot;Stroller Footer&quot; class=&quot;mx-auto max-w-xs mb-2 rounded-lg shadow-md&quot; /&gt;
+    &lt;div class=&quot;text-gray-600 text-sm&quot;&gt;Vito Stroller Model Presentation&lt;/div&gt;
+&lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
