@@ -1,4 +1,4 @@
-<title>Banimal Connector</title>
+<title>Banimal™ Connector</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -52,7 +52,8 @@
   }
   nav.top .inner{ max-width:1040px; margin:0 auto; padding:14px 28px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
   .brandmark{ display:flex; align-items:center; gap:10px; font-family:'Baloo 2',sans-serif; font-weight:700; font-size:16px; }
-  .brandmark-icon{ width:26px; height:26px; flex:none; display:block; }
+  .brandmark-logo{ height:22px; width:auto; flex:none; display:block; }
+  .brandmark-suffix{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); }
   .navlinks{ display:flex; gap:22px; font-size:13.5px; font-weight:600; }
   .navlinks a{ text-decoration:none; color:var(--muted); }
   .navlinks a:hover{ color:var(--ink); }
@@ -111,7 +112,7 @@
   .pillar.b .tag{ background:var(--coral-soft); color:var(--coral); }
 
   /* ---- architecture ---- */
-  .diagram{ border:1px solid var(--rule); border-radius:20px; background:var(--paper); padding:8px; overflow-x:auto; }
+  .diagram{ border:1px solid var(--rule); border-radius:20px; background:var(--paper); padding:20px; overflow-x:auto; }
   .diagram svg{ display:block; min-width:640px; width:100%; height:auto; }
   .architecture-note{ margin-top:20px; padding:16px 20px; background:var(--artcream); border-radius:14px; font-size:14px; max-width:70ch; }
 
@@ -171,9 +172,18 @@
   .toggle-note{ margin-top:18px; font-size:13.5px; color:var(--muted); max-width:60ch; }
   .toggle-note code{ background:var(--artcream); padding:2px 6px; border-radius:6px; }
 
-  footer{ padding:40px 0 60px; }
-  footer .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
+  footer{ margin-top:20px; padding:34px 0 60px; }
+  footer .wrap{ display:grid; grid-template-columns:auto 1fr; gap:14px 24px; align-items:center; border-top:2px solid var(--ink); padding-top:22px; }
+  footer .fmark{ background:#FFFFFF; border:2px solid var(--ink); border-radius:10px; padding:10px 14px; width:fit-content; }
+  footer .fmark img{ height:30px; width:auto; display:block; filter:grayscale(1); }
+  footer .finfo{ text-align:right; }
   footer .tag{ font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); }
+  footer .copyright{ font-size:12px; color:var(--muted); margin-top:4px; }
+  footer .fsuper{ grid-column:1/-1; text-align:right; font-size:11px; color:var(--muted); margin-top:2px; }
+  @media (max-width:560px){
+    footer .wrap{ grid-template-columns:1fr; }
+    footer .finfo, footer .fsuper{ text-align:left; }
+  }
 
   @media (prefers-reduced-motion: no-preference){
     .pulse{ animation:pulse 2.6s ease-in-out infinite; }
@@ -187,8 +197,8 @@
 <nav class="top">
   <div class="inner">
     <div class="brandmark">
-      <img class="brandmark-icon" src="../../docs/brand/assets/samfox-icon-verified-ink.png" alt="" width="26" height="26" />
-      Banimal Connector
+      <img class="brandmark-logo" data-icon-ink="../../docs/brand/assets/banimal-logo-ink.png" data-icon-cream="../../docs/brand/assets/banimal-logo-white.png" src="../../docs/brand/assets/banimal-logo-ink.png" alt="Banimal™" />
+      <span class="brandmark-suffix">Connector</span>
     </div>
     <div class="navlinks">
       <a href="#pillars">What it does</a>
@@ -205,7 +215,7 @@
     <div>
       <div class="eyebrow"><i></i>wordpress-plugin/banimal-ecosystem-connector</div>
       <h1 class="headline">Your store relays.<br/>The <span class="accent">Worker</span> decides.</h1>
-      <p class="sub">Banimal Connector is a thin, signed WordPress client. It holds no payment credentials, no brand assets, and no opinion of its own — every order event and every brand colour comes from <strong>one place</strong>, not from whichever plugin got installed last.</p>
+      <p class="sub">Banimal™ Connector is a thin, signed WordPress client. It holds no payment credentials, no brand assets, and no opinion of its own — every order event and every brand colour comes from <strong>one place</strong>, not from whichever plugin got installed last.</p>
       <div class="hero-ctas">
         <a class="btn primary" href="#install">See install steps</a>
         <a class="btn ghost" href="#architecture">How it's built</a>
@@ -226,7 +236,7 @@
 
         <line x1="70" y1="230" x2="212" y2="186" stroke="var(--ink)" stroke-width="2" stroke-dasharray="1 10" stroke-linecap="round"/>
         <line x1="390" y1="230" x2="248" y2="186" stroke="var(--ink)" stroke-width="2" stroke-dasharray="1 10" stroke-linecap="round"/>
-        <image href="../../docs/brand/assets/samfox-icon-verified-ink.png" x="185" y="80" width="90" height="90" />
+        <image data-icon-ink="../../docs/brand/assets/samfox-icon-verified-ink.png" data-icon-cream="../../docs/brand/assets/samfox-icon-verified-cream.png" href="../../docs/brand/assets/samfox-icon-verified-ink.png" x="185" y="80" width="90" height="90" />
       </svg>
       <div class="hero-cap">the verified Sam Fox™ mark — not an approximation</div>
     </div>
@@ -290,31 +300,31 @@
     <h2 class="sec-title">How a thin client stays thin</h2>
     <p class="sec-lede">The plugin makes exactly one kind of outbound call — to the Worker. It never talks to Paystack, BobGo, GitHub, or Google Drive directly; those live exclusively behind it.</p>
     <div class="diagram">
-      <svg viewBox="0 0 900 260">
+      <svg viewBox="0 0 980 320">
         <g font-family="'JetBrains Mono', monospace" font-size="12" fill="var(--ink)">
-          <rect x="20" y="90" width="180" height="80" rx="14" fill="var(--paper)" stroke="var(--ink)" stroke-width="2"/>
-          <text x="110" y="125" text-anchor="middle" font-weight="600">WordPress</text>
-          <text x="110" y="144" text-anchor="middle" fill="var(--muted)" font-size="10.5">Banimal Connector</text>
+          <rect x="40" y="115" width="190" height="90" rx="14" fill="var(--paper)" stroke="var(--ink)" stroke-width="2"/>
+          <text x="135" y="152" text-anchor="middle" font-weight="600">WordPress</text>
+          <text x="135" y="172" text-anchor="middle" fill="var(--muted)" font-size="10.5">Banimal™ Connector</text>
 
-          <path d="M200,110 L340,110" stroke="var(--sage)" stroke-width="2.5" marker-end="url(#arrow)"/>
-          <text x="270" y="100" text-anchor="middle" fill="var(--sage)" font-size="10.5">signed event</text>
+          <path d="M230,140 L385,140" stroke="var(--sage)" stroke-width="2.5" marker-end="url(#arrow)"/>
+          <text x="307" y="130" text-anchor="middle" fill="var(--sage)" font-size="10.5">signed event</text>
 
-          <path d="M340,150 L200,150" stroke="var(--coral)" stroke-width="2.5" marker-end="url(#arrow2)"/>
-          <text x="270" y="168" text-anchor="middle" fill="var(--coral)" font-size="10.5">brand tokens (public)</text>
+          <path d="M385,182 L230,182" stroke="var(--coral)" stroke-width="2.5" marker-end="url(#arrow2)"/>
+          <text x="307" y="203" text-anchor="middle" fill="var(--coral)" font-size="10.5">brand tokens (public)</text>
 
-          <rect x="340" y="60" width="200" height="140" rx="14" fill="var(--artcream)" stroke="var(--ink)" stroke-width="2"/>
-          <text x="440" y="95" text-anchor="middle" font-weight="600">Cloudflare Worker</text>
-          <text x="440" y="115" text-anchor="middle" fill="var(--muted)" font-size="10">/api/wp/events</text>
-          <text x="440" y="132" text-anchor="middle" fill="var(--muted)" font-size="10">/api/brand-guide</text>
-          <text x="440" y="149" text-anchor="middle" fill="var(--muted)" font-size="10">/api/orders · /api/payments</text>
-          <text x="440" y="180" text-anchor="middle" fill="var(--muted)" font-size="10">D1 · orders, brands, wp_bridge_events</text>
+          <rect x="390" y="70" width="230" height="170" rx="14" fill="var(--artcream)" stroke="var(--ink)" stroke-width="2"/>
+          <text x="505" y="105" text-anchor="middle" font-weight="600">Cloudflare Worker</text>
+          <text x="505" y="128" text-anchor="middle" fill="var(--muted)" font-size="10">/api/wp/events</text>
+          <text x="505" y="146" text-anchor="middle" fill="var(--muted)" font-size="10">/api/brand-guide</text>
+          <text x="505" y="164" text-anchor="middle" fill="var(--muted)" font-size="10">/api/orders · /api/payments</text>
+          <text x="505" y="182" text-anchor="middle" fill="var(--muted)" font-size="10">D1 · orders, brands, wp_bridge_events</text>
 
-          <path d="M540,95 L680,60" stroke="var(--rule)" stroke-width="2" marker-end="url(#arrow3)"/>
-          <path d="M540,130 L680,130" stroke="var(--rule)" stroke-width="2" marker-end="url(#arrow3)"/>
-          <path d="M540,165 L680,200" stroke="var(--rule)" stroke-width="2" marker-end="url(#arrow3)"/>
-          <text x="700" y="55" fill="var(--muted)" font-size="11">Paystack</text>
-          <text x="700" y="134" fill="var(--muted)" font-size="11">BobGo</text>
-          <text x="700" y="204" fill="var(--muted)" font-size="11">GitHub / R2</text>
+          <path d="M620,110 L780,63" stroke="var(--rule)" stroke-width="2" marker-end="url(#arrow3)"/>
+          <path d="M620,155 L780,155" stroke="var(--rule)" stroke-width="2" marker-end="url(#arrow3)"/>
+          <path d="M620,200 L780,247" stroke="var(--rule)" stroke-width="2" marker-end="url(#arrow3)"/>
+          <text x="800" y="58" fill="var(--muted)" font-size="11">Paystack</text>
+          <text x="800" y="159" fill="var(--muted)" font-size="11">BobGo</text>
+          <text x="800" y="251" fill="var(--muted)" font-size="11">GitHub / R2</text>
         </g>
         <defs>
           <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="var(--sage)"/></marker>
@@ -348,8 +358,8 @@
       <h2 class="sec-title">Four steps, no guesswork</h2>
       <ol class="steps">
         <li><b>Set the shared secret on the Worker.</b><span><code class="mono">wrangler secret put WP_BRIDGE_SECRET</code></span></li>
-        <li><b>Configure the plugin.</b><span>Banimal → Configuration: Worker base URL and the same signing secret.</span></li>
-        <li><b>Confirm the connection.</b><span>Banimal → Diagnostics: "Check Worker Health" and "Check Brand Guide" — both hit the real Worker live, no cached fakes.</span></li>
+        <li><b>Configure the plugin.</b><span>Banimal™ → Configuration: Worker base URL and the same signing secret.</span></li>
+        <li><b>Confirm the connection.</b><span>Banimal™ → Diagnostics: "Check Worker Health" and "Check Brand Guide" — both hit the real Worker live, no cached fakes.</span></li>
         <li><b>Change an order status.</b><span>Confirm a row lands in <code class="mono">wp_bridge_events</code> — the sync is working.</span></li>
       </ol>
       <div class="path">📁 wordpress-plugin/banimal-ecosystem-connector · v5.1.0</div>
@@ -375,11 +385,43 @@
 
 <footer>
   <div class="wrap">
-    <span class="tag">Banimal Connector · v5.1.0 · heyns1000/banimal</span>
-    <span class="tag">Sam Fox™ brand system applied via /api/brand-guide</span>
+    <div class="fmark"><img src="../../docs/brand/assets/banimal-logo-ink.png" alt="Banimal™" /></div>
+    <div class="finfo">
+      <div class="tag">Banimal™ Connector — product page · companion to the Sam Fox™ Core CI Guide Master</div>
+      <div class="copyright">© 2026 Fruitful Shops (Pty) Ltd · Artwork © Sam Fox™</div>
+    </div>
+    <div class="fsuper">Brand tokens on this page are applied live via /api/brand-guide — the CI Guide master itself is unaltered.</div>
   </div>
 </footer>
 
+<script>
+(function () {
+  // Sam Fox CI rule: the icon reverses to its cream render only on an ink
+  // (dark) background — every other background keeps the ink render
+  // legible. This page's own dark mode IS an ink background, so every
+  // static icon/logo placement here (not just the palette-toggle demo)
+  // needs to swap the same way, automatically, whichever way the page's
+  // theme resolves (explicit data-theme, or the system default).
+  function pageIsDark() {
+    var explicit = document.documentElement.getAttribute('data-theme');
+    if (explicit === 'dark') return true;
+    if (explicit === 'light') return false;
+    return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  }
+  function applyIconTheme() {
+    var dark = pageIsDark();
+    document.querySelectorAll('[data-icon-ink]').forEach(function (el) {
+      var src = dark ? el.getAttribute('data-icon-cream') : el.getAttribute('data-icon-ink');
+      if (el.tagName.toLowerCase() === 'image') el.setAttribute('href', src);
+      else el.setAttribute('src', src);
+    });
+  }
+  applyIconTheme();
+  if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyIconTheme);
+  }
+})();
+</script>
 <script>
 (function () {
   // Mirrors CI_GUIDE.themes in src/worker/routes/brand-guide.ts exactly.
