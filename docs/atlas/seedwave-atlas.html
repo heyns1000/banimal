@@ -1,0 +1,517 @@
+<title>The Seedwave Atlas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#231F20; --cream:#FBF4E4; --artcream:#F0EEDA; --paper:#FFFFFF;
+    --rule:#DED5BE; --rule-strong:#231F20; --muted:#6B655A;
+    --accent:#F16B6E; --accent-ink:#B95F56;
+    --live:#577D60; --live-soft:#E4EEE6;
+    --draft:#B95F56; --draft-soft:#F4E4E1;
+    --planned:#1E9F97; --planned-soft:#E1F0EE;
+    --archived:#8A8375; --archived-soft:#EDEAE2;
+    --hill-far:#EFE9D6; --hill-mid:#E7DEC3; --hill-near:#DED2AC;
+    --shadow: 0 1px 0 rgba(35,31,32,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#EDE7DA; --cream:#1B1A17; --artcream:#232019; --paper:#232019;
+      --rule:#3A362E; --rule-strong:#EDE7DA; --muted:#B3AA98;
+      --accent:#E2938B; --accent-ink:#E2938B;
+      --live:#8FB89A; --live-soft:#23302A;
+      --draft:#E2938B; --draft-soft:#332521;
+      --planned:#7FC9C2; --planned-soft:#1E2E2C;
+      --archived:#A79E8C; --archived-soft:#2A2620;
+      --hill-far:#221F1A; --hill-mid:#2A261F; --hill-near:#332D22;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#EDE7DA; --cream:#1B1A17; --artcream:#232019; --paper:#232019;
+    --rule:#3A362E; --rule-strong:#EDE7DA; --muted:#B3AA98;
+    --accent:#E2938B; --accent-ink:#E2938B;
+    --live:#8FB89A; --live-soft:#23302A;
+    --draft:#E2938B; --draft-soft:#332521;
+    --planned:#7FC9C2; --planned-soft:#1E2E2C;
+    --archived:#A79E8C; --archived-soft:#2A2620;
+    --hill-far:#221F1A; --hill-mid:#2A261F; --hill-near:#332D22;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--cream); color:var(--ink);
+    font-family:Georgia,'Times New Roman',serif; line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--accent); color:var(--paper); }
+  .mono{ font-family:'JetBrains Mono',Menlo,Consolas,monospace; }
+  a{ color:var(--ink); }
+  h1,h2,h3{ text-wrap:balance; }
+
+  /* ---- utility header ---- */
+  .utilitybar{
+    position:sticky; top:0; z-index:40; background:var(--cream);
+    border-bottom:1px solid var(--rule); backdrop-filter:blur(6px);
+  }
+  .utilitybar .inner{
+    max-width:920px; margin:0 auto; padding:12px 28px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+  }
+  .crumb{ display:inline-flex; align-items:center; gap:7px; font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:.02em; color:var(--muted); }
+  .crumb img{ height:14px; width:auto; vertical-align:-2px; }
+  .crumb .banimal-logo{ height:11px; }
+  .crumb b{ color:var(--ink); font-weight:600; }
+  .verified{
+    font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.04em;
+    color:var(--live); display:flex; align-items:center; gap:6px; white-space:nowrap;
+  }
+  .verified::before{ content:""; width:6px; height:6px; border-radius:50%; background:var(--live); box-shadow:0 0 0 3px var(--live-soft); }
+
+  .wrap{ max-width:920px; margin:0 auto; padding:0 28px; }
+
+  /* ---- Preface ---- */
+  .preface{ padding:64px 0 40px; }
+  .preface .kicker{
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--accent-ink); margin-bottom:16px;
+  }
+  .preface .measure{ max-width:58ch; font-size:16.5px; color:var(--ink); }
+  .preface .measure + .measure{ margin-top:14px; }
+  .preface .sign{ margin-top:22px; font-style:italic; color:var(--muted); font-size:15px; }
+
+  /* ---- Hero plate ---- */
+  .plate{
+    position:relative; margin:8px 0 8px; border-top:2px solid var(--rule-strong);
+    border-bottom:2px solid var(--rule-strong); background:var(--paper);
+    overflow:hidden;
+  }
+  .plate svg{ display:block; width:100%; height:auto; }
+  .plate-caption{
+    display:flex; justify-content:space-between; align-items:baseline; gap:12px;
+    max-width:920px; margin:0 auto; padding:10px 28px; font-family:'JetBrains Mono',monospace;
+    font-size:10.5px; letter-spacing:.04em; color:var(--muted); background:var(--cream);
+  }
+  .plate-title{
+    position:absolute; left:0; right:0; bottom:0; padding:0 5.5% 5%;
+    font-family:'Baloo 2',sans-serif; font-weight:700; color:var(--ink);
+    font-size:clamp(2.1rem,6vw,4.2rem); line-height:.98; letter-spacing:-.01em;
+  }
+  .plate-sub{
+    font-family:Georgia,serif; font-style:italic; font-weight:400; font-size:clamp(.95rem,1.6vw,1.15rem);
+    color:var(--accent-ink); margin-top:8px; max-width:34ch;
+  }
+
+  /* ---- Introduction ---- */
+  .intro{ padding:52px 0 8px; }
+  .intro h1{
+    font-family:'Baloo 2',sans-serif; font-size:clamp(1.7rem,3.4vw,2.3rem); font-weight:700;
+    margin:0 0 20px; letter-spacing:-.01em;
+  }
+  .intro .measure{ max-width:66ch; font-size:16.5px; }
+  .intro .measure + .measure{ margin-top:16px; }
+  .intro .pull{
+    margin:28px 0; padding:16px 20px; border-left:3px solid var(--accent);
+    background:var(--artcream); font-size:15px; max-width:64ch; border-radius:0 8px 8px 0;
+  }
+
+  /* ---- Index ---- */
+  .index{ padding:56px 0 90px; }
+  .index > h2{
+    font-family:'Baloo 2',sans-serif; font-size:clamp(1.5rem,3vw,2rem); font-weight:700;
+    margin:0 0 6px;
+  }
+  .index > .measure{ max-width:64ch; font-size:15px; color:var(--muted); margin-bottom:8px; }
+
+  .legend{ display:flex; flex-wrap:wrap; gap:8px 14px; margin:18px 0 30px; }
+  .legend span{ display:inline-flex; align-items:center; gap:6px; font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.03em; color:var(--muted); }
+  .legend i{ width:8px; height:8px; border-radius:50%; display:inline-block; }
+
+  .cat{ margin-top:38px; }
+  .cat h3{
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--muted); border-bottom:1px solid var(--rule); padding-bottom:9px; margin:0 0 2px;
+  }
+
+  .tablewrap{ overflow-x:auto; }
+  table{ width:100%; border-collapse:collapse; min-width:640px; }
+  tr{ border-bottom:1px solid var(--rule); }
+  tr:last-child{ border-bottom:none; }
+  td{ padding:14px 10px 14px 0; vertical-align:top; font-size:14.5px; }
+  td.num{
+    font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--muted);
+    width:34px; padding-right:14px; font-variant-numeric:tabular-nums;
+  }
+  td.name{ width:30%; min-width:220px; }
+  td.name b{ display:block; font-size:15px; }
+  td.name .loc{
+    display:block; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted);
+    margin-top:4px; word-break:break-word;
+  }
+  td.desc{ color:var(--ink); font-size:14px; }
+  td.status{ width:150px; white-space:nowrap; }
+
+  .pill{
+    display:inline-flex; align-items:center; gap:6px; font-family:'JetBrains Mono',monospace;
+    font-size:10.5px; letter-spacing:.05em; text-transform:uppercase; padding:4px 10px;
+    border-radius:100px; white-space:nowrap;
+  }
+  .pill i{ width:6px; height:6px; border-radius:50%; display:inline-block; }
+  .pill.live{ background:var(--live-soft); color:var(--live); }
+  .pill.live i{ background:var(--live); }
+  .pill.draft{ background:var(--draft-soft); color:var(--draft); }
+  .pill.draft i{ background:var(--draft); }
+  .pill.planned{ background:var(--planned-soft); color:var(--planned); }
+  .pill.planned i{ background:var(--planned); }
+  .pill.reference{ background:transparent; color:var(--muted); border:1px solid var(--rule); }
+  .pill.reference i{ background:var(--muted); }
+  .pill.archived{ background:var(--archived-soft); color:var(--archived); }
+  .pill.archived i{ background:var(--archived); }
+  .pill.definition{ background:var(--planned-soft); color:var(--planned); }
+  .pill.definition i{ background:var(--planned); }
+  .pill.open{ background:var(--draft-soft); color:var(--draft); }
+  .pill.open i{ background:var(--draft); }
+
+  @media (max-width:640px){
+    .wrap{ padding:0 18px; }
+    .utilitybar .inner{ padding:10px 18px; flex-wrap:wrap; }
+    td.name{ min-width:0; }
+    td.status{ width:auto; }
+  }
+
+  footer{ padding:26px 0 60px; }
+  footer .wrap{
+    display:grid; grid-template-columns:auto 1fr; gap:14px 24px; align-items:center;
+    border-top:2px solid var(--rule-strong); padding-top:22px;
+  }
+  footer .fmark{ background:#FBF4E4; border:2px solid var(--rule-strong); border-radius:10px; padding:10px 14px; width:fit-content; }
+  footer .fmark img{ height:28px; width:auto; display:block; filter:grayscale(1); }
+  footer .finfo{ text-align:right; }
+  footer .tag{ font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+  footer .tag b{ color:var(--ink); }
+  footer .copyright{ font-size:12px; color:var(--muted); margin-top:4px; }
+  footer .fsuper{ grid-column:1/-1; text-align:right; font-size:11px; color:var(--muted); margin-top:2px; }
+  @media (max-width:560px){
+    footer .wrap{ grid-template-columns:1fr; }
+    footer .finfo, footer .fsuper{ text-align:left; }
+  }
+</style>
+
+<div class="utilitybar">
+  <div class="inner">
+    <span class="crumb"><img data-icon-ink="../brand/assets/samfox-icon-verified-ink.png" data-icon-cream="../brand/assets/samfox-icon-verified-cream.png" src="../brand/assets/samfox-icon-verified-ink.png" alt="" /> <b>Sam Fox™</b> / <img class="banimal-logo" data-icon-ink="../brand/assets/banimal-logo-ink.png" data-icon-cream="../brand/assets/banimal-logo-white.png" src="../brand/assets/banimal-logo-ink.png" alt="Banimal™" /> Connector / Seedwave Atlas</span>
+    <span class="verified">verified against 7 live repositories</span>
+  </div>
+</div>
+
+<section class="preface">
+  <div class="wrap">
+    <div class="kicker">Preface</div>
+    <p class="measure">Before this, "the Banimal™ Connector" meant four different things depending on which conversation you caught — a freight dashboard, a WordPress plugin, a GitHub sweep, a device network. None of those were wrong. They were just unindexed.</p>
+    <p class="measure">This atlas exists to stop re-describing the ecosystem from memory. Every entry past this page was checked against an actual repository, an actual committed file, or an actual open pull request — not recalled, not assumed. Where something is a plan and not yet a fact, it's marked <em>planned</em>, not quietly promoted to real.</p>
+    <p class="sign">— compiled for Heyns, from the seven repositories currently in reach.</p>
+  </div>
+</section>
+
+<figure class="plate" style="margin:0;">
+  <svg viewBox="0 0 1200 620" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Ink-line illustration of rolling hills at dusk, with the verified Sam Fox fox-head mark on the highest ridge facing a coral sun, seed-dots scattered across the slopes.">
+    <rect x="0" y="0" width="1200" height="620" fill="var(--cream)"/>
+
+    <!-- sun -->
+    <circle cx="890" cy="230" r="86" fill="var(--accent)" opacity="0.16"/>
+    <circle cx="890" cy="230" r="58" fill="var(--accent)" opacity="0.9" stroke="var(--ink)" stroke-width="3"/>
+
+    <!-- far hill -->
+    <path d="M0,340 C160,300 280,318 360,300 C470,276 560,320 680,296 C800,272 900,310 1000,292 C1080,278 1150,296 1200,286 L1200,620 L0,620 Z" fill="var(--hill-far)" stroke="var(--ink)" stroke-width="2.5"/>
+
+    <!-- mid hill with contour lines -->
+    <path d="M0,420 C120,380 240,404 340,388 C460,368 540,410 660,392 C790,372 880,412 1000,398 C1080,388 1150,404 1200,396 L1200,620 L0,620 Z" fill="var(--hill-mid)" stroke="var(--ink)" stroke-width="2.5"/>
+    <path d="M40,432 C160,398 300,420 420,404" fill="none" stroke="var(--ink)" stroke-width="1" opacity="0.35"/>
+    <path d="M620,414 C740,392 860,424 980,406" fill="none" stroke="var(--ink)" stroke-width="1" opacity="0.35"/>
+
+    <!-- near hill (fox stands here) -->
+    <path d="M0,520 C140,470 260,500 380,478 C500,456 600,504 740,480 C860,460 980,500 1120,478 C1160,472 1180,476 1200,472 L1200,620 L0,620 Z" fill="var(--hill-near)" stroke="var(--ink)" stroke-width="3"/>
+
+    <!-- treeline, small ink pines -->
+    <g stroke="var(--ink)" stroke-width="2" fill="var(--hill-mid)">
+      <path d="M120,460 L134,420 L148,460 Z"/>
+      <path d="M150,466 L166,414 L182,466 Z"/>
+      <path d="M960,470 L974,432 L988,470 Z"/>
+      <path d="M990,474 L1008,424 L1026,474 Z"/>
+      <path d="M1030,470 L1044,436 L1058,470 Z"/>
+    </g>
+
+    <!-- seed-dot scatter -->
+    <g fill="var(--ink)" opacity="0.55">
+      <circle cx="220" cy="500" r="3.5"/>
+      <circle cx="270" cy="512" r="2.5"/>
+      <circle cx="340" cy="494" r="3"/>
+      <circle cx="760" cy="504" r="3"/>
+      <circle cx="820" cy="516" r="2.5"/>
+      <circle cx="880" cy="498" r="3.5"/>
+    </g>
+
+    <!-- the verified Sam Fox mark, on the ridge -->
+    <image data-icon-ink="../brand/assets/samfox-icon-verified-ink.png" data-icon-cream="../brand/assets/samfox-icon-verified-cream.png" href="../brand/assets/samfox-icon-verified-ink.png" x="522" y="352" width="76" height="76" />
+
+    <text x="560" y="452" class="mono" font-size="10.5" fill="var(--muted)" font-family="JetBrains Mono, monospace" text-anchor="middle">seedwave</text>
+  </svg>
+  <div class="plate-title">The Seedwave<br/>Atlas</div>
+</figure>
+<div class="plate-caption">
+  <span>Plate I — the ecosystem, mapped</span>
+  <span>the verified Sam Fox™ mark — not an approximation</span>
+</div>
+
+<section class="intro">
+  <div class="wrap">
+    <h1>What this document is</h1>
+    <p class="measure">This is the working index of the Banimal™ ecosystem — every system, worker, plugin, page, and repository that's real right now, listed against the one that's coming next. It reads like the documentation you'd expect from Cloudflare, Vercel, or GitHub: numbered entries, a status per row, a location you can go check yourself. The difference is that it's built around a hand-drawn brand instead of a company logo, and it answers to one master file instead of a style guide committee.</p>
+    <p class="measure">Two rules govern every row below. First, <strong>a system only earns a page number once it's been checked</strong> — read from the repository, not remembered from an earlier conversation. Second, <strong>status is honest</strong>: <span class="pill live" style="vertical-align:1px"><i></i>live</span> means it's running in a real repository today; <span class="pill draft" style="vertical-align:1px"><i></i>draft</span> means it exists as a file but isn't committed anywhere that matters yet; <span class="pill planned" style="vertical-align:1px"><i></i>planned</span> means it doesn't exist at all yet and is named here so it isn't reinvented twice.</p>
+    <div class="pull">The finding that reshaped this atlas mid-build: a plugin literally named <em>Banimal™ Ecosystem Connector</em> already ships from this repo, v5.0.0, live. It isn't the brand-alignment layer this atlas is building toward — it's a signed WooCommerce↔Worker commerce bridge — but the name collision is real, and the fix is one plugin with two modules, not two plugins.</div>
+  </div>
+</section>
+
+<section class="index">
+  <div class="wrap">
+    <h2>Index</h2>
+    <p class="measure">31 entries across seven sections, page-numbered in reading order. <code class="mono">heyns1000/banimal</code> is now the canonical home for entries 01–02 and 05–08 — the product and its documentation live where the product runs.</p>
+    <div class="legend">
+      <span><i style="background:var(--live)"></i>Live — running in a real repo</span>
+      <span><i style="background:var(--draft)"></i>Draft — file exists, not committed</span>
+      <span><i style="background:var(--planned)"></i>Planned — not built yet</span>
+      <span><i style="background:var(--muted)"></i>Reference — a document, not a service</span>
+      <span><i style="background:var(--archived)"></i>Archived — set aside, kept for record</span>
+    </div>
+
+    <div class="cat">
+      <h3>Sam Fox™ Brand System</h3>
+      <div class="tablewrap"><table>
+        <tr>
+          <td class="num">01</td>
+          <td class="name"><b>Sam Fox™ Core CI Guide Master</b><span class="loc mono">banimal / docs/brand/ci-guide.html</span></td>
+          <td class="desc">The single, exclusive master of the brand: verified palette, six-move fox-head construction, typography, and the compliance rules everything else here defers to. Originated in <span class="mono">samfox</span>, mirrored here as the canonical copy.</td>
+          <td class="status"><span class="pill reference"><i></i>reference</span></td>
+        </tr>
+        <tr>
+          <td class="num">02</td>
+          <td class="name"><b>Banimal™ Connector icon &amp; palette page</b><span class="loc mono">banimal / docs/brand/banimal-connector-icons.html</span></td>
+          <td class="desc">The fox-head icon rendered across all nine verified palette colours, cross-linked with the CI Guide.</td>
+          <td class="status"><span class="pill reference"><i></i>reference</span></td>
+        </tr>
+        <tr>
+          <td class="num">03</td>
+          <td class="name"><b>Heart of Her Hand</b><span class="loc mono">samfox / public/heart-of-her-hand/index.html</span></td>
+          <td class="desc">The copyright-intake pack for Samantha Schoeman: cover, jurisdiction map, minutes of meeting, filing questionnaire. Personal — stays in <span class="mono">samfox</span>, not mirrored into the commerce repo.</td>
+          <td class="status"><span class="pill live"><i></i>live</span></td>
+        </tr>
+        <tr>
+          <td class="num">04</td>
+          <td class="name"><b>Snakes &amp; Ladders board</b><span class="loc mono">samfox / public/heart-of-her-hand/snakes-and-ladders.html</span></td>
+          <td class="desc">Standalone illustrated board in the verified palette, built before the letter's own board section.</td>
+          <td class="status"><span class="pill reference"><i></i>reference</span></td>
+        </tr>
+      </table></div>
+    </div>
+
+    <div class="cat">
+      <h3>Banimal™ Connector — the product</h3>
+      <div class="tablewrap"><table>
+        <tr>
+          <td class="num">05</td>
+          <td class="name"><b>banimal-connector plugin</b><span class="loc mono">banimal / banimal-connector/.claude-plugin/plugin.json</span></td>
+          <td class="desc">The Claude Code plugin carrying entry 06. Moved here from <span class="mono">samfox</span> so the product and its documentation live where the product runs.</td>
+          <td class="status"><span class="pill live"><i></i>live</span></td>
+        </tr>
+        <tr>
+          <td class="num">06</td>
+          <td class="name"><b>samfox-ci-guide skill</b><span class="loc mono">banimal / banimal-connector/skills/samfox-ci-guide/SKILL.md</span></td>
+          <td class="desc">Entry 01's rules, ported into machine-readable instructions Claude checks brand work against.</td>
+          <td class="status"><span class="pill live"><i></i>live</span></td>
+        </tr>
+        <tr>
+          <td class="num">07</td>
+          <td class="name"><b>Banimal™ Ecosystem Connector — WordPress plugin</b><span class="loc mono">banimal / wordpress-plugin/banimal-ecosystem-connector</span></td>
+          <td class="desc">v5.0.0. A real, shipped plugin already named Connector — a thin, signed WooCommerce↔Worker client with no direct third-party calls. Solves commerce sync, not brand alignment; entry 06 belongs here as a module, not as a second plugin.</td>
+          <td class="status"><span class="pill live"><i></i>live</span></td>
+        </tr>
+        <tr>
+          <td class="num">08</td>
+          <td class="name"><b>wp-bridge Worker route</b><span class="loc mono">banimal / src/worker/routes/wp-bridge.ts</span></td>
+          <td class="desc">Zod-validated, signed ingestion for entry 07's events; maps WooCommerce order status onto a real state machine, idempotent via <span class="mono">wp_bridge_events</span>.</td>
+          <td class="status"><span class="pill live"><i></i>live</span></td>
+        </tr>
+        <tr>
+          <td class="num">09</td>
+          <td class="name"><b>GitHub omnidrop workflow</b><span class="loc mono">heyns1000 org-wide</span></td>
+          <td class="desc">The sweep that aligns brand assets across the whole GitHub estate. Its real home is entry 19, not a fresh build.</td>
+          <td class="status"><span class="pill planned"><i></i>planned</span></td>
+        </tr>
+        <tr>
+          <td class="num">10</td>
+          <td class="name"><b>Replit / cross-account sync</b><span class="loc mono">~150 apps, multiple accounts</span></td>
+          <td class="desc">Pull-based check-in from each app, fanning entry 06 out to Replit, Lovable, Bolt, Hercules, Accio.</td>
+          <td class="status"><span class="pill planned"><i></i>planned</span></td>
+        </tr>
+      </table></div>
+    </div>
+
+    <div class="cat">
+      <h3>Commerce infrastructure — heyns1000/banimal</h3>
+      <div class="tablewrap"><table>
+        <tr>
+          <td class="num">11</td>
+          <td class="name"><b>Banimal™ commerce Worker</b><span class="loc mono">banimal / src/worker/index.ts</span></td>
+          <td class="desc">Hono. Mounts licenses, Paystack payments, BobGo delivery/shipping, auth, notifications, analytics, coupons, email, giving, orders, and entry 08's wp-bridge.</td>
+          <td class="status"><span class="pill live"><i></i>live</span></td>
+        </tr>
+        <tr>
+          <td class="num">12</td>
+          <td class="name"><b>Banimal™ D1 tables</b><span class="loc mono">banimal / migrations</span></td>
+          <td class="desc">brands · brand_systems · brand_tiers behind /api/brands, /api/systems, /api/tiers — plus <span class="mono">wp_bridge_events</span> and <span class="mono">orders</span>, added for entry 08.</td>
+          <td class="status"><span class="pill live"><i></i>live</span></td>
+        </tr>
+        <tr>
+          <td class="num">13</td>
+          <td class="name"><b>Apple Pay verification Workers</b><span class="loc mono">banimal-global-loop / workers/applepay, banimal-applepay-verify</span></td>
+          <td class="desc">Two small standalone Workers handling Apple Pay merchant verification.</td>
+          <td class="status"><span class="pill live"><i></i>live</span></td>
+        </tr>
+      </table></div>
+    </div>
+
+    <div class="cat">
+      <h3>Seedwave — multi-brand routing</h3>
+      <div class="tablewrap"><table>
+        <tr>
+          <td class="num">14</td>
+          <td class="name"><b>seedwave-router Worker</b><span class="loc mono">banimal-global-loop / workers/seedwave-router/index.js</span></td>
+          <td class="desc">213 lines. Already resolves {brand}.seedwave.faa.zone and {brand}.faa.zone by hostname, then routes by pathname — the gap most drafts assume is still open.</td>
+          <td class="status"><span class="pill live"><i></i>live</span></td>
+        </tr>
+        <tr>
+          <td class="num">15</td>
+          <td class="name"><b>banimal-router Worker</b><span class="loc mono">banimal-global-loop / workers/banimal-router/index.js</span></td>
+          <td class="desc">475 lines, pathname-only. This is the router entry 14's brand context still needs to be wired into.</td>
+          <td class="status"><span class="pill live"><i></i>live</span></td>
+        </tr>
+        <tr>
+          <td class="num">16</td>
+          <td class="name"><b>seedwave-host-router.js</b><span class="loc mono">uploaded snapshot, not committed</span></td>
+          <td class="desc">A cleaner, KV-backed, unit-tested reimplementation of entry 14's job. Worth reconciling with entry 14, not adopting blind.</td>
+          <td class="status"><span class="pill draft"><i></i>draft</span></td>
+        </tr>
+        <tr>
+          <td class="num">17</td>
+          <td class="name"><b>ToyNest brand config</b><span class="loc mono">banimal-global-loop / configs/toynest.seedwave.json</span></td>
+          <td class="desc">A real per-brand config file, of the shape entries 14–16 all expect.</td>
+          <td class="status"><span class="pill live"><i></i>live</span></td>
+        </tr>
+      </table></div>
+    </div>
+
+    <div class="cat">
+      <h3>Governance</h3>
+      <div class="tablewrap"><table>
+        <tr>
+          <td class="num">18</td>
+          <td class="name"><b>Ecosystem Governance Sentinel (ACCIO)</b><span class="loc mono">ecosystem-governance-sentinel</span></td>
+          <td class="desc">Report-only drift-detection and approval-gated control plane for the whole GitHub estate. The real, already-scoped home for entry 09's omnidrop — default-deny, no mass dispatch until explicitly approved.</td>
+          <td class="status"><span class="pill definition"><i></i>definition stage</span></td>
+        </tr>
+      </table></div>
+    </div>
+
+    <div class="cat">
+      <h3>Repositories in reach</h3>
+      <div class="tablewrap"><table>
+        <tr><td class="num">19</td><td class="name"><b>heyns1000/banimal</b></td><td class="desc">Now the canonical home of the Banimal™ Connector product and its documentation — entries 01–02, 05–08, 11–13.</td><td class="status"><span class="pill live"><i></i>live</span></td></tr>
+        <tr><td class="num">20</td><td class="name"><b>heyns1000/payment</b></td><td class="desc">Payment and pricing surface pages: global checkout, master license pricing, VaultMesh hub.</td><td class="status"><span class="pill live"><i></i>live</span></td></tr>
+        <tr><td class="num">21</td><td class="name"><b>heyns1000/zerowaste.seedwave.faa.zone</b></td><td class="desc">Block Box™ — the zero-waste EPS cornice packaging patent site.</td><td class="status"><span class="pill live"><i></i>live</span></td></tr>
+        <tr><td class="num">22</td><td class="name"><b>Fruitful-Global-Planet/banimal-global-loop</b></td><td class="desc">The Workers backend — entries 13–17.</td><td class="status"><span class="pill live"><i></i>live</span></td></tr>
+        <tr><td class="num">23</td><td class="name"><b>Fruitful-Global-Planet/ecosystem-governance-sentinel</b></td><td class="desc">Entry 18.</td><td class="status"><span class="pill definition"><i></i>definition stage</span></td></tr>
+        <tr><td class="num">24</td><td class="name"><b>Fruitful-Global-Planet/fruitfulplanetchange</b></td><td class="desc">A Lovable-built app on a Supabase backend.</td><td class="status"><span class="pill live"><i></i>live</span></td></tr>
+        <tr><td class="num">25</td><td class="name"><b>Fruitful-Global-Planet/samfox</b></td><td class="desc">Personal Sam Fox materials — entries 03–04. Brand-system originals now mirrored into entry 19.</td><td class="status"><span class="pill live"><i></i>live</span></td></tr>
+      </table></div>
+    </div>
+
+    <div class="cat">
+      <h3>Open work</h3>
+      <div class="tablewrap"><table>
+        <tr>
+          <td class="num">26</td>
+          <td class="name"><b>samfox PR #1</b><span class="loc mono">Fruitful-Global-Planet/samfox#1</span></td>
+          <td class="desc">Heart of Her Hand pages plus the original Banimal™ Connector plugin commit.</td>
+          <td class="status"><span class="pill live"><i></i>merged</span></td>
+        </tr>
+        <tr>
+          <td class="num">27</td>
+          <td class="name"><b>banimal PR #16 — Connector docs &amp; plugin</b><span class="loc mono">heyns1000/banimal</span></td>
+          <td class="desc">This atlas, the CI Guide mirror, and the banimal-connector plugin, landing in the repo the product actually runs from.</td>
+          <td class="status"><span class="pill live"><i></i>merged</span></td>
+        </tr>
+        <tr>
+          <td class="num">28</td>
+          <td class="name"><b>banimal PR #17 — brand-guide endpoint</b><span class="loc mono">heyns1000/banimal</span></td>
+          <td class="desc">/api/brand-guide, the 9-theme palette toggle, and live icon serving (entries 07–08).</td>
+          <td class="status"><span class="pill live"><i></i>merged</span></td>
+        </tr>
+        <tr>
+          <td class="num">29</td>
+          <td class="name"><b>banimal PR #18 — CI Guide alignment</b><span class="loc mono">heyns1000/banimal</span></td>
+          <td class="desc">Diagram clear space, theme-aware icon/logo swap, the real Banimal™ logo, standardized footers. Merged without its final push landing — see entry 30.</td>
+          <td class="status"><span class="pill live"><i></i>merged</span></td>
+        </tr>
+        <tr>
+          <td class="num">30</td>
+          <td class="name"><b>banimal PR #19 — audit &amp; correction</b><span class="loc mono">heyns1000/banimal</span></td>
+          <td class="desc">Carries forward the fix that #18 didn't actually land, plus a cross-audit (a real overlap bug on this atlas's own hero, and a corrected palette in docs/connector-preview.html).</td>
+          <td class="status"><span class="pill open"><i></i>open</span></td>
+        </tr>
+        <tr>
+          <td class="num">31</td>
+          <td class="name"><b>18-part "Perplexity Spaces" dump</b><span class="loc mono">reviewed, not adopted wholesale</span></td>
+          <td class="desc">17 unbranded landing-page iterations plus one fake telemetry demo. Entry 16 is the only piece worth keeping from it.</td>
+          <td class="status"><span class="pill archived"><i></i>archived</span></td>
+        </tr>
+      </table></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fmark"><img src="../brand/assets/banimal-logo-ink.png" alt="Banimal™" /></div>
+    <div class="finfo">
+      <div class="tag">Seedwave Atlas · <b>31</b> entries · Sam Fox™ &amp; Banimal™ Connector</div>
+      <div class="copyright">© 2026 Fruitful Shops (Pty) Ltd · Artwork © Sam Fox™</div>
+    </div>
+    <div class="fsuper">Compiled 2026·08·30 — every entry checked against its repository, not recalled.</div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Sam Fox CI rule: the icon reverses to its cream render only on an ink
+  // (dark) background. This page's own dark mode is an ink background, so
+  // the hero mark needs to swap the same way automatically.
+  function pageIsDark() {
+    var explicit = document.documentElement.getAttribute('data-theme');
+    if (explicit === 'dark') return true;
+    if (explicit === 'light') return false;
+    return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  }
+  function applyIconTheme() {
+    var dark = pageIsDark();
+    document.querySelectorAll('[data-icon-ink]').forEach(function (el) {
+      var src = dark ? el.getAttribute('data-icon-cream') : el.getAttribute('data-icon-ink');
+      if (el.tagName.toLowerCase() === 'image') el.setAttribute('href', src);
+      else el.setAttribute('src', src);
+    });
+  }
+  applyIconTheme();
+  if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyIconTheme);
+  }
+})();
+</script>

@@ -10,6 +10,9 @@ import analytics from './routes/analytics'
 import coupons from './routes/coupons'
 import email from './routes/email'
 import giving from './routes/giving'
+import orders from './routes/orders'
+import wpBridge from './routes/wp-bridge'
+import brandGuide from './routes/brand-guide'
 
 const app = new Hono<{ Bindings: Env }>()
 
@@ -35,11 +38,28 @@ app.route('/api/payments', payments)
 // Enhanced storefront routes
 app.route('/api/auth', auth)
 app.route('/api/delivery', delivery)
+// The deployed frontend bundle calls /api/shipping/rates (not /api/delivery/rates),
+// so BobGo rates were 404ing at checkout. Mount the same handler at both paths
+// rather than touching the built bundle.
+app.route('/api/shipping', delivery)
 app.route('/api/notifications', notifications)
 app.route('/api/analytics', analytics)
 app.route('/api/coupons', coupons)
 app.route('/api/email', email)
 app.route('/api/giving', giving)
+app.route('/api/orders', orders)
+
+// WordPress plugin bridge — signed events from the thin-client connector.
+// The plugin never calls Paystack/BobGo/GitHub directly; this is the only
+// path it has into the Worker. See wordpress-plugin/banimal-ecosystem-connector/.
+app.route('/api/wp', wpBridge)
+
+// Sam Fox™ CI Guide, machine-readable — the single source every brand-facing
+// consumer (the WordPress connector's brand module, the banimal-connector
+// Claude Code skill, any future adapter) pulls from instead of holding its
+// own copy. Public, unauthenticated, read-only. See docs/brand/ci-guide.html
+// for the human-readable master this mirrors.
+app.route('/api/brand-guide', brandGuide)
 
 // Health check
 app.get('/api/health', (c) =>
