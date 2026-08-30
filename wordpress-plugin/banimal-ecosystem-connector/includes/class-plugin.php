@@ -10,6 +10,7 @@ class Banimal_Plugin {
     private $woocommerce_bridge;
     private $diagnostics;
     private $id_finder;
+    private $brand_guide;
 
     public static function instance() {
         if (self::$instance === null) {
@@ -29,6 +30,7 @@ class Banimal_Plugin {
         $this->woocommerce_bridge = new Banimal_WooCommerce_Bridge($this->worker_client);
         $this->diagnostics = new Banimal_Admin_Diagnostics($this->worker_client);
         $this->id_finder = new Banimal_Id_Finder();
+        $this->brand_guide = new Banimal_Brand_Guide($this->worker_client);
 
         add_action('admin_menu', [$this, 'add_admin_menu']);
     }

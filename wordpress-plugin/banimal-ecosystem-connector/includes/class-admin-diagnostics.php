@@ -31,36 +31,49 @@ class Banimal_Admin_Diagnostics {
                 <?php esc_html_e('Check Worker Health', 'banimal-ecosystem-connector'); ?>
             </button>
             <pre id="banimal-health-result" style="margin-top:16px;padding:12px;background:#f0f0f1;display:none;white-space:pre-wrap;"></pre>
+
+            <h2 style="margin-top:32px;"><?php esc_html_e('Sam Fox™ CI Guide', 'banimal-ecosystem-connector'); ?></h2>
+            <p><?php esc_html_e('Confirms this site is pulling live brand tokens (palette, icon rules) from the Worker, not a stale local copy.', 'banimal-ecosystem-connector'); ?></p>
+            <button type="button" class="button button-primary" id="banimal-check-brand-guide">
+                <?php esc_html_e('Check Brand Guide', 'banimal-ecosystem-connector'); ?>
+            </button>
+            <pre id="banimal-brand-guide-result" style="margin-top:16px;padding:12px;background:#f0f0f1;display:none;white-space:pre-wrap;"></pre>
         </div>
         <script>
         (function () {
-            var btn = document.getElementById('banimal-check-health');
-            var out = document.getElementById('banimal-health-result');
             var ajaxUrl = <?php echo wp_json_encode($ajax_url); ?>;
             var nonce = <?php echo wp_json_encode($nonce); ?>;
 
-            btn.addEventListener('click', function () {
-                out.style.display = 'block';
-                out.textContent = <?php echo wp_json_encode(__('Checking...', 'banimal-ecosystem-connector')); ?>;
+            function wireCheck(buttonId, outId, action) {
+                var btn = document.getElementById(buttonId);
+                var out = document.getElementById(outId);
 
-                var params = new URLSearchParams();
-                params.append('action', 'banimal_check_health');
-                params.append('nonce', nonce);
+                btn.addEventListener('click', function () {
+                    out.style.display = 'block';
+                    out.textContent = <?php echo wp_json_encode(__('Checking...', 'banimal-ecosystem-connector')); ?>;
 
-                fetch(ajaxUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: params.toString(),
-                    credentials: 'same-origin'
-                })
-                .then(function (r) { return r.json(); })
-                .then(function (data) {
-                    out.textContent = JSON.stringify(data, null, 2);
-                })
-                .catch(function (err) {
-                    out.textContent = 'Request failed: ' + err.message;
+                    var params = new URLSearchParams();
+                    params.append('action', action);
+                    params.append('nonce', nonce);
+
+                    fetch(ajaxUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: params.toString(),
+                        credentials: 'same-origin'
+                    })
+                    .then(function (r) { return r.json(); })
+                    .then(function (data) {
+                        out.textContent = JSON.stringify(data, null, 2);
+                    })
+                    .catch(function (err) {
+                        out.textContent = 'Request failed: ' + err.message;
+                    });
                 });
-            });
+            }
+
+            wireCheck('banimal-check-health', 'banimal-health-result', 'banimal_check_health');
+            wireCheck('banimal-check-brand-guide', 'banimal-brand-guide-result', 'banimal_check_brand_guide');
         })();
         </script>
         <?php
