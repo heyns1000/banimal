@@ -1,0 +1,342 @@
+<title>Banimal Connector Manual</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Georgia&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#231F20; --cream:#FBF4E4; --artcream:#F0EEDA; --paper:#FFFFFF;
+    --rule:#DED5BE; --muted:#6B655A;
+    --sage:#577D60; --sage-soft:#E4EEE6;
+    --coral:#F16B6E; --coral-soft:#FCE7E7;
+    --dustyrose:#B95F56;
+    --teal:#1E9F97; --teal-soft:#E1F0EE;
+    --red:#E63946; --red-soft:#FBE4E5;
+    --sidebar-w:250px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#EDE7DA; --cream:#1B1A17; --artcream:#232019; --paper:#201D18;
+      --rule:#3A362E; --muted:#B3AA98;
+      --sage:#8FB89A; --sage-soft:#23302A;
+      --coral:#E2938B; --coral-soft:#332521;
+      --dustyrose:#E2938B;
+      --teal:#7FC9C2; --teal-soft:#1E2E2C;
+      --red:#E2938B; --red-soft:#332521;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#EDE7DA; --cream:#1B1A17; --artcream:#232019; --paper:#201D18;
+    --rule:#3A362E; --muted:#B3AA98;
+    --sage:#8FB89A; --sage-soft:#23302A;
+    --coral:#E2938B; --coral-soft:#332521;
+    --dustyrose:#E2938B;
+    --teal:#7FC9C2; --teal-soft:#1E2E2C;
+    --red:#E2938B; --red-soft:#332521;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--cream); color:var(--ink);
+    font-family:Georgia,'Times New Roman',serif; line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--coral); color:var(--paper); }
+  .mono{ font-family:'JetBrains Mono',Menlo,Consolas,monospace; }
+  h1,h2,h3{ font-family:'Baloo 2',sans-serif; text-wrap:balance; letter-spacing:-.01em; }
+  a{ color:var(--dustyrose); }
+  code{ font-family:'JetBrains Mono',Menlo,monospace; font-size:.9em; background:var(--artcream); padding:1px 6px; border-radius:5px; }
+  pre{ font-family:'JetBrains Mono',Menlo,monospace; font-size:12.5px; line-height:1.7; background:var(--ink); color:var(--cream); padding:16px 18px; border-radius:12px; overflow-x:auto; }
+  pre code{ background:none; padding:0; color:inherit; }
+
+  .shell{ display:flex; max-width:1180px; margin:0 auto; }
+
+  /* ---- sidebar ---- */
+  .sidebar{
+    width:var(--sidebar-w); flex:none; position:sticky; top:0; align-self:flex-start;
+    height:100vh; overflow-y:auto; padding:28px 20px 40px; border-right:1px solid var(--rule);
+  }
+  .sidebar .brand{ font-family:'Baloo 2',sans-serif; font-weight:700; font-size:15px; margin-bottom:4px; display:flex; align-items:center; gap:8px; }
+  .sidebar .brand img{ width:22px; height:22px; }
+  .sidebar .ver{ font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--muted); margin-bottom:26px; display:block; }
+  .navgroup{ margin-bottom:22px; }
+  .navgroup .label{ font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+  .navgroup a{
+    display:block; font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--ink); text-decoration:none;
+    padding:5px 0; border-left:2px solid transparent; padding-left:10px; margin-left:-10px;
+  }
+  .navgroup a:hover{ border-left-color:var(--coral); color:var(--dustyrose); }
+  @media (max-width:900px){ .sidebar{ display:none; } }
+
+  /* ---- main ---- */
+  main{ flex:1; min-width:0; padding:40px 44px 100px; }
+  @media (max-width:640px){ main{ padding:28px 20px 80px; } }
+
+  .doctitle{ margin-bottom:6px; }
+  .doctitle h1{ font-size:clamp(1.8rem,3.6vw,2.4rem); margin:0 0 8px; }
+  .doc-sub{ color:var(--muted); font-size:15.5px; max-width:64ch; margin:0 0 34px; }
+
+  section{ padding:38px 0; border-top:1px solid var(--rule); scroll-margin-top:20px; }
+  section:first-of-type{ border-top:none; padding-top:0; }
+  .part-eyebrow{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--dustyrose); margin-bottom:10px; }
+  h2{ font-size:clamp(1.4rem,2.8vw,1.8rem); margin:0 0 14px; }
+  h3{ font-size:17px; margin:26px 0 10px; }
+  p{ max-width:70ch; font-size:15px; }
+  ul,ol{ max-width:68ch; font-size:15px; padding-left:22px; }
+  li{ margin:6px 0; }
+
+  .status-pill{
+    display:inline-flex; align-items:center; gap:6px; font-family:'JetBrains Mono',monospace; font-size:10.5px;
+    letter-spacing:.05em; text-transform:uppercase; padding:3px 10px; border-radius:100px; margin-left:8px; vertical-align:2px;
+  }
+  .status-pill i{ width:6px; height:6px; border-radius:50%; display:inline-block; }
+  .status-pill.live{ background:var(--sage-soft); color:var(--sage); } .status-pill.live i{ background:var(--sage); }
+  .status-pill.planned{ background:var(--teal-soft); color:var(--teal); } .status-pill.planned i{ background:var(--teal); }
+
+  .steps{ list-style:none; margin:18px 0; padding:0; counter-reset:step; }
+  .steps li{ counter-increment:step; position:relative; padding:2px 0 20px 42px; max-width:66ch; }
+  .steps li::before{
+    content:counter(step); position:absolute; left:0; top:0; width:28px; height:28px; border-radius:50%;
+    background:var(--ink); color:var(--cream); font-family:'JetBrains Mono',monospace; font-size:12.5px;
+    display:flex; align-items:center; justify-content:center; font-weight:600;
+  }
+  .steps b{ display:block; margin-bottom:4px; font-size:15px; }
+
+  .field-table{ width:100%; border-collapse:collapse; margin:16px 0 24px; font-size:13.5px; }
+  .field-table th{ text-align:left; font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); border-bottom:1px solid var(--rule); padding:8px 10px 8px 0; }
+  .field-table td{ padding:10px 10px 10px 0; border-bottom:1px solid var(--rule); vertical-align:top; }
+  .field-table code{ white-space:nowrap; }
+
+  .callout{ border-radius:14px; padding:16px 20px; margin:20px 0; max-width:68ch; font-size:14px; }
+  .callout.note{ background:var(--artcream); border-left:3px solid var(--dustyrose); }
+  .callout.warn{ background:var(--red-soft); border-left:3px solid var(--red); }
+  .callout b{ display:block; margin-bottom:4px; font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; }
+  .callout.note b{ color:var(--dustyrose); }
+  .callout.warn b{ color:var(--red); }
+
+  .theme-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px; margin:18px 0 24px; max-width:760px; }
+  .theme-chip{ border:1px solid var(--rule); border-radius:12px; padding:10px 12px; display:flex; align-items:center; gap:10px; }
+  .theme-chip .dot{ width:22px; height:22px; border-radius:50%; border:1px solid var(--rule); flex:none; }
+  .theme-chip .id{ font-family:'JetBrains Mono',monospace; font-size:11.5px; }
+  .theme-chip .hex{ font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--muted); display:block; }
+
+  .endpoint{ display:flex; align-items:baseline; gap:10px; font-family:'JetBrains Mono',monospace; font-size:13px; margin:4px 0; flex-wrap:wrap; }
+  .method{ font-weight:700; font-size:11px; padding:2px 8px; border-radius:6px; }
+  .method.get{ background:var(--sage-soft); color:var(--sage); }
+  .method.post{ background:var(--coral-soft); color:var(--dustyrose); }
+
+  .faq dt{ font-weight:700; margin-top:18px; }
+  .faq dd{ margin:6px 0 0; color:var(--muted); max-width:66ch; font-size:14.5px; }
+
+  footer{ border-top:1px solid var(--rule); padding:30px 0; margin-top:20px; }
+  footer p{ font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--muted); letter-spacing:.04em; text-transform:uppercase; }
+</style>
+
+<div class="shell">
+  <nav class="sidebar">
+    <div class="brand"><img src="../brand/assets/samfox-icon-verified-ink.png" alt="" /> Banimal Connector</div>
+    <span class="ver">Manual · v5.1.0</span>
+
+    <div class="navgroup">
+      <div class="label">Start here</div>
+      <a href="#overview">Overview</a>
+    </div>
+    <div class="navgroup">
+      <div class="label">WordPress</div>
+      <a href="#wp-install">Install &amp; activate</a>
+      <a href="#wp-configure">Configure the connection</a>
+      <a href="#wp-verify">Verify it's working</a>
+      <a href="#wp-brand">The brand module</a>
+      <a href="#wp-troubleshoot">Troubleshooting</a>
+    </div>
+    <div class="navgroup">
+      <div class="label">Claude Code</div>
+      <a href="#claude-install">Install the plugin</a>
+      <a href="#claude-verify">Verify it loaded</a>
+    </div>
+    <div class="navgroup">
+      <div class="label">Other environments</div>
+      <a href="#other-envs">Replit, Lovable, Bolt &amp; co.</a>
+    </div>
+    <div class="navgroup">
+      <div class="label">Reference</div>
+      <a href="#api-reference">API reference</a>
+      <a href="#themes">The 9 themes</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="doctitle">
+      <div class="part-eyebrow">wordpress-plugin/banimal-ecosystem-connector · v5.1.0</div>
+      <h1>Banimal Connector Manual</h1>
+    </div>
+    <p class="doc-sub">Everything needed to install, configure, and verify the Connector — on a WordPress site today, in a Claude Code profile today, and on every other environment it's headed to next. Every step below matches the real, shipped code; nothing here is aspirational unless it's marked <span class="status-pill planned"><i></i>planned</span>.</p>
+
+    <section id="overview">
+      <h2>Overview</h2>
+      <p>Banimal Connector is one product doing two jobs through a single thin client: it relays WooCommerce order events to the Banimal Cloudflare Worker, and it pulls the verified Sam Fox™ CI Guide from that same Worker to keep a site's brand tokens correct automatically. Nothing about payments, delivery, or brand assets is ever stored twice — the Worker is the one place that holds the truth, and every connected surface reads from it.</p>
+      <p>This manual covers it in the two places it actually runs today, and where it's headed next:</p>
+      <ul>
+        <li><b>WordPress</b> — the real plugin, installable now.</li>
+        <li><b>Claude Code</b> — the <code>samfox-ci-guide</code> skill, installable now, so any Claude session applies the same brand rules.</li>
+        <li><b>Everywhere else</b> — Replit, Lovable, Bolt, and similar — not built yet. Documented honestly as a roadmap, not a feature.</li>
+      </ul>
+      <p style="font-size:13.5px;color:var(--muted);">See also: the <a href="../../wordpress-plugin/banimal-ecosystem-connector/landing.html">product page</a> for the pitch, or the <a href="../atlas/seedwave-atlas.html">Seedwave Atlas</a> for how this fits into the wider ecosystem.</p>
+    </section>
+
+    <section id="wp-install">
+      <div class="part-eyebrow">WordPress · Part 1</div>
+      <h2>Install &amp; activate</h2>
+      <ol class="steps">
+        <li><b>Check requirements.</b>WordPress 5.9 or later, PHP 7.4 or later.</li>
+        <li><b>Copy the plugin folder.</b>Place <code>wordpress-plugin/banimal-ecosystem-connector/</code> into your site's <code>wp-content/plugins/</code> directory.</li>
+        <li><b>Activate it.</b>Plugins → Installed Plugins → Banimal Ecosystem Connector → Activate. A new "Banimal" menu appears in the admin sidebar.</li>
+      </ol>
+      <div class="callout warn">
+        <b>Before you configure a secret</b>
+        The plugin refuses to store or use a signing secret unless your site has a real <code>AUTH_KEY</code> defined in <code>wp-config.php</code> — 32+ characters, not the default <code>put your unique phrase here</code> placeholder. This is enforced, not a suggestion; the Configuration page shows an error banner until it's fixed.
+      </div>
+    </section>
+
+    <section id="wp-configure">
+      <div class="part-eyebrow">WordPress · Part 2</div>
+      <h2>Configure the connection</h2>
+      <p>Banimal → Configuration. Two fields — nothing else is ever stored here:</p>
+      <table class="field-table">
+        <tr><th>Field</th><th>What it is</th></tr>
+        <tr><td><code>Worker API Base URL</code></td><td>The Cloudflare Worker's URL, e.g. <code>https://banimal-worker.example.workers.dev</code>.</td></tr>
+        <tr><td><code>Signing Secret</code></td><td>The shared HMAC-SHA256 secret. Leaving this blank on save keeps whatever is already stored — it's never re-encrypted from an empty value.</td></tr>
+      </table>
+      <p>On the Worker side, the matching secret is set once with:</p>
+      <pre><code>wrangler secret put WP_BRIDGE_SECRET</code></pre>
+      <div class="callout note">
+        <b>What this plugin never stores</b>
+        No Paystack key, no BobGo credential, no GitHub token, no Google Drive credential. Those live exclusively behind the Worker — this plugin holds only the base URL and the one shared secret above.
+      </div>
+    </section>
+
+    <section id="wp-verify">
+      <div class="part-eyebrow">WordPress · Part 3</div>
+      <h2>Verify it's working</h2>
+      <p>Banimal → Diagnostics has two live checks, each hitting the real Worker — never a cached or simulated result:</p>
+      <ul>
+        <li><b>Check Worker Health</b> — calls the Worker's <code>/api/health</code> and shows the raw response.</li>
+        <li><b>Check Brand Guide</b> — calls <code>/api/brand-guide</code> live (bypassing the plugin's own cache) and shows the current palette and themes.</li>
+      </ul>
+      <p>If you run WooCommerce, change any order's status and confirm a new row appears in the Worker's <code>wp_bridge_events</code> table — that's the signed event pipeline working end to end.</p>
+    </section>
+
+    <section id="wp-brand">
+      <div class="part-eyebrow">WordPress · Part 4</div>
+      <h2>The brand module</h2>
+      <p>Once configured, every front-end page gets a small, automatic addition to <code>&lt;head&gt;</code> — no theme edits required:</p>
+      <pre><code>&lt;style id="banimal-brand-tokens"&gt;
+:root{
+  --banimal-ink:#231F20;
+  --banimal-cream:#FBF4E4;
+  --banimal-sage:#577D60;
+  --banimal-coral:#F16B6E;
+  /* ...the full verified palette */
+}
+&lt;/style&gt;</code></pre>
+      <p>Build theme CSS against these variables and the colors stay correct automatically — if the master guide is ever revised, every connected site picks it up within the hour instead of waiting on a manual palette update.</p>
+      <p>This is cached for one hour per site (WordPress transient) and re-fetched automatically. If the Worker is unreachable, the module is a silent no-op — it will never be the reason a page fails to load.</p>
+    </section>
+
+    <section id="wp-troubleshoot">
+      <div class="part-eyebrow">WordPress · Part 5</div>
+      <h2>Troubleshooting</h2>
+      <dl class="faq">
+        <dt>The Signing Secret field is disabled and won't accept input.</dt>
+        <dd>Your <code>AUTH_KEY</code> in <code>wp-config.php</code> is missing, too short, or still the default placeholder. Fix that first — this is a fail-closed guard, not a bug.</dd>
+        <dt>Brand tokens aren't appearing in the page source.</dt>
+        <dd>Confirm the Worker Base URL is set and reachable via "Check Brand Guide" in Diagnostics. If that check succeeds but tokens still don't appear, clear the <code>banimal_brand_guide_cache</code> transient and reload.</dd>
+        <dt>Order status changes aren't reaching the Worker.</dt>
+        <dd>The WooCommerce bridge only registers its hooks when WooCommerce is active — confirm it's installed and active, then re-check the signing secret matches on both sides.</dd>
+      </dl>
+    </section>
+
+    <section id="claude-install">
+      <div class="part-eyebrow">Claude Code · Part 1</div>
+      <h2>Install the plugin</h2>
+      <p>The same CI Guide rules the WordPress module applies to a theme are available to any Claude Code session, in three ways — pick whichever fits how you work:</p>
+      <h3>As a plugin (recommended — versioned, works across machines)</h3>
+      <pre><code>claude plugin marketplace add /absolute/path/to/banimal-connector
+claude plugin install banimal-connector</code></pre>
+      <h3>As a project skill (this repo only)</h3>
+      <pre><code>mkdir -p .claude/skills
+cp -r banimal-connector/skills/samfox-ci-guide .claude/skills/</code></pre>
+      <h3>As a personal skill (every session, every repo, one machine)</h3>
+      <pre><code>mkdir -p ~/.claude/skills
+cp -r /path/to/banimal-connector/skills/samfox-ci-guide ~/.claude/skills/</code></pre>
+    </section>
+
+    <section id="claude-verify">
+      <div class="part-eyebrow">Claude Code · Part 2</div>
+      <h2>Verify it loaded</h2>
+      <p>Ask Claude directly — e.g. "check this against the Sam Fox CI Guide" or "what's the verified palette?" — and it should answer from <code>skills/samfox-ci-guide/SKILL.md</code> rather than guessing from training data: the 9-color palette, the six-move fox-head construction rules, and the wordmark rule that the "o" in "fox" is always the icon, never a typed letter.</p>
+    </section>
+
+    <section id="other-envs">
+      <div class="part-eyebrow">Roadmap</div>
+      <h2>Replit, Lovable, Bolt &amp; co. <span class="status-pill planned"><i></i>planned</span></h2>
+      <p>Nothing is built for these yet — this section exists so the pattern is decided once, not reinvented per platform when the time comes. Every future adapter follows the same shape as the two that already exist:</p>
+      <ol class="steps">
+        <li><b>Pull, never push.</b>The adapter fetches <code>GET /api/brand-guide</code> itself; the Worker never needs inbound access to Replit, Lovable, or any other builder.</li>
+        <li><b>No local copy of the truth.</b>Palette and icon come from the Worker every time (with a short cache, matching the WordPress module's one-hour transient) — never hand-copied into the app's own source.</li>
+        <li><b>Same two icon files.</b><code>/api/brand-guide/icon/ink.png</code> and <code>.../cream.png</code> are the only fox-head assets any adapter should ever reference.</li>
+      </ol>
+      <p>Building one of these adapters means implementing exactly this fetch-and-apply loop for that platform's own theming or component system — not designing a new protocol.</p>
+    </section>
+
+    <section id="api-reference">
+      <div class="part-eyebrow">Reference</div>
+      <h2>API reference</h2>
+      <p>All three endpoints below are served by the same Banimal Worker your <code>Worker API Base URL</code> points to.</p>
+      <div class="endpoint"><span class="method get">GET</span> /api/brand-guide</div>
+      <p>Public, unauthenticated. Returns the palette, the 9 themes, icon URLs, typography, and compliance text as JSON. Cache-Control: 1 hour.</p>
+      <div class="endpoint"><span class="method get">GET</span> /api/brand-guide/icon/ink.png</div>
+      <div class="endpoint"><span class="method get">GET</span> /api/brand-guide/icon/cream.png</div>
+      <p>Public, unauthenticated. The verified fox-head mark as PNG bytes. Cache-Control: 24 hours.</p>
+      <div class="endpoint"><span class="method post">POST</span> /api/wp/events</div>
+      <p>Requires an <code>X-Banimal-Signature</code> header (HMAC-SHA256 over the raw body). Used by the WordPress WooCommerce bridge only — not for direct use.</p>
+    </section>
+
+    <section id="themes">
+      <div class="part-eyebrow">Reference</div>
+      <h2>The 9 themes</h2>
+      <p>Exactly what <code>GET /api/brand-guide</code> returns in its <code>themes</code> array. Only <code>ink</code> reverses the icon to its cream render — every other background keeps the ink render legible.</p>
+      <div class="theme-grid">
+        <div class="theme-chip"><span class="dot" style="background:#231F20"></span><span><span class="id">ink</span><span class="hex">#231F20 · icon: cream</span></span></div>
+        <div class="theme-chip"><span class="dot" style="background:#577D60"></span><span><span class="id">sage</span><span class="hex">#577D60 · icon: ink</span></span></div>
+        <div class="theme-chip"><span class="dot" style="background:#A7DACB"></span><span><span class="id">mint</span><span class="hex">#A7DACB · icon: ink</span></span></div>
+        <div class="theme-chip"><span class="dot" style="background:#F16B6E"></span><span><span class="id">coral</span><span class="hex">#F16B6E · icon: ink</span></span></div>
+        <div class="theme-chip"><span class="dot" style="background:#B95F56"></span><span><span class="id">dustyrose</span><span class="hex">#B95F56 · icon: ink</span></span></div>
+        <div class="theme-chip"><span class="dot" style="background:#F0EEDA"></span><span><span class="id">artcream</span><span class="hex">#F0EEDA · icon: ink</span></span></div>
+        <div class="theme-chip"><span class="dot" style="background:#1E9F97"></span><span><span class="id">teal</span><span class="hex">#1E9F97 · icon: ink</span></span></div>
+        <div class="theme-chip"><span class="dot" style="background:#E63946"></span><span><span class="id">red</span><span class="hex">#E63946 · icon: ink</span></span></div>
+        <div class="theme-chip"><span class="dot" style="background:#FBF4E4;border-color:var(--ink)"></span><span><span class="id">cream</span><span class="hex">#FBF4E4 · icon: ink (default)</span></span></div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="part-eyebrow">Reference</div>
+      <h2>FAQ</h2>
+      <dl class="faq">
+        <dt>Do I need WooCommerce to use this plugin?</dt>
+        <dd>No. The brand module works on any WordPress site. The commerce bridge simply does nothing until WooCommerce is active.</dd>
+        <dt>Is the brand guide endpoint safe to call from anywhere?</dt>
+        <dd>Yes — it's public and unauthenticated by design. Palette and icon rules aren't secrets; only order events require signing.</dd>
+        <dt>What happens if Sam Fox revises the CI Guide?</dt>
+        <dd>Update <code>docs/brand/ci-guide.html</code> and the matching values in <code>src/worker/routes/brand-guide.ts</code>. Every connected WordPress site picks up the change within an hour; no plugin update required.</dd>
+        <dt>Can I use this outside the Banimal/Fruitful ecosystem?</dt>
+        <dd>The commerce bridge is specific to this Worker. The brand-guide pattern — pull tokens and an icon from one endpoint — is general and is exactly what a future non-WordPress adapter would reuse.</dd>
+      </dl>
+    </section>
+
+    <footer>
+      <p>Banimal Connector Manual · v5.1.0 · heyns1000/banimal</p>
+    </footer>
+  </main>
+</div>
