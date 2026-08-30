@@ -49,6 +49,26 @@
   pre{ font-family:'JetBrains Mono',Menlo,monospace; font-size:12.5px; line-height:1.7; background:var(--ink); color:var(--cream); padding:16px 18px; border-radius:12px; overflow-x:auto; }
   pre code{ background:none; padding:0; color:inherit; }
 
+  .utilitybar{
+    position: sticky; top: 0; z-index: 40; background: var(--cream);
+    border-bottom: 1px solid var(--rule); backdrop-filter: blur(6px);
+  }
+  .utilitybar .inner{
+    max-width: 1180px; margin: 0 auto; padding: 12px 28px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  }
+  .crumb{ display: inline-flex; align-items: center; gap: 7px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: .02em; color: var(--muted); }
+  .crumb img{ height: 14px; width: auto; vertical-align: -2px; }
+  .crumb .banimal-logo{ height: 11px; }
+  .crumb b{ color: var(--ink); font-weight: 600; }
+  .crumb a{ color: inherit; text-decoration: none; }
+  .crumb a:hover{ color: var(--dustyrose); }
+  .rev-pill{
+    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: .04em;
+    color: var(--sage); background: var(--sage-soft); border: 1px solid var(--rule);
+    border-radius: 100px; padding: 3px 10px; white-space: nowrap;
+  }
+
   .shell{ display:flex; max-width:1180px; margin:0 auto; }
 
   /* ---- sidebar ---- */
@@ -145,6 +165,13 @@
     footer .finfo, footer .fsuper{ text-align:left; }
   }
 </style>
+
+<div class="utilitybar">
+  <div class="inner">
+    <span class="crumb"><img data-icon-ink="../brand/assets/samfox-icon-verified-ink.png" data-icon-cream="../brand/assets/samfox-icon-verified-cream.png" src="../brand/assets/samfox-icon-verified-ink.png" alt="" /> <b>Sam Fox™</b> / <img class="banimal-logo" data-icon-ink="../brand/assets/banimal-logo-ink.png" data-icon-cream="../brand/assets/banimal-logo-white.png" src="../brand/assets/banimal-logo-ink.png" alt="Banimal™" /> Connector Manual</span>
+    <span class="rev-pill">rev 2026-08-30</span>
+  </div>
+</div>
 
 <div class="shell">
   <nav class="sidebar">
