@@ -12,6 +12,7 @@ import email from './routes/email'
 import giving from './routes/giving'
 import orders from './routes/orders'
 import wpBridge from './routes/wp-bridge'
+import brandGuide from './routes/brand-guide'
 
 const app = new Hono<{ Bindings: Env }>()
 
@@ -52,6 +53,13 @@ app.route('/api/orders', orders)
 // The plugin never calls Paystack/BobGo/GitHub directly; this is the only
 // path it has into the Worker. See wordpress-plugin/banimal-ecosystem-connector/.
 app.route('/api/wp', wpBridge)
+
+// Sam Fox™ CI Guide, machine-readable — the single source every brand-facing
+// consumer (the WordPress connector's brand module, the banimal-connector
+// Claude Code skill, any future adapter) pulls from instead of holding its
+// own copy. Public, unauthenticated, read-only. See docs/brand/ci-guide.html
+// for the human-readable master this mirrors.
+app.route('/api/brand-guide', brandGuide)
 
 // Health check
 app.get('/api/health', (c) =>

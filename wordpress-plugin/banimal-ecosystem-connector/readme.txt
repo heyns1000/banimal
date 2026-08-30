@@ -4,7 +4,7 @@ Tags: banimal, woocommerce, cloudflare
 Requires at least: 5.9
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 5.0.0
+Stable tag: 5.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,6 +22,19 @@ See wordpress-plugin/banimal-ecosystem-connector/legacy/README.md for why
 this is a full rewrite rather than a patch of the 4.7.x line.
 
 == Changelog ==
+
+= 5.1.0 =
+* Added the Sam Fox™ CI Guide brand module (`class-brand-guide.php`): pulls
+  the verified palette and icon rules from the Worker's public
+  `/api/brand-guide` endpoint and prints them as CSS custom properties
+  (`--banimal-sage`, `--banimal-coral`, etc.) on every front-end page, so a
+  theme can build against live brand tokens instead of a hardcoded hex a
+  designer copied once.
+* No secret required for this endpoint — it is not sensitive data — and no
+  page ever fails to render if the Worker is unreachable; the module is
+  silent and inert in that case.
+* Added a "Check Brand Guide" button to Diagnostics, alongside the existing
+  Worker health check.
 
 = 5.0.0 =
 * Full rewrite as a thin, signed client to the Banimal Cloudflare Worker.
