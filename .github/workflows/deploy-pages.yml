@@ -1,0 +1,42 @@
+name: Deploy docs to GitHub Pages
+
+# Publishes docs/ (the CI Guide, Connector icon studio, Connector preview,
+# Seedwave Atlas, and user manual) as a live site, so any of these pages can
+# be opened by URL instead of only rendered locally. One-time setup required
+# before this workflow can succeed: in this repo's Settings -> Pages, set
+# "Source" to "GitHub Actions" (that toggle isn't reachable from the API
+# this workflow runs under, so it has to be flipped by hand once).
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Upload docs/ as the Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

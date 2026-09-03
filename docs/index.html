@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banimal™ Docs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:#231F20; --cream:#FBF4E4; --artcream:#F0EEDA; --paper:#FFFFFF;
+    --rule:#DED5BE; --muted:#6B655A;
+    --sage:#577D60; --sage-soft:#E4EEE6;
+    --coral:#F16B6E; --coral-soft:#FCE7E7;
+    --dustyrose:#B95F56;
+    --teal:#1E9F97; --teal-soft:#E1F0EE;
+    --shadow: 0 1px 2px rgba(35,31,32,0.06), 0 6px 20px rgba(35,31,32,0.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink:#EDE7DA; --cream:#1B1A17; --artcream:#232019; --paper:#201D18;
+      --rule:#3A362E; --muted:#B3AA98;
+      --sage:#8FB89A; --sage-soft:#23302A;
+      --coral:#E2938B; --coral-soft:#332521;
+      --dustyrose:#E2938B;
+      --teal:#7FC9C2; --teal-soft:#1E2E2C;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink:#EDE7DA; --cream:#1B1A17; --artcream:#232019; --paper:#201D18;
+    --rule:#3A362E; --muted:#B3AA98;
+    --sage:#8FB89A; --sage-soft:#23302A;
+    --coral:#E2938B; --coral-soft:#332521;
+    --dustyrose:#E2938B;
+    --teal:#7FC9C2; --teal-soft:#1E2E2C;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--cream); color: var(--ink);
+    font-family: Georgia, 'Times New Roman', serif; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .mono { font-family: 'JetBrains Mono', Menlo, monospace; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 20px 28px 40px; }
+  h1, h2 { font-family: 'Baloo 2', sans-serif; letter-spacing: -0.01em; margin: 0; text-wrap: balance; }
+
+  .utilitybar { border-bottom: 1px solid var(--rule); }
+  .utilitybar .inner { max-width: 1080px; margin: 0 auto; padding: 12px 28px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .crumb { display: inline-flex; align-items: center; gap: 7px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: .02em; color: var(--muted); }
+  .crumb img { height: 14px; width: auto; vertical-align: -2px; }
+  .crumb b { color: var(--ink); font-weight: 600; }
+  .status-pill { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: .04em; color: var(--sage); background: var(--sage-soft); border: 1px solid var(--rule); border-radius: 100px; padding: 3px 10px; white-space: nowrap; }
+
+  /* ---- hero: the crate/fox-head reveal ---- */
+  .hero { display: grid; grid-template-columns: minmax(0,1fr) 260px; gap: 40px; align-items: center; padding: 56px 0 8px; }
+  .hero .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dustyrose); margin-bottom: 12px; }
+  .hero h1 { font-size: clamp(30px, 4.4vw, 44px); font-weight: 700; }
+  .hero p { font-size: 16px; color: var(--muted); max-width: 520px; margin: 14px 0 0; }
+
+  .crate-stage { position: relative; width: 220px; height: 220px; margin: 0 auto; }
+  .crate-glow {
+    position: absolute; inset: -20%; border-radius: 50%;
+    background: radial-gradient(circle, var(--coral-soft) 0%, transparent 70%);
+    animation: pulse 3.6s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,20% { opacity: .4; transform: scale(0.92); } 50% { opacity: 1; transform: scale(1.08); } 80%,100% { opacity: .4; transform: scale(0.92); } }
+
+  .crate { position: absolute; inset: 0; }
+  .crate .fox {
+    position: absolute; left: 50%; top: 57%; width: 88px; height: 88px;
+    transform: translate(-50%, -50%) scale(0.82); transform-origin: center;
+    animation: foxreveal 3.6s ease-in-out infinite;
+    filter: drop-shadow(0 6px 14px rgba(0,0,0,0.18));
+  }
+  .crate .fox img { width: 100%; height: 100%; object-fit: contain; }
+  @keyframes foxreveal {
+    0%,20% { transform: translate(-50%, -50%) scale(0.82); }
+    50% { transform: translate(-50%, -46%) scale(1); }
+    80%,100% { transform: translate(-50%, -50%) scale(0.82); }
+  }
+
+  .crate .lid {
+    position: absolute; left: 8%; right: 8%; top: 18%; height: 46%;
+    border: 2.5px solid var(--ink); border-bottom: none; border-radius: 10px 10px 0 0;
+    background: var(--artcream);
+    transform-origin: bottom center;
+    animation: lid 3.6s ease-in-out infinite;
+    box-shadow: var(--shadow);
+  }
+  .crate .lid::after {
+    content: ''; position: absolute; left: 12%; right: 12%; top: 42%;
+    border-top: 2px dashed var(--dustyrose); opacity: 0.65;
+  }
+  @keyframes lid {
+    0%,20% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-58px) rotate(-14deg); }
+    80%,100% { transform: translateY(0) rotate(0deg); }
+  }
+
+  .crate .base {
+    position: absolute; left: 4%; right: 4%; bottom: 6%; top: 58%;
+    border: 2.5px solid var(--ink); border-radius: 0 0 10px 10px;
+    background: var(--paper); box-shadow: var(--shadow);
+  }
+  .crate .base::after {
+    content: ''; position: absolute; left: 50%; top: 10%; bottom: 10%;
+    border-left: 2px dashed var(--dustyrose); opacity: 0.5;
+  }
+  .caption { text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--muted); margin-top: 10px; }
+  @media (prefers-reduced-motion: reduce) {
+    .crate-glow, .crate .fox, .crate .lid { animation: none; }
+    .crate .lid { transform: translateY(-58px) rotate(-14deg); }
+    .crate .fox { transform: translate(-50%, -46%) scale(1); }
+  }
+
+  @media (max-width: 760px) {
+    .hero { grid-template-columns: 1fr; padding-top: 36px; }
+    .crate-stage { order: -1; width: 160px; height: 160px; }
+  }
+
+  /* ---- cards ---- */
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-top: 44px; }
+  .card {
+    display: block; text-decoration: none; color: inherit;
+    background: var(--paper); border: 1px solid var(--rule); border-radius: 14px;
+    padding: 20px 22px; box-shadow: var(--shadow);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  }
+  .card:hover { transform: translateY(-3px); border-color: var(--dustyrose); }
+  .card .k { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage); }
+  .card h2 { font-size: 18px; font-weight: 700; margin-top: 8px; }
+  .card p { font-size: 13.5px; color: var(--muted); margin: 8px 0 0; line-height: 1.55; }
+  .card .go { display: inline-block; margin-top: 14px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--dustyrose); }
+  .card:hover .go { text-decoration: underline; }
+
+  footer { margin-top: 56px; padding: 20px 0 0; }
+  footer .fwrap { display: grid; grid-template-columns: auto 1fr; gap: 14px 24px; align-items: center; border-top: 2px solid var(--ink); padding-top: 20px; }
+  footer .fmark { background: #FFFFFF; border: 2px solid var(--ink); border-radius: 10px; padding: 8px 12px; width: fit-content; }
+  footer .fmark img { height: 32px; width: auto; display: block; filter: grayscale(1); }
+  footer .finfo { text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); }
+  footer .finfo a { color: var(--dustyrose); }
+  footer .copyright { font-size: 12px; color: var(--muted); margin-top: 4px; font-family: Georgia, serif; }
+  @media (max-width: 560px) {
+    footer .fwrap { grid-template-columns: 1fr; }
+    footer .finfo { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<div class="utilitybar">
+  <div class="inner">
+    <span class="crumb"><img data-icon-ink="brand/assets/samfox-icon-verified-ink.png" data-icon-cream="brand/assets/samfox-icon-verified-cream.png" src="brand/assets/samfox-icon-verified-ink.png" alt="" /> <b>Sam Fox™</b> / <b>Banimal™</b> Docs</span>
+    <span class="status-pill">Live · docs/</span>
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Banimal™ Ecosystem</div>
+      <h1>One mark. One mono-material. One ecosystem.</h1>
+      <p>The Sam Fox™ verified fox-head, the Banimal Connector, and the Block Box™ container all draw from the same
+      brand system — nothing here is redrawn or approximated. Start with the CI Guide Master, then see it applied.</p>
+    </div>
+    <div>
+      <div class="crate-stage" aria-hidden="true">
+        <div class="crate-glow"></div>
+        <div class="crate">
+          <div class="base"></div>
+          <div class="fox"><img src="brand/assets/samfox-icon-verified-ink.png" alt="" /></div>
+          <div class="lid"></div>
+        </div>
+      </div>
+      <div class="caption">the container <i>is</i> the product</div>
+    </div>
+  </section>
+
+  <div class="grid">
+    <a class="card" href="brand/ci-guide.html">
+      <div class="k">Brand authority</div>
+      <h2>Sam Fox™ CI Guide Master</h2>
+      <p>The verified fox-head, wordmark, 9-colour palette, and compliance rules. Every other page here inherits from this one.</p>
+      <span class="go">Open the guide →</span>
+    </a>
+    <a class="card" href="brand/banimal-connector-icons.html">
+      <div class="k">Applied identity</div>
+      <h2>Connector Icon Studio</h2>
+      <p>How the verified mark is composited onto the Banimal Connector's own icon canvases — recomposited, never redrawn.</p>
+      <span class="go">View application →</span>
+    </a>
+    <a class="card" href="connector-preview.html">
+      <div class="k">Product preview</div>
+      <h2>Banimal Connector Preview</h2>
+      <p>Mocked WP-admin screens for the plugin's configuration, diagnostics, and ID finder — see it before installing it.</p>
+      <span class="go">See the preview →</span>
+    </a>
+    <a class="card" href="atlas/seedwave-atlas.html">
+      <div class="k">Working record</div>
+      <h2>The Seedwave Atlas</h2>
+      <p>The running log of what's been verified, what's pending, and what's parked — the source of truth for project state.</p>
+      <span class="go">Read the atlas →</span>
+    </a>
+    <a class="card" href="manual/user-manual.html">
+      <div class="k">Reference</div>
+      <h2>Banimal™ Connector Manual</h2>
+      <p>Setup, routing, and troubleshooting for the plugin as shipped — the manual a real installer would reach for.</p>
+      <span class="go">Read the manual →</span>
+    </a>
+  </div>
+
+  <footer>
+    <div class="fwrap">
+      <div class="fmark"><img src="brand/assets/banimal-logo-ink.png" alt="Banimal™" /></div>
+      <div class="finfo">
+        <div>Banimal™ Ecosystem Docs · <a href="https://github.com/heyns1000/banimal">github.com/heyns1000/banimal</a></div>
+        <div class="copyright">© 2026 Fruitful Shops (Pty) Ltd · Artwork © Sam Fox™</div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  function pageIsDark() {
+    var explicit = document.documentElement.getAttribute('data-theme');
+    if (explicit === 'dark') return true;
+    if (explicit === 'light') return false;
+    return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  }
+  function applyIconTheme() {
+    var dark = pageIsDark();
+    document.querySelectorAll('[data-icon-ink]').forEach(function (el) {
+      el.setAttribute('src', dark ? el.getAttribute('data-icon-cream') : el.getAttribute('data-icon-ink'));
+    });
+  }
+  applyIconTheme();
+  if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyIconTheme);
+  }
+})();
+</script>
+
+</body>
+</html>
