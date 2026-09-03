@@ -5,13 +5,50 @@ on:
     branches: [main]
     paths:
       - 'src/worker/**'
+      - 'test/**'
+      - 'migrations/**'
+      - 'wrangler.json'
+      - 'package.json'
+  pull_request:
+    paths:
+      - 'src/worker/**'
+      - 'test/**'
       - 'migrations/**'
       - 'wrangler.json'
       - 'package.json'
   workflow_dispatch:
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Typecheck, build, and test the Worker
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      # tsc -b (typecheck across every project reference, worker included),
+      # vite build, and a wrangler dry-run — the same gate a contributor
+      # runs locally as `npm run check`.
+      - name: Typecheck & build
+        run: npm run check
+
+      # Runs the Worker's own routes inside the real workerd runtime with
+      # real D1 bindings (via @cloudflare/vitest-pool-workers) — not mocks.
+      - name: Test
+        run: npm test
+
   deploy:
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     name: Deploy to Cloudflare Workers
     steps:

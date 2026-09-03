@@ -4,7 +4,7 @@ Tags: banimal, woocommerce, cloudflare
 Requires at least: 5.9
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 5.1.0
+Stable tag: 5.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,6 +22,16 @@ See wordpress-plugin/banimal-ecosystem-connector/legacy/README.md for why
 this is a full rewrite rather than a patch of the 4.7.x line.
 
 == Changelog ==
+
+= 5.1.1 =
+* Hardened `class-brand-guide.php`: a palette entry's hex value is now
+  validated against a hex-colour pattern before being printed into the
+  front-end `<style>` block, rather than relying on `esc_attr()` alone.
+* Production readiness pass: the plugin now ships with a CI workflow that
+  syntax-checks every file, verifies the plugin header, the
+  `BANIMAL_CONNECTOR_VERSION` constant, and this file's Stable tag all agree
+  on one version, and builds the installable zip as a build artifact on
+  every push — see `bin/verify-version.sh` and `bin/build-zip.sh`.
 
 = 5.1.0 =
 * Added the Sam Fox™ CI Guide brand module (`class-brand-guide.php`): pulls

@@ -56,7 +56,6 @@ notifications.post('/send', async (c) => {
 
   const vapidPrivate = (c.env as any).VAPID_PRIVATE_KEY as string
   const vapidPublic = (c.env as any).VAPID_PUBLIC_KEY as string
-  const vapidSubject = (c.env as any).VAPID_SUBJECT as string || 'mailto:hello@banimal.co.za'
 
   if (!vapidPrivate || !vapidPublic) return c.json({ error: 'VAPID not configured' }, 503)
 

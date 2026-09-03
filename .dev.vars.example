@@ -1,0 +1,41 @@
+# Local secrets for `wrangler dev`. Copy this file to `.dev.vars` (already
+# gitignored) and fill in real values — never commit `.dev.vars` itself.
+# In production these are set with `wrangler secret put <NAME>`, one at a
+# time, never checked into wrangler.json or source.
+
+# --- Banimal™ Connector (WordPress plugin ↔ Worker bridge) ---
+# Shared HMAC-SHA256 secret. Must match the "Signing Secret" field in the
+# WordPress plugin's Banimal™ → Configuration screen exactly.
+WP_BRIDGE_SECRET=
+
+# --- Storefront checkout ---
+PAYSTACK_SECRET_KEY=
+PAYSTACK_LIVE_SECRET_KEY=
+BOBGO_API_KEY=
+SITE_URL=http://localhost:5173
+
+# --- Session auth (auth.ts) ---
+AUTH_SESSION_SECRET=
+
+# --- OAuth providers (auth.ts) — each is optional; a provider is only
+# offered once both its CLIENT_ID and CLIENT_SECRET are set ---
+# OAUTH_GOOGLE_CLIENT_ID=
+# OAUTH_GOOGLE_CLIENT_SECRET=
+# OAUTH_FACEBOOK_CLIENT_ID=
+# OAUTH_FACEBOOK_CLIENT_SECRET=
+# OAUTH_GITHUB_CLIENT_ID=
+# OAUTH_GITHUB_CLIENT_SECRET=
+# OAUTH_MICROSOFT_CLIENT_ID=
+# OAUTH_MICROSOFT_CLIENT_SECRET=
+# OAUTH_APPLE_CLIENT_ID=
+# OAUTH_APPLE_CLIENT_SECRET=
+# OAUTH_TIKTOK_CLIENT_ID=
+# OAUTH_TIKTOK_CLIENT_SECRET=
+# OAUTH_SUBSTACK_CLIENT_ID=
+# OAUTH_SUBSTACK_CLIENT_SECRET=
+# OAUTH_INSTAGRAM_CLIENT_ID=
+# OAUTH_INSTAGRAM_CLIENT_SECRET=
+
+# --- Web push (notifications.ts) — not required for the Connector ---
+VAPID_PUBLIC_KEY=
+VAPID_PRIVATE_KEY=
