@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
 <title>Banimal™ Connector Manual</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -135,6 +137,15 @@
   .callout.note b{ color:var(--dustyrose); }
   .callout.warn b{ color:var(--red); }
 
+  .hub-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin:16px 0 28px; }
+  .hub-card{ background:var(--paper); border:1px solid var(--rule); border-radius:14px; padding:16px 18px; }
+  .hub-card .k{ font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--sage); }
+  .hub-card h4{ font-family:'Baloo 2',sans-serif; font-size:15.5px; margin:6px 0 5px; }
+  .hub-card p{ font-size:13px; color:var(--muted); margin:0 0 12px; max-width:none; }
+  .hub-card a.go{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--dustyrose); text-decoration:none; }
+  .hub-card a.go:hover{ text-decoration:underline; }
+  .hub-card .path{ display:block; font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--muted); margin-top:7px; word-break:break-all; }
+
   .theme-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px; margin:18px 0 24px; max-width:760px; }
   .theme-chip{ border:1px solid var(--rule); border-radius:12px; padding:10px 12px; display:flex; align-items:center; gap:10px; }
   .theme-chip .dot{ width:22px; height:22px; border-radius:50%; border:1px solid var(--rule); flex:none; }
@@ -181,6 +192,7 @@
     <div class="navgroup">
       <div class="label">Start here</div>
       <a href="#overview">Overview</a>
+      <a href="#doc-hub">Documentation hub</a>
     </div>
     <div class="navgroup">
       <div class="label">WordPress</div>
@@ -224,6 +236,89 @@
         <li><b>Everywhere else</b> — Replit, Lovable, Bolt, and similar — not built yet. Documented honestly as a roadmap, not a feature.</li>
       </ul>
       <p style="font-size:13.5px;color:var(--muted);">See also: the <a href="../../wordpress-plugin/banimal-ecosystem-connector/landing.html">product page</a> for the pitch, or the <a href="../atlas/seedwave-atlas.html">Seedwave Atlas</a> for how this fits into the wider ecosystem.</p>
+    </section>
+
+    <section id="doc-hub">
+      <div class="part-eyebrow">Start here · Documentation hub</div>
+      <h2>Everything in this repository, mapped</h2>
+      <p>This manual covers the Connector specifically. The rest of <code>heyns1000/banimal</code>'s documentation — brand authority, working records, and every downloadable asset — lives alongside it in <code>docs/</code>. Every card below links to a real, checked-in file; none of it is aspirational.</p>
+
+      <h3>Brand authority</h3>
+      <div class="hub-grid">
+        <div class="hub-card">
+          <div class="k">Single source of truth</div>
+          <h4>Sam Fox™ CI Guide Master</h4>
+          <p>The verified fox-head construction, wordmark, 9-colour palette, and compliance rules. Every other page here — including this one — inherits from it.</p>
+          <a class="go" href="../brand/ci-guide.html">Open the guide →</a>
+          <span class="path">docs/brand/ci-guide.html</span>
+        </div>
+        <div class="hub-card">
+          <div class="k">Applied identity</div>
+          <h4>Connector Icon Studio</h4>
+          <p>How the verified mark is composited onto the Connector's own icon canvases — recomposited for each context, never redrawn.</p>
+          <a class="go" href="../brand/banimal-connector-icons.html">View application →</a>
+          <span class="path">docs/brand/banimal-connector-icons.html</span>
+        </div>
+      </div>
+
+      <h3>Working records</h3>
+      <div class="hub-grid">
+        <div class="hub-card">
+          <div class="k">Ecosystem index</div>
+          <h4>The Seedwave Atlas</h4>
+          <p>The verified, page-numbered index of every system, worker, plugin, and repository across the ecosystem. Open this first if you're not sure what exists yet.</p>
+          <a class="go" href="../atlas/seedwave-atlas.html">Read the atlas →</a>
+          <span class="path">docs/atlas/seedwave-atlas.html</span>
+        </div>
+        <div class="hub-card">
+          <div class="k">Agent debrief</div>
+          <h4>Connector Preview</h4>
+          <p>Ground-truth notes, open questions, a routing table of every source file touched, plus previews of the plugin's three wp-admin screens.</p>
+          <a class="go" href="../connector-preview.html">See the preview →</a>
+          <span class="path">docs/connector-preview.html</span>
+        </div>
+      </div>
+
+      <h3>Product &amp; entry points</h3>
+      <div class="hub-grid">
+        <div class="hub-card">
+          <div class="k">Everything, one page</div>
+          <h4>Docs hub</h4>
+          <p>A single landing page linking every document on this list, published live via GitHub Pages once the repository's Pages source is enabled.</p>
+          <a class="go" href="../index.html">Open the hub →</a>
+          <span class="path">docs/index.html</span>
+        </div>
+        <div class="hub-card">
+          <div class="k">The pitch</div>
+          <h4>Banimal™ Connector — product page</h4>
+          <p>The public-facing landing page for the plugin itself, separate from this install manual.</p>
+          <a class="go" href="../../wordpress-plugin/banimal-ecosystem-connector/landing.html">View product page →</a>
+          <span class="path">wordpress-plugin/banimal-ecosystem-connector/landing.html</span>
+        </div>
+      </div>
+
+      <h3>Assets</h3>
+      <div class="hub-grid">
+        <div class="hub-card">
+          <div class="k">Verified marks</div>
+          <h4>Logo, stacked logo, icon</h4>
+          <p>The three verified marks, each as PNG, JPG, and PDF — plus ink/cream reversal renders of the icon. Extracted from already-verified pixel data, never redrawn.</p>
+          <a class="go" href="../brand/assets/samfox-icon-verified-ink.png">View the icon →</a>
+          <span class="path">docs/brand/assets/</span>
+        </div>
+        <div class="hub-card">
+          <div class="k">Verified palette</div>
+          <h4>9 colours, 7 formats</h4>
+          <p>Every verified colour as PNG (1×/2×/3×), JPG, SVG, EPS, and PDF — 67 files, plus one combined reference sheet.</p>
+          <a class="go" href="../brand/palettes/SAMFOX_COLOUR_SHEET.png">View the colour sheet →</a>
+          <span class="path">docs/brand/palettes/</span>
+        </div>
+      </div>
+
+      <div class="callout note">
+        <b>Kept in sync automatically</b>
+        A report-only CI check (<code>scripts/verify-brand-alignment.mjs</code>, run by <code>.github/workflows/brand-alignment.yml</code>) verifies on every push that every link above resolves to a real file, the fox-head icon exists in both renders, and the palette here matches <code>src/worker/routes/brand-guide.ts</code> exactly. It fails loudly on drift; it never rewrites anything itself.
+      </div>
     </section>
 
     <section id="wp-install">
