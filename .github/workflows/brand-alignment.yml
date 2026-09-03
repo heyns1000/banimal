@@ -1,0 +1,48 @@
+name: Brand alignment audit
+
+# Checks that every document claiming to follow the Sam Fox™ Core CI Guide
+# Master actually resolves against real files and real values: no page
+# linking to a private claude.ai artifact instead of the sibling file next
+# to it, no download link pointing at a file that doesn't exist, the
+# verified fox-head icon present in both renders, and the verified 9-colour
+# palette identical between the human-readable guide (docs/brand/ci-guide.html)
+# and its machine-readable twin (src/worker/routes/brand-guide.ts).
+#
+# Report-only, by design: it fails loudly and prints exactly what's wrong,
+# it never rewrites anything itself. Fixing brand drift — especially
+# anything touching the actual fox-head or wordmark artwork — is a human
+# call per the CI Guide's own compliance rule (never redraw the marks), not
+# something this workflow should do unattended.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - 'banimal-connector/**'
+      - 'wordpress-plugin/banimal-ecosystem-connector/**'
+      - 'src/worker/routes/brand-guide.ts'
+      - 'scripts/verify-brand-alignment.mjs'
+  pull_request:
+    paths:
+      - 'docs/**'
+      - 'banimal-connector/**'
+      - 'wordpress-plugin/banimal-ecosystem-connector/**'
+      - 'src/worker/routes/brand-guide.ts'
+      - 'scripts/verify-brand-alignment.mjs'
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    name: Verify docs align with the CI Guide Master
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Run brand alignment audit
+        run: node scripts/verify-brand-alignment.mjs
