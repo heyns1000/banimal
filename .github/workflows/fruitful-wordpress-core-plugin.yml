@@ -1,0 +1,54 @@
+name: Fruitful WordPress Core plugin
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'wordpress-plugin/fruitful-wordpress-core/**'
+  pull_request:
+    paths:
+      - 'wordpress-plugin/fruitful-wordpress-core/**'
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    name: Lint, version-check, and package the plugin
+    defaults:
+      run:
+        working-directory: wordpress-plugin/fruitful-wordpress-core
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          tools: none
+
+      - name: PHP syntax check
+        run: |
+          set -euo pipefail
+          status=0
+          while IFS= read -r -d '' file; do
+            echo "Checking $file"
+            php -l "$file" || status=1
+          done < <(find . -name '*.php' -print0)
+          exit $status
+
+      # A WordPress plugin has no single source of truth for its own
+      # version — the header comment, the PHP constant, and readme.txt's
+      # Stable tag are three separate strings that only agree if someone
+      # remembers to update all three. This is that reminder, enforced.
+      - name: Verify version strings agree
+        run: bash bin/verify-version.sh
+
+      - name: Build installable plugin zip
+        run: bash bin/build-zip.sh dist
+
+      - name: Upload plugin zip
+        uses: actions/upload-artifact@v4
+        with:
+          name: fruitful-wordpress-core
+          path: wordpress-plugin/fruitful-wordpress-core/dist/*.zip
+          if-no-files-found: error
