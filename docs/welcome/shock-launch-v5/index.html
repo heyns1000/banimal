@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Welcome to Fruitful — The Shock Launch</title>
+<meta name="description" content="The Fruitful Portals network raises the flag: one welcome experience, merged across every Fruitful gateway. Something iconic is breaking through — bigger, bolder, unleashed." />
+<meta property="og:title" content="Welcome to Fruitful — The Shock Launch" />
+<meta property="og:description" content="Flag activation is live. The Fruitful Portals are merging into one Welcome to Fruitful experience." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,600,700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <a href="#top" class="brand" data-i18n-aria="a11y.brandHome" aria-label="Fruitful home">
+    <img class="lockup-mark" src="../../brand/assets/fruitful-lockup-verified.png" alt="Fruitful™" />
+  </a>
+  <nav class="primary-nav" aria-label="Primary">
+    <a href="#flag" data-i18n="nav.reveal">The Reveal</a>
+    <a href="#portals" data-i18n="nav.portals">Portals</a>
+    <a href="#merge" data-i18n="nav.merge">Global Merge</a>
+    <a href="#provenance" data-i18n="nav.verified">Verified</a>
+    <a href="#welcome" data-i18n="nav.welcome">Welcome Page</a>
+  </nav>
+  <div class="header-actions">
+    <button class="theme-toggle theme-toggle--fox" data-theme-toggle aria-label="Switch to dark mode">
+      <span class="fox-toggle-glow" aria-hidden="true"></span>
+      <img class="fox-toggle-icon" src="assets/fox-core-glassy.png" alt="" aria-hidden="true" />
+    </button>
+    <button class="theme-toggle theme-toggle--fox lang-toggle" data-lang-toggle data-i18n-aria="a11y.langToggle" aria-label="Switch language">
+      <span class="fox-toggle-glow" aria-hidden="true"></span>
+      <img class="fox-toggle-icon" src="assets/fox-core-glassy.png" alt="" aria-hidden="true" />
+      <span class="lang-badge" id="langBadge" aria-hidden="true">EN</span>
+    </button>
+    <a href="#signup" class="btn btn--primary" data-i18n="header.cta">Get Notified</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner wrap">
+      <span class="eyebrow" data-i18n="hero.eyebrow">Launching soon · Flag status: standing by</span>
+      <h1 data-i18n-html="hero.title">Welcome to<img class="hero-wordmark" data-logo-slot="hero" src="../../brand/assets/fruitful-wordmark-verified.png" alt="Fruitful™" /></h1>
+      <p class="lede" data-i18n="hero.lede">Something iconic is about to break through. The Fruitful Portals are merging into one arrival — bigger, bolder, unleashed.</p>
+      <div class="hero-actions">
+        <a href="#flag" class="btn btn--primary" data-i18n="hero.btn.activate">Activate the flag</a>
+        <a href="#portals" class="btn btn--ghost" style="color:#f7f2e8;border-color:oklch(0.95 0.01 40/0.35)" data-i18n="hero.btn.seePortals">See the Portals</a>
+      </div>
+    </div>
+    <div class="scroll-cue">
+      <span data-i18n="hero.scrollCue">Stay wild</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- FLAG ACTIVATION -->
+  <section class="flag-section" id="flag">
+    <div class="wrap flag-grid">
+      <div class="flag-copy reveal">
+        <span class="eyebrow" style="color:var(--color-primary)" data-i18n="flag.eyebrow">The reveal</span>
+        <h2 data-i18n="flag.title">Flag activation</h2>
+        <p style="margin-top:var(--space-4);color:var(--color-text-muted);font-size:var(--text-lg);" data-i18n="flag.desc">
+          The flag means exactly what it says. When it's raised, the Fruitful ecosystem is live — every portal, every page, one signal.
+        </p>
+        <div style="margin-top:var(--space-8);">
+          <span class="status-pill" id="statusPill" data-active="false">Standing by</span>
+        </div>
+        <div>
+          <button class="btn btn--primary" id="raiseFlagBtn">Raise the flag</button>
+        </div>
+        <div class="legacy-note" data-i18n="flag.legacy">
+          This mark carries decades of history — a flag illustration built and refined over 30 years within the Fruitful environment, now standing at the front of the Shock Launch.
+        </div>
+      </div>
+      <div class="flag-rig">
+        <div class="flag-stage" id="flagStage" data-raised="false">
+          <div class="flag-pole"></div>
+          <div class="flag-ball"></div>
+          <div class="flag-cloth">
+            <svg viewBox="0 0 220 150" class="flag-wave">
+              <path d="M0 0 H220 V150 Q140 130 0 150 Z" fill="var(--color-primary)"/>
+              <path d="M0 0 H220 V60 Q140 45 0 60 Z" fill="var(--color-coral)"/>
+              <circle cx="60" cy="95" r="20" fill="var(--color-gold)"/>
+              <path d="M50 95c3-8 17-8 20 0-3 8-17 8-20 0Z" fill="var(--color-text-inverse)" opacity="0.4"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="flag-caption" data-i18n="flag.caption">Flag raised = ecosystem live · flag lowered = standing by</p>
+  </section>
+
+  <!-- PORTALS -->
+  <section class="portals-section wrap" id="portals">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-i18n="portals.eyebrow">Now visible</span>
+      <h2 data-i18n-html="portals.title">The <img class="h2-wordmark" data-logo-slot="portalsTitle" src="../../brand/assets/fruitful-wordmark-verified.png" alt="Fruitful™" /> Portals</h2>
+      <p data-i18n="portals.desc">The physical front door of the ecosystem — self-contained kiosks carrying the Fruitful mark into the field, each one a node in the wider network.</p>
+    </div>
+    <div class="portal-grid">
+      <div class="portal-card reveal">
+        <div class="img-frame"><img src="assets/portal-01.jpg" data-i18n-alt="portals.card1.alt" alt="Fruitful portal kiosk, closed, teal shell with coral canopy and glowing logo sign" loading="lazy" /></div>
+        <div class="card-body">
+          <span class="tag" data-i18n="portals.card1.tag">Portal · Sealed</span>
+          <h3 data-i18n="portals.card1.title">Street-ready kiosk</h3>
+          <p data-i18n="portals.card1.desc">Compact teal-and-coral shell, illuminated signage, built for public spaces.</p>
+        </div>
+      </div>
+      <div class="portal-card reveal">
+        <div class="img-frame"><img src="assets/portal-02.jpg" data-i18n-alt="portals.card2.alt" alt="Fruitful portal kiosk opened, showing rear service door and interactive screen" loading="lazy" /></div>
+        <div class="card-body">
+          <span class="tag" data-i18n="portals.card2.tag">Portal · Open</span>
+          <h3 data-i18n="portals.card2.title">Service &amp; access bay</h3>
+          <p data-i18n="portals.card2.desc">Rear door swings wide for restocking, wiring, and on-site maintenance.</p>
+        </div>
+      </div>
+      <div class="portal-card reveal">
+        <div class="img-frame"><img src="assets/portal-03.jpg" data-i18n-alt="portals.card3.alt" alt="Fruitful portal kiosk interior screen showing wireless, wired, media, HDMI, wifi and settings menu" loading="lazy" /></div>
+        <div class="card-body">
+          <span class="tag" data-i18n="portals.card3.tag">Portal · Interface</span>
+          <h3 data-i18n="portals.card3.title">Onboard control panel</h3>
+          <p data-i18n="portals.card3.desc">Wireless, wired, media, HDMI, Wi‑Fi and settings — the same menu, every portal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MERGE -->
+  <section class="merge-section" id="merge">
+    <div class="wrap merge-grid">
+      <div class="merge-canvas-wrap reveal">
+        <canvas id="mergeCanvas"></canvas>
+        <div class="merge-label">
+          <span data-i18n="merge.label.syncing">Portals: syncing</span>
+          <span data-i18n="merge.label.target">Target: one Welcome page</span>
+        </div>
+      </div>
+      <div class="merge-copy reveal">
+        <span class="eyebrow" style="color:var(--color-primary)" data-i18n="merge.eyebrow">Global data merge</span>
+        <h2 data-i18n="merge.title">Every portal, one arrival</h2>
+        <p style="margin-top:var(--space-4);color:var(--color-text-muted);font-size:var(--text-lg);" data-i18n="merge.desc">Instead of separate logins and separate front pages, every Fruitful gateway routes into a single "Welcome to Fruitful" experience.</p>
+        <ul>
+          <li>
+            <span class="num">1</span>
+            <div class="txt"><h4 data-i18n="merge.step1.title">Collect</h4><p data-i18n="merge.step1.desc">Each portal and micro-site reports its status into one shared feed.</p></div>
+          </li>
+          <li>
+            <span class="num">2</span>
+            <div class="txt"><h4 data-i18n="merge.step2.title">Reconcile</h4><p data-i18n="merge.step2.desc">Duplicate or conflicting entries are merged before anything goes live.</p></div>
+          </li>
+          <li>
+            <span class="num">3</span>
+            <div class="txt"><h4 data-i18n="merge.step3.title">Publish</h4><p data-i18n="merge.step3.desc">One consistent "Welcome to Fruitful" page renders everywhere, in sync.</p></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- VERIFIED AT THE SOURCE -->
+  <section class="verified-section" id="provenance">
+   <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-i18n="verify.eyebrow">Never redrawn, never approximated</span>
+      <h2 data-i18n="verify.title">Verified at the source</h2>
+      <p data-i18n="verify.desc">The mark this page is built around is Sam Fox&trade;'s own hand &mdash; not an AI approximation of it. Everything below traces to one real, checkable file, the same discipline this whole ecosystem runs on.</p>
+    </div>
+
+    <div class="verify-grid reveal">
+      <div class="verify-mark">
+        <img data-foxmark data-i18n-alt="verify.markAlt" src="../../brand/assets/samfox-icon-verified-ink.png" alt="Sam Fox™ verified fox-head mark" />
+        <span class="verify-mark-cap" data-i18n="verify.markCap">Verified asset &middot; reverses to cream automatically on ink backgrounds, per the CI Guide&rsquo;s own rule &mdash; never recoloured by hand.</span>
+        <span class="verify-mark-accent-label" id="foxAccentLabel" data-i18n="verify.accentLabel">Click a colour below</span>
+      </div>
+      <div class="verify-checks">
+        <div class="vcheck">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
+          <div><b data-i18n="verify.check1.title">Fox-head icon</b><span data-i18n-html="verify.check1.desc">Byte-matched against <code>samfox-icon-verified-ink.png</code> &amp; <code>-cream.png</code> in this repo&rsquo;s own <code>docs/brand/assets/</code> &mdash; the same two files, unaltered.</span></div>
+        </div>
+        <div class="vcheck">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
+          <div><b data-i18n="verify.check2.title">Palette</b><span data-i18n="verify.check2.desc">Nine verified hex values below, read straight from the Core CI Guide Master &mdash; nothing approximated, nothing swapped.</span></div>
+        </div>
+        <div class="vcheck">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
+          <div><b data-i18n="verify.check3.title">Compliance</b><span data-i18n="verify.check3.desc">&trade; only, never &reg;. The marks are never redrawn, retyped, or recoloured &mdash; her art stays her art.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="verify-palette reveal">
+      <span class="vp-label" data-i18n="verify.paletteLabel">The nine verified Sam Fox&trade; colours</span>
+      <div class="vp-row">
+        <button type="button" class="vp-swatch" data-hex="#231F20" data-name="INK"><i style="background:#231F20"></i><span>INK</span></button>
+        <button type="button" class="vp-swatch" data-hex="#577D60" data-name="SAGE"><i style="background:#577D60"></i><span>SAGE</span></button>
+        <button type="button" class="vp-swatch" data-hex="#A7DACB" data-name="MINT"><i style="background:#A7DACB"></i><span>MINT</span></button>
+        <button type="button" class="vp-swatch" data-hex="#F16B6E" data-name="CORAL"><i style="background:#F16B6E"></i><span>CORAL</span></button>
+        <button type="button" class="vp-swatch" data-hex="#B95F56" data-name="DUSTY ROSE"><i style="background:#B95F56"></i><span>DUSTY ROSE</span></button>
+        <button type="button" class="vp-swatch" data-hex="#F0EEDA" data-name="ART CREAM"><i style="background:#F0EEDA;border-color:#B9AC8C"></i><span>ART CREAM</span></button>
+        <button type="button" class="vp-swatch" data-hex="#1E9F97" data-name="TEAL"><i style="background:#1E9F97"></i><span>TEAL</span></button>
+        <button type="button" class="vp-swatch" data-hex="#E63946" data-name="RED"><i style="background:#E63946"></i><span>RED</span></button>
+        <button type="button" class="vp-swatch" data-hex="#FBF4E4" data-name="CREAM"><i style="background:#FBF4E4;border-color:#B9AC8C"></i><span>CREAM</span></button>
+      </div>
+    </div>
+
+    <div class="verify-links reveal">
+      <a class="verify-card" href="../../brand/ci-guide.html">
+        <b data-i18n="verify.card1.title">Sam Fox&trade; Core CI Guide Master</b>
+        <span data-i18n="verify.card1.desc">The single, exclusive master of the brand identity this whole ecosystem runs on.</span>
+      </a>
+      <a class="verify-card" href="../../connector-preview.html">
+        <b data-i18n="verify.card2.title">Banimal&trade; Connector</b>
+        <span data-i18n="verify.card2.desc">The product this brand system now runs through &mdash; your store relays, the Worker decides.</span>
+      </a>
+    </div>
+   </div>
+  </section>
+
+  <!-- WELCOME PREVIEW -->
+  <section class="welcome-section wrap" id="welcome">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-i18n="welcome.eyebrow">Preview</span>
+      <h2 data-i18n-html="welcome.title">The Welcome to <img class="h2-wordmark" data-logo-slot="welcomeTitle" src="../../brand/assets/fruitful-wordmark-verified.png" alt="Fruitful™" /> page</h2>
+      <p data-i18n="welcome.desc">A single arrival template every portal and property will share once the merge completes.</p>
+    </div>
+    <div class="welcome-mock reveal">
+      <div class="mock-bar">
+        <img class="mock-favicon" src="../../brand/assets/fruitful-pear-verified.png" alt="" aria-hidden="true" />
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <span class="mock-url">welcome.fruitful.co.za</span>
+      </div>
+      <div class="mock-body">
+        <span class="eyebrow" data-i18n="mock.eyebrow">Welcome</span>
+        <h3 data-i18n-html="mock.title">Welcome to <img class="mock-wordmark" data-logo-slot="mockTitle" src="../../brand/assets/fruitful-wordmark-verified.png" alt="Fruitful™" /></h3>
+        <p data-i18n="mock.desc">One entrance for every portal, brand, and page in the ecosystem — synced, current, and unmistakably Fruitful.</p>
+        <div class="mock-portal-chips">
+          <span data-i18n="mock.chip1">Street Portals</span>
+          <span data-i18n="mock.chip2">Retail Network</span>
+          <span data-i18n="mock.chip3">Digital Storefronts</span>
+          <span data-i18n="mock.chip4">Partner Sites</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="signup" style="padding-block: clamp(var(--space-10), 6vw, var(--space-20));">
+    <div class="cta-section reveal">
+      <span class="eyebrow" style="color:var(--color-gold)" data-i18n="cta.eyebrow">The Shock Launch</span>
+      <h2 data-i18n="cta.title">Bigger. Bolder. Unleashed.</h2>
+      <p data-i18n="cta.desc">Be first to see the flag go up. Leave your email and we'll signal the moment the Welcome to Fruitful merge goes live.</p>
+      <form class="signup-form" id="signupForm">
+        <input type="email" required placeholder="you@example.com" aria-label="Email address" />
+        <button type="submit" class="btn btn--primary" data-i18n="cta.btn">Notify me</button>
+      </form>
+      <p class="form-note" id="formNote" data-i18n="cta.note.default">Launching soon. Stay wild.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="foot-brand">
+    <img class="lockup-mark foot-lockup" src="../../brand/assets/fruitful-lockup-verified.png" alt="Fruitful™" />
+  </div>
+  <div data-i18n="footer.rights">© 2026 Fruitful Shops (Pty) Ltd. All rights reserved.</div>
+  <div data-i18n="footer.tagline">Stay wild. The Shock Launch is coming.</div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
