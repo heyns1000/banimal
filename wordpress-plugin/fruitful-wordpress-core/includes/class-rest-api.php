@@ -45,7 +45,7 @@ class Fruitful_WP_Core_REST_API {
                 'permission_callback' => [$this, 'can_edit_pages'],
                 'args'                => [
                     'brand_id' => [
-                        'sanitize_callback' => 'sanitize_key',
+                        'sanitize_callback' => [$this, 'sanitize_brand_id'],
                     ],
                 ],
             ]
@@ -54,6 +54,16 @@ class Fruitful_WP_Core_REST_API {
 
     public function can_edit_pages() {
         return current_user_can('edit_pages');
+    }
+
+    /**
+     * sanitize_key() lowercases everything, which would silently corrupt a
+     * case-sensitive Brand entity ID (the route regex above explicitly
+     * allows uppercase). This keeps case intact while still restricting to
+     * exactly the same character set the route already matches on.
+     */
+    public function sanitize_brand_id($value) {
+        return preg_replace('/[^a-zA-Z0-9_-]/', '', (string) $value);
     }
 
     public function list_brands() {
@@ -71,7 +81,7 @@ class Fruitful_WP_Core_REST_API {
     }
 
     public function get_brand(WP_REST_Request $request) {
-        $brand_id = sanitize_key($request->get_param('brand_id'));
+        $brand_id = $this->sanitize_brand_id($request->get_param('brand_id'));
         $client   = new Fruitful_WP_Core_API_Client();
 
         return rest_ensure_response(
