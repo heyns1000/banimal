@@ -1,10 +1,42 @@
-# Shock Launch v2 — Alignment Audit & Build Verification Manual
+# Shock Launch v3 — Alignment Audit & Build Verification Manual
 
 Backup reference for the Banimal Connector / Sam Fox™ CI Guide build process,
-covering `docs/welcome/shock-launch-v2/`. Logs every layout/alignment defect
-found on this build, in the order it was found, plus the checklist used to
-verify a build before it ships. Not a changelog of features — just the
-alignment audit trail and the verification steps, kept here as a backup.
+covering `docs/welcome/shock-launch-v3/`. Logs every layout/alignment defect
+found across this page's builds, in the order it was found, plus the
+checklist used to verify a build before it ships. Not a changelog of
+features — just the alignment audit trail and the verification steps, kept
+here as a backup.
+
+The issues logged below as "1–7" were found and fixed on `shock-launch-v2/`
+before that version shipped to `main` (PR #35) and this page was carried
+forward into `shock-launch-v3/` unchanged. Everything from here on is
+tracked against v3.
+
+---
+
+## Versioning formula — read this before touching this page again
+
+`docs/welcome/shock-launch/` is v1, `docs/welcome/shock-launch-v2/` is v2,
+this directory is v3. **Once a version's directory has been merged into
+`main`, it is frozen — never edit it in place again.** Any further change
+(fix, enhancement, redesign) starts a new version:
+
+1. Confirm the current highest `docs/welcome/shock-launch-v<N>/` has
+   actually reached `main` (`git log main -- docs/welcome/shock-launch-vN/`
+   is non-empty, or check the merged PR).
+2. `git mv docs/welcome/shock-launch-v<N> docs/welcome/shock-launch-v<N+1>`
+   — copy-by-rename, don't hand-recreate the files.
+3. Make the change inside the new `v<N+1>/` directory only.
+4. Move (and update) this manual into `v<N+1>/` along with it, and append a
+   new dated entry to the issue log below for anything fixed in this round
+   — don't renumber or rewrite the earlier entries, they're history for the
+   version they happened on.
+5. `v<N>/` stays byte-for-byte as it shipped. It is a record, not a draft.
+
+This mirrors the convention already set by v1 → v2 (see commit history:
+`docs/welcome/shock-launch/` was never touched again after
+`docs/welcome/shock-launch-v2/` was created from it) — this file just makes
+it explicit so it keeps happening automatically instead of by memory.
 
 ---
 
@@ -142,9 +174,10 @@ Run before every push to this build:
      the numbers actually match — e.g. `merge-canvas-wrap` height vs
      `merge-copy` height.
 4. **Mirror to both copies** — every fix lands in both the real repo files
-   (`docs/welcome/shock-launch-v2/`) and the live Claude Artifact copy.
-   They must stay byte-equivalent in behavior; only the artifact inlines
-   assets as base64 data URIs.
+   (`docs/welcome/shock-launch-v3/`, or whichever is the current unfrozen
+   version per the formula above) and the live Claude Artifact copy. They
+   must stay byte-equivalent in behavior; only the artifact inlines assets
+   as base64 data URIs.
 5. **Ship order** — publish the artifact first (fast, low-risk to redo),
    then commit + push the repo copy, then open/update the PR.
 
