@@ -1,18 +1,52 @@
-// ===== Theme toggle =====
+// ===== Theme toggle — glassy fox core, with a funky page-break transition =====
 (function () {
   const t = document.querySelector('[data-theme-toggle]'),
     r = document.documentElement;
   let d = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
   r.setAttribute('data-theme', d);
+
+  function runTransition(nextTheme) {
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced || typeof t.animate !== 'function') {
+      r.setAttribute('data-theme', nextTheme);
+      return;
+    }
+    const rect = t.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const radius = Math.hypot(
+      Math.max(cx, window.innerWidth - cx),
+      Math.max(cy, window.innerHeight - cy)
+    );
+    const overlay = document.createElement('div');
+    overlay.className = 'fox-transition-overlay';
+    overlay.style.left = (cx - radius) + 'px';
+    overlay.style.top = (cy - radius) + 'px';
+    overlay.style.width = overlay.style.height = (radius * 2) + 'px';
+    overlay.style.background = nextTheme === 'dark' ? '#0d1210' : '#fbf4e4';
+    document.body.appendChild(overlay);
+    document.body.classList.add('is-theme-shifting');
+
+    const grow = overlay.animate(
+      [{ transform: 'scale(0)', opacity: 0 }, { transform: 'scale(1)', opacity: 0.6 }],
+      { duration: 460, easing: 'cubic-bezier(.4,0,.2,1)', fill: 'forwards' }
+    );
+    grow.onfinish = () => {
+      r.setAttribute('data-theme', nextTheme);
+      const shrink = overlay.animate(
+        [{ opacity: 0.6 }, { opacity: 0 }],
+        { duration: 360, easing: 'ease-out', fill: 'forwards' }
+      );
+      shrink.onfinish = () => overlay.remove();
+    };
+    setTimeout(() => document.body.classList.remove('is-theme-shifting'), 900);
+  }
+
   t &&
     t.addEventListener('click', () => {
       d = d === 'dark' ? 'light' : 'dark';
-      r.setAttribute('data-theme', d);
       t.setAttribute('aria-label', 'Switch to ' + (d === 'dark' ? 'light' : 'dark') + ' mode');
-      t.innerHTML =
-        d === 'dark'
-          ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
-          : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+      runTransition(d);
     });
 })();
 
@@ -189,6 +223,7 @@
       const name = btn.getAttribute('data-name');
       mark.style.setProperty('--vp-active-color', hex);
       mark.classList.add('has-accent');
+      document.documentElement.style.setProperty('--core-accent', hex);
       if (label) label.textContent = `${name} · ${hex}`;
     });
   });
