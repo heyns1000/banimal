@@ -11,6 +11,11 @@ const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'))
 const VERIFIED_PALETTE = ['231F20', 'FBF4E4', 'F0EEDA', '577D60', 'A7DACB', 'F16B6E', 'B95F56', '1E9F97', 'E63946']
 const TEXT_EXTS = new Set(['.html', '.md', '.css', '.js', '.mjs', '.jsx', '.ts', '.tsx', '.json', '.yml', '.yaml', '.php'])
 const EXCLUDED_DIRS = new Set(['.git', 'node_modules', 'dist', '.rendered-docs', '.brand-render'])
+const GOVERNANCE_META = new Set([
+  'docs/brand/GLOBAL-NON-VARIATION-MANDATE.md',
+  'docs/brand/canonical-brand-manifest.json',
+  'scripts/verify-brand-alignment.mjs',
+])
 
 function rel(p) { return relative(ROOT, p).split(sep).join('/') }
 function ext(name) { const i = name.lastIndexOf('.'); return i < 0 ? '' : name.slice(i) }
@@ -45,25 +50,29 @@ for (const path of Object.values(manifest.authoritativeGuides)) {
 }
 
 const allowedBanimalLogoNames = new Set(['banimal-logo-ink.png', 'banimal-logo-white.png'])
-const prohibited = [
-  [/pearanimal|pear[ -]?animal/gi, 'prohibited Pearanimal substitute'],
-  [/Sam Fox®|Banimal®/g, 'registered-mark symbol is prohibited; use ™'],
+const prohibitedIdentity = [
+  [/(?:src|href)\s*=\s*["'][^"']*(?:pearanimal|pear[ -]?animal)[^"']*["']/gi, 'prohibited Pearanimal identity asset'],
+  [/(?:pearanimal|pear[ -]?animal)[^\n]{0,48}(?:logo|icon|mark|mascot)|(?:logo|icon|mark|mascot)[^\n]{0,48}(?:pearanimal|pear[ -]?animal)/gi, 'prohibited Pearanimal identity substitution'],
 ]
 
 for (const file of walk(ROOT)) {
   if (!TEXT_EXTS.has(ext(file))) continue
+  const path = rel(file)
   const content = readFileSync(file, 'utf8')
-  for (const [pattern, label] of prohibited) {
-    pattern.lastIndex = 0
-    if (pattern.test(content)) problems.push(`${rel(file)}: ${label}`)
+  if (!GOVERNANCE_META.has(path)) {
+    for (const [pattern, label] of prohibitedIdentity) {
+      pattern.lastIndex = 0
+      if (pattern.test(content)) problems.push(`${path}: ${label}`)
+    }
   }
+  if (/Sam Fox®|Banimal®/g.test(content)) problems.push(`${path}: registered-mark symbol is prohibited; use ™`)
   const logoRefs = [...content.matchAll(/["'(]([^"')\s]*banimal[^"')\s]*logo[^"')\s]*\.(?:png|jpe?g|svg|webp|gif))/gi)]
   for (const match of logoRefs) {
     const name = match[1].split(/[\\/]/).pop().toLowerCase()
-    if (!allowedBanimalLogoNames.has(name)) problems.push(`${rel(file)}: noncanonical Banimal logo reference "${match[1]}"`)
+    if (!allowedBanimalLogoNames.has(name)) problems.push(`${path}: noncanonical Banimal logo reference "${match[1]}"`)
   }
   const privateLinks = content.match(/claude\.ai\/code\/(?:artifact|session)\/[a-zA-Z0-9_-]+/g)
-  if (privateLinks && file.startsWith(join(ROOT, 'docs'))) problems.push(`${rel(file)}: private Claude URL in published documentation`)
+  if (privateLinks && file.startsWith(join(ROOT, 'docs'))) problems.push(`${path}: private Claude URL in published documentation`)
 }
 
 for (const file of walk(join(ROOT, 'docs/brand')).filter((p) => p.endsWith('.html'))) {
@@ -101,8 +110,20 @@ if (renderedArg >= 0) {
     if (!content.includes('banimal-logo-ink.png')) problems.push(`${relative(rendered, output)}: canonical Banimal ink logo missing`)
     if (!content.includes('samfox-icon-verified-ink.png')) problems.push(`${relative(rendered, output)}: verified connector icon missing`)
   }
+  const sourceMarkdown = walk(join(ROOT, 'docs')).filter((p) => p.endsWith('.md'))
+  for (const source of sourceMarkdown) {
+    const output = join(rendered, relative(join(ROOT, 'docs'), source))
+    if (!existsSync(output)) { problems.push(`Rendered Markdown missing: ${relative(rendered, output)}`); continue }
+    const content = readFileSync(output, 'utf8')
+    if (!content.includes(`Governed by **${manifest.policyId}**`)) problems.push(`${relative(rendered, output)}: canonical Markdown governance notice missing`)
+  }
   const ledger = join(rendered, 'brand-governance-ledger.json')
   if (!existsSync(ledger)) problems.push('Rendered governance ledger is missing')
+  else {
+    const report = JSON.parse(readFileSync(ledger, 'utf8'))
+    if (report.policyId !== manifest.policyId) problems.push('Rendered governance ledger policy does not match the manifest')
+    if (report.files.length !== walk(join(ROOT, 'docs')).length) problems.push('Rendered governance ledger does not account for every source document and asset')
+  }
 }
 
 if (problems.length) {
