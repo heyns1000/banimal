@@ -48,7 +48,8 @@
     "test:watch": "vitest",
     "plugin:verify-version": "bash wordpress-plugin/banimal-ecosystem-connector/bin/verify-version.sh",
     "plugin:build": "bash wordpress-plugin/banimal-ecosystem-connector/bin/build-zip.sh",
-    "brand:verify": "node scripts/verify-brand-alignment.mjs",
+    "brand:render": "node scripts/render-canonical-docs.mjs --out .rendered-docs",
+    "brand:verify": "node scripts/render-canonical-docs.mjs --out .brand-render && node scripts/verify-brand-alignment.mjs --rendered .brand-render",
     "brand:generate-palette": "python3 scripts/generate-palette-assets.py"
   }
 }

@@ -1,17 +1,14 @@
-name: Deploy docs to GitHub Pages
-
-# Publishes docs/ (the CI Guide, Connector icon studio, Connector preview,
-# Seedwave Atlas, and user manual) as a live site, so any of these pages can
-# be opened by URL instead of only rendered locally. One-time setup required
-# before this workflow can succeed: in this repo's Settings -> Pages, set
-# "Source" to "GitHub Actions" (that toggle isn't reachable from the API
-# this workflow runs under, so it has to be flipped by hand once).
+name: Deploy governed docs to GitHub Pages
 
 on:
   push:
     branches: [main]
     paths:
       - 'docs/**'
+      - 'banimal-connector/skills/samfox-ci-guide/SKILL.md'
+      - 'scripts/render-canonical-docs.mjs'
+      - 'scripts/verify-brand-alignment.mjs'
+      - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
 
 permissions:
@@ -32,10 +29,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Upload docs/ as the Pages artifact
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Render complete docs tree with canonical Banimal governance
+        run: node scripts/render-canonical-docs.mjs --out .rendered-docs
+
+      - name: Fail closed on any identity drift
+        run: node scripts/verify-brand-alignment.mjs --rendered .rendered-docs
+
+      - name: Upload governed Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs
+          path: .rendered-docs
 
       - name: Deploy to GitHub Pages
         id: deployment
