@@ -173,6 +173,10 @@
       <a href="#other-envs">Replit, Lovable, Bolt &amp; co.</a>
     </div>
     <div class="navgroup">
+      <div class="label">Cross-repo distribution</div>
+      <a href="#fragments">Fragment distribution</a>
+    </div>
+    <div class="navgroup">
       <div class="label">Reference</div>
       <a href="#api-reference">API reference</a>
       <a href="#themes">The 9 themes</a>
@@ -304,6 +308,29 @@ cp -r /path/to/banimal-connector/skills/samfox-ci-guide ~/.claude/skills/</code>
       <p>Building one of these adapters means implementing exactly this fetch-and-apply loop for that platform's own theming or component system — not designing a new protocol.</p>
     </section>
 
+    <section id="fragments">
+      <div class="part-eyebrow">Roadmap</div>
+      <h2>Fragment distribution <span class="status-pill planned"><i></i>planned</span></h2>
+      <p>The brand module (above) proves the pattern for one thing — palette tokens. Fragment distribution is the same pattern generalized to arbitrary shared HTML: a global footer, a nav bar, a legal notice, defined once and pulled live by every consuming site, instead of hand-copied across every repo and drifting the moment one copy is edited.</p>
+      <div class="callout note">
+        <b>Not built yet</b>
+        Nothing below exists in the Worker or the plugin today. This section documents the concluded design so it's built once, correctly, rather than improvised per repo when the first fragment (a global footer) is actually needed.
+      </div>
+      <h3>What a fragment is</h3>
+      <p>A named, versioned piece of HTML stored in the Worker's D1 database — <code>fragments(name, version, status, html, created_at)</code>. Unlike the brand guide (hardcoded in the Worker's source, updated only by a deploy), a fragment's content is data: editing it is a content action, not a code change.</p>
+      <h3>How it reaches a page</h3>
+      <ol class="steps">
+        <li><b>WordPress sites.</b>A new <code>class-fragments.php</code>, the same shape as the brand module above — fetches <code>GET /api/fragments/:name</code>, caches it in a transient, hooks into <code>wp_footer</code> instead of <code>wp_head</code>, and fails silently if the Worker is unreachable.</li>
+        <li><b>Every other repo.</b>A small universal script (no build step) plus a mount point: <code>&lt;div data-banimal-fragment="global-footer"&gt;&lt;/div&gt;</code> and a <code>&lt;script src=".../fragment-loader.js"&gt;</code> tag. The script fetches the fragment client-side and injects it into the mount point.</li>
+      </ol>
+      <h3>Rollout safety</h3>
+      <p>Every fragment moves through <code>draft → staged → live</code>. A consuming site defaults to tracking <code>latest</code> (the current <code>live</code> version) but can pin to an exact version with <code>?v=3</code>. Promoting a new version doesn't move a pinned site; rolling back is re-pinning to an older version — no redeploy, anywhere, either way.</p>
+      <h3>How the ~105 consuming repos are tracked</h3>
+      <p>Deliberately: they aren't, by the Worker. There is no registry table of "which repo consumes which fragment" — that state would drift from reality the moment a repo is onboarded, removed, or a script tag is deleted, with nothing to force it back in sync. The Worker stays pull-based and stateless: <code>GET /api/fragments/:name</code> serves anyone who asks, the same as <code>/api/brand-guide</code> does today. The <a href="../atlas/seedwave-atlas.html">Seedwave Atlas</a> remains the human-maintained inventory of which repos have actually adopted which fragment — verifiable by checking the repo itself, not by trusting a table that could be stale.</p>
+      <h3>Explicitly out of scope</h3>
+      <p>This is outbound content distribution only — the Worker pushing shared content out to consumers. A separate, later idea (cross-platform event capture from Lovable, Claude, Gemini, Grok, GitHub, etc., feeding automation triggers) is structurally inbound and is not part of this design.</p>
+    </section>
+
     <section id="api-reference">
       <div class="part-eyebrow">Reference</div>
       <h2>API reference</h2>
@@ -315,6 +342,10 @@ cp -r /path/to/banimal-connector/skills/samfox-ci-guide ~/.claude/skills/</code>
       <p>Public, unauthenticated. The verified fox-head mark as PNG bytes. Cache-Control: 24 hours.</p>
       <div class="endpoint"><span class="method post">POST</span> /api/wp/events</div>
       <p>Requires an <code>X-Banimal-Signature</code> header (HMAC-SHA256 over the raw body). Used by the WordPress WooCommerce bridge only — not for direct use.</p>
+      <div class="endpoint"><span class="method get">GET</span> /api/fragments/:name <span class="status-pill planned"><i></i>planned</span></div>
+      <p>Public, unauthenticated. Returns the named fragment's current <code>live</code> HTML. Accepts <code>?v=</code> to pin an exact version instead of tracking latest. See <a href="#fragments">Fragment distribution</a>.</p>
+      <div class="endpoint"><span class="method post">POST</span> /api/fragments/:name <span class="status-pill planned"><i></i>planned</span></div>
+      <p>Admin-only — creates a new draft version or promotes one to <code>staged</code>/<code>live</code>. Not for direct use by consuming sites.</p>
     </section>
 
     <section id="themes">
