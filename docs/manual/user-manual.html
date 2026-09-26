@@ -310,18 +310,18 @@ cp -r /path/to/banimal-connector/skills/samfox-ci-guide ~/.claude/skills/</code>
 
     <section id="fragments">
       <div class="part-eyebrow">Roadmap</div>
-      <h2>Fragment distribution <span class="status-pill planned"><i></i>planned</span></h2>
+      <h2>Fragment distribution <span class="status-pill planned"><i></i>partly built</span></h2>
       <p>The brand module (above) proves the pattern for one thing — palette tokens. Fragment distribution is the same pattern generalized to arbitrary shared HTML: a global footer, a nav bar, a legal notice, defined once and pulled live by every consuming site, instead of hand-copied across every repo and drifting the moment one copy is edited.</p>
       <div class="callout note">
-        <b>Not built yet</b>
-        Nothing below exists in the Worker or the plugin today. This section documents the concluded design so it's built once, correctly, rather than improvised per repo when the first fragment (a global footer) is actually needed.
+        <b>Status</b>
+        The Worker side is real: <code>migrations/0003_fragments.sql</code> and <code>src/worker/routes/fragments.ts</code> are shipped, so <code>GET /api/fragments/:name</code> works today (for any fragment that's actually been created). The two consumer sides below — the WordPress module and the universal script — aren't built yet.
       </div>
       <h3>What a fragment is</h3>
       <p>A named, versioned piece of HTML stored in the Worker's D1 database — <code>fragments(name, version, status, html, created_at)</code>. Unlike the brand guide (hardcoded in the Worker's source, updated only by a deploy), a fragment's content is data: editing it is a content action, not a code change.</p>
       <h3>How it reaches a page</h3>
       <ol class="steps">
-        <li><b>WordPress sites.</b>A new <code>class-fragments.php</code>, the same shape as the brand module above — fetches <code>GET /api/fragments/:name</code>, caches it in a transient, hooks into <code>wp_footer</code> instead of <code>wp_head</code>, and fails silently if the Worker is unreachable.</li>
-        <li><b>Every other repo.</b>A small universal script (no build step) plus a mount point: <code>&lt;div data-banimal-fragment="global-footer"&gt;&lt;/div&gt;</code> and a <code>&lt;script src=".../fragment-loader.js"&gt;</code> tag. The script fetches the fragment client-side and injects it into the mount point.</li>
+        <li><b>WordPress sites <span class="status-pill planned"><i></i>planned</span>.</b>A new <code>class-fragments.php</code>, the same shape as the brand module above — fetches <code>GET /api/fragments/:name</code>, caches it in a transient, hooks into <code>wp_footer</code> instead of <code>wp_head</code>, and fails silently if the Worker is unreachable.</li>
+        <li><b>Every other repo <span class="status-pill planned"><i></i>planned</span>.</b>A small universal script (no build step) plus a mount point: <code>&lt;div data-banimal-fragment="global-footer"&gt;&lt;/div&gt;</code> and a <code>&lt;script src=".../fragment-loader.js"&gt;</code> tag. The script fetches the fragment client-side and injects it into the mount point.</li>
       </ol>
       <h3>Rollout safety</h3>
       <p>Every fragment moves through <code>draft → staged → live</code>. A consuming site defaults to tracking <code>latest</code> (the current <code>live</code> version) but can pin to an exact version with <code>?v=3</code>. Promoting a new version doesn't move a pinned site; rolling back is re-pinning to an older version — no redeploy, anywhere, either way.</p>
@@ -334,7 +334,7 @@ cp -r /path/to/banimal-connector/skills/samfox-ci-guide ~/.claude/skills/</code>
     <section id="api-reference">
       <div class="part-eyebrow">Reference</div>
       <h2>API reference</h2>
-      <p>All three endpoints below are served by the same Banimal™ Worker your <code>Worker API Base URL</code> points to.</p>
+      <p>All endpoints below are served by the same Banimal™ Worker your <code>Worker API Base URL</code> points to.</p>
       <div class="endpoint"><span class="method get">GET</span> /api/brand-guide</div>
       <p>Public, unauthenticated. Returns the palette, the 9 themes, icon URLs, typography, and compliance text as JSON. Cache-Control: 1 hour.</p>
       <div class="endpoint"><span class="method get">GET</span> /api/brand-guide/icon/ink.png</div>
@@ -342,10 +342,12 @@ cp -r /path/to/banimal-connector/skills/samfox-ci-guide ~/.claude/skills/</code>
       <p>Public, unauthenticated. The verified fox-head mark as PNG bytes. Cache-Control: 24 hours.</p>
       <div class="endpoint"><span class="method post">POST</span> /api/wp/events</div>
       <p>Requires an <code>X-Banimal-Signature</code> header (HMAC-SHA256 over the raw body). Used by the WordPress WooCommerce bridge only — not for direct use.</p>
-      <div class="endpoint"><span class="method get">GET</span> /api/fragments/:name <span class="status-pill planned"><i></i>planned</span></div>
+      <div class="endpoint"><span class="method get">GET</span> /api/fragments/:name</div>
       <p>Public, unauthenticated. Returns the named fragment's current <code>live</code> HTML. Accepts <code>?v=</code> to pin an exact version instead of tracking latest. See <a href="#fragments">Fragment distribution</a>.</p>
-      <div class="endpoint"><span class="method post">POST</span> /api/fragments/:name <span class="status-pill planned"><i></i>planned</span></div>
-      <p>Admin-only — creates a new draft version or promotes one to <code>staged</code>/<code>live</code>. Not for direct use by consuming sites.</p>
+      <div class="endpoint"><span class="method post">POST</span> /api/fragments/:name/versions</div>
+      <p>Admin-only (<code>X-Admin-Secret</code> header). Creates a new <code>draft</code> version from <code>{ html }</code>. Never touches what's currently live.</p>
+      <div class="endpoint"><span class="method post">POST</span> /api/fragments/:name/promote</div>
+      <p>Admin-only (<code>X-Admin-Secret</code> header). Moves <code>{ version, status }</code> to <code>staged</code> or <code>live</code>; promoting to <code>live</code> demotes whatever was live before it. Not for direct use by consuming sites.</p>
     </section>
 
     <section id="themes">

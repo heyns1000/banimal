@@ -13,6 +13,7 @@ import giving from './routes/giving'
 import orders from './routes/orders'
 import wpBridge from './routes/wp-bridge'
 import brandGuide from './routes/brand-guide'
+import fragments from './routes/fragments'
 
 const app = new Hono<{ Bindings: Env }>()
 
@@ -60,6 +61,13 @@ app.route('/api/wp', wpBridge)
 // own copy. Public, unauthenticated, read-only. See docs/brand/ci-guide.html
 // for the human-readable master this mirrors.
 app.route('/api/brand-guide', brandGuide)
+
+// Fragment distribution — named, versioned shared HTML (global footer
+// first), generalizing the brand-guide pattern above from fixed palette
+// tokens to arbitrary content. Pulled live by the WordPress connector's
+// fragments module and by the universal script for non-WordPress repos.
+// See docs/manual/user-manual.html#fragments and migrations/0003_fragments.sql.
+app.route('/api/fragments', fragments)
 
 // Health check
 app.get('/api/health', (c) =>
