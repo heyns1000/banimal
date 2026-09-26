@@ -147,6 +147,13 @@ wpBridge.post('/events', async (c) => {
     return c.json({ ok: false, error: 'Bridge not configured' }, 503)
   }
 
+  // Reject empty bodies before HMAC verification — a zero-byte POST would
+  // cause verifySignature to compute HMAC('') which an attacker could pre-
+  // compute and supply as a valid-looking signature.
+  if (!raw) {
+    return c.json({ ok: false, error: 'Empty body' }, 400)
+  }
+
   const valid = await verifySignature(secret, raw, signature)
   if (!valid) {
     return c.json({ ok: false, error: 'Invalid signature' }, 401)

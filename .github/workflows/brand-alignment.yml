@@ -1,0 +1,33 @@
+name: Brand alignment audit
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    name: Enforce canonical Banimal and Sam Fox CI globally
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Render every document through canonical governance
+        run: node scripts/render-canonical-docs.mjs --out .brand-render
+
+      - name: Verify pinned assets, guides and governed output
+        run: node scripts/verify-brand-alignment.mjs --rendered .brand-render
+
+      - name: Publish accountability ledger as an audit artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: banimal-brand-governance-ledger
+          path: .brand-render/brand-governance-ledger.json
+          if-no-files-found: error
+          retention-days: 90

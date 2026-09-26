@@ -11,18 +11,14 @@ up.
 
 ## This repo already has a real "Banimal Connector" — read this first
 
-`wordpress-plugin/banimal-ecosystem-connector/` (v5.0.0) is a real, shipped
-plugin: a thin, signed WordPress client that relays WooCommerce order events
-to this repo's Cloudflare Worker, and never calls Paystack, BobGo, or GitHub
-directly. It solves commerce sync, not brand alignment — the two are
-complementary, not competing.
-
-The right way to bring Sam Fox CI Guide enforcement into WordPress sites is
-**a new module on that existing plugin** (e.g. `includes/class-brand-guide.php`,
-following the same thin-client pattern: pull the CI Guide config from the
-Worker via signed request, apply it to the theme, never store its own copy of
-brand truth) — not a second, competing plugin. This skill is what that module
-ports its rules from.
+`wordpress-plugin/banimal-ecosystem-connector/` (v5.1.0) is a real, shipped
+plugin doing two jobs through one thin, signed client: relaying WooCommerce
+order events to this repo's Cloudflare Worker (never calling Paystack, BobGo,
+or GitHub directly), and — since v5.1.0's `includes/class-brand-guide.php` —
+pulling the Sam Fox™ CI Guide from the Worker's public `/api/brand-guide`
+endpoint and applying it to the theme as CSS custom properties. Commerce sync
+and brand alignment are both live in the one plugin now, exactly as this
+skill's rules are ported into it — not a second, competing plugin.
 
 ## Install as a plugin (recommended — versioned, works across machines)
 

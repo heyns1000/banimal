@@ -195,24 +195,24 @@ class Banimal_Id_Finder {
                         user: {
                             title: 'Finding a User ID',
                             steps: [
-                                "In the WordPress sidebar, click on <strong>Users → All Users</strong>.",
+                                "In the WordPress sidebar, click on <strong>Users &rarr; All Users</strong>.",
                                 "Find the user you need and hover over their name.",
                                 "Look at the bottom left of your browser (or the address bar when you click Edit). You'll see the URL."
                             ],
                             urlPrefix: 'yoursite.com/wp-admin/user-edit.php?',
                             urlHighlight: 'user_id=123',
-                            urlSuffix: '&wp_http_referer=...'
+                            urlSuffix: '&amp;wp_http_referer=...'
                         },
                         product: {
                             title: 'Finding a Product ID',
                             steps: [
-                                "In the WordPress sidebar, click on <strong>WooCommerce → Products</strong> (or just <strong>Products</strong>).",
+                                "In the WordPress sidebar, click on <strong>WooCommerce &rarr; Products</strong> (or just <strong>Products</strong>).",
                                 "Find the product you need and hover over its name.",
                                 "Look at the bottom left of your browser (or the address bar when you click Edit). You'll see the URL."
                             ],
                             urlPrefix: 'yoursite.com/wp-admin/post.php?',
                             urlHighlight: 'post=456',
-                            urlSuffix: '&action=edit'
+                            urlSuffix: '&amp;action=edit'
                         }
                     };
 
@@ -240,7 +240,15 @@ class Banimal_Id_Finder {
                         instructionStep2.innerHTML = data.steps[1];
                         instructionStep3.innerHTML = data.steps[2];
 
-                        urlExample.innerHTML = data.urlPrefix + '<span class="banimal-url-highlight">' + data.urlHighlight + '</span>' + data.urlSuffix;
+                        // Build the URL example using DOM methods to avoid an innerHTML
+                        // XSS sink for the prefix and suffix segments.
+                        urlExample.textContent = '';
+                        urlExample.appendChild(document.createTextNode(data.urlPrefix));
+                        var highlight = document.createElement('span');
+                        highlight.className = 'banimal-url-highlight';
+                        highlight.textContent = data.urlHighlight;
+                        urlExample.appendChild(highlight);
+                        urlExample.appendChild(document.createTextNode(data.urlSuffix));
 
                         wpUsers.classList.remove('highlight');
                         wpProducts.classList.remove('highlight');

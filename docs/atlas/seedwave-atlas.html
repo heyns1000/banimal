@@ -58,7 +58,9 @@
     max-width:920px; margin:0 auto; padding:12px 28px;
     display:flex; align-items:center; justify-content:space-between; gap:16px;
   }
-  .crumb{ font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:.02em; color:var(--muted); }
+  .crumb{ display:inline-flex; align-items:center; gap:7px; font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:.02em; color:var(--muted); }
+  .crumb img{ height:14px; width:auto; vertical-align:-2px; }
+  .crumb .banimal-logo{ height:11px; }
   .crumb b{ color:var(--ink); font-weight:600; }
   .verified{
     font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.04em;
@@ -183,7 +185,7 @@
     border-top:2px solid var(--rule-strong); padding-top:22px;
   }
   footer .fmark{ background:#FBF4E4; border:2px solid var(--rule-strong); border-radius:10px; padding:10px 14px; width:fit-content; }
-  footer .fmark img{ height:28px; width:auto; display:block; filter:grayscale(1); }
+  footer .fmark img{ height:34px; width:auto; display:block; filter:grayscale(1); }
   footer .finfo{ text-align:right; }
   footer .tag{ font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
   footer .tag b{ color:var(--ink); }
@@ -197,8 +199,8 @@
 
 <div class="utilitybar">
   <div class="inner">
-    <span class="crumb"><b>Sam Fox™</b> / Banimal™ Connector / Seedwave Atlas</span>
-    <span class="verified">verified against 7 live repositories</span>
+    <span class="crumb"><img data-icon-ink="../brand/assets/samfox-icon-verified-ink.png" data-icon-cream="../brand/assets/samfox-icon-verified-cream.png" src="../brand/assets/samfox-icon-verified-ink.png" alt="" /> <b>Sam Fox™</b> / <img class="banimal-logo" data-icon-ink="../brand/assets/banimal-logo-ink.png" data-icon-cream="../brand/assets/banimal-logo-white.png" src="../brand/assets/banimal-logo-ink.png" alt="Banimal™" /> Connector / Seedwave Atlas</span>
+    <span class="verified">verified against 7 live repositories · rev 2026-08-30</span>
   </div>
 </div>
 
@@ -252,7 +254,7 @@
     <!-- the verified Sam Fox mark, on the ridge -->
     <image data-icon-ink="../brand/assets/samfox-icon-verified-ink.png" data-icon-cream="../brand/assets/samfox-icon-verified-cream.png" href="../brand/assets/samfox-icon-verified-ink.png" x="522" y="352" width="76" height="76" />
 
-    <text x="580" y="410" class="mono" font-size="10.5" fill="var(--muted)" font-family="JetBrains Mono, monospace" text-anchor="middle">seedwave</text>
+    <text x="560" y="452" class="mono" font-size="10.5" fill="var(--muted)" font-family="JetBrains Mono, monospace" text-anchor="middle">seedwave</text>
   </svg>
   <div class="plate-title">The Seedwave<br/>Atlas</div>
 </figure>
@@ -273,7 +275,7 @@
 <section class="index">
   <div class="wrap">
     <h2>Index</h2>
-    <p class="measure">29 entries across seven sections, page-numbered in reading order. <code class="mono">heyns1000/banimal</code> is now the canonical home for entries 01–02 and 05–08 — the product and its documentation live where the product runs.</p>
+    <p class="measure">32 entries across seven sections, page-numbered in reading order. <code class="mono">heyns1000/banimal</code> is now the canonical home for entries 01–02 and 05–08 — the product and its documentation live where the product runs.</p>
     <div class="legend">
       <span><i style="background:var(--live)"></i>Live — running in a real repo</span>
       <span><i style="background:var(--draft)"></i>Draft — file exists, not committed</span>
@@ -439,23 +441,41 @@
         <tr>
           <td class="num">26</td>
           <td class="name"><b>samfox PR #1</b><span class="loc mono">Fruitful-Global-Planet/samfox#1</span></td>
-          <td class="desc">Heart of Her Hand pages plus the original Banimal™ Connector plugin commit, open as a draft, being watched for CI and review.</td>
-          <td class="status"><span class="pill open"><i></i>open</span></td>
+          <td class="desc">Heart of Her Hand pages plus the original Banimal™ Connector plugin commit.</td>
+          <td class="status"><span class="pill live"><i></i>merged</span></td>
         </tr>
         <tr>
           <td class="num">27</td>
-          <td class="name"><b>banimal PR — Connector docs &amp; plugin</b><span class="loc mono">heyns1000/banimal</span></td>
+          <td class="name"><b>banimal PR #16 — Connector docs &amp; plugin</b><span class="loc mono">heyns1000/banimal</span></td>
           <td class="desc">This atlas, the CI Guide mirror, and the banimal-connector plugin, landing in the repo the product actually runs from.</td>
-          <td class="status"><span class="pill open"><i></i>open</span></td>
+          <td class="status"><span class="pill live"><i></i>merged</span></td>
         </tr>
         <tr>
           <td class="num">28</td>
+          <td class="name"><b>banimal PR #17 — brand-guide endpoint</b><span class="loc mono">heyns1000/banimal</span></td>
+          <td class="desc">/api/brand-guide, the 9-theme palette toggle, and live icon serving (entries 07–08).</td>
+          <td class="status"><span class="pill live"><i></i>merged</span></td>
+        </tr>
+        <tr>
+          <td class="num">29</td>
+          <td class="name"><b>banimal PR #18 — CI Guide alignment</b><span class="loc mono">heyns1000/banimal</span></td>
+          <td class="desc">Diagram clear space, theme-aware icon/logo swap, the real Banimal™ logo, standardized footers. Merged without its final push landing — see entry 30.</td>
+          <td class="status"><span class="pill live"><i></i>merged</span></td>
+        </tr>
+        <tr>
+          <td class="num">30</td>
+          <td class="name"><b>banimal PR #19 — audit &amp; correction</b><span class="loc mono">heyns1000/banimal</span></td>
+          <td class="desc">Carries forward the fix that #18 didn't actually land, plus a cross-audit (a real overlap bug on this atlas's own hero, and a corrected palette in docs/connector-preview.html).</td>
+          <td class="status"><span class="pill open"><i></i>open</span></td>
+        </tr>
+        <tr>
+          <td class="num">31</td>
           <td class="name"><b>18-part "Perplexity Spaces" dump</b><span class="loc mono">reviewed, not adopted wholesale</span></td>
           <td class="desc">17 unbranded landing-page iterations plus one fake telemetry demo. Entry 16 is the only piece worth keeping from it.</td>
           <td class="status"><span class="pill archived"><i></i>archived</span></td>
         </tr>
         <tr>
-          <td class="num">29</td>
+          <td class="num">32</td>
           <td class="name"><b>Fragment distribution</b><span class="loc mono">banimal / src/worker (new), wordpress-plugin/banimal-ecosystem-connector (new)</span></td>
           <td class="desc">Generalizes entry 07/08's brand-guide pattern from fixed palette tokens to arbitrary named, versioned HTML (footer first) so it can be defined once and pulled live by every repo instead of hand-copied. Concluded design, documented in <span class="mono">docs/manual/user-manual.html#fragments</span>: draft→staged→live per fragment, pull-based with no consumer registry (this atlas stays the human inventory), same WordPress-module shape as entry 07's brand module for WP sites, a universal script for the rest. Supersedes entry 10's framing for the footer/HTML use case; entry 10 remains the brand-token case.</td>
           <td class="status"><span class="pill planned"><i></i>planned</span></td>
@@ -469,7 +489,7 @@
   <div class="wrap">
     <div class="fmark"><img src="../brand/assets/banimal-logo-ink.png" alt="Banimal™" /></div>
     <div class="finfo">
-      <div class="tag">Seedwave Atlas · <b>29</b> entries · Sam Fox™ &amp; Banimal™ Connector</div>
+      <div class="tag">Seedwave Atlas · <b>32</b> entries · Sam Fox™ &amp; Banimal™ Connector</div>
       <div class="copyright">© 2026 Fruitful Shops (Pty) Ltd · Artwork © Sam Fox™</div>
     </div>
     <div class="fsuper">Compiled 2026·08·30 — every entry checked against its repository, not recalled.</div>

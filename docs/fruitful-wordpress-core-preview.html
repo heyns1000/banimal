@@ -1,0 +1,317 @@
+<title>Fruitful WordPress Core Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:#231F20; --cream:#FBF4E4; --artcream:#F0EEDA; --paper:#FFFFFF;
+    --rule:#DED5BE; --muted:#6B655A;
+    --sage:#577D60; --sage-soft:#E4EEE6;
+    --coral:#F16B6E; --coral-soft:#FCE7E7;
+    --dustyrose:#B95F56;
+    --good-bg:#E4EEE6; --good-fg:#3F5E48; --good-bd:#BFDBC7;
+    --wp-bg:#f0f0f1; --wp-panel:#ffffff; --wp-side:#1d2327;
+    --wp-blue:#2271b1; --wp-text:#1d2327; --wp-border:#c3c4c7; --wp-muted:#646970;
+    --el-panel:#1a1a1a; --el-panel-2:#232323; --el-accent:#93003c; --el-border:#3a3a3a; --el-text:#e0e0e0; --el-muted:#9a9a9a;
+    --shadow: 0 1px 2px rgba(35,31,32,0.06), 0 6px 20px rgba(35,31,32,0.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink:#EDE7DA; --cream:#1B1A17; --artcream:#232019; --paper:#201D18;
+      --rule:#3A362E; --muted:#B3AA98;
+      --sage:#8FB89A; --sage-soft:#23302A;
+      --coral:#E2938B; --coral-soft:#332521;
+      --dustyrose:#E2938B;
+      --good-bg:#23302A; --good-fg:#8FB89A; --good-bd:#3A5044;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink:#EDE7DA; --cream:#1B1A17; --artcream:#232019; --paper:#201D18;
+    --rule:#3A362E; --muted:#B3AA98;
+    --sage:#8FB89A; --sage-soft:#23302A;
+    --coral:#E2938B; --coral-soft:#332521;
+    --dustyrose:#E2938B;
+    --good-bg:#23302A; --good-fg:#8FB89A; --good-bd:#3A5044;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--cream); color: var(--ink);
+    font-family: Georgia, 'Times New Roman', serif; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .mono { font-family: 'JetBrains Mono', Menlo, monospace; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 56px 28px 40px; }
+  h1, h2, h3 { font-family: 'Baloo 2', sans-serif; letter-spacing: -0.01em; margin: 0; text-wrap: balance; }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--dustyrose); margin-bottom: 10px;
+  }
+  .utilitybar {
+    position: sticky; top: 0; z-index: 40; background: var(--cream);
+    border-bottom: 1px solid var(--rule); backdrop-filter: blur(6px);
+  }
+  .utilitybar .inner {
+    max-width: 1080px; margin: 0 auto; padding: 12px 28px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  }
+  .crumb { display: inline-flex; align-items: center; gap: 7px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: .02em; color: var(--muted); }
+  .crumb img { height: 14px; width: auto; vertical-align: -2px; }
+  .crumb b { color: var(--ink); font-weight: 600; }
+  .crumb a { color: inherit; text-decoration: none; }
+  .crumb a:hover { color: var(--dustyrose); }
+  header.page { margin-bottom: 44px; }
+  header.page h1 { font-size: clamp(30px, 4vw, 40px); font-weight: 700; color: var(--ink); }
+  header.page p { font-size: 16px; color: var(--muted); max-width: 640px; margin: 12px 0 0; line-height: 1.6; }
+
+  section { margin-top: 56px; }
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
+  .section-head h2 { font-size: 22px; font-weight: 700; }
+  .section-head .note { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--muted); }
+
+  .callout {
+    background: var(--good-bg); border: 1px solid var(--good-bd); color: var(--good-fg);
+    border-radius: 12px; padding: 14px 18px; font-size: 14px; line-height: 1.6; margin-bottom: 22px;
+  }
+  .callout b { color: inherit; }
+  .callout code { background: rgba(0,0,0,0.06); padding: 1px 5px; border-radius: 4px; }
+
+  .screens { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+  .screen-card { background: var(--wp-panel); border: 1px solid var(--wp-border); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); }
+  .screen-card .titlebar { background: var(--wp-side); color: #f0f0f1; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 14px; display: flex; align-items: center; gap: 8px; }
+  .titlebar .dots { display: flex; gap: 5px; margin-right: 4px; }
+  .titlebar .dots span { width: 7px; height: 7px; border-radius: 50%; background: #52585d; display: block; }
+  .screen-body { display: flex; min-height: 300px; }
+  .wp-nav { width: 92px; flex: none; background: var(--wp-side); padding: 10px 0; }
+  .wp-nav .item { font-size: 10.5px; color: #b5bcc2; padding: 7px 12px; }
+  .wp-nav .item.active { background: var(--wp-blue); color: #fff; font-weight: 600; }
+  .wp-main { flex: 1; background: var(--wp-bg); padding: 16px 18px; font-size: 12px; color: var(--wp-text); }
+  .wp-main h4 { font-family: Georgia, serif; font-size: 15px; font-weight: 700; margin: 0 0 6px; color: var(--wp-text); }
+  .wp-main p.desc { color: var(--wp-muted); font-size: 11.5px; line-height: 1.5; margin: 0 0 12px; }
+  .wp-table { width: 100%; border-collapse: collapse; font-size: 11px; margin-bottom: 12px; background: #fff; }
+  .wp-table td { padding: 5px 8px; border-bottom: 1px solid #e2e4e7; }
+  .wp-table td:first-child { font-weight: 600; width: 42%; }
+  .wp-good { color: #007017; }
+  .wp-btn {
+    display: inline-block; background: var(--wp-blue); color: #fff; font-size: 11.5px;
+    padding: 6px 14px; border-radius: 3px; border: 1px solid #135e96; font-weight: 500;
+  }
+  .wp-result {
+    margin-top: 12px; background: #fff; border: 1px solid var(--wp-border); border-radius: 4px;
+    padding: 10px 12px; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; line-height: 1.6; color: var(--wp-muted);
+  }
+  .wp-result .k { color: var(--sage); }
+  .screen-caption { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--muted); text-align: center; padding: 8px 0 0; }
+
+  /* Elementor editor mockup */
+  .el-body { display: flex; min-height: 300px; background: #e9e9e9; }
+  .el-panel { width: 210px; flex: none; background: var(--el-panel); color: var(--el-text); padding: 0; font-family: system-ui, sans-serif; }
+  .el-panel .el-head { padding: 10px 14px; border-bottom: 1px solid var(--el-border); font-size: 11px; font-weight: 600; background: var(--el-panel-2); }
+  .el-panel .el-section { padding: 12px 14px; border-bottom: 1px solid var(--el-border); }
+  .el-panel label { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: .04em; color: var(--el-muted); margin-bottom: 5px; }
+  .el-panel input.el-input { width: 100%; font-size: 11.5px; padding: 6px 8px; border: 1px solid var(--el-border); border-radius: 3px; background: #2b2b2b; color: var(--el-text); font-family: inherit; margin-bottom: 10px; }
+  .el-switch-row { display: flex; align-items: center; justify-content: space-between; font-size: 11px; margin-bottom: 8px; }
+  .el-switch { width: 30px; height: 16px; border-radius: 100px; background: var(--el-accent); position: relative; flex: none; }
+  .el-switch::after { content: ''; position: absolute; right: 2px; top: 2px; width: 12px; height: 12px; border-radius: 50%; background: #fff; }
+  .el-canvas { flex: 1; background: #fff; padding: 28px 24px; display: flex; align-items: flex-start; }
+  .el-widget-preview { border: 1px dashed #b7b7b7; border-radius: 8px; padding: 18px; max-width: 260px; }
+  .el-widget-preview .logo { width: 64px; height: 64px; border-radius: 10px; background: var(--sage-soft); color: var(--sage); display: flex; align-items: center; justify-content: center; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 22px; margin-bottom: 10px; }
+  .el-widget-preview h5 { font-family: Georgia, serif; font-size: 15px; margin: 0 0 6px; color: #1d2327; }
+  .el-widget-preview p { font-size: 11.5px; color: #555; margin: 0; line-height: 1.5; }
+
+  .routing { display: flex; flex-direction: column; gap: 10px; }
+  .route-row {
+    display: grid; grid-template-columns: 1.6fr 2fr auto auto; gap: 14px; align-items: center;
+    background: var(--artcream); border: 1px solid var(--rule); border-radius: 12px; padding: 14px 18px;
+  }
+  .route-row .item-name { font-weight: 700; font-size: 14px; }
+  .route-row .item-desc { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+  .chip {
+    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.04em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 100px; white-space: nowrap; border: 1px solid transparent;
+  }
+  .chip.good { background: var(--good-bg); color: var(--good-fg); border-color: var(--good-bd); }
+  .dest { font-size: 12px; font-weight: 600; color: var(--dustyrose); text-align: right; white-space: nowrap; }
+  .group-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--sage); margin: 26px 0 10px; padding-top: 4px;
+  }
+  .group-label:first-child { margin-top: 0; }
+
+  @media (max-width: 680px) {
+    .route-row { grid-template-columns: 1fr; }
+    .dest { text-align: left; }
+    .screen-body, .el-body { flex-direction: column; }
+    .wp-nav, .el-panel { width: 100%; }
+  }
+
+  footer { margin-top: 40px; padding: 20px 0 0; }
+  footer .fwrap {
+    display: grid; grid-template-columns: auto 1fr; gap: 14px 24px; align-items: center;
+    border-top: 2px solid var(--ink); padding-top: 20px;
+  }
+  footer .fmark { background: #FFFFFF; border: 2px solid var(--ink); border-radius: 10px; padding: 8px 12px; width: fit-content; }
+  footer .fmark img { height: 32px; width: auto; display: block; }
+  footer .finfo { text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); }
+  footer .finfo a { color: var(--dustyrose); }
+  footer .copyright { font-size: 12px; color: var(--muted); margin-top: 4px; font-family: Georgia, serif; }
+  @media (max-width: 560px) {
+    footer .fwrap { grid-template-columns: 1fr; }
+    footer .finfo { text-align: left; }
+  }
+</style>
+
+<div class="utilitybar">
+  <div class="inner">
+    <span class="crumb"><b>Fruitful WordPress Core</b> / <a href="../wordpress-plugin/fruitful-wordpress-core/landing.html">Product page</a></span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header class="page">
+    <div class="eyebrow">wordpress-plugin/fruitful-wordpress-core · v1.1.0</div>
+    <h1>What you'll actually see when it's installed</h1>
+    <p>Real previews of the status page and the Elementor widget added in v1.1.0 — the plugin's first two pieces of visible functionality, on top of the API client, cache, and REST bridge that shipped in v1.0.0.</p>
+  </header>
+
+  <section>
+    <div class="callout">
+      <b>These render in WordPress's and Elementor's own chrome</b> — this plugin holds no brand-specific styling of its own, by design. The one piece of front-end CSS it ships (<code>assets/css/frontend.css</code>) is deliberately minimal structure, not a finished look; a brand connector or theme is expected to style the widget's output.
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Admin &amp; editor screens, as built</h2>
+      <span class="note">v1.1.0</span>
+    </div>
+
+    <div class="screens">
+      <div>
+        <div class="screen-card">
+          <div class="titlebar"><span class="dots"><span></span><span></span><span></span></span>Fruitful Core → Status</div>
+          <div class="screen-body">
+            <div class="wp-nav">
+              <div class="item active">Fruitful Core</div>
+            </div>
+            <div class="wp-main">
+              <h4>Fruitful WordPress Core</h4>
+              <p class="desc">Status-only — the API base URL and token are read from wp-config.php constants and are never stored, displayed, or editable here.</p>
+              <table class="wp-table">
+                <tr><td>API configured</td><td class="wp-good">✓ Yes</td></tr>
+                <tr><td>API base URL</td><td>https://api.fruitful.example</td></tr>
+                <tr><td>Token</td><td>Set (hidden)</td></tr>
+                <tr><td>Cached responses</td><td>3</td></tr>
+              </table>
+              <span class="wp-btn">Test Connection</span>
+              <div class="wp-result">{<br>&nbsp;&nbsp;<span class="k">"success"</span>: true,<br>&nbsp;&nbsp;<span class="k">"data"</span>: { <span class="k">"message"</span>: "Connected." }<br>}</div>
+            </div>
+          </div>
+        </div>
+        <div class="screen-caption">class-admin-page.php → render_page() / ajax_test_connection()</div>
+      </div>
+
+      <div>
+        <div class="screen-card">
+          <div class="titlebar"><span class="dots"><span></span><span></span><span></span></span>Elementor → Fruitful Brand widget</div>
+          <div class="el-body">
+            <div class="el-panel">
+              <div class="el-head">Fruitful Brand</div>
+              <div class="el-section">
+                <label>Brand ID</label>
+                <input class="el-input" value="banimal" readonly />
+                <div class="el-switch-row"><span>Show logo</span><span class="el-switch"></span></div>
+                <div class="el-switch-row"><span>Show description</span><span class="el-switch"></span></div>
+                <div class="el-switch-row"><span>Link name to website</span><span class="el-switch"></span></div>
+              </div>
+            </div>
+            <div class="el-canvas">
+              <div class="el-widget-preview">
+                <div class="logo">B</div>
+                <h5>Banimal</h5>
+                <p>Thin, signed WordPress client for the Banimal Cloudflare Worker.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="screen-caption">includes/widgets/class-widget-brand.php → render()</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Routing — what's where</h2>
+      <span class="note">Everything added in v1.1.0</span>
+    </div>
+
+    <div class="routing">
+      <div class="group-label">v1.0.0 — shared plumbing</div>
+      <div class="route-row">
+        <div><div class="item-name">API client, cache, settings, logger</div><div class="item-desc">Bearer-token auth, transient cache, redacted logging</div></div>
+        <div class="item-desc">Unchanged since v1.0.0</div>
+        <span class="chip good">Shipped</span>
+        <span class="dest">includes/</span>
+      </div>
+      <div class="route-row">
+        <div><div class="item-name">REST bridge — /brands, /brand/{id}</div><div class="item-desc">Narrow, edit_pages-gated routes for the Elementor editor</div></div>
+        <div class="item-desc">Now maps every response through the schema validator (v1.1.0)</div>
+        <span class="chip good">Updated</span>
+        <span class="dest">includes/class-rest-api.php</span>
+      </div>
+
+      <div class="group-label">v1.1.0 — new this round</div>
+      <div class="route-row">
+        <div><div class="item-name">class-permissions.php</div><div class="item-desc">One capability check, shared by the REST bridge, the admin page, and the widget</div></div>
+        <div class="item-desc">From the integration guide's own file tree, never built until now</div>
+        <span class="chip good">New</span>
+        <span class="dest">includes/</span>
+      </div>
+      <div class="route-row">
+        <div><div class="item-name">class-schema-validator.php</div><div class="item-desc">Maps a raw API entity to a public display object before anything renders it</div></div>
+        <div class="item-desc">Same — the other file the guide's tree called for</div>
+        <span class="chip good">New</span>
+        <span class="dest">includes/</span>
+      </div>
+      <div class="route-row">
+        <div><div class="item-name">Fruitful Brand widget</div><div class="item-desc">Read-only Elementor widget; registers only when Elementor is active</div></div>
+        <div class="item-desc">Completes the integration guide's Phase 2 success criterion</div>
+        <span class="chip good">New</span>
+        <span class="dest">includes/widgets/</span>
+      </div>
+      <div class="route-row">
+        <div><div class="item-name">Status page</div><div class="item-desc">Configuration state, a live connection test, a cache count</div></div>
+        <div class="item-desc">Read-only — no settings form, no secret ever reaches the browser</div>
+        <span class="chip good">New</span>
+        <span class="dest">includes/class-admin-page.php</span>
+      </div>
+      <div class="route-row">
+        <div><div class="item-name">Product page + this preview</div><div class="item-desc">Landing page mirroring the Banimal Connector's own, plus this mockup</div></div>
+        <div class="item-desc">First time this plugin has had either</div>
+        <span class="chip good">New</span>
+        <span class="dest">landing.html · docs/</span>
+      </div>
+
+      <div class="group-label">Scoped out — a separate, later change</div>
+      <div class="route-row">
+        <div><div class="item-name">Banimal Ecosystem Connector wiring</div><div class="item-desc">Make it require this plugin, per the integration guide's Phase 3</div></div>
+        <div class="item-desc">Touches an already-shipped production plugin — not bundled into this round</div>
+        <span class="chip good">Not started</span>
+        <span class="dest">Awaiting a scoped follow-up</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="fwrap">
+      <div class="fmark"><img src="brand/assets/fruitful-lockup-verified.png" alt="Fruitful™" /></div>
+      <div class="finfo">
+        <div>Fruitful WordPress Core · v1.1.0 · <a href="../wordpress-plugin/fruitful-wordpress-core/landing.html">product page →</a></div>
+        <div class="copyright">© 2026 Fruitful Shops (Pty) Ltd.</div>
+      </div>
+    </div>
+  </footer>
+</div>

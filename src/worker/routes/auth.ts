@@ -118,24 +118,68 @@ auth.get('/:provider/callback', async (c) => {
     userId = r.meta.last_row_id as number
   }
 
-  // Issue a simple session token (in production use a signed JWT)
-  const token = btoa(JSON.stringify({ userId, email, provider, exp: Date.now() + 86400000 * 7 }))
+  // Issue an HMAC-SHA256 signed session token — same signing pattern as
+  // wp-bridge.ts's event verification, so a client can't forge a session by
+  // just base64-encoding their own payload.
+  const token = await signSession(c.env as any, { userId, email, provider, exp: Date.now() + 86400000 * 7 })
 
   // Redirect back to frontend with token
   return c.redirect(`/?auth_token=${token}`)
 })
 
 // Verify token
-auth.get('/me', (c) => {
+auth.get('/me', async (c) => {
   const token = c.req.header('Authorization')?.replace('Bearer ', '')
   if (!token) return c.json({ error: 'Unauthorized' }, 401)
-  try {
-    const payload = JSON.parse(atob(token)) as { userId: number; email: string; provider: string; exp: number }
-    if (payload.exp < Date.now()) return c.json({ error: 'Token expired' }, 401)
-    return c.json({ user: payload })
-  } catch {
-    return c.json({ error: 'Invalid token' }, 401)
-  }
+  const payload = await verifySession(c.env as any, token)
+  if (!payload) return c.json({ error: 'Invalid token' }, 401)
+  if (payload.exp < Date.now()) return c.json({ error: 'Token expired' }, 401)
+  return c.json({ user: payload })
 })
+
+export type SessionPayload = { userId: number; email: string; provider: string; exp: number }
+
+function timingSafeEqualHex(a: string, b: string): boolean {
+  if (a.length !== b.length) return false
+  let diff = 0
+  for (let i = 0; i < a.length; i++) {
+    diff |= a.charCodeAt(i) ^ b.charCodeAt(i)
+  }
+  return diff === 0
+}
+
+async function hmacHex(secret: string, message: string): Promise<string> {
+  const key = await crypto.subtle.importKey(
+    'raw',
+    new TextEncoder().encode(secret),
+    { name: 'HMAC', hash: 'SHA-256' },
+    false,
+    ['sign']
+  )
+  const mac = await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(message))
+  return [...new Uint8Array(mac)].map((b) => b.toString(16).padStart(2, '0')).join('')
+}
+
+async function signSession(env: { AUTH_SESSION_SECRET?: string }, payload: SessionPayload): Promise<string> {
+  const secret = env.AUTH_SESSION_SECRET || ''
+  if (!secret) throw new Error('AUTH_SESSION_SECRET not configured')
+  const payloadB64 = btoa(JSON.stringify(payload))
+  const signature = await hmacHex(secret, payloadB64)
+  return `${payloadB64}.${signature}`
+}
+
+export async function verifySession(env: { AUTH_SESSION_SECRET?: string }, token: string): Promise<SessionPayload | null> {
+  const secret = env.AUTH_SESSION_SECRET || ''
+  if (!secret) return null
+  const [payloadB64, signature] = token.split('.')
+  if (!payloadB64 || !signature) return null
+  const expected = await hmacHex(secret, payloadB64)
+  if (!timingSafeEqualHex(expected, signature)) return null
+  try {
+    return JSON.parse(atob(payloadB64)) as SessionPayload
+  } catch {
+    return null
+  }
+}
 
 export default auth

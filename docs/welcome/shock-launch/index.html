@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Welcome to Fruitful — The Shock Launch</title>
+<meta name="description" content="The Fruitful Portals network raises the flag: one welcome experience, merged across every Fruitful gateway. Something iconic is breaking through — bigger, bolder, unleashed." />
+<meta property="og:title" content="Welcome to Fruitful — The Shock Launch" />
+<meta property="og:description" content="Flag activation is live. The Fruitful Portals are merging into one Welcome to Fruitful experience." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,600,700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <a href="#top" class="brand" aria-label="Fruitful home">
+    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <path d="M24 4C15 4 8 12 8 21c0 10 8 19 16 23 8-4 16-13 16-23 0-9-7-17-16-17Z" fill="var(--color-primary)"/>
+      <path d="M24 4c2 4 2 8-1 11" stroke="var(--color-gold)" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="19" cy="22" r="2.4" fill="var(--color-text-inverse)"/>
+      <circle cx="29" cy="22" r="2.4" fill="var(--color-text-inverse)"/>
+      <path d="M18 29c2.5 3 9.5 3 12 0" stroke="var(--color-text-inverse)" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+    </svg>
+    fruitful
+  </a>
+  <nav class="primary-nav" aria-label="Primary">
+    <a href="#flag">The Reveal</a>
+    <a href="#portals">Portals</a>
+    <a href="#merge">Global Merge</a>
+    <a href="#welcome">Welcome Page</a>
+  </nav>
+  <div class="header-actions">
+    <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <a href="#signup" class="btn btn--primary">Get Notified</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner wrap">
+      <span class="eyebrow">Launching soon · Flag status: standing by</span>
+      <h1>Welcome to<span>Fruitful™</span></h1>
+      <p class="lede">Something iconic is about to break through. The Fruitful Portals are merging into one arrival — bigger, bolder, unleashed.</p>
+      <div class="hero-actions">
+        <a href="#flag" class="btn btn--primary">Activate the flag</a>
+        <a href="#portals" class="btn btn--ghost" style="color:#f7f2e8;border-color:oklch(0.95 0.01 40/0.35)">See the Portals</a>
+      </div>
+    </div>
+    <div class="scroll-cue">
+      Stay wild
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- FLAG ACTIVATION -->
+  <section class="flag-section" id="flag">
+    <div class="wrap flag-grid">
+      <div class="flag-copy reveal">
+        <span class="eyebrow" style="color:var(--color-primary)">The reveal</span>
+        <h2>Flag activation</h2>
+        <p style="margin-top:var(--space-4);color:var(--color-text-muted);font-size:var(--text-lg);">
+          The flag means exactly what it says. When it's raised, the Fruitful ecosystem is live — every portal, every page, one signal.
+        </p>
+        <div style="margin-top:var(--space-8);">
+          <span class="status-pill" id="statusPill" data-active="false">Standing by</span>
+        </div>
+        <div>
+          <button class="btn btn--primary" id="raiseFlagBtn">Raise the flag</button>
+        </div>
+        <div class="legacy-note">
+          This mark carries decades of history — a flag illustration built and refined over 30 years within the Fruitful environment, now standing at the front of the Shock Launch.
+        </div>
+      </div>
+      <div class="flag-rig">
+        <div class="flag-stage" id="flagStage" data-raised="false">
+          <div class="flag-pole"></div>
+          <div class="flag-ball"></div>
+          <div class="flag-cloth">
+            <svg viewBox="0 0 220 150" class="flag-wave">
+              <path d="M0 0 H220 V150 Q140 130 0 150 Z" fill="var(--color-primary)"/>
+              <path d="M0 0 H220 V60 Q140 45 0 60 Z" fill="var(--color-coral)"/>
+              <circle cx="60" cy="95" r="20" fill="var(--color-gold)"/>
+              <path d="M50 95c3-8 17-8 20 0-3 8-17 8-20 0Z" fill="var(--color-text-inverse)" opacity="0.4"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="flag-caption">Flag raised = ecosystem live · flag lowered = standing by</p>
+  </section>
+
+  <!-- PORTALS -->
+  <section class="portals-section wrap" id="portals">
+    <div class="section-head reveal">
+      <span class="eyebrow">Now visible</span>
+      <h2>The Fruitful Portals</h2>
+      <p>The physical front door of the ecosystem — self-contained kiosks carrying the Fruitful mark into the field, each one a node in the wider network.</p>
+    </div>
+    <div class="portal-grid">
+      <div class="portal-card reveal">
+        <div class="img-frame"><img src="assets/portal-01.jpg" alt="Fruitful portal kiosk, closed, teal shell with coral canopy and glowing logo sign" loading="lazy" /></div>
+        <div class="card-body">
+          <span class="tag">Portal · Sealed</span>
+          <h3>Street-ready kiosk</h3>
+          <p>Compact teal-and-coral shell, illuminated signage, built for public spaces.</p>
+        </div>
+      </div>
+      <div class="portal-card reveal">
+        <div class="img-frame"><img src="assets/portal-02.jpg" alt="Fruitful portal kiosk opened, showing rear service door and interactive screen" loading="lazy" /></div>
+        <div class="card-body">
+          <span class="tag">Portal · Open</span>
+          <h3>Service &amp; access bay</h3>
+          <p>Rear door swings wide for restocking, wiring, and on-site maintenance.</p>
+        </div>
+      </div>
+      <div class="portal-card reveal">
+        <div class="img-frame"><img src="assets/portal-03.jpg" alt="Fruitful portal kiosk interior screen showing wireless, wired, media, HDMI, wifi and settings menu" loading="lazy" /></div>
+        <div class="card-body">
+          <span class="tag">Portal · Interface</span>
+          <h3>Onboard control panel</h3>
+          <p>Wireless, wired, media, HDMI, Wi‑Fi and settings — the same menu, every portal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MERGE -->
+  <section class="merge-section" id="merge">
+    <div class="wrap merge-grid">
+      <div class="merge-canvas-wrap reveal">
+        <canvas id="mergeCanvas"></canvas>
+        <div class="merge-label">
+          <span>Portals: syncing</span>
+          <span>Target: one Welcome page</span>
+        </div>
+      </div>
+      <div class="merge-copy reveal">
+        <span class="eyebrow" style="color:var(--color-primary)">Global data merge</span>
+        <h2>Every portal, one arrival</h2>
+        <p style="margin-top:var(--space-4);color:var(--color-text-muted);font-size:var(--text-lg);">Instead of separate logins and separate front pages, every Fruitful gateway routes into a single "Welcome to Fruitful" experience.</p>
+        <ul>
+          <li>
+            <span class="num">1</span>
+            <div class="txt"><h4>Collect</h4><p>Each portal and micro-site reports its status into one shared feed.</p></div>
+          </li>
+          <li>
+            <span class="num">2</span>
+            <div class="txt"><h4>Reconcile</h4><p>Duplicate or conflicting entries are merged before anything goes live.</p></div>
+          </li>
+          <li>
+            <span class="num">3</span>
+            <div class="txt"><h4>Publish</h4><p>One consistent "Welcome to Fruitful" page renders everywhere, in sync.</p></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- WELCOME PREVIEW -->
+  <section class="welcome-section wrap" id="welcome">
+    <div class="section-head reveal">
+      <span class="eyebrow">Preview</span>
+      <h2>The Welcome to Fruitful page</h2>
+      <p>A single arrival template every portal and property will share once the merge completes.</p>
+    </div>
+    <div class="welcome-mock reveal">
+      <div class="mock-bar">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <span class="mock-url">welcome.fruitful.co.za</span>
+      </div>
+      <div class="mock-body">
+        <span class="eyebrow">Welcome</span>
+        <h3>Welcome to Fruitful</h3>
+        <p>One entrance for every portal, brand, and page in the ecosystem — synced, current, and unmistakably Fruitful.</p>
+        <div class="mock-portal-chips">
+          <span>Street Portals</span>
+          <span>Retail Network</span>
+          <span>Digital Storefronts</span>
+          <span>Partner Sites</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="signup" style="padding-block: clamp(var(--space-10), 6vw, var(--space-20));">
+    <div class="cta-section reveal">
+      <span class="eyebrow" style="color:var(--color-gold)">The Shock Launch</span>
+      <h2>Bigger. Bolder. Unleashed.</h2>
+      <p>Be first to see the flag go up. Leave your email and we'll signal the moment the Welcome to Fruitful merge goes live.</p>
+      <form class="signup-form" id="signupForm">
+        <input type="email" required placeholder="you@example.com" aria-label="Email address" />
+        <button type="submit" class="btn btn--primary">Notify me</button>
+      </form>
+      <p class="form-note" id="formNote">Launching soon. Stay wild.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="foot-brand">
+    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <path d="M24 4C15 4 8 12 8 21c0 10 8 19 16 23 8-4 16-13 16-23 0-9-7-17-16-17Z" fill="var(--color-primary)"/>
+    </svg>
+    Fruitful™
+  </div>
+  <div>© 2026 Fruitful Shops (Pty) Ltd. All rights reserved.</div>
+  <div>Stay wild. The Shock Launch is coming.</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

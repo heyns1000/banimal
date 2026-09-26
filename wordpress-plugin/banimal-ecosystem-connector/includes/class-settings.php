@@ -28,12 +28,21 @@ class Banimal_Settings {
             && AUTH_KEY !== 'put your unique phrase here';
     }
 
+    /**
+     * Derive a proper 32-byte binary key from AUTH_KEY via SHA-256 so that
+     * openssl_encrypt receives raw key material rather than a human-readable
+     * salt string of unpredictable length.
+     */
+    private static function derive_key() {
+        return hash('sha256', AUTH_KEY, true);
+    }
+
     public static function encrypt($value) {
         if ($value === '' || !self::has_secure_auth_key()) {
             return '';
         }
         $iv = random_bytes(openssl_cipher_iv_length('aes-256-cbc'));
-        $encrypted = openssl_encrypt($value, 'aes-256-cbc', AUTH_KEY, 0, $iv);
+        $encrypted = openssl_encrypt($value, 'aes-256-cbc', self::derive_key(), OPENSSL_RAW_DATA, $iv);
         if ($encrypted === false) {
             return '';
         }
@@ -57,7 +66,7 @@ class Banimal_Settings {
         if ($iv === false) {
             return '';
         }
-        $plain = openssl_decrypt($encrypted_data, 'aes-256-cbc', AUTH_KEY, 0, $iv);
+        $plain = openssl_decrypt($encrypted_data, 'aes-256-cbc', self::derive_key(), OPENSSL_RAW_DATA, $iv);
         return $plain === false ? '' : $plain;
     }
 
@@ -65,11 +74,17 @@ class Banimal_Settings {
      * A blank submission means "keep the existing secret" — the settings
      * field is always rendered empty, so this is the only way to avoid
      * wiping a saved secret every time the form is submitted.
+     *
+     * Guard against double-encryption: if the stored blob is still a valid
+     * ciphertext, return it unchanged instead of encrypting it again.
      */
     public static function sanitize_secret($value) {
         if ($value === '' || $value === null) {
-            return get_option(self::OPTION_WORKER_SECRET, '');
+            $stored = get_option(self::OPTION_WORKER_SECRET, '');
+            // Return as-is — it is already an encrypted blob.
+            return $stored;
         }
+        // New plaintext value supplied — encrypt it.
         return self::encrypt($value);
     }
 

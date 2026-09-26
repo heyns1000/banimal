@@ -61,6 +61,13 @@ class Banimal_Brand_Guide {
             if (empty($color['name']) || empty($color['hex'])) {
                 continue;
             }
+            // The Worker is a trusted first-party endpoint, but this value
+            // still crossed a network boundary — confirm it's actually a
+            // hex colour before it goes into a <style> block, rather than
+            // relying on esc_attr() alone to make an unexpected value safe.
+            if (!preg_match('/^#[0-9a-fA-F]{3,8}$/', $color['hex'])) {
+                continue;
+            }
             printf('--banimal-%s:%s;', esc_attr(sanitize_html_class($color['name'])), esc_attr($color['hex']));
         }
         echo "}</style>\n";

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "policyId": "BANIMAL-GLOBAL-CI-NONVARIATION-2026-09-14",
+  "effectiveDate": "2026-09-14",
+  "status": "mandatory",
+  "legalEntity": "Fruitful Shops (Pty) Ltd",
+  "canonicalBanimalLogo": {
+    "ink": {
+      "path": "docs/brand/assets/banimal-logo-ink.png",
+      "gitBlobSha": "4e6405e04cddb992c69bff3787ca6387f442c147"
+    },
+    "white": {
+      "path": "docs/brand/assets/banimal-logo-white.png",
+      "gitBlobSha": "3935f5bdd17662472473cd625dc449c7cd648da5"
+    }
+  },
+  "canonicalConnectorIcon": {
+    "ink": {
+      "path": "docs/brand/assets/samfox-icon-verified-ink.png",
+      "gitBlobSha": "708b62effcf3c36b86820eaaf9127e947941952e"
+    },
+    "cream": {
+      "path": "docs/brand/assets/samfox-icon-verified-cream.png",
+      "gitBlobSha": "21ddfe2de349e613e13e83d1c3cbc24a1f0d4006"
+    }
+  },
+  "authoritativeGuides": {
+    "human": "docs/brand/ci-guide.html",
+    "connector": "docs/brand/banimal-connector-icons.html",
+    "machine": "banimal-connector/skills/samfox-ci-guide/SKILL.md"
+  },
+  "rendering": {
+    "surface": "cream",
+    "banimalLogo": "ink",
+    "connectorIcon": "ink",
+    "placement": "canonical governance strip and bottom-right identity field",
+    "allowRedraw": false,
+    "allowRetype": false,
+    "allowRecolour": false,
+    "allowSubstituteAnimal": false,
+    "allowPearanimal": false
+  }
+}

@@ -1,0 +1,60 @@
+name: Banimal Connector plugin
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'wordpress-plugin/banimal-ecosystem-connector/**'
+  pull_request:
+    paths:
+      - 'wordpress-plugin/banimal-ecosystem-connector/**'
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    name: Lint, version-check, and package the plugin
+    defaults:
+      run:
+        working-directory: wordpress-plugin/banimal-ecosystem-connector
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          tools: none
+
+      # Syntax-checks every PHP file the plugin ships (skips legacy/, which
+      # is an intentionally-frozen historical baseline, not live code).
+      - name: PHP syntax check
+        run: |
+          set -euo pipefail
+          status=0
+          while IFS= read -r -d '' file; do
+            echo "Checking $file"
+            php -l "$file" || status=1
+          done < <(find . -name '*.php' -not -path './legacy/*' -print0)
+          exit $status
+
+      # A WordPress plugin has no single source of truth for its own
+      # version — the header comment, the PHP constant, and readme.txt's
+      # Stable tag are three separate strings that only agree if someone
+      # remembers to update all three. This is that reminder, enforced.
+      - name: Verify version strings agree
+        run: bash bin/verify-version.sh
+
+      # Builds the exact zip WP admin's Plugins → Add New → Upload Plugin
+      # expects, so a reviewer (or the plugin's actual maintainer) can pull
+      # it straight from this CI run and install it on a real test site
+      # without cloning the whole monorepo.
+      - name: Build installable plugin zip
+        run: bash bin/build-zip.sh dist
+
+      - name: Upload plugin zip
+        uses: actions/upload-artifact@v4
+        with:
+          name: banimal-ecosystem-connector
+          path: wordpress-plugin/banimal-ecosystem-connector/dist/*.zip
+          if-no-files-found: error
