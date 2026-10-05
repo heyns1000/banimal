@@ -113,6 +113,35 @@
       })();
     </script>
 
+    <!-- Sam turns 39 (6 Oct 2026): dismissible ribbon to /celebrate/sam-39/ -->
+    <style id="banimal-sam-39">
+      #sam39{position:fixed;left:1.5rem;bottom:1.5rem;z-index:2147482999;display:flex;align-items:center;gap:.5rem;
+        background:#231F20;color:#FBF4E4;border-radius:999px;padding:.55rem .6rem .55rem 1rem;font:600 14px/1.2 Inter,system-ui,sans-serif;
+        box-shadow:0 6px 18px rgba(35,31,32,.25)}
+      #sam39 a{color:#FBF4E4;text-decoration:none}
+      #sam39 a:hover{text-decoration:underline}
+      #sam39 button{border:0;background:#F16B6E;color:#231F20;border-radius:999px;width:24px;height:24px;cursor:pointer;font:700 13px/1 Inter,system-ui,sans-serif}
+      @media (max-width:520px){#sam39{left:1rem;bottom:5.2rem}}
+      html.dark #sam39{background:#FBF4E4;color:#231F20}
+      html.dark #sam39 a{color:#231F20}
+    </style>
+    <script>
+      (function () {
+        try { if (localStorage.getItem('banimal-sam-39') === 'closed') return; } catch (e) {}
+        function mount() {
+          if (document.getElementById('sam39')) return;
+          var d = document.createElement('div'); d.id = 'sam39';
+          d.innerHTML = '<a href="/celebrate/sam-39/index.html">🎂 Happy 39th, Sam</a><button type="button" aria-label="Hide birthday note">✕</button>';
+          d.querySelector('button').addEventListener('click', function () {
+            d.remove(); try { localStorage.setItem('banimal-sam-39', 'closed'); } catch (e) {}
+          });
+          document.body.appendChild(d);
+        }
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount);
+        else mount();
+      })();
+    </script>
+
     <script type="module" crossorigin src="./assets/index-BANv26-checkout-fix.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-DMs94wb6.css">
   </head>
