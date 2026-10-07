@@ -1,0 +1,260 @@
+{
+ "source": "heyns1000/banimal",
+ "sourceCommit": "d7e2ee28c2a4ef6b230e220ed8255acdcb6fd20a",
+ "pulled_at": "2026-10-05T22:34:01Z",
+ "note": "Artwork © Sam Fox™, all rights reserved; shown on the Fruitful project for her 39th birthday.",
+ "files": [
+  {
+   "published": "celebrate/sam-39/art/BR001.png",
+   "source": "dist/assets/BR001-B9Svc9IF.png",
+   "gitBlobSha": "b423ce24f265c31f8b9caa2e3276ed686b8803b7",
+   "sha256": "9ca6c2879f45afc6c3ad864ff0f93beb3bed269cf4055b9cd5a2fee6d35fbf78",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/BR002.png",
+   "source": "dist/assets/BR002-m4ScX5Ak.png",
+   "gitBlobSha": "227e486ea78a8555caf0b5c218d675157bc71186",
+   "sha256": "bf20c230c8fe9c1f95c76b149417b9db3fea70f7d8d7af170720b8d84cb7578a",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/BT001.png",
+   "source": "dist/assets/BT001-BYDvu1g2.png",
+   "gitBlobSha": "8f4a8f2da898add9a1b6d4ba6a72cf0a31fd895d",
+   "sha256": "7547d9ac3cdefa342251d0dd7ac3c973988a752d6f57c9284f1fbb103fdbd825",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/BT002.png",
+   "source": "dist/assets/BT002-CX4CjBt9.png",
+   "gitBlobSha": "c042f6daff5b87f3d573b4f78206bc8aeb973209",
+   "sha256": "e94bb61f1ed5026f57ea12fc74f1cd2a68ac720a909007bdad90dd1614fdeed1",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/BT003.png",
+   "source": "dist/assets/BT003-Ynr1ODEe.png",
+   "gitBlobSha": "9a9d9f34b622718749f0ef549c47b953e74838d5",
+   "sha256": "8dc9fa16d7103d87fb463e9a5901fd86d932ec28adc794b8eb180bda824e83cd",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/BT004.png",
+   "source": "dist/assets/BT004-KZ5X0Ak7.png",
+   "gitBlobSha": "0d45139c98d4fc4947f0933d143e5c7f73f159be",
+   "sha256": "33c73ee0a62505c1e5d27cde5d431bd8f2149b8d674967054f323194e147d643",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/BT005.png",
+   "source": "dist/assets/BT005-Ce7QfnBe.png",
+   "gitBlobSha": "7a0ea98538a361cedb95441df2a650817cdb3302",
+   "sha256": "7b6b71fbf080620e45951cb4c755393e560561343443c2a05f9206a1abaa64e0",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/BT007.png",
+   "source": "dist/assets/BT007-C5WxSB9Q.png",
+   "gitBlobSha": "170be5329a87ea2fd2f5fc5808aaee56f15e3b53",
+   "sha256": "dcfebe00e4eaed92309a04d8a0b181d54f98265eb72bc5024d6f0b312809c6ee",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/BT008.png",
+   "source": "dist/assets/BT008-Ci-PewEt.png",
+   "gitBlobSha": "65d3eabcfa083577ccc324f3fc257f8c472f9362",
+   "sha256": "e65cba347ee035d5f64fbf178572e85bc46aa59bdf15939315cfd992f39b2edc",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/BT009.png",
+   "source": "dist/assets/BT009-BYEat297.png",
+   "gitBlobSha": "c5e64739a6346475fce9a6df4e6baac6f10c4143",
+   "sha256": "52ddda8ae11428d71b124ea3e348e30e5e70a9e0fe885ead9080c2332eba7840",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/BT010.png",
+   "source": "dist/assets/BT010-pzlVe3nP.png",
+   "gitBlobSha": "185893d94b203568b3949cdf7e60fdd48d6bafee",
+   "sha256": "544937d19b025765267e5089cb9821d2c7af95cd347ead4122b757a22d0b6a7d",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/dream-big.jpg",
+   "source": "dist/assets/samfox-dream-big-DqhMqlsk.jpg",
+   "gitBlobSha": "249102ff7ee1fa8332de94f16263833facd4c492",
+   "sha256": "ebaae90607f8fc438958ad8d29e2d93b0897a858c8b1d349229ebdfd4c1b896c",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/first-eye.jpg",
+   "source": "dist/assets/samfox-first-eye-BvvyLsxG.jpg",
+   "gitBlobSha": "59d3c814f8f121298c4c12373680c83bf40f8169",
+   "sha256": "6e4fb92694faa1e9f53ed4a22b6033c2cb7d26c6cff8977d107eeb36437f0265",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/madiba-baobabs.jpg",
+   "source": "dist/assets/madiba-tata-DoR0Ww5O.jpg",
+   "gitBlobSha": "ec4f213fc62dfdbb929bfa14dc6181191b7df795",
+   "sha256": "b1b0736bdd4ca31bbcba0a9d357fd7ad11bcd3d780924dc526da46d2b1557788",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/print-01.jpg",
+   "source": "dist/assets/print-portrait-01.jpg",
+   "gitBlobSha": "cfc9ed4981891497c17e4201c8779ab1f79c0e5d",
+   "sha256": "5dd8bccca4cfa6903d519b004f798965c48443541c8e8047df376a50d538536a",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/print-02.jpg",
+   "source": "dist/assets/print-portrait-02.jpg",
+   "gitBlobSha": "80d430f2608864502b137965b5c65b8d811af859",
+   "sha256": "c96962fe4b1d9aa7bbc340262c9ab3b1eba9f5422025904b821daffc48dd58fb",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/print-03.jpg",
+   "source": "dist/assets/print-portrait-03.jpg",
+   "gitBlobSha": "bb60b30124f7155487b8553ee64c4a6bc553a0ff",
+   "sha256": "862cf1c1f2f300d3efca4f33d9c213323c29f4faa670b74197b7287622319323",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/print-04.jpg",
+   "source": "dist/assets/print-portrait-04.jpg",
+   "gitBlobSha": "1e6a978156b3a98236fd4a56242951a55bf0582f",
+   "sha256": "2b984c2aadf096b32bd0d8108e6d13815ed96e460283babce41a2e58a9895d0e",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/print-05.jpg",
+   "source": "dist/assets/print-portrait-05.jpg",
+   "gitBlobSha": "6f295979788ed55a0a7e53444dd74690a12ed721",
+   "sha256": "f89973544f80de84fcca38ec91fb9d45e260a2686512dc28db85b885c09cce0f",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/print-06.jpg",
+   "source": "dist/assets/print-portrait-06.jpg",
+   "gitBlobSha": "8ba3158f59f4e78dd34aec54f66ea321b51b5104",
+   "sha256": "bc05deb73feae700a7d5cf626b1804fc2dc6fa74002faa888f4bbf3b7c62e25d",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/print-07.jpg",
+   "source": "dist/assets/print-portrait-07.jpg",
+   "gitBlobSha": "d8bc87d60f9febf9cab15005d6dfd17145e59adc",
+   "sha256": "83cddaa47af81d51e0b7340774acdc183c87707899a8c31465b459dc4afa0a73",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/print-08.jpg",
+   "source": "dist/assets/print-portrait-08.jpg",
+   "gitBlobSha": "d0587f81438dfd3bf2a117ca9680f1b67bead89d",
+   "sha256": "6ff62f8fdcb81daafb3b25d8924fb92eac0e729f88b3a9b4a5d5e30b52b3c063",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/print-09.jpg",
+   "source": "dist/assets/print-portrait-09.jpg",
+   "gitBlobSha": "39d174fb1cb8811974898a357075510d8e82883c",
+   "sha256": "1c348ddb3887062a49bb3dced640982f7d7f927ddc589cbd364fe345474216b1",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/print-10.jpg",
+   "source": "dist/assets/print-portrait-10.jpg",
+   "gitBlobSha": "0c2b1bac4536eb85f93e7c3bd5c81b2a78c81921",
+   "sha256": "f7d2d635e0cf47eeb2554c27cd11cb77bbd4f5b3d574098fede519ff54ae26a6",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/print-11.jpg",
+   "source": "dist/assets/print-portrait-11.jpg",
+   "gitBlobSha": "36cb669ee0168a8fad8490d6c71c8e4ee9017b2c",
+   "sha256": "94ad65047e6cde37d9798789ec18b603504fd040c9314d78300cbd0a62cd2e80",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/print-12.jpg",
+   "source": "dist/assets/print-portrait-12.jpg",
+   "gitBlobSha": "287f9cad65f3f591b287adf30346bd4d884b95eb",
+   "sha256": "12a0fc92a976c13f36875866cc59d54d9ac2c897343793675ae189f0b7f02bf3",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/print-13.jpg",
+   "source": "dist/assets/print-portrait-13.jpg",
+   "gitBlobSha": "6128004828315cc774ee8108a550b59d383260f8",
+   "sha256": "bd0e0b671850ca7bda5ed8684c3e14016d539f4c9440c2d9cf4084aab2389ffd",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/print-14.jpg",
+   "source": "dist/assets/print-portrait-14.jpg",
+   "gitBlobSha": "c2033f1027ec4d99e5810590fced518b1f672589",
+   "sha256": "598844e0ca4043fc99997a5ea16ab7b9aeaab326ee0d7993f9ac513ca2765d72",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/rainbow-tata.jpg",
+   "source": "dist/assets/samfox-rainbow-tata-D-dLbgP7.jpg",
+   "gitBlobSha": "472c44bfe9658ec5a5699fe3903e3ce90669d978",
+   "sha256": "8b8d9697fda59fc8485bf67333dbda348f80995d27be59af1f2ff5bd7b288eb3",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/room-1.jpg",
+   "source": "dist/assets/print-room-01.jpg",
+   "gitBlobSha": "2a2998ba899cb862b6147146d44562a8979ba19d",
+   "sha256": "f147fc6b1a0305636b3a7815f807da399fc06d9df352a183e99ef7432e3b21ec",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/room-2.jpg",
+   "source": "dist/assets/print-room-02.jpg",
+   "gitBlobSha": "3270745e36d214e134ca4bb895c6eedba0b06913",
+   "sha256": "1d13d81ec223e60d213b25369e13eeb3df0c871208b35d6cfd69e49dcd870ecb",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/room-3.jpg",
+   "source": "dist/assets/print-room-03.jpg",
+   "gitBlobSha": "4d8b31842fed68ba147d56065b92a3c95c8701f8",
+   "sha256": "63beb0a6311fe04a3dca7a4b6f5b84eae3fc03c6ffd1405505bad21adb421ec3",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/room-4.jpg",
+   "source": "dist/assets/print-room-04.jpg",
+   "gitBlobSha": "c2efc67e54a3f406573bcc261465f43d34d6f487",
+   "sha256": "412ad8789bbc2d4e0b9be46e0e15a3bafd4742c13e6b32e51d82d6bba7420215",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/art/space-puma.jpg",
+   "source": "dist/assets/samfox-space-puma-BAEkuXl-.jpg",
+   "gitBlobSha": "46a7bb28493e8924692e2766135c17944ba58528",
+   "sha256": "0e6ca1c7f0ebea0c02734721e275cc16e5a70470301257ae0d91b16bbef406f0",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/brand/samfox-icon-verified-cream.png",
+   "source": "docs/brand/assets/samfox-icon-verified-cream.png",
+   "gitBlobSha": "21ddfe2de349e613e13e83d1c3cbc24a1f0d4006",
+   "sha256": "f7c752f6982c233c13ccd32de403ec11f606f003a6f4a74864dc5ce1900bead8",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "celebrate/sam-39/brand/samfox-logo-stacked-verified.png",
+   "source": "docs/brand/assets/samfox-logo-stacked-verified.png",
+   "gitBlobSha": "2a8606df843bae769b4b02924e8de2ba86ae9446",
+   "sha256": "3c4a3201920feea7cc23ddc13e728069dd79d1f4becc2d083defd1466357b035",
+   "action": "copied unchanged"
+  }
+ ]
+}

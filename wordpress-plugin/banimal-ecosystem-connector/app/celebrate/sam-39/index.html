@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sam Turns 39</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;600;700&family=Caveat:wght@600&display=swap">
+<style>
+/* Layout: a sketchbook laid flat — cream pages, ink frames, one coral moment; logo always bottom-right. Palette = Sam Fox™ verified CI only. */
+:root{
+  --ink:#231F20; --cream:#FBF4E4; --artcream:#F0EEDA; --sage:#577D60; --mint:#A7DACB;
+  --coral:#F16B6E; --rose:#B95F56; --teal:#1E9F97;
+  --bg:var(--cream); --paper:#ffffff; --fg:var(--ink); --muted:#5b5354; --line:#e6dcc6; --soft:var(--artcream);
+  --accent:var(--coral); --accent2:var(--teal);
+  --display:"Baloo 2","Futura","Trebuchet MS",system-ui,sans-serif;
+  --body:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --hand:"Caveat","Bradley Hand","Segoe Print",cursive;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#1c1819; --paper:#231F20; --fg:#FBF4E4; --muted:#cfc5b4; --line:#3b3436; --soft:#2b2526; --accent:#F16B6E; --accent2:#A7DACB; color-scheme:dark }}
+:root[data-theme="dark"]{ --bg:#1c1819; --paper:#231F20; --fg:#FBF4E4; --muted:#cfc5b4; --line:#3b3436; --soft:#2b2526; --accent:#F16B6E; --accent2:#A7DACB; color-scheme:dark }
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--fg);font:16px/1.6 var(--body);margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:clamp(16px,4vw,40px);padding-block:0}
+h1,h2,h3{font-family:var(--display);line-height:1.05;text-wrap:balance;margin:0}
+p{margin:0}
+a{color:var(--accent2)}
+
+/* hero */
+.hero{position:relative;padding-block:clamp(28px,6vw,64px) clamp(28px,5vw,48px);display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(20px,4vw,48px);align-items:center}
+@media (max-width:820px){.hero{grid-template-columns:1fr}}
+.date{font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.hero h1{font-size:clamp(52px,9vw,112px);font-weight:800;margin-top:10px;letter-spacing:-.01em}
+.hero h1 .n{color:var(--accent);display:inline-block;transform:rotate(-4deg)}
+.hero .lede{font-size:clamp(17px,2vw,20px);max-width:34ch;margin-top:16px}
+.hero .note{font-family:var(--hand);font-size:clamp(24px,3vw,30px);color:var(--accent2);margin-top:14px;transform:rotate(-2deg);transform-origin:left}
+.wish{margin-top:22px;font:700 16px var(--body);background:var(--ink);color:var(--cream);border:0;border-radius:999px;padding:12px 22px;cursor:pointer}
+:root[data-theme="dark"] .wish{background:var(--cream);color:var(--ink)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .wish{background:var(--cream);color:var(--ink)}}
+.wish:focus-visible,.tile:focus-visible,.lb button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.feature{position:relative;margin:0}
+.feature img{width:100%;border-radius:6px;border:4px solid var(--ink);display:block;transform:rotate(1.5deg);box-shadow:10px 12px 0 var(--mint)}
+.feature figcaption{font-family:var(--hand);font-size:22px;color:var(--muted);margin-top:14px;text-align:right}
+
+/* facts strip */
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding-block:8px 28px}
+@media (max-width:700px){.facts{grid-template-columns:1fr}}
+.fact{background:var(--soft);border-radius:14px;padding:16px 18px}
+.fact b{display:block;font-family:var(--display);font-size:30px;line-height:1;color:var(--fg);font-variant-numeric:tabular-nums}
+.fact span{font-size:14px;color:var(--muted)}
+
+/* sections */
+section.part{padding-block:clamp(28px,5vw,52px);border-top:2px dashed var(--line)}
+.head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.head h2{font-size:clamp(30px,4.5vw,46px);font-weight:800}
+.head p{color:var(--muted);max-width:52ch;min-width:0}
+.grid{display:grid;gap:14px}
+.g-originals{grid-template-columns:repeat(5,minmax(0,1fr))}
+.g-prints{grid-template-columns:repeat(7,minmax(0,1fr))}
+.g-rooms{grid-template-columns:repeat(4,minmax(0,1fr))}
+.g-patterns{grid-template-columns:repeat(6,minmax(0,1fr))}
+@media (max-width:980px){.g-originals{grid-template-columns:repeat(3,minmax(0,1fr))}.g-prints{grid-template-columns:repeat(4,minmax(0,1fr))}.g-rooms{grid-template-columns:repeat(2,minmax(0,1fr))}.g-patterns{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:560px){.g-originals,.g-rooms{grid-template-columns:repeat(2,minmax(0,1fr))}.g-prints,.g-patterns{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.tile{display:block;padding:0;border:0;background:var(--paper);border-radius:10px;overflow:hidden;cursor:zoom-in;text-align:left;color:inherit;font:inherit;transition:transform .2s ease}
+.tile:hover{transform:translateY(-3px) rotate(-.6deg)}
+.tile img{display:block;width:100%;aspect-ratio:1;object-fit:cover;max-width:100%}
+.g-originals .tile img{aspect-ratio:4/5}
+.g-rooms .tile img{aspect-ratio:3/2}
+.g-patterns .tile{background:#fff}
+.g-patterns .tile img{object-fit:contain;padding:8px}
+.tile span{display:block;font-size:13px;font-weight:700;padding:8px 10px}
+
+/* closing */
+.closing{padding-block:clamp(36px,6vw,64px);border-top:2px dashed var(--line);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end}
+@media (max-width:640px){.closing{grid-template-columns:1fr}}
+.closing h2{font-size:clamp(34px,5vw,56px);font-weight:800}
+.closing p{margin-top:12px;max-width:52ch;font-size:18px}
+.closing .sign{font-family:var(--hand);font-size:30px;color:var(--accent);margin-top:12px}
+.logo{justify-self:end;background:#fff;border-radius:12px;padding:10px 14px}
+.logo img{display:block;height:110px;width:auto}
+footer{padding-block:18px 36px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+footer img{height:28px;width:28px}
+
+/* lightbox */
+.lb{position:fixed;inset:0;background:rgba(35,31,32,.92);display:grid;place-items:center;z-index:50;padding:clamp(12px,4vw,40px)}
+.lb figure{margin:0;max-width:min(92vw,1000px);display:grid;gap:10px;justify-items:center}
+.lb img{max-height:78vh;max-width:100%;border-radius:6px;background:#fff}
+.lb figcaption{color:#FBF4E4;font-weight:700}
+.lb .x{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:16px}
+.lb button{background:#FBF4E4;color:#231F20;border:0;border-radius:999px;width:44px;height:44px;font-size:20px;cursor:pointer}
+.lb .prev{position:absolute;left:12px;top:50%}.lb .next{position:absolute;right:12px;top:50%}
+
+/* confetti */
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:40}
+@media (prefers-reduced-motion: reduce){.tile{transition:none}.tile:hover{transform:none}}
+</style>
+</head>
+<body>
+
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<div class="wrap">
+  <header class="hero">
+    <div>
+      <div class="date">6 October 2026</div>
+      <h1>Happy <span class="n">39th</span>, Sam!</h1>
+      <p class="lede">To Samantha Ford Schoeman, the hand behind every Sam Fox™ creature, print and pattern on this page.</p>
+      <p class="note">Ink first, always closed. Eyes carry the emotion.</p>
+      <button class="wish" id="wish" type="button">Make a wish 🎉</button>
+    </div>
+    <figure class="feature">
+      <img src="art/dream-big.jpg" alt="Sam Fox™ artwork: a one-eyed teal monster with a cape that says Dream Big" width="1080" height="1080">
+      <figcaption>Dream Big, by Sam Fox™</figcaption>
+    </figure>
+  </header>
+
+  <div class="facts">
+    <div class="fact"><b>39</b><span>years today</span></div>
+    <div class="fact"><b>10</b><span>years of SAM FOX ILLUSTRATES, since September 2016</span></div>
+    <div class="fact"><b>34</b><span>of her pieces on this page, every one drawn by her</span></div>
+  </div>
+
+  <section class="part" id="originals">
+    <div class="head"><h2>The originals</h2><p>Signed Sam Fox™ pieces. Tap any one to see it big.</p></div>
+    <div class="grid g-originals" data-set="originals"></div>
+  </section>
+
+  <section class="part" id="prints">
+    <div class="head"><h2>Banimal™ prints</h2><p>Fourteen creatures drawn in ink for little rooms: Little Mountaineer, You are magical, I loved you first and the rest of the crew.</p></div>
+    <div class="grid g-prints" data-set="prints"></div>
+  </section>
+
+  <section class="part" id="rooms">
+    <div class="head"><h2>On the nursery wall</h2><p>Her prints, framed and at home.</p></div>
+    <div class="grid g-rooms" data-set="rooms"></div>
+  </section>
+
+  <section class="part" id="patterns">
+    <div class="head"><h2>Patterns and bibs</h2><p>Bunnies, hearts, bears and cats, repeated by hand into bandanas and bibs for Banimal™.</p></div>
+    <div class="grid g-patterns" data-set="patterns"></div>
+  </section>
+
+  <section class="closing">
+    <div>
+      <h2>Keep drawing, Sam.</h2>
+      <p>Every creature here started as a closed ink line and a pair of oversized eyes. Here's to another year of them.</p>
+      <p class="sign">With love, from Heyns and the whole Fruitful™ family</p>
+    </div>
+    <div class="logo"><img src="brand/samfox-logo-stacked-verified.png" alt="Sam Fox™" width="480" height="384"></div>
+  </section>
+
+  <footer>
+    <span>All artwork © Sam Fox™. All rights reserved. Shown here for her birthday.</span>
+    <img src="brand/samfox-icon-verified-cream.png" alt="" width="28" height="28">
+  </footer>
+</div>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Artwork">
+  <button class="x" id="lbx" type="button" aria-label="Close">✕</button>
+  <button class="prev" id="lbp" type="button" aria-label="Previous">‹</button>
+  <figure><img id="lbimg" alt=""><figcaption id="lbcap"></figcaption></figure>
+  <button class="next" id="lbn" type="button" aria-label="Next">›</button>
+</div>
+
+<script>
+const ART={
+  originals:[["dream-big.jpg","Dream Big"],["first-eye.jpg","First Eye"],["space-puma.jpg","Space Puma"],["rainbow-tata.jpg","Rainbow Tata"],["madiba-baobabs.jpg","Madiba between the baobabs"]],
+  prints:Array.from({length:14},(_,i)=>{const n=String(i+1).padStart(2,"0");return ["print-"+n+".jpg","Banimal™ print "+(i+1)]}),
+  rooms:[1,2,3,4].map(i=>["room-"+i+".jpg","Nursery wall "+i]),
+  patterns:[["BR001.png","Banimal bib"],["BR002.png","Omnom bib"],["BT001.png","Bunny bandana"],["BT002.png","Cross bandana"],["BT003.png","Heart bandana"],["BT004.png","Black heart bandana"],["BT005.png","Cat bandana"],["BT007.png","Stripe bandana"],["BT008.png","Cat crowd bandana"],["BT009.png","Bear crowd bandana"],["BT010.png","Bear face bandana"]]
+};
+const all=[];
+document.querySelectorAll("[data-set]").forEach(g=>{
+  ART[g.dataset.set].forEach(([f,t])=>{
+    const i=all.length; all.push([f,t]);
+    const b=document.createElement("button"); b.className="tile"; b.type="button";
+    b.innerHTML='<img loading="lazy" src="art/'+f+'" alt="'+t+', by Sam Fox™"><span>'+t+'</span>';
+    b.addEventListener("click",()=>openLb(i)); g.appendChild(b);
+  });
+});
+const lb=document.getElementById("lb"),img=document.getElementById("lbimg"),cap=document.getElementById("lbcap");let cur=0,last=null;
+function show(i){cur=(i+all.length)%all.length;img.src="art/"+all[cur][0];img.alt=all[cur][1];cap.textContent=all[cur][1]+" · Sam Fox™"}
+function openLb(i){last=document.activeElement;show(i);lb.hidden=false;document.getElementById("lbx").focus()}
+function closeLb(){lb.hidden=true;last&&last.focus()}
+document.getElementById("lbx").onclick=closeLb;
+document.getElementById("lbp").onclick=()=>show(cur-1);
+document.getElementById("lbn").onclick=()=>show(cur+1);
+lb.addEventListener("click",e=>{if(e.target===lb)closeLb()});
+addEventListener("keydown",e=>{if(lb.hidden)return;if(e.key==="Escape")closeLb();if(e.key==="ArrowLeft")show(cur-1);if(e.key==="ArrowRight")show(cur+1)});
+
+/* confetti in the verified palette */
+const cv=document.getElementById("confetti"),cx=cv.getContext("2d");let bits=[],raf=0;
+const COLORS=["#F16B6E","#A7DACB","#1E9F97","#577D60","#B95F56","#F0EEDA"];
+const still=matchMedia("(prefers-reduced-motion: reduce)").matches;
+function size(){cv.width=innerWidth*devicePixelRatio;cv.height=innerHeight*devicePixelRatio}
+addEventListener("resize",size);size();
+function burst(n){if(still)return;for(let k=0;k<n;k++)bits.push({x:Math.random()*innerWidth,y:-20-Math.random()*innerHeight*.4,vx:(Math.random()-.5)*2,vy:2+Math.random()*3,r:4+Math.random()*5,c:COLORS[k%COLORS.length],a:Math.random()*6,va:(Math.random()-.5)*.2,round:Math.random()<.5});if(!raf)tick()}
+function tick(){cx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);cx.clearRect(0,0,innerWidth,innerHeight);
+  bits=bits.filter(b=>b.y<innerHeight+30);bits.forEach(b=>{b.x+=b.vx;b.y+=b.vy;b.a+=b.va;cx.save();cx.translate(b.x,b.y);cx.rotate(b.a);cx.fillStyle=b.c;if(b.round){cx.beginPath();cx.arc(0,0,b.r*.6,0,7);cx.fill()}else cx.fillRect(-b.r/2,-b.r/4,b.r,b.r/2);cx.restore()});
+  raf=bits.length?requestAnimationFrame(tick):0}
+document.getElementById("wish").addEventListener("click",()=>burst(180));
+burst(120);
+</script>
+</body>
+</html>

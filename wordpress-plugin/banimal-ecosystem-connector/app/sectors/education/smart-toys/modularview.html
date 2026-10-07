@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ModularView | FAA Zone</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-black text-white tracking-tight font-sans">
+
+<!-- HEADER -->
+<header class="bg-gradient-to-br from-blue-900 via-indigo-800 to-purple-900 text-white p-10 text-center shadow-xl rounded-b-2xl">
+  <div class="flex justify-center items-center gap-4">
+    <div class="text-6xl">🧸</div>
+    <h1 class="text-4xl sm:text-5xl font-extrabold text-yellow-400">ModularView</h1>
+    <div class="text-6xl">🌈</div>
+  </div>
+  <p class="text-white/70 mt-4">Your central hub for managing child learning, toys, and activities</p>
+</header>
+
+<!-- MAIN MODULES GRID -->
+<section class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+
+  <!-- Learning Progress -->
+  <div class="bg-gradient-to-br from-indigo-700 via-indigo-900 to-indigo-800 p-6 rounded-xl border border-yellow-500 hover:shadow-xl transition transform hover:scale-105">
+    <h2 class="text-xl font-bold text-yellow-300 mb-4">Learning Progress</h2>
+    <div class="text-white/80 text-sm">
+      <p>Track your child's progress across different subjects and activities.</p>
+      <p class="text-cyan-400 font-bold mt-4">Level 3: Science Master</p>
+    </div>
+    <a href="progress.html" class="text-cyan-400 hover:underline mt-4 block transition-all">View Full Progress</a>
+  </div>
+
+  <!-- Toy Settings -->
+  <div class="bg-gradient-to-br from-green-700 via-green-900 to-green-800 p-6 rounded-xl border border-yellow-500 hover:shadow-xl transition transform hover:scale-105">
+    <h2 class="text-xl font-bold text-yellow-300 mb-4">Toy Settings</h2>
+    <div class="text-white/80 text-sm">
+      <p>Modify interactive settings, volume controls, and more for each toy.</p>
+      <a href="settings.html" class="text-cyan-400 hover:underline mt-4 block transition-all">Modify Settings</a>
+    </div>
+  </div>
+
+  <!-- Learning Modules -->
+  <div class="bg-gradient-to-br from-purple-700 via-purple-900 to-purple-800 p-6 rounded-xl border border-yellow-500 hover:shadow-xl transition transform hover:scale-105">
+    <h2 class="text-xl font-bold text-yellow-300 mb-4">Learning Modules</h2>
+    <div class="text-white/80 text-sm">
+      <p>Explore various learning modules for your child to start engaging with.</p>
+      <a href="modules.html" class="text-cyan-400 hover:underline mt-4 block transition-all">Start Learning</a>
+    </div>
+  </div>
+
+  <!-- Parental Dashboard -->
+  <div class="bg-gradient-to-br from-blue-700 via-blue-900 to-blue-800 p-6 rounded-xl border border-yellow-500 hover:shadow-xl transition transform hover:scale-105">
+    <h2 class="text-xl font-bold text-yellow-300 mb-4">Parental Dashboard</h2>
+    <p class="text-white/80 text-sm">View your child’s overall performance, activity logs, and more.</p>
+    <a href="../parent-dashboard.html" class="text-cyan-400 hover:underline mt-4 block transition-all">View Insights</a>
+  </div>
+
+  <!-- AI Feedback -->
+  <div class="bg-gradient-to-br from-red-700 via-red-900 to-red-800 p-6 rounded-xl border border-yellow-500 hover:shadow-xl transition transform hover:scale-105">
+    <h2 class="text-xl font-bold text-yellow-300 mb-4">Interactive AI Feedback</h2>
+    <p class="text-white/80 text-sm">Receive AI-driven feedback on your child’s performance and learning habits.</p>
+    <a href="../ai-feedback.html" class="text-cyan-400 hover:underline mt-4 block transition-all">View Feedback</a>
+  </div>
+
+  <!-- Notifications -->
+  <div class="bg-gradient-to-br from-teal-700 via-teal-900 to-teal-800 p-6 rounded-xl border border-yellow-500 hover:shadow-xl transition transform hover:scale-105">
+    <h2 class="text-xl font-bold text-yellow-300 mb-4">Recent Updates & Alerts</h2>
+    <div class="text-white/80 text-sm">
+      <p><span class="font-bold">New Toy Module Released:</span> Download the latest interactive holographic stories!</p>
+      <p class="mt-4"><span class="font-bold">Progress Milestone:</span> Your child has unlocked 'Advanced Level Math'.</p>
+    </div>
+    <a href="../alerts.html" class="text-cyan-400 hover:underline mt-4 block transition-all">Check All Alerts</a>
+  </div>
+
+  <!-- New Block: Family Learning Experience -->
+  <div class="bg-gradient-to-br from-yellow-700 via-yellow-900 to-yellow-800 p-6 rounded-xl border border-yellow-500 hover:shadow-xl transition transform hover:scale-105">
+    <h2 class="text-xl font-bold text-yellow-300 mb-4">Family Learning Experience</h2>
+    <p class="text-white/80 text-sm">Incorporate family interactions into learning with group activities.</p>
+    <a href="../family-learning.html" class="text-cyan-400 hover:underline mt-4 block transition-all">Explore Family Learning</a>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-gradient-to-b from-blue-900 via-indigo-900 to-purple-900 text-center text-xs text-gray-400 py-10 mt-16 border-t border-gray-700">
+  FAA.Zone | Fruitful Smart Toys™ | VaultMint Certified | 2025
+</footer>
+
+    <script src="../../../omnigrid-app.js" data-concept="1"></script>
+</body>
+</html>

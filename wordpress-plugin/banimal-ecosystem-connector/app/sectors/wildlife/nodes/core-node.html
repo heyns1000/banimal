@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🌳 Core Node™ – FAA.Zone</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .glow-btn:hover { transform: translateY(-2px) scale(1.05); box-shadow: 0 4px 15px rgba(255,255,255,0.3); }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 p-8">
+
+<!-- HEADER + NAV -->
+<header class="bg-white shadow p-6 flex justify-between items-center">
+  <div>
+    <h1 class="text-3xl font-extrabold text-indigo-700">🌳 🌳 Core Node™ Dashboard</h1>
+    <p class="text-sm text-gray-500">FAA.Zone Sovereign Scrolls · Wildlife Grid</p>
+  </div>
+  <div class="flex gap-3 text-sm">
+    <a href="../../../admin-login.html" class="px-4 py-2 bg-blue-500 text-white rounded glow-btn">Admin Login</a>
+    <a href="../../../node-setup.html" class="px-4 py-2 bg-gray-600 text-white rounded glow-btn">Node Setup</a>
+    <a href="../../../distributor-portal.html" class="px-4 py-2 bg-green-500 text-white rounded glow-btn">Distributor Portal</a>
+  </div>
+</header>
+
+<!-- SUBNAV -->
+<nav class="bg-gray-100 flex flex-col gap-3 px-6 py-3 text-sm overflow-x-auto whitespace-nowrap">
+  <div class="flex gap-6">
+    <a href="../../../quick-view.html" class="hover:text-indigo-600">Quick View</a>
+    <a href="../../../pulse-monitor.html" class="hover:text-indigo-600">Pulse Monitor</a>
+    <a href="../../../wildlife-dashboard.html" class="text-indigo-700 font-semibold">Sales Dashboard</a>
+    <a href="../../../ethics.html" class="hover:text-indigo-600">Ethics</a>
+    <a href="../../../node-reports.html" class="hover:text-indigo-600">Node Reports</a>
+    <a href="../../../licensing.html" class="hover:text-indigo-600">Licensing</a>
+    <a href="../../../deployment-kenya.html" class="hover:text-indigo-600">🇰🇪 Kenya Wildlife Deployment</a>
+    <a href="../../../wildlife-price.html" class="text-green-600 font-semibold">💰 Pricing</a>
+  </div>
+  <div class="text-xs text-gray-400 mt-2">
+    FAA.Zone Sovereign Scrolls · VaultMesh · TreatyMesh Validated
+  </div>
+</nav>
+
+<!-- Node Details -->
+<section class="mb-10 space-y-2 text-sm leading-relaxed">
+  <p><strong>Purpose:</strong> Centralized Baobab™ Seed Logic Node</p>
+  <p><strong>License:</strong> Master $85,000 · Monthly $1,500 · Royalty 4%</p>
+  <p><strong>PulseTrade™:</strong> 9-second payout logic</p>
+  <p><strong>ClaimRoot™:</strong> Verified via VaultMaster Authority</p>
+  <p><strong>VaultPay Tier:</strong> Node Class III</p>
+  <p><strong>Clone Protection:</strong> GhostTrace™ SHA-3 encryption enabled</p>
+  <p><strong>Deployment Regions:</strong> RSA · Namibia · Kenya</p>
+  <p><strong>Family Bundle:</strong> BaobabGrid v4 – 12 Nodes</p>
+  <p><strong>Hardware Requirements:</strong> 16GB RAM, 256GB SSD, 8-core CPU</p>
+  <p><strong>Model Number:</strong> Core-Node-MX12-256GB</p>
+  <p><strong>Omnidrop Kit:</strong> RootCable™, GlyphRouter™, SyncSphere™</p>
+  <p><strong>Setup:</strong> Cloud-linked installation with PulseGenesis chain sync</p>
+  <p><strong>FAA Links:</strong> <a href="../../../vaultmesh.html" class="text-blue-600 underline">VaultMesh</a> · <a href="../../../scrollstack.html" class="text-blue-600 underline">ScrollStack</a> · <a href="../../../ai-routing.html" class="text-blue-600 underline">AI Routing Logic</a></p>
+</section>
+
+<!-- Chart Section -->
+<section class="bg-white p-6 rounded shadow">
+  <h2 class="text-xl font-bold text-indigo-600 mb-4">📊 PulseGraph Metrics</h2>
+  <canvas id="pulseChart" height="100"></canvas>
+</section>
+
+<!-- Footer -->
+<footer class="mt-16 text-xs text-center text-gray-400 border-t pt-6">
+  FAA.Zone Sovereign Scrolls · VaultMesh Synced · TreatyMesh Validated
+</footer>
+
+<!-- Chart Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const ctx = document.getElementById('pulseChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['T-0', 'T-1', 'T-2', 'T-3', 'T-4', 'T-5', 'T-6', 'T-7', 'T-8', 'T-9'],
+        datasets: [{
+          label: 'Core Node™ Pulse',
+          data: [1600, 1650, 1580, 1720, 1680, 1700, 1750, 1620, 1690, 1710],
+          borderColor: 'hsl(220, 70%, 50%)',
+          borderWidth: 2,
+          fill: false,
+          tension: 0.3
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: false
+          }
+        },
+        plugins: {
+          legend: {
+            position: 'bottom'
+          }
+        }
+      }
+    });
+  });
+</script>
+
+    <script src="../../../omnigrid-app.js" data-concept="1"></script>
+</body>
+</html>

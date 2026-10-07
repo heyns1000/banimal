@@ -1,0 +1,1773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌐 VaultMesh™ | Banimal Loop Checkout</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Imports: Inter (for main text) and Font Awesome (for icons) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Chart.js (retained from previous version, though not used in checkout) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        /* Base Styles - Consistent with FAA.zone theme, optimized for product page */
+        :root {
+            --text-color-light: #1d1d1f;
+            --text-color-dark: #f5f5f7;
+            --bg-color-light: #f5f5f7;
+            --bg-color-dark: #1a1a1c;
+            --card-bg-light: #ffffff;
+            --card-bg-dark: #2a2a2e;
+            --border-color-light: #e8e8ed;
+            --border-color-dark: #3a3a3e;
+            --primary-color: #0071e3; /* Apple Blue */
+            --mindlift-color: #7B68EE; /* MediumPurple for MindLift theme */
+            --mindlift-accent-color: #9370DB; /* Brighter purple */
+            --muted-text-light: #6e6e73;
+            --muted-text-dark: #a0a0a5;
+
+            /* The specific green from your MindLift code for FCU/currency sections (used as the header green) */
+            --fcu-color: #4CAF50; /* Green for currency */
+            --fcu-accent-color: #66BB6A; /* Lighter green */
+
+            /* SecureSign button colors (from your previous instruction, integrated into MindLift theme) */
+            --secure-sign-purple: #8A2BE2;
+            --secure-sign-blue: #4169E1;
+            --secure-sign-purple-hover: #7b27cb;
+            --secure-sign-blue-hover: #375ac7;
+
+            /* New: Dynamic properties based on JS for header positioning */
+            --announcement-bar-height: 0px; /* Default to 0, adjusted by JS if visible */
+            --header-height: 80px; /* Example initial height, will be calculated by JS */
+
+            /* New: Hyper Mode colors */
+            --hyper-bg-color: #000033;
+            --hyper-text-color: #FFCCFF;
+            --hyper-card-bg: #110044;
+            --hyper-border-color: #330066;
+            --hyper-primary-color: #FF00FF; /* Magenta */
+            --hyper-accent-color: #FF69B4; /* HotPink */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Default to dark mode as per the checkout template, consistent with AgroChain now */
+            background-color: var(--bg-color-dark);
+            color: var(--text-color-dark);
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* NEW: Hyper Mode styles */
+        body.hyper-mode {
+            background-color: var(--hyper-bg-color);
+            color: var(--hyper-text-color);
+        }
+        .hyper-mode .checkout-header {
+            background-color: var(--hyper-primary-color);
+            box-shadow: 0 10px 30px rgba(255, 0, 255, 0.4);
+        }
+        .hyper-mode .checkout-card {
+            background-color: var(--hyper-card-bg);
+            border-color: var(--hyper-border-color);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+        }
+        .hyper-mode .checkout-card h2,
+        .hyper-mode .checkout-card h3 {
+            color: var(--hyper-text-color);
+        }
+        .hyper-mode .checkout-card h3 i {
+            color: var(--hyper-accent-color);
+        }
+        .hyper-mode .form-label {
+            color: var(--hyper-text-color);
+        }
+        .hyper-mode .form-input, .hyper-mode .form-select {
+            background-color: #000022;
+            border-color: var(--hyper-border-color);
+            color: var(--hyper-text-color);
+        }
+        .hyper-mode .form-input::placeholder {
+            color: #AA44AA;
+        }
+        .hyper-mode .checkout-step-number {
+            background-color: #330066;
+            color: var(--hyper-text-color);
+        }
+        .hyper-mode .checkout-step-line {
+            border-color: #330066;
+        }
+        .hyper-mode .checkout-step.active .checkout-step-number {
+            background-color: var(--hyper-primary-color);
+            color: white;
+        }
+        .hyper-mode .checkout-footer {
+            background-color: var(--hyper-card-bg);
+            border-top-color: var(--hyper-border-color);
+        }
+
+
+        .light-mode {
+            background-color: var(--bg-color-light);
+            color: var(--text-color-light);
+        }
+
+        .dark-mode {
+            background-color: var(--bg-color-dark);
+            color: var(--text-color-dark);
+        }
+
+
+        /* The .container class from your MindLift code will define max-width */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* NEW: Announcement Bar Styling */
+        #announcement-bar {
+            background-color: var(--fcu-color); /* Matches fcu-color */
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            position: sticky; /* Changed to sticky */
+            top: 0;
+            z-index: 1001; /* Higher than header sticky */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #announcement-bar .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        #announcement-bar.hidden {
+            display: none;
+        }
+
+        /* Header - Styled to perfectly match the MindLift banner from your screenshot */
+        .checkout-header {
+            background-color: var(--fcu-color); /* The solid green from the MindLift banner */
+            color: white;
+            min-height: 150px; /* Adjusted height based on visual comparison with screenshot */
+            padding: 20px; /* Adjusted to allow internal flexbox to control layout */
+            text-align: center; /* Fallback for content not managed by flex */
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.4); /* Green shadow */
+            border-bottom: none;
+            display: flex;
+            flex-direction: column; /* Allow vertical centering of content inside header */
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center horizontally */
+            position: sticky; /* Sticky header */
+            top: var(--announcement-bar-height); /* Position header below announcement bar */
+            z-index: 1000;
+            /* backdrop-filter removed as per user request */
+        }
+        .checkout-header .header-content-wrapper {
+            display: flex;
+            flex-direction: column; /* Changed to column for text and sub-text */
+            justify-content: center; /* Center vertically */
+            align-items: center; /* Center horizontally */
+            max-width: 1000px;
+            width: 100%;
+            padding: 0;
+            text-align: center;
+        }
+        /* Adjusted h1 for Banimal Loop */
+        .checkout-header h1 {
+            font-family: 'Inter', sans-serif;
+            font-size: 3.8rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin: 0;
+            letter-spacing: -0.05em;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            color: white;
+            word-break: break-word;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+        }
+        /* New styling for the slogan/sub-headline */
+        .checkout-header .slogan {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.5rem; /* Larger than default p, similar to MindLift hero p */
+            color: rgba(255, 255, 255, 0.9); /* Slightly muted white */
+            margin-top: 10px; /* Space from h1 */
+            line-height: 1.5;
+            max-width: 800px; /* Constrain width for readability */
+        }
+
+        .checkout-header .back-link {
+            font-family: 'Inter', sans-serif;
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.2s ease;
+            white-space: nowrap;
+            font-size: 1.1rem;
+            margin-top: 20px; /* Space below slogan */
+            display: block; /* Ensure it takes its own line below slogan */
+        }
+        .checkout-header .back-link:hover {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: underline;
+        }
+
+        /* Main Content Area - Dark theme, using MindLift card background for main wrapper */
+        .main-content-area {
+            flex-grow: 1;
+            padding: 40px 20px;
+            background-color: var(--bg-color-dark); /* Overall dark background from MindLift */
+        }
+
+        /* Individual Checkout Cards/Sections */
+        .checkout-card {
+            background-color: var(--card-bg-dark); /* Dark card background from MindLift code */
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3); /* Dark shadow from MindLift pricing card */
+            border: 1px solid var(--border-color-dark); /* Dark border from MindLift code */
+            padding: 30px;
+            margin-bottom: 30px;
+            color: var(--text-color-dark); /* Light text on dark card */
+        }
+        .checkout-card h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-color-dark); /* From MindLift section title */
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .checkout-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-color-dark); /* From MindLift feature card h3 */
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .checkout-card h3 i {
+            color: var(--mindlift-accent-color); /* Icon color, using MindLift's purple accent */
+            margin-right: 15px;
+            font-size: 1.8rem;
+        }
+
+        /* Input field styling for dark theme */
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--muted-text-dark); /* Muted light text for labels */
+        }
+        .form-input, .form-select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color-dark); /* Dark border for inputs */
+            border-radius: 8-px;
+            background-color: #3a3a3e; /* Slightly darker input background, from MindLift inputs */
+            color: var(--text-color-dark); /* Light text for input values */
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+        }
+        .form-input::placeholder {
+            color: #718096; /* Muted placeholder text */
+        }
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: var(--primary-color); /* Apple Blue focus ring, from MindLift inputs */
+            box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.2);
+        }
+
+        /* Checkout Buttons (SecureSign style within MindLift theme) */
+        .checkout-action-button {
+            display: block;
+            width: 100%;
+            height: 56px;
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: white;
+            border: none;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .checkout-action-button.purple {
+            background-color: var(--secure-sign-purple);
+        }
+        .checkout-action-button.purple:hover {
+            background-color: var(--secure-sign-purple-hover);
+            transform: translateY(-2px);
+        }
+
+        .checkout-action-button.blue {
+            background-color: var(--secure-sign-blue);
+        }
+        .checkout-action-button.blue:hover {
+            background-color: var(--secure-sign-blue-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Order Summary details */
+        .order-summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            color: var(--text-color-dark); /* Light text on dark card */
+        }
+        .order-summary-total {
+            font-size: 1.3rem;
+            font-weight: 700;
+            border-top: 1px solid var(--border-color-dark); /* Dark border for total line */
+            padding-top: 15px;
+            margin-top: 15px;
+            color: var(--text-color-dark);
+        }
+
+        /* Checkout steps specific styling for dark theme */
+        .checkout-steps-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--muted-text-dark); /* Muted color for inactive steps */
+            margin-bottom: 40px;
+            padding: 0 10px;
+        }
+        .checkout-step {
+            text-align: center;
+            flex-shrink: 0;
+        }
+        .checkout-step-number {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            background-color: #4A5568; /* Darker gray for inactive circles */
+            color: var(--muted-text-dark);
+            font-weight: 700;
+            margin: 0 auto 8px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .checkout-step-text {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .checkout-step.active .checkout-step-number {
+            background-color: var(--primary-color); /* Apple Blue for active step, from MindLift theme */
+            color: white;
+        }
+        .checkout-step.active .checkout-step-text {
+            color: var(--text-color-dark); /* Brighter text for active step */
+        }
+        .checkout-step-line {
+            flex-grow: 1;
+            border-top: 2px solid #4A5568; /* Darker gray line */
+            margin: 0 10px;
+        }
+
+        /* Planet Pulse Text Styling (No Blur) */
+        #planet-text {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            color: var(--mindlift-color); /* Use MindLift purple accent */
+            overflow: hidden; /* Hide overflow during animation */
+            white-space: nowrap; /* Prevent text wrapping */
+            animation: pulse-glow 3s infinite alternate; /* Apply animation */
+            transition: all 0.5s ease-in-out;
+            text-shadow: none; /* Explicitly remove text shadow that might cause blur */
+        }
+
+        @keyframes pulse-glow {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.05);
+                opacity: 0.9;
+            }
+        }
+
+        /* Styles for theme buttons in footer */
+        .theme-controls button {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+            /* Flex properties for buttons */
+            flex-shrink: 0; /* Prevent shrinking too much */
+            white-space: nowrap; /* Prevent text wrapping */
+        }
+
+        /* Default (Light) Mode button styling */
+        .theme-controls #theme-day-btn {
+            background-color: var(--card-bg-light);
+            color: var(--text-color-light);
+            border-color: var(--border-color-light);
+        }
+        .light-mode .theme-controls #theme-day-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        .light-mode .theme-controls #theme-night-btn,
+        .light-mode .theme-controls #theme-hyper-btn {
+            background-color: var(--card-bg-light);
+            color: var(--muted-text-light);
+            border-color: var(--border-color-light);
+        }
+
+        /* Dark Mode button styling */
+        .theme-controls #theme-night-btn {
+            background-color: var(--card-bg-dark);
+            color: var(--text-color-dark);
+            border-color: var(--border-color-dark);
+        }
+        .dark-mode .theme-controls #theme-night-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        .dark-mode .theme-controls #theme-day-btn,
+        .dark-mode .theme-controls #theme-hyper-btn {
+            background-color: var(--card-bg-dark);
+            color: var(--muted-text-dark);
+            border-color: var(--border-color-dark);
+        }
+
+        /* Hyper Mode button styling */
+        .theme-controls #theme-hyper-btn {
+            background-color: var(--hyper-card-bg);
+            color: var(--hyper-text-color);
+            border-color: var(--hyper-border-color);
+        }
+        .hyper-mode .theme-controls #theme-hyper-btn.active {
+            background-color: var(--hyper-primary-color);
+            color: white;
+            border-color: var(--hyper-primary-color);
+        }
+        .hyper-mode .theme-controls #theme-day-btn,
+        .hyper-mode .theme-controls #theme-night-btn {
+            background-color: var(--hyper-card-bg);
+            color: var(--muted-text-dark); /* Use a muted version of hyper-text for non-active */
+            border-color: var(--hyper-border-color);
+        }
+
+        /* Language Switcher - NOW WITH PRECISE WIDTH CONTROL */
+        .theme-controls #languageSwitcher {
+            padding: 8px 16px; /* Consistent padding */
+            border-radius: 20px; /* Consistent rounded corners */
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid var(--border-color-dark); /* Default border in dark mode */
+            background-color: var(--card-bg-dark); /* Default background in dark mode */
+            color: var(--text-color-dark); /* Default text color in dark mode */
+
+            /* REMOVE DEFAULT ARROW AND ADD CUSTOM */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 1.5em;
+
+            /* Set the custom arrow SVG based on theme */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23a0a0a5'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E");
+            padding-right: 2.5rem; /* Space for the custom arrow */
+
+            /* KEY FIX: Width control for compact layout */
+            width: fit-content; /* Allow it to shrink to content */
+            min-width: 120px; /* Minimum width for readability (adjust as needed) */
+            max-width: 180px; /* Maximum width to keep it compact (adjust as needed) */
+            flex-grow: 0; /* Prevent it from taking up extra space */
+            flex-shrink: 1; /* Allow it to shrink if needed */
+        }
+
+        .light-mode .theme-controls #languageSwitcher {
+            background-color: var(--card-bg-light);
+            color: var(--text-color-light);
+            border-color: var(--border-color-light);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236e6e73'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        .hyper-mode .theme-controls #languageSwitcher {
+            background-color: var(--hyper-card-bg);
+            color: var(--hyper-text-color);
+            border-color: var(--hyper-border-color);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23FFCCFF'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        /* Styling for generated text output to preserve whitespace */
+        #generatedTextOutput {
+            white-space: pre-wrap; /* Preserve whitespace and allow wrapping */
+            word-break: break-word; /* Break long words */
+        }
+
+        /* Specific styles for the footer, extracted from the original document */
+        .new-footer {
+            background-color: #1a1a1a; /* bg-gray-900 from Tailwind, equivalent to this dark gray */
+            color: white;
+            padding: 2rem 1.5rem; /* py-8 px-6 */
+            text-align: center;
+            margin-top: auto; /* Pushes the footer to the bottom */
+        }
+
+        @media (min-width: 768px) {
+            .new-footer {
+                padding-left: 5rem; /* md:px-20 */
+                padding-right: 5rem; /* md:px-20 */
+            }
+        }
+
+        .banimal-footer-content {
+            max-width: 48rem; /* max-w-2xl */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .banimal-footer-content h1 {
+            font-size: 2rem; /* text-3xl */
+            line-height: 1.25; /* leading-tight */
+            font-weight: 800; /* font-extrabold */
+            color: #ffffff; /* text-white */
+            margin-bottom: 0.5rem; /* mb-2 */
+        }
+
+        @media (min-width: 768px) {
+            .banimal-footer-content h1 {
+                font-size: 2.25rem; /* md:text-4xl */
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .banimal-footer-content h1 {
+                font-size: 3rem; /* lg:text-5xl */
+            }
+        }
+
+        .banimal-footer-content .text-blue-400 {
+            color: #60a5fa; /* Tailwind's blue-400 */
+        }
+
+        .banimal-footer-content p {
+            font-size: 1rem; /* text-base */
+            line-height: 1.625; /* leading-relaxed */
+            color: #d1d5db; /* text-gray-300 */
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+
+        @media (min-width: 768px) {
+            .banimal-footer-content p {
+                font-size: 1.125rem; /* md:text-lg */
+            }
+        }
+
+        .new-footer .cta-button {
+            background-color: #3b82f6; /* bg-blue-600 */
+            color: #ffffff; /* text-white */
+            font-weight: 600; /* font-semibold */
+            padding: 0.75rem 1.5rem; /* py-3 px-6 */
+            border-radius: 9999px; /* rounded-full */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition-property: background-color;
+            transition-duration: 0.2s; /* duration-200 */
+            text-decoration: none; /* Ensure it looks like a button, not a plain link */
+        }
+
+        .new-footer .cta-button:hover {
+            background-color: #2563eb; /* hover:bg-blue-700 */
+        }
+
+        .new-footer .cta-button .ml-2 {
+            margin-left: 0.5rem; /* ml-2 */
+        }
+
+        .new-footer .copyright {
+            font-size: 0.875rem; /* text-sm */
+            color: #6b7280; /* text-gray-500 */
+            margin-top: 2rem; /* mt-8 */
+        }
+
+        .new-footer .copyright a {
+            color: #60a5fa; /* text-blue-400 */
+            text-decoration: none;
+        }
+
+        .new-footer .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        /* PayPal Error/Success Message Display - Retained from previous context */
+        .paypal-message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 1000;
+            font-size: 0.9rem;
+            max-width: 300px;
+            text-align: center;
+            animation: fadeInOut 5s forwards;
+        }
+        .paypal-error-message {
+            background-color: #ffdddd;
+            color: #d8000c;
+        }
+        .paypal-success-message {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateY(-20px); }
+            10% { opacity: 1; transform: translateY(0); }
+            90% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body lang="en">
+
+    <!-- NEW: Announcement Bar -->
+    <div id="announcement-bar" class="bg-fcu-color text-white text-center p-2 text-sm relative z-50">
+        <div class="container flex justify-center items-center">
+            <span data-lang-key="announcement-text"></span>
+            <button class="close-btn text-white text-lg ml-4" aria-label="Close Announcement">&times;</button>
+        </div>
+    </div>
+
+    <!-- Header Section (MindLift FCU Hero style) -->
+    <header class="checkout-header" id="main-header">
+        <div class="header-content-wrapper">
+            <h1 class="text-white">🌐 Banimal Loop™</h1>
+            <p class="slogan" data-lang-key="header-slogan"></p>
+            <a href="#" class="back-link" data-lang-key="back-to-shop"></a>
+        </div>
+    </header>
+
+    <main class="main-content-area">
+        <div class="container max-w-3xl mx-auto">
+            <!-- User ID Display - Moved here to be relevant to the main content -->
+            <div class="mb-8 p-4 bg-gray-800 rounded-lg shadow-md text-center text-sm text-white">
+                Your User ID: <span id="display-user-id" class="font-bold text-blue-400 break-all">Loading...</span>
+            </div>
+
+            <div class="checkout-card">
+                <h2 data-lang-key="complete-purchase"></h2>
+
+                <!-- Checkout Steps/Progress -->
+                <div class="checkout-steps-container">
+                    <div class="checkout-step active">
+                        <div class="checkout-step-number">1</div>
+                        <span class="checkout-step-text" data-lang-key="shipping-step"></span>
+                    </div>
+                    <div class="checkout-step-line"></div>
+                    <div class="checkout-step">
+                        <div class="checkout-step-number">2</div>
+                        <span class="checkout-step-text" data-lang-key="payment-step"></span>
+                    </div>
+                    <div class="checkout-step-line"></div>
+                    <div class="checkout-step">
+                        <div class="checkout-step-number">3</div>
+                        <span class="checkout-step-text" data-lang-key="review-step"></span>
+                    </div>
+                </div>
+
+                <!-- Shipping Information Section -->
+                <section class="mb-8">
+                    <h3 data-lang-key="shipping-info-heading"><i class="fas fa-shipping-fast"></i></h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="fullName" class="form-label" data-lang-key="full-name-label"></label>
+                            <input type="text" id="fullName" class="form-input" data-lang-key="full-name-placeholder">
+                        </div>
+                        <div>
+                            <label for="address" class="form-label" data-lang-key="address-label"></label>
+                            <input type="text" id="address" class="form-input" data-lang-key="address-placeholder">
+                        </div>
+                        <div>
+                            <label for="city" class="form-label" data-lang-key="city-label"></label>
+                            <input type="text" id="city" class="form-input" data-lang-key="city-placeholder">
+                        </div>
+                        <div>
+                            <label for="zip" class="form-label" data-lang-key="zip-code-label"></label>
+                            <input type="text" id="zip" class="form-input" data-lang-key="zip-code-placeholder">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Payment Method Section -->
+                <section class="mb-8">
+                    <h3 data-lang-key="payment-method-heading"><i class="fas fa-credit-card"></i></h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="cardNumber" class="form-label" data-lang-key="card-number-label"></label>
+                            <input type="text" id="cardNumber" class="form-input" placeholder="XXXX XXXX XXXX XXXX">
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div>
+                                <label for="expMonth" class="form-label" data-lang-key="month-label"></label>
+                                <input type="text" id="expMonth" class="form-input" placeholder="MM">
+                            </div>
+                            <div>
+                                <label for="expYear" class="form-label" data-lang-key="year-label"></label>
+                                <input type="text" id="expYear" class="form-input" placeholder="YY">
+                            </div>
+                            <div>
+                                <label for="cvv" class="form-label" data-lang-key="cvv-label">CVV</label>
+                                <input type="text" id="cvv" class="form-input" placeholder="123">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Order Summary Section -->
+                <section class="mb-8">
+                    <h3 data-lang-key="order-summary-heading"><i class="fas fa-file-invoice-dollar"></i></h3>
+                    <div class="space-y-3">
+                        <!-- Example Order Items - These would typically be populated dynamically -->
+                        <div class="order-summary-item">
+                            <span data-lang-key="product-item-1"></span>
+                            <span>$99.00</span> <!-- Example fixed price -->
+                        </div>
+                        <div class="order-summary-item">
+                            <span data-lang-key="product-item-2"></span>
+                            <span>$49.50</span> <!-- Example fixed price -->
+                        </div>
+                        <div class="order-summary-item">
+                            <span data-lang-key="shipping-cost"></span>
+                            <span>$0.00</span>
+                        </div>
+                        <div class="order-summary-item order-summary-total">
+                            <span data-lang-key="total-cost"></span>
+                            <span id="order-total-display">$148.50 USD</span> <!-- Example calculated total -->
+                            <!-- Currency selector for order total -->
+                            <select id="currency-select-order-summary" class="ml-4 p-2 border rounded-md text-sm form-select w-auto">
+                                <option value="USD">USD ($)</option>
+                                <option value="ZAR">ZAR (R)</option>
+                                <option value="EUR">EUR (€)</option>
+                                <option value="GBP">GBP (£)</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- AI-Powered Help/FAQ Section -->
+                <section class="checkout-card mt-8">
+                    <h3 data-lang-key="ai-help-heading"><i class="fas fa-question-circle"></i></h3>
+                    <p class="text-sm mb-4 text-center text-muted-text-dark" data-lang-key="ai-help-slogan"></p>
+                    <div class="form-group">
+                        <label for="faqPromptInput" class="form-label" data-lang-key="your-question-label"></label>
+                        <textarea id="faqPromptInput" class="form-input" rows="4" data-lang-key="faq-placeholder"></textarea>
+                    </div>
+                    <button id="getFaqAnswerBtn" class="checkout-action-button purple mt-4" data-lang-key="get-answer-button"></button>
+                    <div id="faqLoadingIndicator" class="hidden text-center mt-2 text-blue-400">
+                        <i class="fas fa-spinner fa-spin mr-2"></i> <span data-lang-key="generating-answer-loading"></span>
+                    </div>
+                    <p id="faqAnswerOutput" class="result-text mt-4 whitespace-pre-wrap"></p>
+                </section>
+
+                <!-- Checkout Buttons (SecureSign style) -->
+                <div class="space-y-4">
+                    <button id="finalizeOrderBtn" class="checkout-action-button purple" data-lang-key="finalize-button">
+                        <i class="fas fa-check-circle ml-2"></i>
+                    </button>
+                    <button class="checkout-action-button blue" data-lang-key="review-order-button">
+                        <i class="fas fa-search ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Planet Pulse Text -->
+    <p id="planet-text" class="text-center text-xl font-bold mt-8 mb-8" data-lang-key="planet-pulse-text"></p>
+
+    <!-- === CONSOLIDATED FOOTER SECTION === -->
+    <footer class="new-footer">
+        <div class="banimal-footer-content text-center max-w-2xl mx-auto">
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight text-white mb-2">
+                <span data-lang-key="banimal-footer-heading"></span> <br>
+                <span class="text-blue-400" data-lang-key="banimal-footer-slogan"></span>
+            </h1>
+            <p class="text-base md:text-lg text-gray-300 leading-relaxed mb-6" data-lang-key="banimal-footer-text"></p>
+            <a href="global_brands.html" class="cta-button">
+                Explore Banimal's World <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+        <p class="copyright text-sm text-gray-500 mt-8" data-lang-key="copyright-text-footer"></p>
+        <p class="copyright text-sm text-gray-500" data-lang-key="powered-by-text"></p>
+
+        <!-- Theme & Language Controls in Footer -->
+        <div class="theme-controls flex items-center justify-center space-x-4 mt-4 flex-wrap gap-2">
+            <button id="theme-day-btn" data-lang-key="light-mode-button"></button>
+            <button id="theme-night-btn" data-lang-key="dark-mode-button"></button>
+            <button id="theme-hyper-btn" data-lang-key="hyper-mode-button"></button>
+            <select id="languageSwitcher" class="form-select">
+                <!-- Options populated dynamically by JS -->
+            </select>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // IMPORTANT: Replace this placeholder with your actual LIVE PayPal Client ID.
+        // This is for the frontend SDK loading. Your backend will need its own API credentials.
+        const YOUR_PAYPAL_LIVE_CLIENT_ID = 'YOUR_PAYPAL_LIVE_CLIENT_ID'; // <--- !!! REPLACE THIS WITH YOUR LIVE CLIENT ID !!! --->
+        
+        if (YOUR_PAYPAL_LIVE_CLIENT_ID === 'YOUR_PAYPAL_LIVE_CLIENT_ID') {
+            // Display a warning if the PayPal Client ID is still a placeholder
+            showTemporaryMessage('WARNING: PayPal Client ID is a placeholder. Please replace "YOUR_PAYPAL_LIVE_CLIENT_ID" with your actual PayPal Live Client ID for testing.', 'error');
+            console.warn('PayPal Client ID is a placeholder. Please replace "YOUR_PAYPAL_LIVE_CLIENT_ID" with your actual PayPal Live Client ID.');
+        }
+
+        // Load PayPal SDK dynamically after we've confirmed the client ID (or at least warned)
+        const paypalSdkScript = document.createElement('script');
+        paypalSdkScript.src = `https://www.paypal.com/sdk/js?client-id=${YOUR_PAYPAL_LIVE_CLIENT_ID}&currency=USD&vault=true&intent=subscription`; // Set default currency for SDK to USD
+        document.head.appendChild(paypalSdkScript);
+
+
+        // IMPORTANT: You MUST replace these placeholders with the actual LIVE PayPal Plan IDs
+        // obtained after using the "Deploy Plan" button for these products in your admin portal,
+        // after switching your backend to LIVE credentials.
+        // The plan keys are 'Product Name_BILLING_CYCLE' (e.g., "Starter Package_MONTHLY").
+        const PAYPAL_PLAN_IDS = {
+            // These plans correspond to the previous "product-page" immersive.
+            // For this consolidated checkout, they are kept as placeholders
+            // but a real implementation would need to dynamically determine the plan
+            // based on what's in the user's cart or selected product.
+            "Starter Package_MONTHLY": "P-YOUR_STARTER_MONTHLY_LIVE_PLAN_ID",
+            "Starter Package_ANNUAL": "P-YOUR_STARTER_ANNUAL_LIVE_PLAN_ID",
+            "Business Package_MONTHLY": "P-YOUR_BUSINESS_MONTHLY_LIVE_PLAN_ID",
+            "Business Package_ANNUAL": "P-YOUR_BUSINESS_ANNUAL_LIVE_PLAN_ID",
+            "Enterprise Package_MONTHLY": "P-YOUR_ENTERPRISE_MONTHLY_LIVE_PLAN_ID",
+            "Enterprise Package_ANNUAL": "P-YOUR_ENTERPRISE_ANNUAL_LIVE_PLAN_ID"
+        };
+
+        // Firebase Initialization
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        // No Firebase project is configured for this page: without this guard initializeApp({}) throws and every button on the page goes dead.
+        const app = firebaseConfig.apiKey ? initializeApp(firebaseConfig) : null;
+        const auth = app ? getAuth(app) : null;
+        const db = app ? getFirestore(app) : null;
+
+        let currentUserId = 'loading...'; // Variable to hold the authenticated user ID
+
+        // Utility function to show temporary messages
+        function showTemporaryMessage(message, type = 'error') {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `paypal-message ${type === 'success' ? 'paypal-success-message' : 'paypal-error-message'}`;
+            messageDiv.textContent = message;
+            document.body.appendChild(messageDiv);
+            setTimeout(() => messageDiv.remove(), 5000); // Remove after 5 seconds
+        }
+
+        // Utility function to get currency symbol
+        function getCurrencySymbol(currencyCode) {
+            switch (currencyCode) {
+                case 'USD': return '$';
+                case 'EUR': return '€';
+                case 'GBP': return '£';
+                case 'ZAR': return 'R';
+                default: return currencyCode;
+            }
+        }
+
+        // Object to hold all translations
+        const translations = {
+            en: {
+                "lang-name": "English", // Added for language switcher display
+                "announcement-text": "🚀 Accelerate Your Workflow! Get 15% off Pro Grid for a limited time!",
+                "header-slogan": "Buy one item, and we sponsor one! ❤️",
+                "back-to-shop": "← Back to Shop",
+                "complete-purchase": "Complete Your Purchase",
+                "shipping-step": "Shipping",
+                "payment-step": "Payment",
+                "review-step": "Review",
+                "shipping-info-heading": "Shipping Information",
+                "full-name-label": "Full Name",
+                "full-name-placeholder": "John Doe",
+                "address-label": "Address",
+                "address-placeholder": "123 Main Street",
+                "city-label": "City",
+                "city-placeholder": "Luxembourg City",
+                "zip-code-label": "Zip Code",
+                "zip-code-placeholder": "12345",
+                "payment-method-heading": "Payment Method",
+                "card-number-label": "Card Number",
+                "month-label": "Month",
+                "year-label": "Year",
+                "cvv-label": "CVV",
+                "order-summary-heading": "Order Summary",
+                "product-item-1": "Product Item 1",
+                "product-item-2": "Product Item 2",
+                "shipping-cost": "Shipping",
+                "total-cost": "Total",
+                "ai-help-heading": "AI Help & FAQ Answers",
+                "ai-help-slogan": "Ask your question about Banimal Loop™ or FAA.zone, and our AI will answer.",
+                "your-question-label": "Your Question:",
+                "faq-placeholder": "e.g., What is the core protocol of Banimal Loop™?",
+                "get-answer-button": "Get Answer ✨",
+                "generating-answer-loading": "Generating answer...",
+                "error-no-ai-answer": "Error: No answer from AI. Please try again later.",
+                "reason": "Reason:",
+                "error-ai-connection": "Error: Could not connect to language model. Check console for network issues.",
+                "please-enter-question": "Please enter a question to get an answer.",
+                "finalize-button": "Finalize & Confirm Order",
+                "review-order-button": "Review Order Details",
+                "planet-pulse-text": "fruchtbarer.planet.wandel",
+                "banimal-footer-heading": "Banimal™:",
+                "banimal-footer-slogan": "🐑Kind Creatures. Global Impact.",
+                "banimal-footer-text": "Discover Banimal's world of thoughtful baby essentials & innovative lighting. For every purchase, we deliver the same item to a child in need, identified by the Baobab Security Network's data-driven insights.",
+                "explore-banimal-button": "Explore Banimal's World",
+                "copyright-text-footer": "&copy; 👟2025 Banimal™. All rights reserved.",
+                "powered-by-text": "A proud initiative of Fruitful™ Treaty System™",
+                "light-mode-button": "Light Mode",
+                "dark-mode-button": "Dark Mode",
+                "hyper-mode-button": "Hyper Mode"
+            },
+            lb: { // Luxembourgish translations
+                "lang-name": "Lëtzebuergesch", // Added for language switcher display
+                "announcement-text": "🚀 Beschleunegt Äre Workflow! Kritt 15% Rabatt op Pro Grid fir eng limitéiert Zäit!",
+                "header-slogan": "Kaaft een Artikel a mir sponseren een! ❤️",
+                "back-to-shop": "← Zréck an de Buttek",
+                "complete-purchase": "Komplett Äre Kaf",
+                "shipping-step": "Versand",
+                "payment-step": "Bezuelung",
+                "review-step": "Iwwerpréiwen",
+                "shipping-info-heading": "Versandinformatioun",
+                "full-name-label": "Voll Numm",
+                "full-name-placeholder": "Max Mustermann",
+                "address-label": "Adress",
+                "address-placeholder": "123 Haaptstrooss",
+                "city-label": "Stad",
+                "city-placeholder": "Stad Lëtzebuerg",
+                "zip-code-label": "Postleetzuel",
+                "zip-code-placeholder": "L-1234",
+                "payment-method-heading": "Bezuelmethod",
+                "card-number-label": "Kaartennummer",
+                "month-label": "Mount",
+                "year-label": "Joer",
+                "cvv-label": "CVV",
+                "order-summary-heading": "Bestellungsresumé",
+                "product-item-1": "Produkt Artikel 1",
+                "product-item-2": "Produkt Artikel 2",
+                "shipping-cost": "Versand",
+                "total-cost": "Total",
+                "ai-help-heading": "AI Hëllef & FAQ Äntwerten",
+                "ai-help-slogan": "Stellt Är Fro iwwer Banimal Loop™ oder FAA.zone, an eis KI äntwert.",
+                "your-question-label": "Är Fro:",
+                "faq-placeholder": "z.B. Wat ass de Kärprotokoll vu Banimal Loop™?",
+                "get-answer-button": "Kritt Äntwert ✨",
+                "generating-answer-loading": "Äntwert gëtt generéiert...",
+                "error-no-ai-answer": "Feeler: Keng Äntwert vun der KI. Probéiert et w.e.g. méi spéit nach eng Kéier.",
+                "reason": "Grond:",
+                "error-ai-connection": "Feeler: Konnt net mat der Sproochemodell verbannen. Kuckt d'Konsol fir Netzproblemer.",
+                "please-enter-question": "Gitt w.e.g. eng Fro an, fir eng Äntwert ze kréien.",
+                "finalize-button": "Finaliséieren & Bestätegen Bestellung",
+                "review-order-button": "Bestellungsdetailer iwwerpréiwen",
+                "planet-pulse-text": "fruchtbarer.planet.wandel",
+                "banimal-footer-heading": "Banimal™:",
+                "banimal-footer-slogan": "🐑Kind Creatures. Global Impact.",
+                "banimal-footer-text": "Entdeckt d'Welt vu Banimal's nodenkleche Baby-Essentials an innovative Beliichtung. Fir all Kaf liwwere mir deeselwechten Artikel un e Kand an Nout, identifizéiert duerch d'Date-driven Abléck vum Baobab Sécherheetsnetz.",
+                "explore-banimal-button": "Entdeckt d'Welt vu Banimal",
+                "copyright-text-footer": "&copy; 2025 Banimal™. All Rechter reservéiert.",
+                "powered-by-text": "A proud initiative of Fruitful™ Treaty System™",
+                "light-mode-button": "Liicht Modus",
+                "dark-mode-button": "Däischter Modus",
+                "hyper-mode-button": "Hyper Modus"
+            },
+            es: { // Spanish translations
+                "lang-name": "Español",
+                "announcement-text": "🚀 ¡Acelera tu flujo de trabajo! ¡Obtén un 15% de descuento en Pro Grid por tiempo limitado!",
+                "header-slogan": "¡Compra un artículo y nosotros patrocinamos uno! ❤️",
+                "back-to-shop": "← Volver a la Tienda",
+                "complete-purchase": "Completar Tu Compra",
+                "shipping-step": "Envío",
+                "payment-step": "Pago",
+                "review-step": "Revisar",
+                "shipping-info-heading": "Información de Envío",
+                "full-name-label": "Nombre Completo",
+                "full-name-placeholder": "Juan Pérez",
+                "address-label": "Dirección",
+                "address-placeholder": "123 Calle Principal",
+                "city-label": "Ciudad",
+                "city-placeholder": "Ciudad de Luxemburgo",
+                "zip-code-label": "Código Postal",
+                "zip-code-placeholder": "28001",
+                "payment-method-heading": "Método de Pago",
+                "card-number-label": "Número de Tarjeta",
+                "month-label": "Mes",
+                "year-label": "Año",
+                "cvv-label": "CVV",
+                "order-summary-heading": "Resumen del Pedido",
+                "product-item-1": "Artículo del Producto 1",
+                "product-item-2": "Artículo del Producto 2",
+                "shipping-cost": "Envío",
+                "total-cost": "Total",
+                "ai-help-heading": "Ayuda de IA y Preguntas Frecuentes",
+                "ai-help-slogan": "Haz tu pregunta sobre Banimal Loop™ o FAA.zone, y nuestra IA te responderá.",
+                "your-question-label": "Tu Pregunta:",
+                "faq-placeholder": "Ejemplo: ¿Cuál es el protocolo principal de Banimal Loop™?",
+                "get-answer-button": "Obtener Respuesta ✨",
+                "generating-answer-loading": "Generando respuesta...",
+                "error-no-ai-answer": "Error: No hay respuesta de la IA. Por favor, inténtalo de nuevo más tarde.",
+                "reason": "Razón:",
+                "error-ai-connection": "Error: No se pudo conectar al modelo de lenguaje. Verifica la consola por problemas de red.",
+                "please-enter-question": "Por favor, introduce una pregunta para obtener una respuesta.",
+                "finalize-button": "Finalizar y Confirmar Pedido",
+                "review-order-button": "Revisar Detalles del Pedido",
+                "planet-pulse-text": "fruchtbarer.planet.wandel",
+                "banimal-footer-heading": "Banimal™:",
+                "banimal-footer-slogan": "🐑Criaturas Amables. Impacto Global.",
+                "banimal-footer-text": "Descubre el mundo de Banimal de artículos esenciales para bebés y soluciones de iluminación innovadoras. Por cada compra, entregamos el mismo artículo a un niño necesitado, identificado por los datos de la Red de Seguridad Baobab.",
+                "explore-banimal-button": "Explorar el Mundo de Banimal",
+                "copyright-text-footer": "&copy; 👟2025 Banimal™. Todos los derechos reservados.",
+                "powered-by-text": "Una orgullosa iniciativa de Fruitful™ Treaty System™"
+            },
+            fr: { // French translations
+                "lang-name": "Français",
+                "announcement-text": "🚀 Accélérez votre flux de travail ! Obtenez 15% de réduction sur Pro Grid para un temps limitado !",
+                "header-slogan": "Achetez un article, et nous en parrainons un ! ❤️",
+                "back-to-shop": "← Retour à la Boutique",
+                "complete-purchase": "Finaliser Votre Achat",
+                "shipping-step": "Expédition",
+                "payment-step": "Paiement",
+                "review-step": "Vérifier",
+                "shipping-info-heading": "Informations de Livraison",
+                "full-name-label": "Nom Complet",
+                "full-name-placeholder": "Jean Dupont",
+                "address-label": "Adresse",
+                "address-placeholder": "123 Rue Principale",
+                "city-label": "Ville",
+                "city-placeholder": "Ville de Luxembourg",
+                "zip-code-label": "Code Postal",
+                "zip-code-placeholder": "L-1111",
+                "payment-method-heading": "Méthode de Paiement",
+                "card-number-label": "Numéro de Carte",
+                "month-label": "Mois",
+                "year-label": "Année",
+                "cvv-label": "CVV",
+                "order-summary-heading": "Récapitulatif de Commande",
+                "product-item-1": "Article Produit 1",
+                "product-item-2": "Article Produit 2",
+                "shipping-cost": "Livraison",
+                "total-cost": "Total",
+                "ai-help-heading": "Aide IA & Réponses FAQ",
+                "ai-help-slogan": "Posez votre question sur Banimal Loop™ ou FAA.zone, et notre IA vous répondra.",
+                "your-question-label": "Votre Question :",
+                "faq-placeholder": "Ex: Quel est le protocole de base de Banimal Loop™ ?",
+                "get-answer-button": "Obtenir la Réponse ✨",
+                "generating-answer-loading": "Génération de la réponse...",
+                "error-no-ai-answer": "Erreur : Pas de réponse de l'IA. Veuillez réessayer plus tard.",
+                "reason": "Raison :",
+                "error-ai-connection": "Erreur : Impossible de se connecter au modèle de langage. Vérifiez la console pour les problèmes de réseau.",
+                "please-enter-question": "Veuillez saisir une question pour obtenir une réponse.",
+                "finalize-button": "Finaliser et Confirmer la Commande",
+                "review-order-button": "Vérifier les Détails de la Commande",
+                "planet-pulse-text": "fruchtbarer.planet.wandel",
+                "banimal-footer-heading": "Banimal™ :",
+                "banimal-footer-slogan": "🐑Créatures Douces. Impact Mondial.",
+                "banimal-footer-text": "Découvrez le monde de Banimal : des essentiels pour bébés et des solutions d'éclairage innovantes. Pour chaque achat, nous livrons le même article à un enfant dans le besoin, identifié grâce aux données du Réseau de Sécurité Baobab.",
+                "explore-banimal-button": "Explorer le Monde de Banimal",
+                "copyright-text-footer": "&copy; 👟2025 Banimal™. Tous droits réservés.",
+                "powered-by-text": "Une fière initiative de Fruitful™ Treaty System™"
+            },
+            de: { // German translations
+                "lang-name": "Deutsch",
+                "announcement-text": "🚀 Beschleunigen Sie Ihren Workflow! Erhalten Sie 15% Rabatt auf Pro Grid für begrenzte Zeit!",
+                "header-slogan": "Kaufen Sie einen Artikel, und wir sponsern einen! ❤️",
+                "back-to-shop": "← Zurück zum Shop",
+                "complete-purchase": "Kauf abschließen",
+                "shipping-step": "Versand",
+                "payment-step": "Zahlung",
+                "review-step": "Überprüfung",
+                "shipping-info-heading": "Versandinformationen",
+                "full-name-label": "Vollständiger Name",
+                "full-name-placeholder": "Max Mustermann",
+                "address-label": "Adresse",
+                "address-placeholder": "Musterstraße 123",
+                "city-label": "Stadt",
+                "city-placeholder": "Luxemburg-Stadt",
+                "zip-code-label": "Postleitzahl",
+                "zip-code-placeholder": "12345",
+                "payment-method-heading": "Zahlungsmethode",
+                "card-number-label": "Kartennummer",
+                "month-label": "Monat",
+                "year-label": "Jahr",
+                "cvv-label": "CVV",
+                "order-summary-heading": "Bestellübersicht",
+                "product-item-1": "Produktartikel 1",
+                "product-item-2": "Produktartikel 2",
+                "shipping-cost": "Versand",
+                "total-cost": "Gesamt",
+                "ai-help-heading": "KI-Hilfe & FAQ-Antworten",
+                "ai-help-slogan": "Stellen Sie Ihre Frage zu Banimal Loop™ oder FAA.zone, und unsere KI wird antworten.",
+                "your-question-label": "Ihre Frage:",
+                "faq-placeholder": "z.B. Was ist das Kernprotokoll von Banimal Loop™?",
+                "get-answer-button": "Antwort erhalten ✨",
+                "generating-answer-loading": "Antwort wird generiert...",
+                "error-no-ai-answer": "Fehler: Keine Antwort von der KI. Bitte versuchen Sie es später noch einmal.",
+                "reason": "Grund:",
+                "error-ai-connection": "Fehler: Verbindung zum Sprachmodell konnte nicht hergestellt werden. Überprüfen Sie die Konsole auf Netzwerkprobleme.",
+                "please-enter-question": "Bitte geben Sie eine Frage ein, um eine Antwort zu erhalten.",
+                "finalize-button": "Bestellung abschließen & bestätigen",
+                "review-order-button": "Bestelldetails überprüfen",
+                "planet-pulse-text": "fruchtbarer.planet.wandel",
+                "banimal-footer-heading": "Banimal™:",
+                "banimal-footer-slogan": "🐑Freundliche Kreaturen. Globaler Einfluss.",
+                "banimal-footer-text": "Entdecken Sie Banimals Welt der durchdachten Babyartikel und innovativen Beleuchtung. Für jeden Kauf liefern wir den gleichen Artikel an ein bedürftiges Kind, identifiziert durch die datengestützten Erkenntnisse des Baobab Sicherheitsnetzwerks.",
+                "explore-banimal-button": "Entdecken Sie Banimals Welt",
+                "copyright-text-footer": "&copy; 👟2025 Banimal™. Alle Rechte vorbehalten.",
+                "powered-by-text": "Eine stolze Initiative von Fruitful™ Treaty System™"
+            },
+            zh: { // Chinese Simplified translations
+                "lang-name": "简体中文",
+                "announcement-text": "🚀 加速您的工作流程！限时享受 Pro Grid 15% 折扣！",
+                "header-slogan": "买一件，我们赞助一件！❤️",
+                "back-to-shop": "← 返回商店",
+                "complete-purchase": "完成您的购买",
+                "shipping-step": "配送",
+                "payment-step": "支付",
+                "review-step": "审查",
+                "shipping-info-heading": "配送信息",
+                "full-name-label": "全名",
+                "full-name-placeholder": "张三",
+                "address-label": "地址",
+                "address-placeholder": "主街123号",
+                "city-label": "城市",
+                "city-placeholder": "卢森堡市",
+                "zip-code-label": "邮政编码",
+                "zip-code-placeholder": "100000",
+                "payment-method-heading": "支付方式",
+                "card-number-label": "卡号",
+                "month-label": "月",
+                "year-label": "年",
+                "cvv-label": "CVV",
+                "order-summary-heading": "订单摘要",
+                "product-item-1": "商品1",
+                "product-item-2": "商品2",
+                "shipping-cost": "运费",
+                "total-cost": "总计",
+                "ai-help-heading": "AI 帮助和常见问题解答",
+                "ai-help-slogan": "提出您关于 Banimal Loop™ 或 FAA.zone 的问题，我们的 AI 将为您解答。",
+                "your-question-label": "您的问题：",
+                "faq-placeholder": "例如：Banimal Loop™ 的核心协议是什么？",
+                "get-answer-button": "获取答案 ✨",
+                "generating-answer-loading": "正在生成答案...",
+                "error-no-ai-answer": "错误：AI 没有返回答案。请稍后再试。",
+                "reason": "原因：",
+                "error-ai-connection": "错误：无法连接到语言模型。请检查控制台以查看网络问题。",
+                "please-enter-question": "请输入问题以获取答案。",
+                "finalize-button": "完成并确认订单",
+                "review-order-button": "查看订单详情",
+                "planet-pulse-text": "fruchtbarer.planet.wandel",
+                "banimal-footer-heading": "Banimal™：",
+                "banimal-footer-slogan": "🐑善良生物。全球影响。",
+                "banimal-footer-text": "探索 Banimal 的世界：周到的婴儿必需品和创新的照明产品。每次购买，我们都会将相同的物品捐赠给巴奥巴安全网络数据洞察识别出的有需要的儿童。",
+                "explore-banimal-button": "探索 Banimal 的世界",
+                "copyright-text-footer": "&copy; 👟2025 Banimal™。保留所有权利。",
+                "powered-by-text": "Fruitful™ Treaty System™ 的一项自豪倡议"
+            },
+            hi: { // Hindi translations
+                "lang-name": "हिंदी",
+                "announcement-text": "🚀 अपने वर्कफ़्लो को तेज़ करें! सीमित समय के लिए प्रो ग्रिड पर 15% की छूट पाएं!",
+                "header-slogan": "एक आइटम खरीदें, और हम एक को प्रायोजित करते हैं! ❤️",
+                "back-to-shop": "← दुकान पर वापस",
+                "complete-purchase": "अपनी खरीद पूरी करें",
+                "shipping-step": "शिपिंग",
+                "payment-step": "भुगतान",
+                "review-step": "समीक्षा",
+                "shipping-info-heading": "शिपिंग जानकारी",
+                "full-name-label": "पूरा नाम",
+                "full-name-placeholder": "जॉन डो",
+                "address-label": "पता",
+                "address-placeholder": "123 मुख्य सड़क",
+                "city-label": "शहर",
+                "city-placeholder": "लक्ज़मबर्ग शहर",
+                "zip-code-label": "ज़िप कोड",
+                "zip-code-placeholder": "110001",
+                "payment-method-heading": "भुगतान विधि",
+                "card-number-label": "कार्ड नंबर",
+                "month-label": "महीना",
+                "year-label": "साल",
+                "cvv-label": "CVV",
+                "order-summary-heading": "आर्डर सारांश",
+                "product-item-1": "उत्पाद आइटम 1",
+                "product-item-2": "उत्पाद आइटम 2",
+                "shipping-cost": "शिपिंग",
+                "total-cost": "कुल",
+                "ai-help-heading": "एआई मदद और अक्सर पूछे जाने वाले प्रश्न",
+                "ai-help-slogan": "Banimal Loop™ या FAA.zone के बारे में अपना प्रश्न पूछें, और हमारी एआई जवाब देगी।",
+                "your-question-label": "आपका प्रश्न:",
+                "faq-placeholder": "उदाहरण के लिए, Banimal Loop™ का मुख्य प्रोटोकॉल क्या है?",
+                "get-answer-button": "उत्तर प्राप्त करें ✨",
+                "generating-answer-loading": "उत्तर उत्पन्न हो रहा है...",
+                "error-no-ai-answer": "त्रुटि: एआई से कोई जवाब नहीं। कृपया बाद में पुनः प्रयास करें।",
+                "reason": "कारण:",
+                "error-ai-connection": "त्रुटि: भाषा मॉडल से कनेक्ट नहीं हो सका। नेटवर्क समस्याओं के लिए कंसोल जांचें।",
+                "please-enter-question": "कृपया उत्तर प्राप्त करने के लिए एक प्रश्न दर्ज करें।",
+                "finalize-button": "ऑर्डर को अंतिम रूप दें और पुष्टि करें",
+                "review-order-button": "ऑर्डर विवरण की समीक्षा करें",
+                "planet-pulse-text": "fruchtbarer.planet.wandel",
+                "banimal-footer-heading": "Banimal™:",
+                "banimal-footer-slogan": "🐑दयालु जीव। वैश्विक प्रभाव।",
+                "banimal-footer-text": "विचारशील शिशु आवश्यक वस्तुओं और अभिनव प्रकाश व्यवस्था की Banimal दुनिया की खोज करें। प्रत्येक खरीद के लिए, हम बाओबाब सुरक्षा नेटवर्क के डेटा-संचालित अंतर्दृष्टि द्वारा पहचाने गए जरूरतमंद बच्चे को वही आइटम वितरित करते हैं।",
+                "explore-banimal-button": "Banimal की दुनिया का अन्वेषण करें",
+                "copyright-text-footer": "&copy; 👟2025 Banimal™. सभी अधिकार सुरक्षित।",
+                "powered-by-text": "फ्रूटफुल™ ट्रीटी सिस्टम™ की एक गर्वपूर्ण पहल"
+            },
+            ar: { // Arabic translations
+                "lang-name": "العربية",
+                "announcement-text": "🚀 سارع بتحسين سير عملك! احصل على خصم 15% على برو جريد لفترة محدودة!",
+                "header-slogan": "اشترِ منتجًا واحدًا، ونحن نرعى واحدًا! ❤️",
+                "back-to-shop": "← العودة إلى المتجر",
+                "complete-purchase": "إتمام عملية الشراء",
+                "shipping-step": "الشحن",
+                "payment-step": "الدفع",
+                "review-step": "المراجعة",
+                "shipping-info-heading": "معلومات الشحن",
+                "full-name-label": "الاسم الكامل",
+                "full-name-placeholder": "محمد علي",
+                "address-label": "العنوان",
+                "address-placeholder": "123 الشارع الرئيسي",
+                "city-label": "المدينة",
+                "city-placeholder": "مدينة لوكسمبورغ",
+                "zip-code-label": "الرمز البريدي",
+                "zip-code-placeholder": "10000",
+                "payment-method-heading": "طريقة الدفع",
+                "card-number-label": "رقم البطاقة",
+                "month-label": "الشهر",
+                "year-label": "السنة",
+                "cvv-label": "CVV",
+                "order-summary-heading": "ملخص الطلب",
+                "product-item-1": "المنتج 1",
+                "product-item-2": "المنتج 2",
+                "shipping-cost": "الشحن",
+                "total-cost": "الإجمالي",
+                "ai-help-heading": "مساعدة الذكاء الاصطناعي والإجابات الشائعة",
+                "ai-help-slogan": "اطرح سؤالك حول Banimal Loop™ أو FAA.zone، وسيقوم الذكاء الاصطناعي لدينا بالإجابة.",
+                "your-question-label": "سؤالك:",
+                "faq-placeholder": "مثال: ما هو البروتوكول الأساسي لـ Banimal Loop™؟",
+                "get-answer-button": "احصل على الإجابة ✨",
+                "generating-answer-loading": "جارٍ إنشاء الإجابة...",
+                "error-no-ai-answer": "خطأ: لا توجد إجابة من الذكاء الاصطناعي. يرجى المحاولة مرة أخرى لاحقًا.",
+                "reason": "السبب:",
+                "error-ai-connection": "خطأ: لم يتمكن من الاتصال بنموذج اللغة. تحقق من وحدة التحكم لمشاكل الشبكة.",
+                "please-enter-question": "الرجاء إدخال سؤال للحصول على إجابة.",
+                "finalize-button": "إنهاء وتأكيد الطلب",
+                "review-order-button": "مراجعة تفاصيل الطلب",
+                "planet-pulse-text": "fruchtbarer.planet.wandel",
+                "banimal-footer-heading": "Banimal™:",
+                "banimal-footer-slogan": "🐑مخلوقات طيبة. تأثير عالمي.",
+                "banimal-footer-text": "اكتشف عالم Banimal من أساسيات الأطفال المدروسة وحلول الإضاءة المبتكرة. مقابل كل عملية شراء، نقدم نفس العنصر لطفل محتاج، يتم تحديده من خلال رؤى شبكة أمان الباوباب المستندة إلى البيانات.",
+                "explore-banimal-button": "استكشف عالم Banimal",
+                "copyright-text-footer": "&copy; 👟2025 Banimal™. جميع الحقوق محفوظة.",
+                "powered-by-text": "مبادرة فخرية من Fruitful™ Treaty System™"
+            }
+        };
+
+        // Main logic once DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            const API_KEY = ""; // Your provided API key for currency conversion
+            const BASE_CURRENCY_FOR_EXCHANGE = 'USD'; // Base currency for exchange rates
+
+            let exchangeRates = {}; // Store fetched exchange rates globally for this script
+
+            // Firebase Authentication State Change Listener
+            if (!auth) { currentUserId = 'guest'; const uid = document.getElementById('display-user-id'); if (uid) uid.textContent = currentUserId; fetchAllExchangeRates(); }
+            else onAuthStateChanged(auth, async (user) => {
+                if (user) {
+                    currentUserId = user.uid;
+                } else {
+                    if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                        try {
+                            await signInWithCustomToken(auth, __initial_auth_token);
+                            currentUserId = auth.currentUser.uid;
+                        } catch (error) {
+                            console.error("Error signing in with custom token:", error);
+                            await signInAnonymously(auth); // Fallback to anonymous
+                            currentUserId = auth.currentUser.uid;
+                        }
+                    } else {
+                        await signInAnonymously(auth);
+                        currentUserId = auth.currentUser.uid;
+                    }
+                }
+                document.getElementById('display-user-id').textContent = currentUserId;
+                console.log("Firebase Auth Ready. User ID:", currentUserId);
+
+                // Once auth is ready, fetch exchange rates and enable currency selectors
+                fetchAllExchangeRates();
+            });
+
+            // Fetch exchange rates once for both currency converters
+            async function fetchAllExchangeRates() {
+                if (API_KEY === "" || API_KEY === "YOUR_API_KEY") { // Also check for generic placeholder
+                    showTemporaryMessage('Currency converter API key is missing or a placeholder. Please set it up for currency conversion to work.', 'error');
+                    // Disable all currency selectors if API key is missing
+                    document.querySelectorAll('select[id^="currency-select"]').forEach(select => select.disabled = true);
+                    console.warn("Currency converter: API_KEY is missing or a placeholder. Please get your API key from https://www.exchangerate-api.com/ and replace 'API_KEY' in the code. Currency conversion will not work without it.");
+                    return;
+                }
+
+                try {
+                    const response = await fetch(`https://v6.exchangerate-api.com/v6/${API_KEY}/latest/${BASE_CURRENCY_FOR_EXCHANGE}`);
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        const errorMessage = `Could not fetch exchange rates: ${errorData['error-type'] || 'Unknown error.'}`;
+                        showTemporaryMessage(errorMessage, 'error');
+                        throw new Error(`HTTP error! Status: ${response.status}. API Error: ${errorData['error-type'] || 'Unknown error.'}`);
+                    }
+                    const data = await response.json();
+                    if (data && data.conversion_rates) {
+                        exchangeRates = data.conversion_rates;
+                        console.log('Exchange rates fetched:', exchangeRates);
+                        updateOrderSummaryPrices(); // Update order summary prices after fetching rates
+                        // Ensure selectors are enabled if they were disabled due to previous error
+                        document.querySelectorAll('select[id^="currency-select"]').forEach(select => select.disabled = false);
+                    } else {
+                        showTemporaryMessage('Could not fetch exchange rates due to unexpected API response. Check console for details.', 'error');
+                        console.error('Failed to fetch conversion rates: Unexpected API response structure.', data);
+                        document.querySelectorAll('select[id^="currency-select"]').forEach(select => select.disabled = true);
+                    }
+                } catch (error) {
+                    showTemporaryMessage(`Error fetching exchange rates: ${error.message}. Please check your API key, network connection, and API usage limits.`, 'error');
+                    console.error('Error fetching exchange rates:', error.message || error);
+                    document.querySelectorAll('select[id^="currency-select"]').forEach(select => select.disabled = true);
+                }
+            }
+
+            // Function to update prices in the order summary
+            function updateOrderSummaryPrices() {
+                const currencySelect = document.getElementById('currency-select-order-summary');
+                const orderTotalDisplay = document.getElementById('order-total-display');
+
+                if (!currencySelect || !orderTotalDisplay) return;
+
+                const selectedCurrency = currencySelect.value;
+                const selectedSymbol = getCurrencySymbol(selectedCurrency);
+
+                // Assuming a fixed base total for demonstration (e.g., $148.50 USD)
+                const baseOrderTotalUSD = 148.50;
+                let convertedTotal = baseOrderTotalUSD;
+
+                if (selectedCurrency !== BASE_CURRENCY_FOR_EXCHANGE && exchangeRates[selectedCurrency]) {
+                    convertedTotal = baseOrderTotalUSD * exchangeRates[selectedCurrency];
+                }
+                orderTotalDisplay.textContent = `${selectedSymbol} ${convertedTotal.toFixed(2)} ${selectedCurrency}`;
+            }
+
+            // Add event listener for the order summary currency selector
+            const currencySelectOrderSummary = document.getElementById('currency-select-order-summary');
+            if (currencySelectOrderSummary) {
+                currencySelectOrderSummary.addEventListener('change', updateOrderSummaryPrices);
+            }
+            
+            // Initial call to update prices in case rates are already fetched
+            updateOrderSummaryPrices();
+
+
+            // --- PayPal Subscription Initiation (Adapted for generic checkout) ---
+            async function initiatePayPalSubscription(event) {
+                const button = event.currentTarget;
+                button.disabled = true;
+                const originalButtonText = button.textContent; // Store original text for reset
+                button.textContent = 'Processing...';
+
+                // In a real application, you would gather product/order details from the form
+                // or a cart object. For this example, we'll use placeholder details.
+                const checkoutDetails = {
+                    totalAmount: parseFloat(document.getElementById('order-total-display').textContent.replace(/[^0-9.]/g, '')), // Extract number from displayed total
+                    currency: document.getElementById('currency-select-order-summary').value,
+                    // These are simplified for the checkout page. In a full product page scenario,
+                    // these would come from the selected product card's data attributes.
+                    productName: "Banimal Loop Checkout",
+                    billingCycle: "ONE_TIME_PAYMENT", // Assuming a one-time payment for a general checkout
+                    planId: "simulated_plan_id_" + Date.now() // Placeholder plan ID for Firestore
+                };
+
+                // IMPORTANT: In a real application, you would make a secure backend API call here.
+                // Your backend would then call PayPal's API to create the subscription/payment.
+                // The `approveUrl` (if any) would come from your backend's response.
+                if (YOUR_PAYPAL_LIVE_CLIENT_ID === 'YOUR_PAYPAL_LIVE_CLIENT_ID') {
+                    showTemporaryMessage('PayPal client ID is a placeholder. Please update it to proceed with PayPal actions.', 'error');
+                    button.disabled = false;
+                    button.textContent = originalButtonText;
+                    return;
+                }
+
+                try {
+                    // Simulate backend call to create subscription/payment and get approval URL
+                    showTemporaryMessage('Simulating PayPal payment initiation (requires backend for real flow).', 'success');
+                    console.warn('PAYPAL INTEGRATION WARNING: This is a frontend simulation. For a real PayPal payment, you MUST implement a secure backend to create payments/subscriptions and handle webhooks.');
+
+                    const simulatedResponse = {
+                        // In a real scenario, this URL comes from your backend after PayPal's API call
+                        approveUrl: 'https://www.paypal.com/checkoutnow?token=EC-XXXXX' // Placeholder for PayPal approval URL
+                    };
+
+                    // Simulate saving checkout data to Firestore (as a pending state)
+                    if (currentUserId !== 'loading...') {
+                        const checkoutData = {
+                            ...checkoutDetails, // Spread the collected details
+                            status: 'PENDING_PAYPAL_APPROVAL', // Status before PayPal redirection
+                            initiatedAt: new Date().toISOString(),
+                            userId: currentUserId,
+                            paypalOrderId: 'simulated_paypal_order_id_' + Date.now()
+                        };
+
+                        if (db) try {
+                            // Using a generic document ID for the checkout instance
+                            const checkoutDocRef = doc(db, `artifacts/${appId}/users/${currentUserId}/checkouts`, 'current_checkout_' + Date.now());
+                            await setDoc(checkoutDocRef, checkoutData, { merge: true });
+                            console.log('Simulated pending checkout data saved to Firestore:', checkoutData);
+                        } catch (firestoreError) {
+                            console.error('Error saving simulated checkout to Firestore:', firestoreError);
+                            showTemporaryMessage('Failed to save simulated checkout details to Firestore.', 'error');
+                            // Do not prevent PayPal flow if Firestore save fails, but log error
+                        }
+                    } else {
+                        console.warn('User ID not available yet for Firestore save. Skipping simulated checkout save.');
+                        showTemporaryMessage('User ID not ready for Firestore save. Please wait and try again.', 'error');
+                    }
+
+                    if (simulatedResponse.approveUrl) {
+                        // In a real app, you would redirect the user to this URL
+                        // For this demo, we'll just log it and reset the button.
+                        console.log('Simulated PayPal Approval URL:', simulatedResponse.approveUrl);
+                        showTemporaryMessage('Simulated PayPal approval URL generated. In a real app, you would now be redirected.', 'success');
+                        // window.location.href = simulatedResponse.approveUrl; // Uncomment for actual redirection
+                    } else {
+                        showTemporaryMessage('No approval URL received from PayPal (simulated).', 'error');
+                        throw new Error('No approval URL received from PayPal (simulated).');
+                    }
+
+                } catch (error) {
+                    showTemporaryMessage(`An error occurred: ${error.message}. Please try again.`, 'error');
+                    console.error('Error initiating PayPal payment (frontend simulation):', error);
+                } finally {
+                    // Always reset button state
+                    button.disabled = false;
+                    button.textContent = originalButtonText;
+                    // Re-apply language specific text to button after resetting
+                    setLanguage(document.body.lang);
+                }
+            }
+
+            // Attach click event listeners to the "Finalize & Confirm Order" button
+            const finalizeOrderBtn = document.getElementById('finalizeOrderBtn');
+            if (finalizeOrderBtn) {
+                finalizeOrderBtn.addEventListener('click', initiatePayPalSubscription);
+            }
+
+            // --- Theme Switching Logic ---
+            const body = document.body;
+            const mainHeader = document.getElementById('main-header');
+            const announcementBar = document.getElementById('announcement-bar');
+            const themeDayBtn = document.getElementById('theme-day-btn');
+            const themeNightBtn = document.getElementById('theme-night-btn');
+            const themeHyperBtn = document.getElementById('theme-hyper-btn');
+
+            // Function to update header top position based on announcement bar visibility
+            const updateHeaderTop = () => {
+                const announcementHeight = announcementBar && !announcementBar.classList.contains('hidden') ? announcementBar.offsetHeight : 0;
+                document.documentElement.style.setProperty('--announcement-bar-height', `${announcementHeight}px`);
+                document.documentElement.style.setProperty('--header-height', `${mainHeader.offsetHeight}px`);
+            };
+
+            // --- Announcement Bar Close Button ---
+            if (announcementBar && announcementBar.querySelector('.close-btn')) {
+                announcementBar.querySelector('.close-btn').addEventListener('click', () => {
+                    announcementBar.classList.add('hidden');
+                    updateHeaderTop();
+                    localStorage.setItem('hideAnnouncementBar', 'true');
+                });
+            }
+
+            function setTheme(theme) {
+                document.body.classList.remove('light-mode', 'dark-mode', 'hyper-mode');
+                themeDayBtn?.classList.remove('active');
+                themeNightBtn?.classList.remove('active');
+                themeHyperBtn?.classList.remove('active');
+
+                if (theme === 'dark') {
+                    document.body.classList.add('dark-mode');
+                    themeNightBtn?.classList.add('active');
+                } else if (theme === 'hyper') {
+                    document.body.classList.add('hyper-mode');
+                    themeHyperBtn?.classList.add('active');
+                } else {
+                    document.body.classList.add('light-mode');
+                    themeDayBtn?.classList.add('active');
+                }
+                localStorage.setItem('themeMode', theme);
+            }
+
+            if (themeDayBtn && themeNightBtn && themeHyperBtn) {
+                themeDayBtn.addEventListener('click', () => setTheme('day'));
+                themeNightBtn.addEventListener('click', () => setTheme('dark'));
+                themeHyperBtn.addEventListener('click', () => setTheme('hyper'));
+
+                const savedTheme = localStorage.getItem('themeMode') || 'dark';
+                setTheme(savedTheme);
+            }
+
+            // --- Language Switcher Logic ---
+            const languageSwitcher = document.getElementById('languageSwitcher');
+            if (languageSwitcher) {
+                // Populate options dynamically from translations object
+                for (const langCode in translations) {
+                    const option = document.createElement('option');
+                    option.value = langCode;
+                    option.textContent = translations[langCode]["lang-name"] || langCode.toUpperCase(); // Use "lang-name" key
+                    languageSwitcher.appendChild(option);
+                }
+
+                languageSwitcher.addEventListener('change', (e) => {
+                    const selectedLang = e.target.value;
+                    setLanguage(selectedLang);
+                    console.log(`Language changed to: ${selectedLang}`);
+                });
+
+                // Set initial language from localStorage or default to English
+                const initialLang = localStorage.getItem('selectedLanguage') || 'en';
+                languageSwitcher.value = initialLang;
+                setLanguage(initialLang); // Apply initial language on load
+            }
+
+            // Function to set the current language and update all translatable elements
+            function setLanguage(lang) {
+                document.body.lang = lang; // Update the HTML body's lang attribute
+                localStorage.setItem('selectedLanguage', lang); // Save user preference
+
+                // Update all elements with data-lang-key
+                document.querySelectorAll('[data-lang-key]').forEach(element => {
+                    const key = element.getAttribute('data-lang-key');
+                    if (translations[lang] && translations[lang][key] !== undefined) { // Check for undefined
+                        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                            element.placeholder = translations[lang][key];
+                        } else if (key.endsWith("-button") || key === "explore-banimal-button") {
+                            // For buttons that contain text AND icons, handle text explicitly
+                            const iconHtml = element.innerHTML.match(/<i class=".*"><\/i>/); // Extract icon HTML if present
+                            if (iconHtml) {
+                                element.innerHTML = translations[lang][key] + ' ' + iconHtml[0];
+                            } else {
+                                element.textContent = translations[lang][key];
+                            }
+                        } else if (key.endsWith("-heading")) {
+                            // For headings that contain text AND icons, handle text explicitly
+                            const iconHtml = element.innerHTML.match(/<i class=".*"><\/i>/); // Extract icon HTML if present
+                            if (iconHtml) {
+                                element.innerHTML = iconHtml[0] + ' ' + translations[lang][key];
+                            } else {
+                                element.textContent = translations[lang][key];
+                            }
+                        } else {
+                            element.textContent = translations[lang][key];
+                        }
+                    } else {
+                        console.warn(`Missing translation for key '${key}' in language '${lang}'`);
+                        // Fallback to English if translation is missing
+                        if (translations['en'] && translations['en'][key] !== undefined) {
+                            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                                element.placeholder = translations['en'][key];
+                            } else if (key.endsWith("-button") || key === "explore-banimal-button") {
+                                const iconHtml = element.innerHTML.match(/<i class=".*"><\/i>/);
+                                if (iconHtml) {
+                                    element.innerHTML = translations['en'][key] + ' ' + iconHtml[0];
+                                } else {
+                                    element.textContent = translations['en'][key];
+                                }
+                            } else if (key.endsWith("-heading")) {
+                                const iconHtml = element.innerHTML.match(/<i class=".*"><\/i>/);
+                                if (iconHtml) {
+                                    element.innerHTML = iconHtml[0] + ' ' + translations['en'][key];
+                                } else {
+                                    element.textContent = translations['en'][key];
+                                }
+                            } else {
+                                element.textContent = translations['en'][key];
+                            }
+                        }
+                    }
+                });
+
+                // Update AI response area message if it's an error/prompt message
+                const faqAnswerOutput = document.getElementById('faqAnswerOutput');
+                const faqPromptInput = document.getElementById('faqPromptInput');
+                if (faqAnswerOutput && faqPromptInput) {
+                    // If the input is empty and the error message is displayed
+                    if (!faqPromptInput.value.trim() && faqAnswerOutput.textContent === translations['en']['please-enter-question']) {
+                        faqAnswerOutput.textContent = translations[lang]['please-enter-question'];
+                    }
+                    // Check if the current displayed text is an English error message, then translate it
+                    if (faqAnswerOutput.textContent.startsWith(translations['en']['error-no-ai-answer'])) {
+                        faqAnswerOutput.textContent = translations[lang]['error-no-ai-answer'];
+                    } else if (faqAnswerOutput.textContent.startsWith(translations['en']['error-ai-connection'])) {
+                        faqAnswerOutput.textContent = translations[lang]['error-ai-connection'];
+                    }
+                }
+            }
+
+
+            // --- On Load Initializations ---
+            window.addEventListener('DOMContentLoaded', () => {
+                if (announcementBar && mainHeader) {
+                    if (localStorage.getItem('hideAnnouncementBar') === 'true') {
+                        announcementBar.classList.add('hidden');
+                        document.documentElement.style.setProperty('--announcement-bar-height', '0px');
+                    } else {
+                        announcementBar.classList.remove('hidden');
+                        updateHeaderTop();
+                    }
+                    window.addEventListener('resize', updateHeaderTop);
+                    window.addEventListener('load', updateHeaderTop);
+                }
+            });
+
+            // --- Planet Pulse Text Logic ---
+            const planetTextElement = document.getElementById('planet-text');
+            const planetPhrases = [
+                { text: "fruchtbarer.planet.wandel", lang: "de" }
+            ];
+            let currentPhraseIndex = 0;
+
+            function updatePlanetText() {
+                if (planetTextElement) {
+                    planetTextElement.classList.remove('pulse-animation');
+                    void planetTextElement.offsetWidth; // Trigger reflow
+
+                    currentPhraseIndex = (currentPhraseIndex + 1) % planetPhrases.length;
+                    const nextPhrase = planetPhrases[currentPhraseIndex];
+
+                    planetTextElement.textContent = nextPhrase.text;
+                    planetTextElement.lang = nextPhrase.lang;
+
+                    planetTextElement.classList.add('pulse-animation');
+                }
+            }
+            if (planetTextElement) {
+                setInterval(updatePlanetText, 3000);
+                updatePlanetText(); // Initial call
+            }
+
+
+            // --- Gemini API Text Generation Logic (AI Help/FAQ) ---
+            const getFaqAnswerBtn = document.getElementById('getFaqAnswerBtn');
+            const faqPromptInput = document.getElementById('faqPromptInput');
+            const faqAnswerOutput = document.getElementById('faqAnswerOutput');
+            const faqLoadingIndicator = document.getElementById('faqLoadingIndicator');
+
+            if (getFaqAnswerBtn && faqPromptInput && faqAnswerOutput && faqLoadingIndicator) {
+                getFaqAnswerBtn.addEventListener('click', async () => {
+                    const prompt = faqPromptInput.value.trim();
+                    if (!prompt) {
+                        faqAnswerOutput.textContent = translations[document.body.lang]['please-enter-question'];
+                        faqAnswerOutput.style.color = "red";
+                        return;
+                    }
+
+                    faqAnswerOutput.textContent = '';
+                    faqAnswerOutput.style.color = "var(--text-color-dark)";
+                    faqLoadingIndicator.classList.remove('hidden');
+                    getFaqAnswerBtn.disabled = true;
+
+                    try {
+                        const fullPrompt = `The user has a question about Banimal Loop™ or a similar product/promotion. Answer this question as precisely and concisely as possible. If the question is not related to Banimal Loop™ or its promotion ("Buy one item, and we sponsor one!"), please state that you can only answer questions on these topics.
+
+                        User's question: "${prompt}"
+
+                        Information to consider:
+                        - Banimal Loop™ is a product/promotion where the user buys one item and the company sponsors one.
+                        - The company is part of the FAA.ZONE ecosystem.
+
+                        Answer:`;
+
+                        let chatHistory = [];
+                        chatHistory.push({ role: "user", parts: [{ text: fullPrompt }] });
+                        const payload = { contents: chatHistory };
+                        const apiKey = ""; // Canvas will automatically provide this during runtime
+                        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                        console.log("Attempting to call Gemini API with prompt:", fullPrompt);
+                        const response = await fetch(apiUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+
+                        console.log("Raw API Response Object:", response);
+                        const result = await response.json();
+                        console.log("Parsed API Result JSON:", result);
+
+                        if (result.candidates && result.candidates.length > 0 &&
+                            result.candidates[0].content && result.candidates[0].content.parts &&
+                            result.candidates[0].content.parts.length > 0) {
+                            const text = result.candidates[0].content.parts[0].text;
+                            console.log("Extracted Generated Text:", text);
+                            faqAnswerOutput.textContent = text;
+                        } else {
+                            faqAnswerOutput.textContent = translations[document.body.lang]['error-no-ai-answer'];
+                            faqAnswerOutput.style.color = "red";
+                            console.error("Gemini API response was unexpected or missing content:", result);
+                            if (result.error && result.error.message) {
+                                faqAnswerOutput.textContent += ` ${translations[document.body.lang]['reason']} ${result.error.message}`;
+                            }
+                        }
+
+                    } catch (error) {
+                        faqAnswerOutput.textContent = translations[document.body.lang]['error-ai-connection'];
+                        faqAnswerOutput.style.color = "red";
+                        console.error("Error calling Gemini API:", error);
+                    } finally {
+                        faqLoadingIndicator.classList.add('hidden');
+                        getFaqAnswerBtn.disabled = false;
+                        // Re-apply language specific text to button after resetting
+                        setLanguage(document.body.lang);
+                    }
+                });
+            } else {
+                console.warn("AI text generation elements (button, input, output, or loading indicator) not found in DOM. Please check IDs.");
+            }
+        });
+    </script>
+    <script src="omnigrid-app.js"></script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wildlife Dashboard – FAA.Zone</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .glow-btn:hover { transform: translateY(-2px) scale(1.05); box-shadow: 0 4px 15px rgba(255,255,255,0.3); }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 tracking-tight">
+
+<!-- HEADER + NAV -->
+<header class="bg-white shadow p-6 flex justify-between items-center">
+  <div>
+    <h1 class="text-3xl font-extrabold text-indigo-700">🌳 Wildlife Sector Dashboard</h1>
+    <p class="text-sm text-gray-500">FAA.Zone Sovereign Scrolls · Wildlife Grid</p>
+  </div>
+  <div class="flex gap-3 text-sm">
+    <a href="owner-login.html" class="px-4 py-2 bg-blue-500 text-white rounded glow-btn">Admin Login</a>
+    <a href="hardware-login.html" class="px-4 py-2 bg-gray-600 text-white rounded glow-btn">Node Setup</a>
+    <a href="distributor-login.html" class="px-4 py-2 bg-green-500 text-white rounded glow-btn">Distributor Portal</a>
+  </div>
+</header>
+<!-- SUBNAV -->
+<nav class="bg-gray-100 flex flex-col gap-3 px-6 py-3 text-sm overflow-x-auto whitespace-nowrap">
+  <div class="flex gap-6">
+    <a href="quick-view.html" class="hover:text-indigo-600">Quick View</a>
+    <a href="pulse-monitor.html" class="hover:text-indigo-600">Pulse Monitor</a>
+    <a href="dashboard.html" class="text-indigo-700 font-semibold">Sales Dashboard</a>
+    <a href="ethics.html" class="hover:text-indigo-600">Ethics</a>
+    <a href="node-reports.html" class="hover:text-indigo-600">Node Reports</a>
+    <a href="licensing.html" class="hover:text-indigo-600">Licensing</a>
+    <a href="wildlife-price.html" class="text-green-600 font-semibold">💰 Pricing</a>
+    <a href="deployment-kenya.html" class="text-blue-600 font-semibold">🇰🇪 Kenya Deployment</a>
+  </div>
+  <div class="text-xs text-gray-400 mt-2">
+    FAA.Zone Sovereign Scrolls · VaultMesh · TreatyMesh Validated
+  </div>
+</nav>
+
+
+
+
+
+<!-- WILDLIFE DASHBOARD -->
+<section class="max-w-7xl mx-auto px-6 py-8">
+  <div class="bg-white p-6 rounded shadow">
+    <h2 class="text-xl font-bold text-gray-700">📊 Wildlife Node Dashboard</h2>
+    <p class="text-sm text-gray-500">Explore node features and settings for optimal wildlife management.</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+      <a href="nodes/core-node.html" class="block p-4 bg-gray-100 rounded shadow hover:bg-indigo-50 transition">
+        🌳 Core Node™<br><span class="text-xs">Root-Sync™ AI Layer</span>
+      </a>
+      <a href="nodes/geo-lens.html" class="block p-4 bg-gray-100 rounded shadow hover:bg-indigo-50 transition">
+        🌍 Geo Lens™<br><span class="text-xs">Geospatial LinkVision™</span>
+      </a>
+      <a href="nodes/energy-beacon.html" class="block p-4 bg-gray-100 rounded shadow hover:bg-indigo-50 transition">
+        ⚡ Energy Beacon™<br><span class="text-xs">EcoPulse Radiants™</span>
+      </a>
+      <a href="nodes/security-perimeter.html" class="block p-4 bg-gray-100 rounded shadow hover:bg-indigo-50 transition">
+        🛡️ Security Perimeter™<br><span class="text-xs">Baobab PermaFence™</span>
+      </a>
+      <a href="nodes/drone-sentinel.html" class="block p-4 bg-gray-100 rounded shadow hover:bg-indigo-50 transition">
+        🚁 Drone Sentinel™<br><span class="text-xs">AetherNet Hawks™</span>
+      </a>
+      <a href="nodes/fauna-tag.html" class="block p-4 bg-gray-100 rounded shadow hover:bg-indigo-50 transition">
+        🦁 Fauna Tag™<br><span class="text-xs">Sentinel Ring™</span>
+      </a>
+      <a href="nodes/human-input-port.html" class="block p-4 bg-gray-100 rounded shadow hover:bg-indigo-50 transition">
+        🧍‍♂️ Human Input Port™<br><span class="text-xs">SRI HoloBridge™</span>
+      </a>
+      <a href="nodes/celestial-aligner.html" class="block p-4 bg-gray-100 rounded shadow hover:bg-indigo-50 transition">
+        🌠 Celestial Aligner™<br><span class="text-xs">AstroLattice™ Actuator</span>
+      </a>
+      <a href="nodes/plastic-crisis.html" class="block p-4 bg-gray-100 rounded shadow hover:bg-indigo-50 transition">
+        🌊 Plastic Crisis Node™<br><span class="text-xs">Maritime Purifier™</span>
+      </a>
+      <a href="nodes/poacher-jammer.html" class="block p-4 bg-gray-100 rounded shadow hover:bg-indigo-50 transition">
+        🐬 Poacher Jammer™<br><span class="text-xs">HunterBlackout Protocol™</span>
+      </a>
+      <a href="deployment-kenya.html" class="block p-4 bg-gray-100 rounded shadow hover:bg-green-50 transition">
+        🇰🇪 Kenya Deployment™<br><span class="text-xs">Scroll-Licensed FAA Zone</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT DESCRIPTION SECTION -->
+<section class="max-w-7xl mx-auto px-6 py-8 bg-white rounded shadow space-y-6">
+  <h2 class="text-2xl font-bold text-gray-800">🌍 Detailed Product Descriptions</h2>
+
+  <!-- Core Node -->
+  <div class="node-description">
+    <h3 class="text-lg font-semibold text-indigo-600">Core Node 🌳🔗</h3>
+    <p><strong>Purpose:</strong> Centralized Baobab™ Seed Logic Node</p>
+    <p><strong>FAA™ Descriptor:</strong> Root-Sync™ AI Layer</p>
+    <p>This node acts as the central core of your system, managing and synchronizing the core AI logic for the Baobab™ network. It coordinates data flow and decision-making processes across all connected nodes.</p>
+    <p><strong>Hardware Requirements:</strong> 16GB RAM, 256GB SSD, 8-core CPU</p>
+    <p><strong>Model Number:</strong> Core-Node-MX12-256GB</p>
+    <p><strong>Integration:</strong> Supports AI synchronization across all nodes</p>
+    <p><strong>Setup:</strong> Easy setup via Cloud integration for seamless AI operations.</p>
+  </div>
+
+  <!-- Geo Lens -->
+  <div class="node-description">
+    <h3 class="text-lg font-semibold text-blue-600">Geo Lens 🌍📡</h3>
+    <p><strong>Purpose:</strong> Global mapping with real-time eco-stream</p>
+    <p><strong>FAA™ Descriptor:</strong> Geospatial LinkVision™</p>
+    <p>This node provides real-time mapping and geospatial data streaming, useful for tracking environmental conditions, ecosystem health, and coordinating resources for wildlife monitoring.</p>
+    <p><strong>Hardware Requirements:</strong> 32GB RAM, 512GB SSD, 10-core CPU</p>
+    <p><strong>Model Number:</strong> GeoLens-Track-512</p>
+    <p><strong>Integration:</strong> Easily integrates with global satellite data streams</p>
+    <p><strong>Setup:</strong> Configurable through a web interface, ensuring rapid deployment.</p>
+  </div>
+
+  <!-- Energy Beacon -->
+  <div class="node-description">
+    <h3 class="text-lg font-semibold text-yellow-600">Energy Beacon ⚡🔆</h3>
+    <p><strong>Purpose:</strong> AI-optimized solar + kinetic grid modules</p>
+    <p><strong>FAA™ Descriptor:</strong> EcoPulse Radiants™</p>
+    <p>This node represents a sustainable energy system that combines solar and kinetic energy sources, optimized through AI. It powers network nodes with eco-friendly energy sources.</p>
+    <p><strong>Hardware Requirements:</strong> 12V battery, Solar Panel 500W, Kinetic Generator</p>
+    <p><strong>Model Number:</strong> EnergyBeam-Solar-Kinet</p>
+    <p><strong>Integration:</strong> Seamlessly integrates with energy-efficient infrastructure for grid operations</p>
+    <p><strong>Setup:</strong> Simple setup with minimal configuration required, deployable in both urban and rural areas.</p>
+  </div>
+
+  <!-- Security Perimeter -->
+  <div class="node-description">
+    <h3 class="text-lg font-semibold text-green-600">Security Perimeter 🛡️🌱</h3>
+    <p><strong>Purpose:</strong> Wildlife + data defense shell</p>
+    <p><strong>FAA™ Descriptor:</strong> Baobab PermaFence™</p>
+    <p>This node is designed as a security defense perimeter, both for protecting sensitive wildlife environments and ensuring data security. Likely integrates environmental monitoring to detect threats or breaches.</p>
+    <p><strong>Hardware Requirements:</strong> 32GB RAM, 512GB SSD, Network Antennas</p>
+    <p><strong>Model Number:</strong> PermaFence-Guard</p>
+    <p><strong>Integration:</strong> Integrates with remote surveillance systems and environmental sensors</p>
+    <p><strong>Setup:</strong> Quick deployment with cloud integration for remote monitoring.</p>
+  </div>
+
+  <!-- Drone Sentinel -->
+  <div class="node-description">
+    <h3 class="text-lg font-semibold text-purple-600">Drone Sentinel 🚁👁️</h3>
+    <p><strong>Purpose:</strong> Sky-level pattern analyzers + threat dispatch</p>
+    <p><strong>FAA™ Descriptor:</strong> AetherNet Hawks™</p>
+    <p>This node includes drone-based systems for high-level pattern analysis in the sky, providing a sentinel role that monitors wildlife and environmental activity, as well as dispatching action in response to identified threats.</p>
+    <p><strong>Hardware Requirements:</strong> Drone Sensors, 16GB RAM, 256GB SSD</p>
+    <p><strong>Model Number:</strong> AetherNet-Drone-X</p>
+    <p><strong>Integration:</strong> Real-time flight and threat analysis, with automated threat response.</p>
+    <p><strong>Setup:</strong> Setup involves deploying drones and connecting them to the cloud control system.</p>
+  </div>
+
+  <!-- Fauna Tag -->
+  <div class="node-description">
+    <h3 class="text-lg font-semibold text-orange-600">Fauna Tag 🦁🔘</h3>
+    <p><strong>Purpose:</strong> Animal-tracking energy portals</p>
+    <p><strong>FAA™ Descriptor:</strong> Sentinel Ring™</p>
+    <p>This node involves the use of energy portals for tracking wildlife, such as animal tagging and monitoring their movements in real-time. This could be vital for conservation efforts, tracking endangered species, and ensuring their safety.</p>
+    <p><strong>Hardware Requirements:</strong> Animal Tagging Devices, GPS Tracker, 16GB RAM</p>
+    <p><strong>Model Number:</strong> FaunaTrack-TagX</p>
+    <p><strong>Integration:</strong> Integrates with environmental databases and cloud analytics</p>
+    <p><strong>Setup:</strong> Fast deployment with minimal equipment and configuration required.</p>
+  </div>
+
+  <!-- Human Input Port -->
+  <div class="node-description">
+    <h3 class="text-lg font-semibold text-red-600">Human Input Port 🧍‍♂️🌀</h3>
+    <p><strong>Purpose:</strong> Local participant interface with AI</p>
+    <p><strong>FAA™ Descriptor:</strong> SRI HoloBridge™</p>
+    <p>This node connects humans to the system via an interactive interface (potentially a holographic bridge or AR/VR interface). It allows human participants to directly interact with and guide the AI system for decision-making, resource allocation, or environmental management.</p>
+    <p><strong>Hardware Requirements:</strong> AR/VR Headset, 32GB RAM</p>
+    <p><strong>Model Number:</strong> HoloBridge-Input</p>
+    <p><strong>Integration:</strong> Allows human participants to interact directly with AI systems for decision-making</p>
+    <p><strong>Setup:</strong> Connects via a local interface or VR system for immersive experiences.</p>
+  </div>
+
+  <!-- Celestial Aligner -->
+  <div class="node-description">
+    <h3 class="text-lg font-semibold text-teal-600">Celestial Aligner 🌠⛓</h3>
+    <p><strong>Purpose:</strong> Root ↔ Star lattice sync overlay</p>
+    <p><strong>FAA™ Descriptor:</strong> AstroLattice™ Actuator</p>
+    <p>This node involves lattice synchronization, aligning Earth-based systems with celestial objects or cosmic forces, creating a universal or planetary overlay. It might be involved in astrophysical monitoring or space-energy synchronization.</p>
+    <p><strong>Hardware Requirements:</strong> Celestial Synchronization Modules, 64GB RAM</p>
+    <p><strong>Model Number:</strong> AstroLattice-Align</p>
+    <p><strong>Integration:</strong> Links terrestrial systems with cosmic or celestial data streams.</p>
+    <p><strong>Setup:</strong> Setup involves configuring celestial data streams and connecting to cosmic observatories.</p>
+  </div>
+
+  <!-- Plastic Crisis Node -->
+  <div class="node-description">
+    <h3 class="text-lg font-semibold text-blue-600">Plastic Crisis Node 🌊🚯</h3>
+    <p><strong>Purpose:</strong> Oceanic AI cleanup and detection</p>
+    <p><strong>FAA™ Descriptor:</strong> Maritime Purifier™</p>
+    <p>This node is designed to address the plastic pollution crisis in the oceans, using AI to detect and clean up plastic waste. It could employ robots, drones, or other tech to purify ocean waters and maintain ecological balance.</p>
+    <p><strong>Hardware Requirements:</strong> Oceanic Cleaners, AI Processing Units</p>
+    <p><strong>Model Number:</strong> MaritimeClean-X</p>
+    <p><strong>Integration:</strong> Integrates with AI-powered drones for real-time cleanup.</p>
+    <p><strong>Setup:</strong> Rapid deployment with AI-driven processes for automatic operation.</p>
+  </div>
+
+  <!-- Poacher Jammer -->
+  <div class="node-description">
+    <h3 class="text-lg font-semibold text-purple-600">Poacher Jammer 🐬🚫📶</h3>
+    <p><strong>Purpose:</strong> Signal disruptor & interdiction AI</p>
+    <p><strong>FAA™ Descriptor:</strong> HunterBlackout Protocol™</p>
+    <p>This node represents an AI-driven system designed to disrupt poacher communications and interfere with illegal hunting activities. It could use signal jamming or AI-driven interdiction techniques to prevent harmful activities targeting wildlife.</p>
+    <p><strong>Hardware Requirements:</strong> Signal Jammer, 8-core CPU, 16GB RAM</p>
+    <p><strong>Model Number:</strong> PoacherJam-Block</p>
+    <p><strong>Integration:</strong> Real-time communication jamming and automated poacher tracking.</p>
+    <p><strong>Setup:</strong> Fast deployment with cloud-based control for remote activation.</p>
+  </div>
+</section>
+<!-- FOOTER -->
+<footer class="text-center text-xs text-gray-400 mt-16 py-6 border-t">
+  FAA.Zone Sovereign Scrolls · VaultMesh · TreatyMesh Validated
+</footer>
+
+    <script src="../../omnigrid-app.js" data-concept="1"></script>
+</body>
+</html>

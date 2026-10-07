@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>🧬 FAA™ Payroll OS — Master Index</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .glow-btn:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 4px 15px rgba(255,255,255,0.3);
+    }
+    .bounce-link:hover {
+      animation: bounce 0.5s ease;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+  </style>
+</head>
+<body class="bg-black text-white font-sans scroll-smooth">
+
+<!-- PAGE LINKS -->
+<section class="py-16 px-6 bg-black text-center">
+  <h2 class="text-3xl font-bold text-purple-400 mb-10">📝 Explore Key Payroll Pages</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+    <a href="features.html" class="text-lg font-semibold text-white border border-purple-600 rounded-lg py-4 px-6 hover:bg-purple-600 transition bounce-link">🔧 Core Features</a>
+    <a href="ai-modules.html" class="text-lg font-semibold text-white border border-purple-600 rounded-lg py-4 px-6 hover:bg-purple-600 transition bounce-link">🤖 AI Modules</a>
+    <a href="intelligence-hub.html" class="text-lg font-semibold text-white border border-purple-600 rounded-lg py-4 px-6 hover:bg-purple-600 transition bounce-link">📈 Intelligence Hub</a>
+    <a href="global-metrics.html" class="text-lg font-semibold text-white border border-purple-600 rounded-lg py-4 px-6 hover:bg-purple-600 transition bounce-link">🌍 Global Metrics</a>
+    <a href="contact.html" class="text-lg font-semibold text-white border border-purple-600 rounded-lg py-4 px-6 hover:bg-purple-600 transition bounce-link">📬 Contact + Compliance</a>
+    <a href="dashboard.html" class="text-lg font-semibold text-white border border-purple-600 rounded-lg py-4 px-6 hover:bg-purple-600 transition bounce-link">🧮 Payroll Dashboard</a>
+    <a href="products-and-service.html" class="text-lg font-semibold text-white border border-purple-600 rounded-lg py-4 px-6 hover:bg-purple-600 transition bounce-link">🧰 Explore Features</a>
+    <a href="onboarding.html" class="text-lg font-semibold text-white border border-purple-600 rounded-lg py-4 px-6 hover:bg-purple-600 transition bounce-link">📥 Onboarding Portal</a>
+    <a href="../../global-checkout.html" class="text-lg font-semibold text-white border border-purple-600 rounded-lg py-4 px-6 hover:bg-purple-600 transition bounce-link">🔐 Vault Checkout</a>
+  </div>
+</section>
+
+<!-- HEADER -->
+<header class="flex justify-between items-center px-8 py-5 bg-gray-950 border-b border-purple-800 sticky top-0 z-50">
+  <div class="text-2xl font-black tracking-tight text-white">🍇 Fruitful™ Payroll OS</div>
+  <nav class="hidden md:flex space-x-8 text-sm font-semibold">
+    <a href="features.html" class="hover:text-purple-400 transition">Features</a>
+    <a href="ai-modules.html" class="hover:text-purple-400 transition">AI Modules</a>
+    <a href="intelligence-hub.html" class="hover:text-purple-400 transition">Intelligence</a>
+    <a href="global-metrics.html" class="hover:text-purple-400 transition">Global Metrics</a>
+    <a href="contact.html" class="hover:text-purple-400 transition">Contact</a>
+    <a href="client/portal-landing.html" class="hover:text-purple-400 transition">Client Portal</a>
+  </nav>
+  <a href="../../global-checkout.html" class="bg-white text-black font-bold px-4 py-2 rounded-lg text-sm">Enter</a>
+</header>
+
+
+<!-- HERO -->
+<section class="bg-gradient-to-br from-purple-800 via-indigo-900 to-black text-center py-32 px-6">
+  <h1 class="text-5xl md:text-7xl font-black leading-tight mb-6">Empower Global Payroll</h1>
+  <p class="text-lg max-w-2xl mx-auto opacity-80">
+    Real-time payroll logic, shift sync, AI fraud detection, payslip automation and vault trace routing — all under one system.
+  </p>
+  <div class="mt-10 flex justify-center gap-4">
+    <a href="dashboard.html" class="bg-purple-600 hover:bg-purple-500 text-white px-6 py-3 rounded-lg text-lg font-semibold">Launch Dashboard</a>
+    <a href="../../products-and-service.html" class="border border-white hover:bg-white hover:text-black text-white px-6 py-3 rounded-lg text-lg font-semibold">Explore Features</a>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" class="py-24 px-6 bg-black text-center">
+  <h2 class="text-3xl font-bold text-purple-400 mb-12">📌 Core Features</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto text-left text-sm">
+    <div class="bg-gray-900 p-6 rounded-lg border border-purple-900">
+      <h3 class="text-lg font-bold text-purple-300 mb-2">📟 Payslip Engine</h3>
+      <p>Generate monthly payslips, tax summaries, QR exports, and ledger links with zero human input.</p>
+    </div>
+    <div class="bg-gray-900 p-6 rounded-lg border border-purple-900">
+      <h3 class="text-lg font-bold text-purple-300 mb-2">⏱ ShiftSync Grid</h3>
+      <p>Log shifts, calculate time drift, detect overloads and integrate approval chains across teams.</p>
+    </div>
+    <div class="bg-gray-900 p-6 rounded-lg border border-purple-900">
+      <h3 class="text-lg font-bold text-purple-300 mb-2">📊 CTC Tracker AI</h3>
+      <p>Evaluate CTC packages versus role logic, bonus structure and compliance expectations in real time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- AI MODULES -->
+<section id="ai" class="py-24 px-6 bg-gray-950 text-center">
+  <h2 class="text-3xl font-bold text-purple-400 mb-12">🧠 AI Modules</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-6xl mx-auto text-left text-sm">
+    <div class="bg-black border border-purple-800 p-6 rounded-xl">
+      <h3 class="text-lg font-bold mb-2">VaultMesh Sync</h3>
+      <p>Enforces immutable trace logs, verifies vault paths and confirms scroll IDs every 9 seconds.</p>
+    </div>
+    <div class="bg-black border border-purple-800 p-6 rounded-xl">
+      <h3 class="text-lg font-bold mb-2">Drift + Ghost Flags</h3>
+      <p>Real-time fraud mesh triggers: detects ghost shifts, under-hour anomalies, and policy bypasses.</p>
+    </div>
+    <div class="bg-black border border-purple-800 p-6 rounded-xl">
+      <h3 class="text-lg font-bold mb-2">Brand Bind Scrolls</h3>
+      <p>Link staff to cost centers, performance metrics and contract terms across FAA-licensed brands.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INTELLIGENCE HUB -->
+<section id="intelligence" class="bg-gradient-to-b from-black via-gray-900 to-gray-950 text-white px-6 py-24 text-center">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl font-extrabold text-purple-400 mb-10">🧠 FAA Payroll Intelligence Hub</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20 text-sm text-left">
+      <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+        <h3 class="text-lg font-bold text-purple-300 mb-2">CTC vs Role Index</h3>
+        <p>Auto-match current salaries with dynamic role expectations and industry bands using the FAA CTC Tracker GPT.</p>
+      </div>
+      <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+        <h3 class="text-lg font-bold text-purple-300 mb-2">Drift Score</h3>
+        <p>Calculates deviations from contractual hours, early-outs, and lateness to detect time drift anomalies in real-time.</p>
+      </div>
+      <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+        <h3 class="text-lg font-bold text-purple-300 mb-2">Fraud Mesh Sync</h3>
+        <p>Syncs with VaultMesh to surface duplicate time entries, under-hour red flags, and ghost shifts.</p>
+      </div>
+    </div>
+    <div class="bg-gradient-to-br from-gray-800 via-black to-gray-800 p-10 rounded-xl shadow-xl">
+      <h3 class="text-2xl font-bold text-white mb-4">📈 Role-to-Pay Real-Time Analyzer</h3>
+      <p class="text-sm opacity-80 mb-8 max-w-3xl mx-auto">
+        Enter any job title and FAA will scan salary scrolls, team clusters, shift GPA, and bonus history to validate if the compensation path aligns with role demands.
+      </p>
+      <form class="flex flex-col sm:flex-row gap-4 justify-center max-w-3xl mx-auto">
+        <input type="text" placeholder="e.g. Senior Payroll Auditor" class="px-5 py-3 rounded-lg bg-gray-900 text-white border border-gray-700 w-full sm:w-auto" />
+        <button class="bg-purple-600 hover:bg-purple-500 text-white px-6 py-3 rounded-lg text-sm font-semibold">Scan Compensation Grid</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- GLOBAL METRICS -->
+<section id="global" class="bg-white text-gray-800 px-6 py-24">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-4xl font-bold text-purple-600 mb-12">🌍 Extended FAA Payroll Metrics + Activation Map</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+      <div class="bg-white p-6 border border-purple-300 rounded-lg shadow">
+        <h3 class="text-lg font-bold text-purple-700 mb-2">Vendor Retention</h3>
+        <p>96% stay post-onboarding (3 month avg.)</p>
+      </div>
+      <div class="bg-white p-6 border border-purple-300 rounded-lg shadow">
+        <h3 class="text-lg font-bold text-purple-700 mb-2">Automation Coverage</h3>
+        <p>100% scroll-linked, zero manual override nodes.</p>
+      </div>
+      <div class="bg-white p-6 border border-purple-300 rounded-lg shadow">
+        <h3 class="text-lg font-bold text-purple-700 mb-2">Legal Compliance Zones</h3>
+        <p>Active in 3 FAA-certified sovereign jurisdictions.</p>
+      </div>
+    </div>
+    <div class="bg-gradient-to-br from-purple-100 via-white to-indigo-100 p-10 rounded-xl shadow-xl">
+      <h3 class="text-2xl font-bold text-indigo-800 mb-4">🌐 Global Activation Map</h3>
+      <p class="text-sm text-gray-600 mb-6 max-w-3xl mx-auto">FAA™ Payroll deployed in 19 zones. Automated FCU conversion & Scroll export protocols active. This placeholder will render geographic map updates.</p>
+      <div class="bg-white rounded shadow p-6 text-sm text-purple-700">📍 FAA World Grid Map Placeholder</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="bg-indigo-950 text-white py-20 text-center">
+  <h2 class="text-3xl font-bold text-purple-300 mb-6">Ready to Onboard a Sector?</h2>
+  <p class="text-sm opacity-80 mb-10">Tap into sovereign payroll logic. Deploy instantly to DAOs, NGOs, and education grids.</p>
+  <a href="onboarding.html" class="bg-purple-600 hover:bg-purple-500 px-6 py-3 rounded-lg text-sm font-bold">📥 Begin FAA Grid Sync</a>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer" class="text-center text-xs text-gray-500 mt-16 py-6 border-t border-purple-800">
+  FAA™ VaultMesh | Trace ID Verified | FCU Linked | Grid Expansion Certified
+</footer>
+
+    <script src="../../omnigrid-app.js" data-concept="1"></script>
+</body>
+</html>
+

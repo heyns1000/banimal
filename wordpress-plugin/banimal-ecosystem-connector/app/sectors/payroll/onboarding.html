@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🍇 FAA Payroll – Onboarding Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .bounce-link:hover {
+      animation: bounce 0.4s ease-in-out;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+  </style>
+</head>
+<body class="bg-black text-white font-sans">
+
+<!-- HEADER -->
+<header class="flex justify-between items-center px-8 py-5 bg-gray-950 border-b border-purple-800 sticky top-0 z-50">
+  <div class="text-2xl font-black tracking-tight text-white">🍇 Fruitful™ Payroll OS</div>
+  <nav class="hidden md:flex space-x-8 text-sm font-semibold">
+    <a href="features.html" class="hover:text-purple-400 transition">Features</a>
+    <a href="ai-modules.html" class="hover:text-purple-400 transition">AI Modules</a>
+    <a href="intelligence-hub.html" class="hover:text-purple-400 transition">Intelligence</a>
+    <a href="products-and-service.html" class="hover:text-purple-400 transition">Explore</a>
+    <a href="contact.html" class="hover:text-purple-400 transition">Contact</a>
+  </nav>
+  <a href="../../global-checkout.html" class="bg-white text-black font-bold px-4 py-2 rounded-lg text-sm">Enter</a>
+</header>
+
+<!-- HERO CTA -->
+<section class="bg-gradient-to-br from-purple-800 via-indigo-900 to-black text-center py-32 px-6">
+  <h1 class="text-5xl md:text-7xl font-black leading-tight mb-6">🚀 Launch Your Payroll Grid</h1>
+  <p class="text-lg max-w-2xl mx-auto opacity-80">
+    Deploy your own node, bind compliance scrolls, activate payslip engines and link team logic in under 10 minutes.
+  </p>
+  <div class="mt-10 flex justify-center gap-4">
+    <a href="#form" class="bg-purple-600 hover:bg-purple-500 text-white px-6 py-3 rounded-lg text-lg font-semibold">📥 Start Onboarding</a>
+    <a href="features.html" class="border border-white hover:bg-white hover:text-black text-white px-6 py-3 rounded-lg text-lg font-semibold">Explore Core Features</a>
+  </div>
+</section>
+
+<!-- ONBOARDING FORM -->
+<section id="form" class="bg-black py-24 px-6 text-left max-w-4xl mx-auto">
+  <h2 class="text-3xl font-bold text-purple-400 mb-10 text-center">🧾 Submit Your Payroll Launch Form</h2>
+  <form class="space-y-6">
+    <div>
+      <label class="block mb-2 text-sm font-semibold">Company or DAO Name</label>
+      <input type="text" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-3 text-white" placeholder="e.g. ScrollWorks DAO" />
+    </div>
+    <div>
+      <label class="block mb-2 text-sm font-semibold">Contact Email</label>
+      <input type="email" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-3 text-white" placeholder="you@yourdomain.com" />
+    </div>
+    <div>
+      <label class="block mb-2 text-sm font-semibold">Number of Active Team Members</label>
+      <input type="number" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-3 text-white" placeholder="e.g. 35" />
+    </div>
+    <div>
+      <label class="block mb-2 text-sm font-semibold">Payroll Type</label>
+      <select class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-3 text-white">
+        <option>Monthly (Standard)</option>
+        <option>Weekly</option>
+        <option>Contractor / Task-Based</option>
+        <option>Staggered (Hybrid)</option>
+      </select>
+    </div>
+    <div>
+      <label class="block mb-2 text-sm font-semibold">Additional Notes or Logic Requests</label>
+      <textarea rows="4" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-3 text-white" placeholder="e.g. Sync with legacy system, custom scroll bindings..."></textarea>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="bg-purple-600 hover:bg-purple-500 text-white px-8 py-4 rounded-lg text-lg font-semibold transition">Submit & Activate Node</button>
+    </div>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center py-8 text-xs text-gray-500 border-t border-purple-800">
+  FAA™ VaultMesh | Scroll Synced | Node Certified | Treaty Locked
+</footer>
+
+    <script src="../../omnigrid-app.js" data-concept="1"></script>
+</body>
+</html>

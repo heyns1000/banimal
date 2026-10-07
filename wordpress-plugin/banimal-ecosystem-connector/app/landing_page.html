@@ -1,0 +1,2808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal.faa.zone - Your Central Access Hub</title>
+    <link rel="icon" href="favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Base Styles - Apple inspired cleanliness + Baobab Corporate */
+        :root {
+            /* Fruitful/Apple-inspired colors */
+            --text-color-light: #1d1d1f;
+            --text-color-dark: #f5f5f7;
+            --bg-color-light: #ffffff; /* Pure white */
+            --bg-color-dark: #1a1a1c;
+            --card-bg-light: #ffffff; /* Pure white */
+            --card-bg-dark: #2a2a2e;
+            --border-color-light: #e8e8ed;
+            --border-color-dark: #3a3a3e;
+            --primary-color: #0071e3; /* Apple Blue */
+            --secondary-color: #30d158; /* Apple Green */
+            --tertiary-color: #ff3b30; /* Vibrant Red */
+            --muted-text-light: #6e6e73;
+            --muted-text-dark: #a0a0a5;
+
+            /* Baobab specific colors (calm neutral harmony, corporate) */
+            --baobab-primary-dark: #1A1A1A; /* Deep Black for Baobab elements */
+            --baobab-secondary-dark: #222222; /* Slightly lighter dark for hero */
+            --baobab-light-text: #EAEAEA; /* Light text on Baobab dark background */
+            --baobab-gold: #B8860B; /* DarkGoldenrod - corporate gold */
+            --baobab-muted-gray: #4A4A4A; /* Darker gray for Baobab body text */
+            --baobab-border-gray: #4A4A4A;
+            --baobab-light-bg: #F8F8F8; /* Very light gray/off-white */
+            --baobab-slate-light: #f1f5f9; /* slate-100 from Baobab dashboard */
+            --baobab-slate-medium: #e2e8f0; /* slate-200 */
+            --baobab-slate-dark: #475569; /* slate-600 */
+            --baobab-slate-text-dark: #64748b; /* slate-500 for chart labels */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color-light); /* Pure white background by default */
+            color: var(--text-color-light);
+            line-height: 1.4;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+
+        /* Custom Scrollbar Styling (Apple-like subtle) */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--border-color-light); /* Light track */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--muted-text-light); /* Muted gray thumb */
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #808085; /* Darker on hover */
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+
+        /* Announcement Bar */
+        #announcement-bar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            z-index: 60; /* Higher than header */
+            transition: all 0.3s ease-out;
+            transform-origin: top; /* For scaling effect */
+        }
+        #announcement-bar.hidden {
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+            padding-top: 0;
+            padding-bottom: 0;
+            transform: scaleY(0); /* Collapse effect */
+        }
+        #announcement-bar a {
+            color: white;
+            font-weight: 600;
+            text-decoration: underline;
+            transition: opacity 0.2s ease;
+        }
+        #announcement-bar a:hover {
+            opacity: 0.8;
+        }
+        #announcement-bar .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            position: absolute;
+            right: 15px;
+            padding: 5px;
+            transition: transform 0.2s ease;
+        }
+        #announcement-bar .close-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Header - Minimalist and clean */
+        header.main-header { /* Renamed to main-header */
+            background-color: var(--bg-color-light); /* Solid white, no backdrop-filter */
+            border-bottom: 1px solid var(--border-color-light);
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0; /* Adjusted by JS based on announcement bar */
+            z-index: 50;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px; /* Base padding */
+            transition: top 0.3s ease; /* Smooth transition for sticky header */
+        }
+        .dark-mode header.main-header {
+            background-color: var(--card-bg-dark);
+            border-bottom-color: var(--border-color-dark);
+            box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-color-light);
+            transition: color 0.3s ease;
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+        .dark-mode .logo-group {
+            color: var(--text-color-dark);
+        }
+        .logo-group .logo-link {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .logo-fruitful {
+            color: var(--primary-color);
+            font-size: 1.6rem;
+            font-weight: 800;
+        }
+        .logo-separator {
+            color: var(--muted-text-light);
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        .dark-mode .logo-separator {
+            color: var(--muted-text-dark);
+        }
+        .logo-omnigrid {
+            color: var(--text-color-light);
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        .dark-mode .logo-omnigrid {
+            color: var(--text-color-dark);
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 20px; /* Space between nav list and actions */
+            flex-grow: 1; /* Allow nav to take available space */
+            justify-content: flex-end; /* Push nav content to right */
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            gap: 5px; /* Tighter gap for more items */
+        }
+
+        .nav-list a {
+            text-decoration: none;
+            color: var(--muted-text-light);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            padding: 0.5rem 0.8rem;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .nav-list a:hover {
+            color: var(--primary-color);
+            background-color: rgba(0, 0, 0, 0.03);
+        }
+        .dark-mode .nav-list a {
+            color: var(--muted-text-dark);
+        }
+        .dark-mode .nav-list a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Active Nav Link */
+        .nav-list a.active-nav-link {
+            color: var(--primary-color);
+            font-weight: 600;
+            background-color: rgba(0, 113, 227, 0.05);
+        }
+
+        .nav-actions { /* CTA buttons section (hidden by default on desktop) */
+            display: none; /* Hidden on desktop, shown on mobile */
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            line-height: 1.2;
+            flex-shrink: 0;
+            min-width: 140px;
+            max-width: 160px;
+            justify-content: center;
+        }
+        .cta-button:hover {
+            background-color: #0066cc;
+            transform: translateY(-2px);
+            box-shadow: 0 44px 12px rgba(0,0,0,0.15);
+        }
+        .cta-button.cta-button-secondary {
+            background-color: #e8e8ed;
+            color: #424245;
+            box-shadow: none;
+            border: 1px solid #dcdcdc;
+        }
+        .cta-button.cta-button-secondary:hover {
+            background-color: #dcdcdc;
+            color: #1d1d1f;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .hamburger-menu {
+            display: none; /* Hidden on desktop, shown on mobile */
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-color-light);
+            transition: color 0.3s ease;
+        }
+        .dark-mode .hamburger-menu {
+            color: var(--text-color-dark);
+        }
+
+        /* Pulse Grid Noodle Rope Styling - Now Baobab Roots */
+        .pulse-grid-noodle-rope {
+            display: flex;
+            align-items: center;
+            height: 6px; /* Thicker, like a robust root */
+            width: 150px; /* Slightly longer to emphasize root-like extension */
+            background-color: #5C4033; /* Darker earthy brown for the root */
+            border-radius: 3px; /* More rounded, less sharp */
+            position: relative;
+            margin: 0 20px;
+            opacity: 0.9; /* More solid like a root */
+            flex-shrink: 0;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.3); /* Inner shadow for depth */
+        }
+        .dark-mode .pulse-grid-noodle-rope {
+            background-color: #6F4E37; /* Lighter earthy brown for dark mode */
+        }
+
+        .noodle-dot {
+            position: absolute;
+            width: 10px; /* Larger dots */
+            height: 10px; /* Larger dots */
+            background-color: #D4AF37; /* Gold/amber for a sap-like glow */
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            animation: pulse 3s infinite ease-in-out;
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.7); /* More prominent glow */
+        }
+        .noodle-dot.dot-stepdad {
+            width: 12px; /* Even larger for stepdad */
+            height: 12px; /* Even larger for stepdad */
+            background-color: #5F9EA0; /* CadetBlue for a subtle unique "nutrient" dot */
+            box-shadow: 0 0 10px rgba(95, 158, 160, 0.7); /* Matching glow */
+        }
+
+        /* Staggered animation delays (no change to values as requested) */
+        .noodle-dot.dot-1 { left: 0%; animation-delay: 0s; }
+        .noodle-dot.dot-2 { left: 20%; animation-delay: 0.5s; }
+        .noodle-dot.dot-3 { left: 40%; animation-delay: 1s; }
+        .noodle-dot.dot-stepdad { left: 60%; animation-delay: 1.5s; }
+        .noodle-dot.dot-4 { left: 80%; animation-delay: 2s; }
+        .noodle-dot.dot-5 { left: 100%; animation-delay: 2.5s; }
+
+        @keyframes pulse {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+            50% { transform: translate(-50%, -50%) scale(1.5); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+        }
+
+        /* Hero Content Section (original first section) */
+        .innovate-connect-thrive-section {
+            padding: 4rem 1.5rem;
+            text-align: center;
+            color: var(--text-color-light);
+            background-color: var(--bg-color-light);
+            border-bottom: 1px solid var(--border-color-light);
+        }
+        .innovate-connect-thrive-section h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: var(--text-color-light);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+        .innovate-connect-thrive-section h2 span {
+            color: var(--primary-color); /* Apple Blue accent */
+        }
+        .innovate-connect-thrive-section p {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--muted-text-light);
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.5;
+        }
+        .innovate-connect-thrive-section .cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+        }
+        .innovate-connect-thrive-section .hero-cta-button { /* Re-used cta-button styles for these specific buttons */
+            background: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+        .innovate-connect-thrive-section .hero-cta-button:hover {
+            background-color: #0077ed;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+        .innovate-connect-thrive-section .hero-cta-button.cta-button-secondary {
+            background-color: #f0f0f0;
+            color: #424245;
+            box-shadow: none;
+            border: 1px solid #dcdcdc;
+        }
+        .innovate-connect-thrive-section .hero-cta-button.cta-button-secondary:hover {
+            background-color: #e8e8ed;
+            color: #1d1d1f;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        /* Hero Section (now just canvas background) */
+        .hero-canvas-section {
+            position: relative;
+            min-height: 70vh; /* Increased height for immersive effect */
+            background-color: var(--bg-color-light); /* Explicitly set to pure white */
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-canvas-section #rhythmicCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            z-index: 0;
+            background-color: transparent;
+        }
+        .hero-canvas-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(0, 113, 227, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+            animation: subtlePulse 5s infinite ease-in-out alternate;
+        }
+
+        @keyframes subtlePulse {
+            0% { opacity: 0.6; transform: scale(1); }
+            100% { opacity: 0.8; transform: scale(1.05); }
+        }
+
+        /* New Baobab Terminal Section */
+        #baobab-terminal-access {
+            padding: 8rem 2rem;
+            background-color: var(--baobab-primary-dark); /* Dark corporate background */
+            color: var(--baobab-light-text);
+            text-align: center;
+            border-bottom: 1px solid var(--baobab-border-gray);
+        }
+        #baobab-terminal-access h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: var(--baobab-gold); /* Gold accent */
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+        #baobab-terminal-access p {
+            font-size: 1.2rem;
+            color: var(--baobab-light-text);
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+        }
+        #baobab-terminal-access .terminal-iframe-container {
+            width: 100%;
+            max-width: 900px;
+            height: 700px;
+            margin: 3rem auto 0;
+            background-color: #0d0d0d; /* Very dark background for terminal iframe */
+            border: 2px solid var(--baobab-gold); /* Gold border */
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(184, 134, 11, 0.4); /* Gold glow */
+            position: relative;
+        }
+        #baobab-terminal-access .terminal-iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+        .baobab-terminal-btn {
+            background-color: var(--baobab-gold); /* Gold button */
+            color: var(--baobab-primary-dark); /* Dark text on gold */
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            margin-top: 2rem;
+        }
+        .baobab-terminal-btn:hover {
+            background-color: #DAA520; /* Darker gold on hover */
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+        .baobab-terminal-btn .icon {
+            font-size: 1.3em;
+        }
+
+
+        /* Sections - Clean, defined blocks (general styling) */
+        section {
+            padding: 8rem 2rem;
+            background-color: var(--bg-color-light); /* Ensure all sections have pure white background */
+            box-shadow: none;
+            border-bottom: 1px solid var(--border-color-light);
+            text-align: center;
+        }
+        section:last-of-type {
+            border-bottom: none;
+        }
+        section h2, section h3 {
+            color: var(--text-color-light);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+        }
+        section p {
+            color: var(--muted-text-light);
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        /* Specific section background overrides to ensure white */
+        #shareprice { background-color: var(--bg-color-light); }
+        #seedwave { background-color: var(--card-bg-light); }
+        .founders-note-section { background-color: var(--bg-color-light) !important; }
+        #vault-access { background-color: var(--card-bg-light); }
+        .sector-scrolls-section { background-color: var(--bg-color-light) !important; }
+        #treaty { background-color: var(--card-bg-light); }
+        #vaultmesh { background-color: var(--bg-color-light); }
+        #about { background-color: var(--card-bg-light); }
+        #cta { background: var(--bg-color-light); }
+        footer { background-color: var(--bg-color-light); }
+
+
+        /* Share Signal Section - Clean data display */
+        #shareprice h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        #price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.02em;
+        }
+        #timestamp {
+            color: var(--muted-text-light);
+            font-size: 0.85rem;
+        }
+
+        /* Seedwave Growth - Integrated chart */
+        #seedwave h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--text-color-light);
+        }
+        #seedwave .w-full.max-w-4xl {
+            background-color: #fcfcfc;
+            border: 1px solid var(--border-color-light);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        /* Founder's Note - Elegant text block */
+        .founders-note-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-color-light);
+        }
+        .founders-note-section p {
+            font-size: 1.1rem;
+            color: var(--muted-text-light);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .founders-note-section p.italic {
+            color: var(--muted-text-light);
+            font-style: italic;
+        }
+        .founders-note-section p.font-semibold {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-top: 2rem;
+        }
+
+        /* Vault Terminal Access - Clean buttons */
+        #vault-access {
+            background-color: var(--card-bg-light);
+            padding: 6rem 2rem;
+            border-bottom: 1px solid var(--border-color-light);
+        }
+        #vault-access h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-color-light);
+            margin-bottom: 2.5rem;
+        }
+        #vault-access .w-full.h-\[800px\] { /* Iframe container */
+            background-color: #f0f0f0; /* Light gray background for iframe */
+            border: 1px solid #dcdcdc; /* Light border */
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        .terminal-btn {
+            background-color: #f0f0f0; /* Light gray button */
+            color: #424245;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid #dcdcdc;
+            cursor: pointer;
+        }
+        .terminal-btn:hover {
+            background-color: #e8e8ed;
+            color: #1d1d1f;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .terminal-btn.ring { /* Active state */
+            border-color: #0071e3;
+            box-shadow: 0 0 0 2px #0071e3;
+        }
+
+        /* Sector Scrolls - Clean link grid */
+        .sector-scrolls-section h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-color-light);
+            margin-bottom: 2.5rem;
+        }
+        .glyph {
+            background-color: #ffffff; /* White background */
+            color: #424245;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid #e8e8ed;
+            text-decoration: none; /* Remove underline for links */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .glyph:hover {
+            background-color: #f0f0f0;
+            color: #1d1d1f;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Treaty Section - Elegant quote */
+        #treaty h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-color-light);
+            margin-bottom: 1.5rem;
+        }
+        #treaty p {
+            font-size: 1.1rem;
+            color: var(--muted-text-light);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 2rem;
+        }
+        #treaty blockquote {
+            font-size: 1.5rem;
+            color: var(--text-color-light);
+            font-weight: 600;
+            line-height: 1.4;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #treaty blockquote::before, #treaty blockquote::after {
+            content: '“'; /* Apple-style quotes */
+            font-size: 2.5em;
+            line-height: 0.1;
+            vertical-align: -0.4em;
+            color: #dcdcdc; /* Muted quote color */
+            margin-right: 0.1em;
+        }
+        #treaty blockquote::after {
+            content: '”';
+            margin-left: 0.05em;
+        }
+
+        /* Signal Packet - Developer focused, clean code block */
+        .signal-packet-section {
+            background-color: #1d1d1f; /* Dark background for code */
+            color: #00e393; /* Greenish text for code */
+            padding: 4rem 1.5rem;
+            border-bottom: 1px solid #333;
+            text-align: center;
+            font-size: 0.75rem; /* text-xs equivalent */
+        }
+        .signal-packet-section pre {
+            background-color: #0a0a0a; /* Even darker code block */
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+            white-space: pre-wrap; /* Allow wrapping for long lines */
+            word-break: break-all;
+        }
+
+        /* VaultMesh Executive Summary - Structured and readable */
+        #vaultmesh h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-color-light);
+            margin-bottom: 1.5rem;
+        }
+        #vaultmesh h2.text-purple-400 {
+            color: var(--primary-color); /* Apple blue for main heading */
+        }
+        #vaultmesh h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-color-light);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        #vaultmesh p {
+            font-size: 1.05rem;
+            color: var(--muted-text-light);
+            line-height: 1.5;
+        }
+        #vaultmesh ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            color: var(--muted-text-light);
+        }
+        #vaultmesh ul li {
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+        #vaultmesh ul.list-decimal {
+            list-style-type: decimal;
+        }
+        #vaultmesh code {
+            background-color: #e8e8ed;
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+            color: var(--text-color-light);
+        }
+
+        /* About Section - Simple and clear */
+        #about h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-color-light);
+            margin-bottom: 1.5rem;
+        }
+        #about p {
+            font-size: 1.1rem;
+            color: var(--muted-text-light);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Call to Action Section - Prominent and inviting */
+        #cta h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-color-light);
+            margin-bottom: 1.5rem;
+        }
+        #cta p {
+            font-size: 1.2rem;
+            color: var(--muted-text-light);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Footer - Minimalist */
+        footer {
+            border-top: 1px solid var(--border-color-light);
+            text-align: center;
+            color: var(--muted-text-light);
+            padding: 2rem;
+            font-size: 0.85rem;
+        }
+        footer a {
+            color: var(--muted-text-light);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        footer a:hover {
+            color: var(--text-color-light);
+        }
+
+        /* Admin Portal Specific Styles (Integrated into Apple.com style) */
+        .admin-portal-container {
+            padding: 4rem 2rem; /* Consistent padding for the whole section */
+            background-color: var(--bg-color-light); /* White background for the entire admin section */
+            border-bottom: 1px solid var(--border-color-light);
+        }
+        .admin-portal-container h1 {
+            color: var(--text-color-light); /* Dark text for admin header title */
+        }
+        .admin-portal-container .admin-header {
+            background: #f5f5f7; /* Very light background for admin header bar */
+            color: var(--text-color-light); /* Dark text */
+            padding: 1.5rem 2rem;
+            box-shadow: none;
+            border-bottom: 1px solid var(--border-color-light);
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            margin-bottom: 2rem;
+        }
+        .admin-portal-container .admin-header .access-button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            font-weight: 600;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border: none;
+        }
+        .admin-portal-container .admin-header .access-button:hover {
+            background-color: #0077ed;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+
+        .admin-portal-container main.admin-main-content {
+            background-color: var(--bg-color-light);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            margin-top: 0;
+            border: 1px solid var(--border-color-light);
+        }
+        .admin-portal-container main.admin-main-content section {
+            background-color: #fcfcfc; /* Very light background for sub-sections */
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color-light);
+            margin-bottom: 1.5rem; /* Margin between sections */
+        }
+        .admin-portal-container main.admin-main-content input, .admin-portal-container main.admin-main-content select {
+            background-color: var(--bg-color-light);
+            border-color: #d1d1d6;
+            color: var(--text-color-light);
+            border-radius: 6px;
+            padding: 0.6rem 0.8rem;
+        }
+        .admin-portal-container main.admin-main-content input:focus, .admin-portal-container main.admin-main-content select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(0, 113, 227, 0.3);
+        }
+        .admin-portal-container main.admin-main-content button {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .admin-portal-container main.admin-main-content button:hover {
+            background-color: #0077ed;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+
+        .admin-portal-container .snapshot-box {
+            background: #fcfcfc;
+            border: 1px solid var(--border-color-light);
+            color: var(--text-color-light);
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+        .admin-portal-container .brand-snapshot {
+            background-color: var(--bg-color-light);
+            border: 1px solid var(--border-color-light);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* FAA.ZONE INDEX Table Styling (Admin) */
+        .admin-portal-container .admin-table {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .admin-portal-container .admin-table thead {
+            background-color: #f5f5f7;
+            color: #424245;
+        }
+        .admin-portal-container .admin-table th, .admin-portal-container .admin-table td {
+            border-bottom: 1px solid var(--border-color-light);
+            border-right: 1px solid var(--border-color-light);
+            padding: 0.8rem 1rem;
+            text-align: left;
+        }
+        .admin-portal-container .admin-table th:last-child,
+        .admin-portal-container .admin-table td:last-child {
+            border-right: none;
+        }
+        .admin-portal-container .admin-table tbody tr {
+            background-color: var(--bg-color-light);
+        }
+        .admin-portal-container .admin-table tbody tr:hover {
+            background-color: #f0f0f5;
+        }
+        .admin-portal-container .admin-table tbody tr:nth-child(odd) {
+            background-color: #fcfcfc;
+        }
+        .admin-portal-container .admin-table button.text-blue-400 { color: var(--primary-color); }
+        .admin-portal-container .admin-table button.text-blue-400:hover { background-color: rgba(0, 113, 227, 0.1); }
+        .admin-portal-container .admin-table button.text-green-400 { color: var(--secondary-color); }
+        .admin-portal-container .admin-table button.text-green-400:hover { background-color: rgba(48, 209, 88, 0.1); }
+
+        /* Top Navigation (Admin) */
+        .admin-portal-container .top-nav {
+            background-color: #f5f5f7;
+            border-bottom: 1px solid var(--border-color-light);
+            box-shadow: none;
+            border-radius: 0;
+            margin-bottom: 2rem;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            padding: 0.75rem 1.25rem; /* Adjusted padding */
+        }
+        .admin-portal-container .top-nav a {
+            color: #424245;
+            position: relative;
+            padding: 0.5rem 0.8rem; /* Adjusted padding */
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.2s ease-in-out;
+        }
+        .admin-portal-container .top-nav a:hover {
+            color: #1d1d1f;
+            background-color: rgba(0, 0, 0, 0.03);
+            transform: none;
+        }
+        .admin-portal-container .top-nav a::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        .admin-portal-container .top-nav a.active {
+            color: var(--primary-color);
+            background-color: rgba(0, 113, 227, 0.05);
+        }
+        .admin-portal-container .top-nav a.active::after {
+            width: calc(100% - 1.6rem); /* Adjust width to account for padding */
+        }
+
+        /* Metrics Section (Admin) */
+        .admin-portal-container .metrics-grid a {
+            background-color: var(--bg-color-light);
+            color: var(--text-color-light);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            display: block;
+            transition: all 0.2s ease-in-out;
+        }
+        .admin-portal-container .metrics-grid a:hover {
+            background-color: #f0f0f5;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .admin-portal-container .metrics-grid h3 {
+            color: var(--muted-text-light);
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .admin-portal-container .metrics-grid p {
+            color: var(--primary-color);
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        /* Sidebar Specific Styles */
+        #sidebar {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-right: 1px solid var(--border-color-light);
+            box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+        }
+        #sidebar .logo-container { height: 60px; display: flex; align-items: center; justify-content: center; }
+        #sidebar .logo-full { height: 40px; width: auto; object-fit: contain; }
+        #sidebar .logo-collapsed { height: 40px; width: 40px; object-fit: contain; }
+        #sidebar h2 {
+            color: var(--muted-text-light);
+            font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em;
+            padding-left: 1rem; padding-top: 1rem; margin-bottom: 0.5rem;
+        }
+        #sidebar .menu-item {
+            display: flex; align-items: center; gap: 0.8rem;
+            padding: 0.6rem 1rem; border-radius: 6px; font-weight: 500;
+            color: #424245; transition: all 0.2s ease-in-out; position: relative; cursor: pointer;
+        }
+        #sidebar .menu-item:hover { background-color: rgba(0, 0, 0, 0.03); color: var(--primary-color); }
+        #sidebar .menu-item-active {
+            background-color: rgba(0, 113, 227, 0.1);
+            color: var(--primary-color); font-weight: 600;
+        }
+        #sidebar .menu-item-active .menu-item-icon-inactive { color: var(--primary-color); }
+        #sidebar .menu-item-icon-inactive { color: var(--muted-text-light); }
+        #sidebar .menu-dropdown-item {
+            display: flex; align-items: center; gap: 0.8rem; padding: 0.5rem 1rem;
+            border-radius: 4px; font-size: 0.85rem; color: #424245;
+            background-color: transparent; transition: all 0.2s ease-in-out;
+        }
+        #sidebar .menu-dropdown-item:hover { background-color: rgba(0, 0, 0, 0.02); color: var(--primary-color); }
+        #sidebar .menu-dropdown-item-active { background-color: rgba(0, 113, 227, 0.05); color: var(--primary-color); font-weight: 500; }
+        #sidebar .menu-dropdown-badge {
+            background-color: var(--border-color-light); color: var(--muted-text-light);
+            font-size: 0.7rem; padding: 0.2em 0.5em; border-radius: 10px;
+        }
+        /* Submenu arrow specific styling */
+        .submenu-arrow { color: var(--muted-text-light); transition: transform 0.2s ease, color 0.2s ease; }
+        .menu-item-active .submenu-arrow, .submenu-content.open + .menu-item .submenu-arrow {
+            color: var(--primary-color); transform: rotate(180deg);
+        }
+        /* Submenu content transition */
+        .submenu-content {
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+            overflow: hidden; max-height: 0; opacity: 0; padding-left: 1.5rem;
+        }
+        .submenu-content.open { max-height: 500px; opacity: 1; }
+
+        /* Dashboard Pulse Animation (for sidebar dashboard item) */
+        @keyframes dashboardPulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 rgba(0, 113, 227, 0); }
+            50% { transform: scale(1.02); box-shadow: 0 0 15px rgba(0, 113, 227, 0.4); }
+            100% { transform: scale(1); box-shadow: 0 0 0 rgba(0, 113, 227, 0); }
+        }
+        .dashboard-pulse { animation: dashboardPulse 2s ease-in-out infinite; }
+
+        /* Main content wrapper adjustment for mobile sidebar open */
+        @media (max-width: 1023px) {
+            .sidebar-open-mobile-shift { padding-left: 290px; }
+        }
+
+        /* Sidebar Logo Sizing and Alignment */
+        #sidebar .logo-container { height: 60px; display: flex; align-items: center; justify-content: center; }
+        #sidebar .logo-full { height: 40px; width: auto; object-fit: contain; }
+        #sidebar .logo-collapsed { height: 40px; width: 40px; object-fit: contain; }
+
+        /* Chart.js specific container styles for admin charts */
+        .chart-container { position: relative; width: 100%; margin-left: auto; margin-right: auto; }
+        .chart-container-doughnut { max-width: 400px; height: 400px; }
+        .chart-container-bar { max-width: 100%; height: 400px; }
+
+        /* Admin portal text color adjustments for light background */
+        .admin-portal-container .admin-main-content h2,
+        .admin-portal-container .admin-main-content h3,
+        .admin-portal-container .admin-main-content label { color: var(--text-color-light); }
+        .admin-portal-container .admin-main-content p,
+        .admin-portal-container .admin-table tbody td { color: #424245; }
+        .admin-portal-container .admin-main-content #adminStatus { color: var(--muted-text-light); }
+        .admin-portal-container .snapshot-box h4 { color: var(--primary-color); }
+        .admin-portal-container .snapshot-box ul li { color: #424245; }
+        .admin-portal-container .bg-gray-700 { /* Adjusting general gray-700 where used in admin section */
+            background-color: #fcfcfc; color: var(--text-color-light);
+        }
+
+        /* Baobab Global Dashboard specific styles (from baobab_spa_dashboard.html) */
+        .dashboard-app-container {
+            display: flex;
+            height: 100%; /* Take full height of its parent */
+            background-color: var(--baobab-slate-light);
+        }
+        .dashboard-main-content {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 2.5rem; /* Adjusted padding */
+            background-color: var(--baobab-slate-light);
+            color: var(--text-color-light); /* Default text color */
+        }
+        .dashboard-view { /* Base class for dashboard views */
+            display: none;
+            background-color: var(--bg-color-light);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            min-height: 500px; /* Ensure content area has some height */
+        }
+        .dashboard-view.active {
+            display: block;
+        }
+        .dashboard-header-h2 {
+             color: var(--text-color-light); /* Darker text */
+             font-size: 2.2rem;
+             font-weight: 800;
+             letter-spacing: -0.02em;
+        }
+        .dashboard-header-p {
+             color: var(--muted-text-light);
+        }
+
+        /* Dashboard Metric Cards */
+        .dashboard-metric-card {
+            background-color: var(--bg-color-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color-light);
+            color: var(--text-color-light); /* Ensure text is dark */
+        }
+        .dashboard-metric-card h3 {
+            font-weight: 600;
+            color: var(--muted-text-light);
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+        .dashboard-metric-card p {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color); /* Apple Blue for numbers */
+        }
+
+        /* Tech Stack Section */
+        .tech-pillar {
+            background-color: var(--bg-color-light);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+            border-top-width: 4px;
+            border-top-color: var(--border-color-light);
+        }
+        .tech-pillar:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .tech-pillar h3 {
+            color: var(--text-color-light);
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+        .tech-pillar p {
+            color: var(--muted-text-light);
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+        #tech-stack-content {
+            background-color: #fcfcfc;
+            border: 1px solid var(--border-color-light);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            color: var(--text-color-light);
+        }
+        #tech-stack-content h3 {
+            color: var(--primary-color);
+        }
+        #tech-stack-content p, #tech-stack-content ul {
+            color: var(--muted-text-light);
+        }
+        #tech-stack-content ul li {
+            font-size: 0.95rem;
+        }
+
+        /* Ecosystem Explorer */
+        .explorer-brand-card {
+            background-color: var(--bg-color-light);
+            border: 1px solid var(--border-color-light);
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+            color: var(--text-color-light);
+        }
+        .explorer-brand-card h4 {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        .explorer-brand-card p {
+            font-size: 0.875rem;
+            color: var(--muted-text-light);
+        }
+
+        /* Sovereign Scrolls */
+        .progress-bar-container {
+            background-color: var(--border-color-light);
+            border-radius: 10px;
+            height: 30px;
+            overflow: hidden;
+        }
+        .progress-bar {
+            background-color: var(--primary-color);
+            height: 100%;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: width 0.5s ease-out;
+        }
+        .sovereign-scrolls-info {
+            background-color: #fcfcfc;
+            border: 1px solid var(--border-color-light);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            color: var(--text-color-light);
+        }
+        .sovereign-scrolls-info h3 {
+            color: var(--text-color-light);
+        }
+        .sovereign-scrolls-info p, .sovereign-scrolls-info ul {
+            color: var(--muted-text-light);
+        }
+
+        /* License & Clause Ledger */
+        .ledger-metric-card {
+            background-color: var(--bg-color-light);
+            border: 1px solid var(--border-color-light);
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            text-align: center;
+            color: var(--text-color-light);
+        }
+        .ledger-metric-card h3 {
+            color: var(--muted-text-light);
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        .ledger-metric-card p {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        /* Chart-specific styling for consistency across all charts */
+        .chart-options-default {
+            background-color: var(--bg-color-light);
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+        }
+        .chart-options-default canvas {
+            background-color: transparent; /* Charts should not have their own background */
+        }
+        .chart-options-default .chart-container { /* Ensure chart containers have size */
+            height: 350px; /* Default chart height */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header.main-header {
+                flex-direction: column;
+                padding-bottom: 10px;
+                align-items: flex-start;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+            }
+            .logo-group {
+                margin-bottom: 15px;
+                width: 100%;
+                justify-content: space-between;
+            }
+            .logo-fruitful { font-size: 1.4rem; }
+            .pulse-grid-noodle-rope { display: none; } /* Hide on small screens */
+
+            .main-nav {
+                display: none; /* Hidden by default on mobile */
+                flex-direction: column;
+                position: static;
+                width: 100%;
+                background-color: var(--card-bg-light);
+                border-top: 1px solid var(--border-color-light);
+                padding: 10px 0;
+                box-shadow: none;
+            }
+            .main-nav.active { display: flex; }
+            .nav-list { flex-direction: column; text-align: center; width: 100%; gap: 10px; }
+            .nav-list li { width: 100%; }
+            .nav-list a { display: block; padding: 8px 0; }
+            .nav-actions {
+                flex-direction: column; gap: 10px; width: 100%; padding-top: 10px;
+                border-top: 1px solid var(--border-color-light); margin-top: 10px;
+            }
+            .nav-actions .cta-button {
+                width: calc(100% - 40px); margin: 0 20px; text-align: center;
+            }
+
+            .hamburger-menu {
+                display: block;
+                position: static;
+                margin-left: auto;
+                color: var(--text-color-light);
+            }
+
+            .innovate-connect-thrive-section h2 { font-size: 2.8rem; }
+            .innovate-connect-thrive-section p { font-size: 1rem; }
+            .innovate-connect-thrive-section .hero-cta-button { padding: 0.7rem 1.5rem; font-size: 0.9rem; }
+            section { padding: 4rem 1.5rem; }
+            section h2, section h3 { font-size: 1.8rem; margin-bottom: 1.5rem; }
+            section p { font-size: 1rem; }
+            .feature-grid { grid-template-columns: 1fr; }
+            #shareprice h2 { font-size: 1.5rem; }
+            #price { font-size: 2.5rem; }
+            #vault-access .w-full.h-\[800px\] { height: 500px; }
+            .terminal-btn { padding: 0.8rem 1rem; font-size: 0.9rem; }
+            #treaty blockquote { font-size: 1.2rem; }
+            #vaultmesh h2, #vaultmesh h3 { font-size: 1.8rem; }
+            #vaultmesh p, #vaultmesh ul li { font-size: 0.95rem; }
+            #cta h3 { font-size: 2rem; }
+            #cta p { font-size: 1rem; }
+
+            /* Baobab Terminal Access Section - Mobile */
+            #baobab-terminal-access { padding: 4rem 1.5rem; }
+            #baobab-terminal-access h2 { font-size: 2.2rem; }
+            #baobab-terminal-access p { font-size: 1rem; }
+            #baobab-terminal-access .terminal-iframe-container { height: 400px; }
+            .baobab-terminal-btn { padding: 0.8rem 1.5rem; font-size: 1rem; }
+
+            /* Baobab Global Dashboard - Mobile */
+            .dashboard-main-content { padding: 1.5rem; }
+            .dashboard-view { padding: 1.5rem; }
+            .dashboard-header-h2 { font-size: 1.8rem; }
+            .dashboard-metric-card p { font-size: 2rem; }
+            .tech-pillar h3 { font-size: 1rem; }
+            .tech-pillar p { font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body class="light-mode">
+
+    <div id="announcement-bar">
+        <span>⚡️ NEW: Baobab Security Network™ Global Dashboard is Live!</span>
+        <a href="#admin-global-dashboard">Explore the Insights Now</a>
+        <button class="close-btn" aria-label="Close announcement">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <header class="main-header">
+        <div class="container header-content">
+            <div class="logo-group">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-fruitful">Fruitful™</span>
+                </a>
+                <span class="logo-separator">|</span>
+                <span class="logo-omnigrid">OmniGrid™</span>
+                <button class="hamburger-menu" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="pulse-grid-noodle-rope">
+                <span class="noodle-dot dot-1"></span>
+                <span class="noodle-dot dot-2"></span>
+                <span class="noodle-dot dot-3"></span>
+                <span class="noodle-dot dot-stepdad"></span>
+                <span class="noodle-dot dot-4"></span>
+                <span class="noodle-dot dot-5"></span>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="https://homemart.africa" target="_blank">🛍️ Homemart.africa</a></li>
+                    <li><a href="#innovate-connect-thrive" class="active-nav-link">✨ Portal Home</a></li>
+                    <li><a href="#features">💡 Features</a></li>
+                    <li><a href="#shareprice">📈 Signal</a></li>
+                    <li><a href="#vault-access">🔒 Vault</a></li>
+                    <li><a href="#treaty">📜 Treaty</a></li>
+                    <li><a href="#vaultmesh">🧠 VaultMesh</a></li>
+                    <li><a href="#baobab-terminal-access">🌳 Baobab Terminal</a></li>
+                    <li><a href="#admin-portal-section">⚙️ Admin Portal</a></li>
+                    <li><a href="#about">ℹ️ About</a></li>
+                    <li><a href="#cta">🚀 Get Started</a></li>
+                    <li><a href="https://faa.zone/careers/hiring-homepage.html">💼 Careers</a></li>
+                    <li><a href="faa.zone/legal/index.html">🧬 Developers</a></li>
+                    <li><a href="https://faa.zone/legal/securesign.html">🖋️ SecureSign™</a></li>
+                    <li><a href="https://faa.faa.zone/saas.html">🔑 SaaS</a></li>
+                    <li><a href="https://faa.zone/dashboard.html">📊 Dashboard</a></li>
+                    <li><a href="https://faa.zone/contact-us.html">✉️ Contact Us</a></li>
+                    <li><a href="https://faa.zone/support.html">🆘 Support</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="innovate-connect-thrive" class="innovate-connect-thrive-section">
+            <h2 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+                Innovate. Connect. <span class="text-blue-600">Thrive.</span>
+            </h2>
+            <p class="max-w-3xl mx-auto text-xl leading-relaxed">
+                Discover a new era of collaboration and sustainable growth with Fruitful's cutting-edge platform.
+            </p>
+            <div class="cta-group">
+                <a href="https://faa.zone/omnigrid.html" class="hero-cta-button">
+                    🕸️ Explore Ecosystem
+                </a>
+                <a href="https://baobab.faa.zone" class="hero-cta-button cta-button-secondary">
+                    🌳 Baobab Network
+                </a>
+                <a href="https://fruitfulcratedance.com/" class="hero-cta-button cta-button-secondary">
+                    📦 Fruitful™ Crate Dance
+                </a>
+                <a href="https://portal.faa.zone/payroll.html" class="hero-cta-button cta-button-secondary">
+                    💰 Fruitful™ Payroll
+                </a>
+                <a href="admin-login.html" class="hero-cta-button cta-button-secondary">
+                    ⚙️ Admin Login
+                </a>
+                <a href="https://faa.zone/contact-us.html" class="hero-cta-button cta-button-secondary">
+                    ✉️ Contact Us
+                </a>
+            </div>
+        </section>
+
+        <section class="hero-canvas-section">
+            <canvas id="rhythmicCanvas"></canvas>
+            <div class="hero-canvas-overlay"></div>
+        </section>
+
+        <section id="baobab-terminal-access">
+            <h2>🌳 Baobab Security Network™ Terminal</h2>
+            <p>Access the unified global intelligence and operations hub powered by the Baobab Security Network. Experience real-time threat intelligence, strategic resource monitoring, and ethical governance protocols.</p>
+            <div class="terminal-iframe-container">
+                <iframe id="baobab-terminal-frame" src="baobab_terminal.html" title="Baobab Security Terminal"></iframe>
+            </div>
+            <a href="baobab_terminal.html" class="baobab-terminal-btn" target="_blank">
+                <i class="fas fa-external-link-alt icon"></i> Launch Full Terminal
+            </a>
+        </section>
+
+        <section id="features" class="py-16 md:py-24 px-6 md:px-12">
+            <div class="max-w-6xl mx-auto">
+                <h3 class="text-4xl font-bold text-center mb-16">
+                    Unlock Your Potential with Our Core Features
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="feature-card">
+                        <div>💡</div>
+                        <h4>AI-Powered Insights</h4>
+                        <p>
+                            Leverage advanced AI to gain deep insights, optimize operations, and make smarter decisions.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div>🤝</div>
+                        <h4>Global Collaboration</h4>
+                        <p>
+                            Connect with thousands of independent brands and partners worldwide, fostering a network of mutual growth.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div>🌱</div>
+                        <h4>Sustainable Solutions</h4>
+                        <p>
+                            Champion eco-friendly practices and contribute to a healthier planet through our curated marketplace.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div>🔒</div>
+                        <h4>Secure VaultMesh™</h4>
+                        <p>
+                            Protect your data and transactions with our state-of-the-art blockchain-inspired security protocols.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div>📈</div>
+                        <h4>Real-time Analytics</h4>
+                        <p>
+                            Monitor your progress and impact with intuitive dashboards and real-time performance metrics.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div>🌐</div>
+                        <h4>OmniScroll Integration</h4>
+                        <p>
+                            Seamlessly integrate with our OmniScroll ledger for transparent and efficient record-keeping.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="shareprice" class="py-12 text-center">
+            <h2 class="text-3xl font-semibold mb-2">FAA™ Share Signal</h2>
+            <div id="price" class="text-5xl font-bold">$88.88</div>
+            <div class="text-sm text-gray-400 mt-1">Last updated: <span id="timestamp">Live</span></div>
+        </section>
+
+        <section id="seedwave" class="py-16 px-6 text-center">
+            <h2 class="text-4xl font-bold mb-8">🌱 Seedwave Brand Growth 🌱</h2>
+            <div class="w-full max-w-4xl mx-auto p-6 rounded-xl shadow-lg">
+                <canvas id="brandChart"></canvas>
+            </div>
+        </section>
+
+        <section class="py-16 px-6 text-center founders-note-section">
+            <h2 class="text-4xl font-bold mb-8">🧬 Founder's Glyph™</h2>
+            <p class="max-w-3xl mx-auto text-xl leading-relaxed">
+                FAA™ wasn’t built like a typical startup. It emerged — out of silence, out of signal, out of glyphs and patterns that refused to be ignored.
+                What you're seeing isn't a site. It’s a vault interface. A codebase of culture. A trust-machine powered by real human intelligence.
+            </p>
+            <p class="mt-6 max-w-2xl mx-auto italic">
+                Where others scale with speed, we scale with meaning. Every brand here agreed to something deeper than growth — they signed a Treaty.
+                That’s why this isn’t eCommerce. It’s TreatyCommerce™.
+            </p>
+            <p class="mt-6 font-semibold">— Written from the edge of code & culture 🌍 FAA.zone™ Founder Glyph Activated™</p>
+        </section>
+
+        <section id="vault-access" class="py-16 px-6">
+            <h3 class="text-4xl font-bold text-center mb-10">🔐 Sector Terminals</h3>
+
+            <div class="w-full max-w-6xl mx-auto mb-10">
+                <div class="w-full h-[800px] border-4 rounded-xl shadow-2xl overflow-hidden">
+                    <iframe
+                        id="vault-frame"
+                        src="vault-master.html"
+                        class="w-full h-full rounded-xl"
+                        frameborder="0"
+                        title="VaultMaster Terminal"
+                        sandbox="allow-scripts allow-same-origin allow-forms"
+                    ></iframe>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <button onclick="loadTerminal('vault-master.html')" class="terminal-btn p-6">🦍 VaultMaster Terminal</button>
+                <button onclick="loadTerminal('cube-lattice.html')" class="terminal-btn p-6">🧱 Cube Lattice GPT</button>
+                <button onclick="loadTerminal('global-view.html')" class="terminal-btn p-6">🌍 Global View GPT</button>
+                <button onclick="loadTerminal('freight-ops.html')" class="terminal-btn p-6">🚚 Freight Ops GPT</button>
+                <button onclick="loadTerminal('loop-watch.html')" class="terminal-btn p-6">♻️ Loop Watch GPT</button>
+                <button onclick="loadTerminal('seedwave.html')" class="terminal-btn p-6">🌱 Seedwave GPT</button>
+                <button onclick="loadTerminal('distribution.html')" class="terminal-btn p-6">📦 Distribution GPT</button>
+                <button onclick="loadTerminal('signal.html')" class="terminal-btn p-6">🔐 Signal GPT</button>
+                <button onclick="loadTerminal('faa-brands.html')" class="terminal-btn p-6">📦 7038 FAA Brands</button>
+            </div>
+        </section>
+
+        <section class="py-16 px-6 text-center sector-scrolls-section">
+            <h2 class="text-4xl font-bold mb-8">🧬 Sector Scrolls</h2>
+            <div id="sector-glyphs-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+            </div>
+            <div id="sector-content-container" class="mt-10 px-6 max-w-6xl mx-auto"></div>
+        </section>
+
+        <section id="treaty" class="py-16 px-6 text-center">
+            <h2 class="text-4xl font-bold mb-6">📜 Treaty System™</h2>
+            <p class="max-w-2xl mx-auto text-lg mb-8">The FAA.zone™ Treaty Layer binds interface to intention. This is not UI. This is glyph-encoded law.</p>
+            <blockquote class="text-2xl italic font-semibold">"FAA.zone™ isn't a site. It's the shape of alignment — and 🦍 holds the flame."</blockquote>
+        </section>
+
+        <section class="py-10 text-xs text-center signal-packet-section">
+            <pre class="max-w-2xl mx-auto p-4 rounded-lg overflow-auto"><code>{
+    "signal": "omnidrop",
+    "origin": "If you dont like the fruits you are growing, change the seed™ / FAA Vault Layer",
+    "payload": {
+        "type": "scroll",
+        "value": "homepage + VaultRouter + all terminal iframe buttons live + Treaty Grid"
+    }
+}</code></pre>
+        </section>
+
+        <section id="vaultmesh" class="py-20 px-6">
+            <div class="max-w-4xl mx-auto text-left space-y-6">
+
+                <h2 class="text-4xl font-bold">🧠 VaultMesh™: Executive Summary</h2>
+
+                <p>VaultMesh™ is an intelligent data orchestration framework designed for the segmentation, synchronization, and secure deployment of high-value digital assets—referred to as scrolls—across decentralized and permissioned networks such as FAA.zone™.</p>
+
+                <ul class="list-disc ml-6 space-y-2">
+                    <li>Captures metadata-rich content streams (chats, code, brands, assets)</li>
+                    <li>Assigns them to programmable claim structures (ScrollClaims™)</li>
+                    <li>Secures their lineage using OmniSignal™, PulseGrid™, and GhostTrace™ layers</li>
+                    <li>Enforces royalty logic, scroll integrity, and traceability on-chain and off-grid</li>
+                </ul>
+
+                <p>VaultMesh™ powers high-tier operations like HSOMNI9000™, enabling Diamond-tier deployments, cross-sector scroll claims, and enterprise-scale content monetization with full compliance and provenance.</p>
+
+                <p>A critical operator in this ecosystem is HSOMNI9000™, the certified scroll class which governs Diamond-tier logic, enforces 10–11% royalty triggers, and auto-deploys ScrollClaims™ with real-time ClaimRoot™ verification.</p>
+
+                <h3 class="text-2xl font-semibold mt-10">📖 VaultMesh™ Index</h3>
+                <ul class="list-decimal ml-6 space-y-2">
+                    <li>Introduction to VaultMesh™</li>
+                    <li>Core System Components</li>
+                    <li>ScrollClaim™ Infrastructure</li>
+                    <li>Data Flow and Claim Lifecycle</li>
+                    <li>Tiering, Royalties, and Compliance</li>
+                    <li>Integration with FAA.zone™</li>
+                    <li>Market Segments & Use Cases</li>
+                    <li>Revenue Streams & Monetization</li>
+                    <li>Technology Roadmap</li>
+                    <li>Team & Governance</li>
+                </ul>
+
+                <h3 class="text-xl font-bold mt-10">☑️ 1. Introduction to VaultMesh™</h3>
+                <p>VaultMesh™ transforms disorganized digital content into claimable, trackable assets. It bridges enterprise content systems, decentralized data vaults, and monetization layers through FAA-compliant infrastructure.</p>
+
+                <h3 class="text-xl font-bold mt-10">⚒️ 2. Core System Components</h3>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li>VaultDNA™: Immutable identifiers for scroll content</li>
+                    <li>ClaimRoot™: Origin anchor & timestamp</li>
+                    <li>ScrollClaim™ Contracts: Programmable wrappers</li>
+                    <li>PulseGrid™ Sync: Real-time scroll presence & sync</li>
+                    <li>OmniSignal™: Global scroll verification</li>
+                    <li>GhostTrace™ Gen2: Scroll interaction backtrace</li>
+                </ul>
+
+                <h3 class="text-xl font-bold mt-10">🛠️ 3. ScrollClaim™ Infrastructure</h3>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li>Set tier access (e.g., Diamond)</li>
+                    <li>Define royalty logic (10–11%)</li>
+                    <li>Lock scrolls with PulseGrid™ sync and OmniSignal™</li>
+                    <li>Deploy via FAA.zone™ with compliant ZIP bundles</li>
+                </ul>
+
+                <h3 class="text-xl font-bold mt-10">📀 4. Data Flow and Claim Lifecycle</h3>
+                <ul class="list-decimal ml-6 space-y-1">
+                    <li>Ingest — content enters VaultMesh™</li>
+                    <li>Encode — metadata & VaultDNA™ attached</li>
+                    <li>Wrap — ScrollClaim™ smart-wrapped</li>
+                    <li>Deploy — FAA.zone™ push (ZIP, manifest, HTML)</li>
+                    <li>Sync — PulseGrid™ status & OmniSignal™ locked</li>
+                    <li>Enforce — Royalties, access & scroll activity logged via GhostTrace™</li>
+                </ul>
+
+                <h3 class="text-xl font-bold mt-10">💸 5. Tiering, Royalties, and Compliance</h3>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li>Diamond Tier: 10–11% royalty enforced</li>
+                    <li>SmartWallet Integration: ScrollClaim™ payments and transfers</li>
+                    <li>VaultPay™ Tier III: Required for commercial deployments</li>
+                    <li>Compliance: FAA scroll ID, ClaimRoot™ hash, and royalty schema</li>
+                </ul>
+
+                <h3 class="text-xl font-bold mt-10">📡 6. Integration with FAA.zone™</h3>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li>Native support for /public/diamond/ structure</li>
+                    <li>ZIP, HTML, Manifest deployment bundles</li>
+                    <li>ClaimRoot™ timestamp validation</li>
+                    <li>Seamless PulseGrid™ auto-sync for live claim state</li>
+                    <li>Brand hosting via vault.faa.zone™</li>
+                </ul>
+
+                <h3 class="text-xl font-bold mt-10">🏢 7. Market Segments & Use Cases</h3>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li>GPT Conversations & Expert Threads</li>
+                    <li>Knowledge/Training Archives</li>
+                    <li>Creative IP Scrolls (music, literature, visuals)</li>
+                    <li>GeoSector Deployment Archives</li>
+                    <li>Enterprise Scroll Logs & Audit Trails</li>
+                </ul>
+
+                <h3 class="text-xl font-bold mt-10">💰 8. Revenue Streams & Monetization</h3>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li>Diamond Royalties (10–11%)</li>
+                    <li>Scroll Packaging Fees</li>
+                    <li>VaultMesh™ API Subscriptions</li>
+                    <li>PulseGrid™ and OmniSignal™ Licensing</li>
+                <li>Q2 2025: ScrollClaim™ v2.2 with multi-claim staking</li>
+                    <li>Q3 2025: GhostTrace™ Gen3 with forensic backtrace tooling</li>
+                    <li>Q4 2025: Autonomous AI Sector Agents</li>
+                    <li>Q1 2026: Inter-vault Federation</li>
+                </ul>
+
+                <h3 class="text-xl font-bold mt-10">🔧 10. Team & Governance</h3>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li>FAA-certified engineers (scroll claimers)</li>
+                    <li>Scroll Ministers: Compliance + tiering</li>
+                    <li>Vault Admins: Metadata + ClaimRoot™ enforcement</li>
+                    <li>HSOMNI9000™ Operators: Diamond-tier execution agents</li>
+                </ul>
+
+                <p class="text-sm mt-10">📎 This plan can now be exported as HTML, PDF, or ZIP.</p>
+            </div>
+        </section>
+
+        <section id="admin-global-dashboard" class="admin-portal-container admin-view-panel hidden">
+            <header>
+                <h2 class="dashboard-header-h2">📊 FAA™ Global Ecosystem - Interactive Dashboard</h2>
+                <p class="dashboard-header-p mt-1">A real-time operational overview of the entire FAA™ Global Ecosystem.</p>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="dashboard-metric-card">
+                    <h3>Total Brands</h3>
+                    <p id="dashboard-metric-total-brands">7,038</p>
+                </div>
+                <div class="dashboard-metric-card">
+                    <h3>Core Brands</h3>
+                    <p id="dashboard-metric-core-brands">168</p>
+                </div>
+                <div class="dashboard-metric-card">
+                    <h3>Product Nodes</h3>
+                    <p id="dashboard-metric-total-nodes">~700</p>
+                </div>
+                <div class="dashboard-metric-card">
+                    <h3>Total Pages</h3>
+                    <p id="dashboard-metric-total-pages">780+</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                <div class="lg:col-span-2 dashboard-metric-card">
+                    <h3 class="dashboard-header-h2">Ecosystem Pulse Monitor</h3>
+                    <p class="dashboard-header-p mb-4">Simulated real-time signal activity across key sectors.</p>
+                    <div class="chart-container chart-options-default">
+                        <canvas id="globalPulseChart"></canvas>
+                    </div>
+                </div>
+                <div class="dashboard-metric-card">
+                    <h3 class="dashboard-header-h2">Brand Distribution</h3>
+                    <p class="dashboard-header-p mb-4">Core brands by primary sector.</p>
+                    <div class="chart-container chart-container-doughnut chart-options-default">
+                        <canvas id="brandDistributionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="dashboard-header-h2 mb-4">⚙️ Technology Stack Blueprint</h3>
+            <p class="dashboard-header-p mb-8">An interactive overview of the core infrastructure powering the FAA™ ecosystem. Click each pillar for details.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center mb-8">
+                <div class="tech-pillar" data-content="tech-vercel" style="border-top-color: #000;">
+                    <h3>Vercel</h3>
+                    <p>Frontend & Serverless</p>
+                </div>
+                <div class="tech-pillar" data-content="tech-cloudflare" style="border-top-color: #f97316;">
+                    <h3>Cloudflare</h3>
+                    <p>DNS, Edge & Security</p>
+                </div>
+                <div class="tech-pillar" data-content="tech-zoho" style="border-top-color: #ef4444;">
+                    <h3>Zoho</h3>
+                    <p>Email & Business APIs</p>
+                </div>
+                <div class="tech-pillar" data-content="tech-hetzner" style="border-top-color: #3b82f6;">
+                    <h3>Hetzner</h3>
+                    <p>Backend & Storage</p>
+                </div>
+            </div>
+
+            <div id="tech-stack-content" class="tech-stack-content-container bg-white p-8 rounded-lg shadow-sm min-h-[300px] mb-8">
+                <p class="text-center text-slate-500">Click a technology pillar above to see its details.</p>
+            </div>
+
+            <h3 class="dashboard-header-h2 mb-4">🏙️ Ecosystem Explorer</h3>
+            <p class="dashboard-header-p mb-8">Explore the 29 defined sectors and their core brands within the FAA™ Global Supply Chain Grid.</p>
+
+            <div class="dashboard-metric-card mb-8">
+                <label for="sector-filter" class="font-semibold text-slate-700">Filter by Sector:</label>
+                <select id="sector-filter" class="mt-2 block w-full md:w-1/3 p-2 border border-slate-300 rounded-md">
+                    </select>
+            </div>
+
+            <div id="explorer-content" class="space-y-6 mb-8">
+                </div>
+
+            <h3 class="dashboard-header-h2 mb-4">📜 Sovereign Scrolls Generator</h3>
+            <p class="dashboard-header-p mb-8">Monitoring the status of the automated static page generation engine.</p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <div class="dashboard-metric-card">
+                    <h3 class="dashboard-header-h2">Generation Progress</h3>
+                    <div class="progress-bar-container">
+                        <div id="progress-bar" class="progress-bar">0%</div>
+                    </div>
+                    <div class="flex justify-between text-sm mt-2">
+                        <span id="pages-generated">0 Generated</span>
+                        <span id="pages-total">0 Total</span>
+                    </div>
+                    <p class="text-sm text-slate-600 mt-4">The `html-page-generator.py` module is the robust bedrock of the Sovereign Scrolls vision, architecting digital autonomy at an unprecedented scale.</p>
+                </div>
+                <div class="dashboard-metric-card">
+                    <h3 class="dashboard-header-h2">Future Focus</h3>
+                    <ul class="list-disc list-inside space-y-2 text-slate-600">
+                        <li>Integrate seamlessly with the Flask Backend (`app.py`) for real-time data persistence.</li>
+                        <li>Enhance Admin Portal (`admin-portal.html`) for intuitive seed data input and deployment previews.</li>
+                        <li>Automate the full CI/CD pipeline for the massive volume of static pages via Vercel.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="dashboard-header-h2 mb-4">🔐 License & Clause Ledger</h3>
+            <p class="dashboard-header-p mb-8">An overview of the FAA™ licensing matrix and binding legal protocols.</p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-8">
+                <div class="ledger-metric-card">
+                    <h3>Tier 1 (Retail)</h3>
+                    <p>1,204</p>
+                </div>
+                <div class="ledger-metric-card">
+                    <h3>Tier 2 (GovMesh)</h3>
+                    <p>880</p>
+                </div>
+                <div class="ledger-metric-card">
+                    <h3>Tier 3 (Enterprise)</h3>
+                    <p>734</p>
+                </div>
+                <div class="ledger-metric-card">
+                    <h3>Tier 4 (Experimental)
+                    <p>289</p>
+                </div>
+                <div class="ledger-metric-card">
+                    <h3>Tier 5 (Dormant)</h3>
+                    <p>181</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="dashboard-metric-card">
+                    <h3 class="dashboard-header-h2">License Tier Growth (Last 6 Months)</h3>
+                    <div class="chart-container chart-container-bar chart-options-default">
+                        <canvas id="tierGrowthChart"></canvas>
+                    </div>
+                </div>
+                <div class="dashboard-metric-card">
+                    <h3 class="dashboard-header-h2">License Clause Allocation</h3>
+                    <div class="chart-container chart-container-doughnut chart-options-default">
+                        <canvas id="clauseAllocationChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="about" class="py-16 md:py-24 px-6 md:px-12 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h3 class="text-4xl font-bold mb-8">About Fruitful Innovations</h3>
+                <p class="text-lg leading-relaxed mb-6">
+                    At Fruitful, we believe in a future where technology empowers positive change. Our platform is designed to break down traditional barriers, fostering a collaborative ecosystem where businesses and individuals can thrive while making a meaningful impact on the world.
+                </p>
+                <p class="text-lg leading-relaxed">
+                    We are committed to transparency, sustainability, and innovation, driven by a powerful AI that ensures fairness, efficiency, and personalized experiences for every user. Join us in building a more fruitful planet.
+                </p>
+            </div>
+        </section>
+
+        <section id="cta" class="py-16 md:py-24 px-6 md:px-12 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h3 class="text-4xl font-extrabold mb-8 leading-tight">
+                    Ready to Transform Your Future?
+                </h3>
+                <p class="text-xl mb-10">
+                    Join the Fruitful community today and start your journey towards innovation, connection, and a sustainable tomorrow.
+                </p>
+                <a href="#" class="cta-button">
+                    Sign Up Now
+                </a>
+            </div>
+        </section>
+
+        <footer class="py-8 px-6 md:px-12 text-center">
+            © 2025 FAA™ Treaty System™. All Rights Reserved. Powered by 🦍 glyphs + Vault API. Synced with Seedwave™.
+        </footer>
+    </main>
+
+    <script>
+        // --- Centralized Data Store for ALL dashboards and admin functions ---
+        const appData = {
+            // Data for Fruitful portal sections (existing)
+            fruitful: {
+                sharePrice: { value: 88.88, timestamp: new Date().toLocaleTimeString() },
+                brandGrowth: {
+                    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                    data: [3, 7, 13, 21]
+                },
+                sectorMap: {
+                    payroll: 'sectors/payroll/index.html', retail: 'sectors/retail/index.html',
+                    'ai-logic': 'sectors/ai-logic/index.html', design: 'sectors/design/index.html',
+                    finance: 'sectors/finance/index.html', webless: 'sectors/webless/index.html',
+                    logistics: 'sectors/logistics/index.html', food: 'sectors/food/index.html',
+                    education: 'sectors/education/index.html', health: 'sectors/health/index.html',
+                    culture: 'sectors/culture/index.html', housing: 'sectors/housing/index.html',
+                    nft: 'sectors/nft/index.html', media: 'sectors/media/index.html',
+                    mining: 'sectors/mining/index.html', wildlife: 'sectors/wildlife/dashboard.html'
+                },
+                mockScrollProfiles: {
+                    media: {
+                        VisualPulse: { title: "VisualPulse™ Media Scroll", intro: "Advanced visual content orchestration with real-time rendering.", features: ["4K Streaming", "AI-driven Editing", "Dynamic Watermarking"], pricing: ["Tier 1: $50/month", "Tier 2: $150/month"], metadata: { id: "VP-001", vault: "MediaVault", layer: "Visual", bg: "bg-blue-900", height: "700px", width: "2770px" } },
+                        SonicScape: { title: "SonicScape™ Audio Scroll", intro: "Immersive audio experience with spatial sound design.", features: ["3D Audio Engine", "Adaptive Soundtracks", "Noise Cancellation"], pricing: ["Basic: $30/month", "Premium: $90/month"], metadata: { id: "SS-001", vault: "MediaVault", layer: "Audio", bg: "bg-purple-900", height: "700px", width: "2770px" } }
+                    }
+                },
+                sectorList: {
+                    "agriculture": "🌱 Agriculture & Biotech", "fsf": "🥦 Food, Soil & Farming",
+                    "banking": "🏦 Banking & Finance", "creative": "🖋️ Creative Tech",
+                    "logistics": "📦 Logistics & Packaging", "education": "📚 Education & IP",
+                    "fashion": "✂ Fashion & Identity", "gaming": "🎮 Gaming & Simulation",
+                    "health-hygiene": "🧴 Health & Hygiene", "housing": "🏛️ Housing & Infrastructure",
+                    "justice": "⚖ Justice & Ethics", "knowledge": "🧠 Knowledge & Archives",
+                    "micromesh": "☰ Micro-Mesh Logistics", "media": "🎬 Motion, Media & Sonic",
+                    "nutrition": "✿ Nutrition & Food Chain", "packaging": "📦 Packaging & Materials",
+                    "quantum": "✴️ Quantum Protocols", "ritual": "☯ Ritual & Culture",
+                    "saas": "🔑 SaaS & Licensing", "trade": "🧺 Trade Systems",
+                    "utilities": "🔋 Utilities & Energy", "voice": "🎙️️ Voice & Audio",
+                    "webless": "📡 Webless Tech & Nodes", "nft": "🔁 NFT & Ownership",
+                    "zerowaste": "♻️ Zero Waste", "professional": "🧾 Professional Services",
+                    "ai-logic": "🧠 AI, Logic & Grid Systems", "mining": "⛏️ Mining & Resources",
+                    "payroll": "💰 Payroll Core Systems", "wildlife": "🚁 Wildlife Sector",
+                    "admin": "⚙️ Admin & Manual Sync Panel", "global-index": "🌐 Global Brand Index"
+                },
+            },
+            // Data for Admin Portal sections (existing + new Baobab Global Dashboard)
+            admin: {
+                sectors: {
+                    "ai-logic": { name: "🧠 AI, Logic & Grid", brands: ["OmniAI", "GridSync"], nodes: ["AI Core", "Neural Net", "Data Mesh"] },
+                    "creative": { name: "🖋️ Creative Tech", brands: ["PixelFlow", "SonicWave"], nodes: ["Render Engine", "Audio Synth"] },
+                    "logistics": { name: "📦 Logistics & Packaging", brands: ["CrateLogic", "PackChain", "SortFleet", "RouteMesh", "LogiStack"], nodes: ["GPS Tracker", "Fleet Manager"] },
+                    "education-ip": { name: "📚 Education & IP", brands: ["EduNest", "FormFlex"], nodes: ["Curriculum Builder", "License Tracker"] },
+                    "fashion": { name: "✂️ Fashion & Identity", brands: ["StyleSync", "FabricFlow"], nodes: ["Design Studio", "Material Trace"] },
+                    "gaming": { name: "🎮 Gaming & Simulation", brands: ["GameForge", "SimulateX"], nodes: ["Physics Engine", "Render Farm"] },
+                    "health": { name: "🧠 Health & Hygiene", brands: ["MedVault", "CleanCast"], nodes: ["Diagnostic AI", "Patient Portal"] },
+                    "housing": { name: "🏗️ Housing & Infrastructure", brands: ["EcoBuild", "SmartHomeOS"], nodes: ["Modular Design", "Energy Monitor"] },
+                    "justice": { name: "⚖ Justice & Ethics", brands: ["LawLedger", "EthicShield"], nodes: ["Case Tracker", "Compliance Bot"] },
+                    "knowledge": { name: "📖 Knowledge & Archives", brands: ["InfoVault", "ArchiveFlow"], nodes: ["Knowledge Graph", "Document Index"] },
+                    "micromesh": { name: "☰ Micro-Mesh Logistics", brands: ["MicroLogix", "NanoRoute"], nodes: ["Tiny Package", "Drone Delivery"] },
+                    "media": { name: "🎬 Motion, Media & Sonic", brands: ["VisualPulse", "SonicScape"], nodes: ["Video Editor", "Audio Mixer"] },
+                    "nutrition": { name: "✿ Nutrition & Food Chain", brands: ["NutriFlow", "FarmTrack"], nodes: ["Recipe Optimizer", "Crop Monitor"] },
+                    "packaging": { name: "📦 Packaging & Materials", brands: ["PackSmart", "EcoWrap"], nodes: ["Material Optimizer", "Recycle Trace"] },
+                    "quantum": { name: "✴️ Quantum Protocols", brands: ["QuantumLink", "EntangleOS"], nodes: ["Qubit Manager", "Secure Comm"] },
+                    "ritual": { name: "☯ Ritual & Culture", brands: ["AuraFlow", "SpiritWeave"], nodes: ["Ceremony Guide", "Community Hub"] },
+                    "saas": { name: "🔑 SaaS & Licensing", brands: ["CloudFlow", "AppStack"], nodes: ["Subscription Manager", "API Gateway"] },
+                    "trade": { brands: ["TradeLink", "MarketPulse"], nodes: ["Supply Chain", "Demand Predictor"] },
+                    "utilities": { brands: ["PowerGrid", "WaterFlow"], nodes: ["Smart Meter", "Resource Opt"] },
+                    "voice": { brands: ["VoiceSynth", "AudioSense"], nodes: ["Speech Rec", "Sound Analysis"] },
+                    "webless": { brands: ["MeshNode", "OffGridLink"], nodes: ["Decentral Node", "Secure Tunnel"] },
+                    "nft": { brands: ["ArtChain", "TokenForge"], nodes: ["Minting Platform", "Royalty Engine"] },
+                    "education-youth": { brands: ["KidGenius", "FutureLearn"], nodes: ["Interactive Lessons", "Skill Tracker"] },
+                    "zerowaste": { brands: ["RecycleFlow", "CompostGen"], nodes: ["Waste Sorter", "Bio-Digester"] },
+                    "professional": { brands: ["ProServe", "ConsultHub"], nodes: ["Client Manager", "Project Tracker"] },
+                    "payroll-mining": { brands: ["MinePay", "CryptoLedger"], nodes: ["Payroll Automator", "Mining Pool"] },
+                    "wildlife": { brands: ["WildGuard", "EcoSense"], nodes: ["Animal Tracker", "Habitat Monitor"] },
+                    "food-soil-farming": { name: "🥦 Food, Soil & Farming", brands: ["FarmFlow", "SoilSense"], nodes: ["Crop Yield Monitor", "Soil Health Analyzer"] },
+                    "agriculture-biotech": { name: "🌾 Agriculture & Biotech", brands: ["BioCrop", "GeneHarvest"], nodes: ["Biotech Lab", "Seed Registry"] },
+                    "banking-finance": { name: "🏦 Banking & Finance", brands: ["CoinFlow", "LedgerPro"], nodes: ["Transaction Monitor", "Smart Contract Auditor"] }
+                },
+                // Baobab Global Dashboard Data
+                globalMetrics: {
+                    totalBrands: 7038,
+                    coreBrands: 168,
+                    totalNodes: 700,
+                    totalPages: 780,
+                },
+                brandDistribution: {
+                    labels: ['Finance', 'Logistics', 'Health', 'Education', 'Agriculture', 'AI', 'Other'],
+                    data: [25, 22, 18, 15, 13, 11, 64]
+                },
+                sovereignScrolls: {
+                    generated: 1171,
+                    total: 7038,
+                },
+                techStack: {
+                    'tech-vercel': {
+                        title: 'Vercel: Frontend & Serverless',
+                        icon: '🚀',
+                        details: 'Vercel is the primary Continuous Deployment platform, connecting to GitHub to build and deploy all FAA.zone web projects. It handles static frontend assets and dynamic Node.js serverless functions, enabling rapid, scalable, and automated deployments.',
+                        features: ['Automatic Deployments from Git', 'Scalable Serverless Functions', 'Custom Domain Management', 'Secure Environment Variables', 'Instant Preview Deployments']
+                    },
+                    'tech-cloudflare': {
+                        title: 'Cloudflare: DNS, Edge & Security',
+                        icon: '☁️',
+                        details: 'Cloudflare acts as the global performance and security layer. It manages all DNS routing and protects the ecosystem with its WAF, DDoS mitigation, and global CDN, ensuring high availability and fast load times worldwide.',
+                        features: ['Global CDN Caching', 'Authoritative DNS Management', 'Web Application Firewall (WAF)', 'Universal SSL/TLS Encryption', 'Cloudflare Workers (Edge Computing)']
+                    },
+                    'tech-zoho': {
+                        title: 'Zoho: Email & Business APIs',
+                        icon: '✉️',
+                        details: 'Zoho serves as the central nervous system for business operations. It handles all corporate email via Zoho Mail and provides a rich suite of APIs (CRM, Books, Forms) for automating client management, billing, and communication workflows.',
+                        features: ['Enterprise Email Hosting (SMTP)', 'OAuth 2.0 for Authentication', 'CRM and Forms API for Data Sync', 'DMARC, SPF, DKIM for Email Security', 'Centralized User Management']
+                    },
+                    'tech-hetzner': {
+                        title: 'Hetzner: Backend & Storage',
+                        icon: '💾',
+                        details: 'Hetzner provides the foundational layer for persistent data, heavy computation, and specialized backend services. It offers cost-effective, high-performance dedicated resources that complement the serverless architecture.',
+                        features: ['Dedicated Cloud Servers', 'Persistent Block Storage Volumes', 'Scalable Object Storage', 'Private Networks & Firewalls', 'Load Balancers for High Availability']
+                    }
+                },
+                licenseLedger: {
+                    growth: {
+                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                        datasets: [
+                            { label: 'Tier 1 - Retail', data: [120, 140, 155, 178, 190, 204], borderColor: '#4f46e5', tension: 0.3, backgroundColor: 'rgba(79, 70, 229, 0.1)' },
+                            { label: 'Tier 2 - GovMesh', data: [75, 89, 94, 102, 110, 117], borderColor: '#10b981', tension: 0.3, backgroundColor: 'rgba(16, 185, 129, 0.1)' },
+                            { label: 'Tier 3 - Enterprise', data: [62, 64, 70, 73, 78, 80], borderColor: '#f97316', tension: 0.3, backgroundColor: 'rgba(249, 115, 22, 0.1)' }
+                        ]
+                    },
+                    clauses: {
+                        labels: ['IP Clause 14A', 'Sovereign Export A3', 'Experimental Tag X7', 'Tier-Sync Accord', 'VaultMesh Override'],
+                        data: [722, 519, 312, 455, 188]
+                    }
+                },
+                // Mock data for the pulse chart (admin section)
+                pulseChartData: {
+                    labels: Array.from({length: 30}, (_, i) => `Day ${i + 1}`),
+                    datasets: [
+                        {
+                            label: 'Sync Success Rate (%)',
+                            data: Array.from({length: 30}, () => Math.floor(Math.random() * 20) + 80), // 80-100%
+                            borderColor: '#0071e3', // Apple blue
+                            backgroundColor: 'rgba(0, 113, 227, 0.1)',
+                            fill: true,
+                            tension: 0.4
+                        },
+                        {
+                            label: 'New Node Registrations',
+                            data: Array.from({length: 30}, () => Math.floor(Math.random() * 10) + 5), // 5-15 nodes
+                            borderColor: '#30d158', // Apple green
+                            backgroundColor: 'rgba(48, 209, 88, 0.1)',
+                            fill: true,
+                            tension: 0.4
+                        }
+                    ]
+                }
+            }
+        };
+
+        // --- Rhythmic Canvas Glyph Drawing Logic (Hero Background) ---
+        const canvas = document.getElementById('rhythmicCanvas');
+        const ctx = canvas ? canvas.getContext('2d') : null;
+        let animationFrameId;
+
+        function resizeCanvas() {
+            if (!canvas) return;
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+            // Adjust base size for more organic shapes
+            if (canvas.width < 300) canvas.width = 300;
+            if (canvas.height < 150) canvas.height = 150;
+            // No lineAmplitude needed as we're drawing branches
+        }
+
+        // Branching tree/root drawing variables and function
+        let angleOffset = 0;
+        const branchSpeed = 0.005; // Speed of growth
+        let branches = [];
+        const maxBranches = 80; // Limit the number of branches for performance
+        const initialBranchLength = 20; // Starting length of branches
+        const branchShrinkFactor = 0.7; // How much smaller each new branch is
+        const minBranchLength = 2; // Stop drawing when branches get too small
+        const maxDepth = 4; // Max recursive depth for branches
+
+        class Branch {
+            constructor(startX, startY, angle, length, depth, hue, parentBranch = null) {
+                this.startX = startX;
+                this.startY = startY;
+                this.angle = angle;
+                this.length = length;
+                this.depth = depth;
+                this.endX = startX + Math.cos(angle) * length;
+                this.endY = startY + Math.sin(angle) * length;
+                this.hue = hue;
+                this.currentLength = 0; // For growth animation
+                this.growthSpeed = Math.random() * 0.5 + 0.5; // Randomize growth speed
+                this.parent = parentBranch; // Reference to parent for color variation
+            }
+
+            draw(ctx, animationProgress) {
+                if (!ctx) return;
+                let actualLength = this.length * animationProgress; // Animate growth
+                if (actualLength < minBranchLength) return; // Don't draw if too small
+
+                ctx.beginPath();
+                ctx.moveTo(this.startX, this.startY);
+                ctx.lineTo(this.startX + Math.cos(this.angle) * actualLength, this.startY + Math.sin(this.angle) * actualLength);
+
+                let branchColor;
+                if (this.parent) {
+                    // Slight variation from parent's hue, or a more earthy tone
+                    branchColor = `hsl(${this.hue % 360}, ${70 - this.depth * 10}%, ${30 - this.depth * 5}%)`;
+                } else {
+                    // Base color for main roots
+                    branchColor = `hsl(25, 60%, 25%)`; // Earthy brown hue for main roots
+                }
+
+                ctx.strokeStyle = branchColor;
+                ctx.lineWidth = Math.max(1, (maxDepth - this.depth + 1) * 2); // Thicker branches at lower depth
+                ctx.lineCap = 'round';
+                ctx.stroke();
+            }
+
+            // Method to grow and potentially spawn new branches
+            updateAndGrow(progress) {
+                this.currentLength = this.length * progress;
+            }
+        }
+
+        function createBranch(x, y, angle, length, depth, hue, parentBranch = null) {
+            if (depth > maxDepth || branches.length >= maxBranches || length < minBranchLength) return;
+
+            const newBranch = new Branch(x, y, angle, length, depth, hue, parentBranch);
+            branches.push(newBranch);
+
+            // Create sub-branches
+            if (depth < maxDepth) {
+                // Randomize number of sub-branches
+                const numSubBranches = Math.random() < 0.5 ? 2 : 3; 
+
+                for (let i = 0; i < numSubBranches; i++) {
+                    const newAngle = angle + (Math.random() - 0.5) * Math.PI / 3; // Randomize angle slightly
+                    const newLength = length * branchShrinkFactor;
+                    const newHue = hue + (Math.random() - 0.5) * 20; // Slightly vary hue
+                    createBranch(newBranch.endX, newBranch.endY, newAngle, newLength, depth + 1, newHue, newBranch);
+                }
+            }
+        }
+
+        function drawBaobabRoots() {
+            if (!ctx) return;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.05)'; // Subtle translucent white overlay for blending
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            angleOffset += branchSpeed; // Continuous subtle animation
+
+            // Regenerate branches for a dynamic effect or only draw existing ones
+            // For a "growing" effect, we can clear and redraw with increasing length
+            // For a more persistent "roots system", generate once and animate pulse/flow
+
+            // Let's create a subtle "growth" animation for existing branches
+            const growthProgress = (Math.sin(angleOffset * 0.5) * 0.5 + 0.5); // Oscillates between 0 and 1
+
+            // Draw existing branches
+            branches.forEach(branch => {
+                branch.draw(ctx, growthProgress); // Pass progress for length animation
+            });
+
+            // Periodically add new primary roots/trees for continuous evolution
+            if (Math.random() < 0.005) { // Small chance to start a new main root/tree
+                const startX = Math.random() * canvas.width;
+                const startY = canvas.height * (0.8 + Math.random() * 0.2); // Start lower on the canvas
+                const initialAngle = -Math.PI / 2 - (Math.random() - 0.5) * Math.PI / 6; // Mostly upwards, slightly varied
+                createBranch(startX, startY, initialAngle, initialBranchLength * 2, 0, Math.random() * 360);
+            }
+
+            // Remove old branches to keep performance reasonable
+            if (branches.length > maxBranches * 1.5) { // If too many, trim
+                branches.splice(0, branches.length - maxBranches);
+            }
+            
+            animationFrameId = requestAnimationFrame(drawBaobabRoots);
+        }
+
+        // Initial setup for the Baobab roots
+        if (canvas) {
+            window.addEventListener('load', () => {
+                resizeCanvas();
+                // Create a few initial main roots/trees
+                createBranch(canvas.width * 0.2, canvas.height * 0.9, -Math.PI / 2 - Math.PI / 10, initialBranchLength * 2.5, 0, 20); // First main root
+                createBranch(canvas.width * 0.8, canvas.height * 0.9, -Math.PI / 2 + Math.PI / 10, initialBranchLength * 2.5, 0, 40); // Second main root
+                createBranch(canvas.width * 0.5, canvas.height * 0.8, -Math.PI / 2, initialBranchLength * 3, 0, 30); // Center main root
+                drawBaobabRoots(); // Start the animation
+            });
+            window.addEventListener('resize', () => {
+                resizeCanvas();
+                // Clear existing branches and re-generate on resize for responsiveness
+                branches = []; 
+                createBranch(canvas.width * 0.2, canvas.height * 0.9, -Math.PI / 2 - Math.PI / 10, initialBranchLength * 2.5, 0, 20);
+                createBranch(canvas.width * 0.8, canvas.height * 0.9, -Math.PI / 2 + Math.PI / 10, initialBranchLength * 2.5, 0, 40);
+                createBranch(canvas.width * 0.5, canvas.height * 0.8, -Math.PI / 2, initialBranchLength * 3, 0, 30);
+            });
+        }
+
+
+        // --- Core Application Initialization and Event Handling ---
+        let charts = {}; // Global chart instances for proper management
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initial setup for the entire page
+            updateSharePrice();
+            setupAnnouncementBar();
+            updateHeaderPosition(); // Call this after announcement bar is potentially hidden/moved
+
+            // Set up main navigation scroll spy
+            setupGlobalNavScrollSpy();
+
+            // Setup Admin Portal Specifics
+            populateAdminSectorSelect();
+            loadBrandDashboard(appData.admin.sectors); // Pass initial data
+            setupAdminNav();
+            // showAdminView('admin-quick-view'); // Removed this call to prevent error on initial load
+        });
+
+        // --- Announcement Bar Logic ---
+        function setupAnnouncementBar() {
+            const announcementBar = document.getElementById('announcement-bar');
+            const closeBtn = announcementBar ? announcementBar.querySelector('.close-btn') : null;
+            const header = document.querySelector('header.main-header');
+
+            if (announcementBar) {
+                // Check if user has previously dismissed the bar
+                const isDismissed = localStorage.getItem('announcementDismissed');
+                if (isDismissed === 'true') {
+                    announcementBar.classList.add('hidden');
+                    if (header) header.style.top = '0px'; // Header stays at top if bar is hidden
+                } else {
+                    // Update header's top position based on announcement bar height
+                    if (header) header.style.top = `${announcementBar.offsetHeight}px`;
+
+                    if (closeBtn) {
+                        closeBtn.addEventListener('click', () => {
+                            announcementBar.classList.add('hidden');
+                            if (header) header.style.top = '0px'; // Move header up
+                            localStorage.setItem('announcementDismissed', 'true'); // Remember dismissal
+                        });
+                    }
+                }
+            }
+        }
+
+        // Adjust header top position if announcement bar is present and visible
+        function updateHeaderPosition() {
+            const announcementBar = document.getElementById('announcement-bar');
+            const header = document.querySelector('header.main-header');
+            if (announcementBar && header) {
+                if (!announcementBar.classList.contains('hidden')) {
+                    header.style.top = `${announcementBar.offsetHeight}px`;
+                } else {
+                    header.style.top = '0px';
+                }
+            }
+        }
+
+        // --- Global Main Navigation Scroll Spy ---
+        function setupGlobalNavScrollSpy() {
+            const navLinks = document.querySelectorAll('.nav-list a[href^="#"]');
+            const sections = document.querySelectorAll('section[id], .innovate-connect-thrive-section[id]'); // Include sections that might not have the "section" tag name but have an ID
+
+            const observerOptions = {
+                root: null, // viewport
+                rootMargin: '0px 0px -50% 0px', // When 50% of section is visible
+                threshold: 0 // As soon as any part of the section enters the viewport
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Remove active class from all nav links
+                        navLinks.forEach(link => link.classList.remove('active-nav-link'));
+
+                        // Add active class to the corresponding nav link
+                        const currentSectionId = entry.target.id;
+                        const correspondingNavLink = document.querySelector(`.nav-list a[href="#${currentSectionId}"]`);
+                        if (correspondingNavLink) {
+                            correspondingNavLink.classList.add('active-nav-link');
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Handle initial active link on load (e.g., if page loaded with a hash)
+            const initialHash = window.location.hash;
+            if (initialHash) {
+                const initialTargetLink = document.querySelector(`.nav-list a[href="${initialHash}"]`);
+                if (initialTargetLink) {
+                    navLinks.forEach(link => link.classList.remove('active-nav-link'));
+                    initialTargetLink.classList.add('active-nav-link');
+                }
+            } else {
+                // If no hash, set 'Portal Home' as active by default or the first link
+                const portalHomeLink = document.querySelector('.nav-list a[href="#innovate-connect-thrive"]');
+                if (portalHomeLink) {
+                    portalHomeLink.classList.add('active-nav-link');
+                } else if (navLinks.length > 0) {
+                    navLinks[0].classList.add('active-nav-link');
+                }
+            }
+
+            // Smooth scrolling for internal links (ensure this is still needed as observer handles active state)
+            navLinks.forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href && href.length > 1 && href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetElement = document.querySelector(href);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                            history.pushState(null, '', href); // Update URL hash without jumping
+                        }
+                    }
+                });
+            });
+        }
+
+
+        // --- FAA Share Signal (mock price update) ---
+        function updateSharePrice() {
+            const mockPrice = (80 + Math.random() * 10).toFixed(2);
+            const priceElement = document.getElementById('price');
+            const timestampElement = document.getElementById('timestamp');
+            if (priceElement) priceElement.innerText = `$${mockPrice}`;
+            if (timestampElement) timestampElement.innerText = new Date().toLocaleTimeString();
+        }
+        setInterval(updateSharePrice, 9000); // Update every 9 seconds
+
+        // --- Chart.js for Seedwave Growth (Main Page) ---
+        // This chart will be initialized on DOMContentLoaded as before.
+
+        // --- Vault Terminal Navigation Logic ---
+        window.loadTerminal = function(url) {
+            const vaultFrame = document.getElementById('vault-frame');
+            if (vaultFrame) {
+                vaultFrame.src = url;
+            }
+            document.querySelectorAll('.terminal-btn').forEach(btn => {
+                const btnOnClickString = btn.getAttribute('onclick');
+                if (btnOnClickString && btnOnClickString.includes(url)) {
+                    btn.classList.add('ring');
+                } else {
+                    btn.classList.remove('ring');
+                }
+            });
+            console.log("🧬 Terminal loaded:", url);
+        };
+        
+        // --- Sector Glyphs and Iframe Loading ---
+        // Re-using appData.fruitful.sectorList for these public-facing glyphs
+        const sectorGlyphsContainer = document.getElementById('sector-glyphs-container');
+        if (sectorGlyphsContainer) {
+            sectorGlyphsContainer.innerHTML = '';
+            const sortedSectorSlugs = Object.keys(appData.fruitful.sectorList).sort((a, b) => {
+                const nameA = appData.fruitful.sectorList[a];
+                const nameB = appData.fruitful.sectorList[b];
+                if (a === 'admin' || a === 'global-index') return 1; // Exclude these from public rendering
+                if (b === 'admin' || b === 'global-index') return -1;
+                return nameA.localeCompare(nameB);
+            });
+
+            sortedSectorSlugs.forEach(slug => {
+                if (slug !== 'admin' && slug !== 'global-index') {
+                    const display = appData.fruitful.sectorList[slug];
+                    const fileName = (slug === 'wildlife') ? 'dashboard.html' : 'index.html';
+                    const url = `/sectors/${slug}/${fileName}`; // Assuming a base path of /sectors/
+                    
+                    const glyphLink = document.createElement('a');
+                    glyphLink.href = url;
+                    glyphLink.className = "glyph";
+                    glyphLink.setAttribute('data-vault', slug);
+                    glyphLink.innerHTML = display;
+
+                    glyphLink.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const clickedSectorSlug = e.currentTarget.getAttribute('data-vault');
+                        const iframeUrl = `/sectors/${clickedSectorSlug}/${(clickedSectorSlug === 'wildlife' ? 'dashboard.html' : 'index.html')}`; // Ensure correct path
+                        const sectorContentContainer = document.getElementById('sector-content-container');
+
+                        if (iframeUrl) {
+                            const loadingMessageText = appData.fruitful.sectorList[clickedSectorSlug] || clickedSectorSlug.charAt(0).toUpperCase() + clickedSectorSlug.slice(1).replace('-', ' ');
+                            sectorContentContainer.innerHTML =
+                                `<div class="text-gray-600 text-sm mb-2">🔄 Loading sector: ${loadingMessageText}...</div>
+                                <iframe src="${iframeUrl}" class="w-full h-[900px] border-none rounded-xl bg-gray-100"></iframe>`;
+                        } else {
+                            sectorContentContainer.innerHTML =
+                                `<div class="text-red-500 text-sm mb-2">Error: Sector URL not found for ${clickedSectorSlug}.</div>`;
+                        }
+                    });
+                    sectorGlyphsContainer.appendChild(glyphLink);
+                }
+            });
+        }
+
+
+        // --- Admin Portal Specific Logic ---
+        const adminNavLinks = document.querySelectorAll('.admin-nav-link');
+        const adminViewPanels = document.querySelectorAll('.admin-view-panel');
+        const adminStatusDiv = document.getElementById("adminStatus");
+        let adminCharts = {}; // To store Chart.js instances for the admin portal
+
+        // Function to show a specific admin view panel
+        function showAdminView(viewId) {
+            // Check if element exists before manipulating classList
+            const targetPanel = document.getElementById(viewId);
+            if (!targetPanel) {
+                console.warn(`Attempted to show admin view '${viewId}', but element not found.`);
+                return;
+            }
+
+            adminViewPanels.forEach(panel => {
+                panel.classList.add('hidden');
+            });
+            targetPanel.classList.remove('hidden');
+
+            adminNavLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            const clickedAdminNavLink = document.querySelector(`.admin-nav-link[data-admin-view="${viewId}"]`);
+            if (clickedAdminNavLink) {
+                 clickedAdminNavLink.classList.add('active');
+            }
+           
+            // Render charts specific to the active view
+            renderAdminCharts(viewId);
+        }
+
+        // Render charts for the admin section
+        function renderAdminCharts(viewId) {
+            // Destroy existing charts to prevent issues on re-render
+            for (const chartKey in adminCharts) {
+                if (adminCharts[chartKey]) {
+                    adminCharts[chartKey].destroy();
+                    adminCharts[chartKey] = null;
+                }
+            }
+
+            const chartDefaultOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: { size: 12, family: 'Inter' },
+                            color: 'var(--muted-text-light)' // slate-500 from baobab dashboard
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: { color: 'var(--muted-text-light)' },
+                        grid: { color: 'var(--border-color-light)' } // slate-200 from baobab dashboard
+                    },
+                    x: {
+                        ticks: { color: 'var(--muted-text-light)' },
+                        grid: { display: false }
+                    }
+                }
+            };
+
+            // Global Dashboard Charts
+            if (viewId === 'admin-global-dashboard') {
+                // Global Pulse Chart
+                const globalPulseCtx = document.getElementById('globalPulseChart')?.getContext('2d');
+                if (globalPulseCtx) {
+                    charts.globalPulse = new Chart(globalPulseCtx, {
+                        type: 'line',
+                        data: appData.admin.pulseChartData,
+                        options: { ...chartDefaultOptions, scales: { x: { ...chartDefaultOptions.scales.x, display: true } } }
+                    });
+                }
+
+                // Brand Distribution Chart
+                const brandDistributionCtx = document.getElementById('brandDistributionChart')?.getContext('2d');
+                if (brandDistributionCtx) {
+                    charts.brandDistribution = new Chart(brandDistributionCtx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: appData.admin.brandDistribution.labels,
+                            datasets: [{
+                                label: 'Core Brands',
+                                data: appData.admin.brandDistribution.data,
+                                backgroundColor: ['#4f46e5', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#3b82f6', '#14b8a6'], // Using Tailwind colors
+                                hoverOffset: 4
+                            }]
+                        },
+                        options: { ...chartDefaultOptions, scales: { x: { display: false }, y: { display: false } } }
+                    });
+                }
+
+                // License Tier Growth Chart
+                const tierGrowthCtx = document.getElementById('tierGrowthChart')?.getContext('2d');
+                if (tierGrowthCtx) {
+                    charts.tierGrowth = new Chart(tierGrowthCtx, {
+                        type: 'bar',
+                        data: appData.admin.licenseLedger.growth,
+                        options: { ...chartDefaultOptions, scales: { x: { stacked: true }, y: { stacked: true } } }
+                    });
+                }
+
+                // License Clause Allocation Chart
+                const clauseAllocationCtx = document.getElementById('clauseAllocationChart')?.getContext('2d');
+                if (clauseAllocationCtx) {
+                    charts.clauseAllocation = new Chart(clauseAllocationCtx, {
+                        type: 'polarArea',
+                        data: {
+                            labels: appData.admin.licenseLedger.clauses.labels,
+                            datasets: [{
+                                label: 'Clause Allocations',
+                                data: appData.admin.licenseLedger.clauses.data,
+                                backgroundColor: ['#4f46e5B3', '#10b981B3', '#f59e0bB3', '#ef4444B3', '#8b5cf6B3'], // Adding transparency
+                            }]
+                        },
+                        options: { ...chartDefaultOptions, scales: { r: { grid: { color: 'var(--border-color-light)' } } } }
+                    });
+                }
+
+                // Populate Global Dashboard Metrics
+                document.getElementById('dashboard-metric-total-brands').textContent = appData.admin.globalMetrics.totalBrands.toLocaleString();
+                document.getElementById('dashboard-metric-core-brands').textContent = appData.admin.globalMetrics.coreBrands.toLocaleString();
+                document.getElementById('dashboard-metric-total-nodes').textContent = appData.admin.globalMetrics.totalNodes.toLocaleString();
+                document.getElementById('dashboard-metric-total-pages').textContent = appData.admin.globalMetrics.totalPages.toLocaleString() + '+';
+
+                // Setup Tech Stack details
+                setupTechStackInteraction();
+                // Select first tech pillar by default
+                document.querySelector('.tech-pillar')?.click(); 
+                
+                // Populate Ecosystem Explorer filter and initial view
+                populateEcosystemSectorFilter();
+                displayEcosystemSectorInfo(document.getElementById('sector-filter')?.value || Object.keys(appData.admin.sectors)[0]);
+
+                // Update Sovereign Scrolls Progress Bar
+                updateSovereignScrollsProgressBar();
+            }
+            // Add more chart rendering logic for other admin views here
+            else if (viewId === 'admin-signal-sync') {
+                const pulseMonitorCtx = document.getElementById('pulseChart')?.getContext('2d');
+                if (pulseMonitorCtx) {
+                    charts.adminPulse = new Chart(pulseMonitorCtx, {
+                        type: 'line',
+                        data: appData.admin.pulseChartData,
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    position: 'top',
+                                    labels: {
+                                        color: 'var(--muted-text-light)'
+                                    }
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    ticks: { color: 'var(--muted-text-light)' },
+                                    grid: { color: 'var(--border-color-light)' }
+                                },
+                                x: {
+                                    ticks: { color: 'var(--muted-text-light)' },
+                                    grid: { display: false }
+                                }
+                            }
+                        }
+                    });
+                }
+            }
+        }
+
+        // Setup for Admin Nav Links
+        function setupAdminNav() {
+            adminNavLinks.forEach(link => {
+                link.removeEventListener('click', handleAdminNavLinkClick); // Prevent duplicate listeners
+                link.addEventListener('click', handleAdminNavLinkClick);
+            });
+        }
+
+        function handleAdminNavLinkClick(e) {
+            e.preventDefault();
+            const viewId = e.currentTarget.dataset.adminView;
+            showAdminView(viewId);
+        }
+
+        // --- Admin: Add Brand & Subnodes Logic ---
+        function populateAdminSectorSelect() {
+            const select = document.getElementById('sectorSelect');
+            if (select) {
+                select.innerHTML = '<option value="">Select a Sector</option>';
+                Object.entries(appData.admin.sectors).forEach(([key, value]) => {
+                    const option = document.createElement('option');
+                    option.value = key;
+                    option.textContent = value.name;
+                    select.appendChild(option);
+                });
+            }
+        }
+
+        window.addBrandToSector = function() {
+            const sector = document.getElementById("sectorSelect")?.value;
+            const brand = document.getElementById("brandInput")?.value.trim();
+            const subnodesInput = document.getElementById("subnodesInput")?.value;
+            const subnodes = subnodesInput ? subnodesInput.split(",").map(n => n.trim()).filter(Boolean) : [];
+
+            if (!sector || !brand || subnodes.length === 0) {
+                adminStatusDiv.innerHTML = "<span class='text-red-500'>⚠️ Please select a sector, fill in the brand name, and at least one subnode.</span>";
+                return;
+            }
+
+            if (!appData.admin.sectors[sector]) {
+                appData.admin.sectors[sector] = { name: appData.fruitful.sectorList[sector] || sector, brands: [], nodes: [] };
+            }
+
+            if (!appData.admin.sectors[sector].brands.includes(brand)) {
+                appData.admin.sectors[sector].brands.push(brand);
+            }
+            subnodes.forEach(node => {
+                if (!appData.admin.sectors[sector].nodes.includes(node)) {
+                    appData.admin.sectors[sector].nodes.push(node);
+                }
+            });
+
+            adminStatusDiv.innerHTML = `<span class='text-green-500'>✅ Added <strong>${brand}</strong> to <strong>${appData.admin.sectors[sector].name}</strong> (${subnodes.length} nodes).</span>`;
+
+            loadBrandDashboard(appData.admin.sectors);
+            console.log("💾 Updated Admin Data:", appData.admin.sectors);
+
+            document.getElementById("brandInput").value = "";
+            document.getElementById("subnodesInput").value = "";
+        }
+
+        function loadBrandDashboard(data) {
+            const dashboard = document.getElementById("brandDashboard");
+            if (!dashboard) return;
+            dashboard.innerHTML = '';
+
+            Object.entries(data).forEach(([key, val]) => {
+                const label = val.name;
+
+                const section = document.createElement("section");
+                section.className = "mb-8 bg-white p-6 rounded-lg shadow-sm";
+                section.innerHTML = `
+                    <h3 class="text-md font-semibold mb-2">${label}</h3>
+                    <div id="${key}-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3 px-0"></div>
+                    <div class="mt-4" id="${key}-snapshots"></div>
+                `;
+                dashboard.appendChild(section);
+
+                const grid = section.querySelector(`#${key}-grid`);
+                (val.brands || []).forEach(brandName => {
+                    const tag = document.createElement("div");
+                    tag.className = "bg-fcfcfc text-1d1d1f px-3 py-1 rounded text-sm text-center shadow cursor-pointer hover:bg-e8e8ed transition-colors border border-e8e8ed";
+                    tag.textContent = brandName;
+                    tag.onclick = () => showSmartSnapshot(key, brandName, val.nodes || []);
+                    grid.appendChild(tag);
+                });
+            });
+        }
+
+        window.showSmartSnapshot = function(sectorKey, brandName, nodes) {
+            document.querySelectorAll('.admin-main-content .snapshot-box').forEach(box => box.remove());
+
+            const container = document.getElementById(`${sectorKey}-snapshots`);
+            if (!container) return;
+
+            const box = document.createElement("div");
+            box.className = "snapshot-box";
+            box.innerHTML = `
+                <h4 class="text-lg font-bold mb-2">${brandName}™ Snapshot</h4>
+                <ul class="list-disc pl-6 space-y-1 text-sm">
+                    ${nodes.map(node => `<li>${node}</li>`).join('')}
+                </ul>
+            `;
+            container.appendChild(box);
+        }
+
+        // --- Baobab Global Dashboard Logic (Integrated into Admin Portal) ---
+        function setupTechStackInteraction() {
+            const techPillars = document.querySelectorAll('.tech-pillar');
+            const techContentContainer = document.getElementById('tech-stack-content');
+
+            techPillars.forEach(pillar => {
+                pillar.addEventListener('click', (e) => {
+                    const contentKey = e.currentTarget.dataset.content;
+                    const contentData = appData.admin.techStack[contentKey];
+                    if (contentData) {
+                        techContentContainer.innerHTML = `
+                            <div class="flex items-start gap-4">
+                                <span class="text-3xl">${contentData.icon}</span>
+                                <div>
+                                    <h3 class="font-bold text-lg text-slate-800">${contentData.title}</h3>
+                                    <p class="mt-2 text-slate-600">${contentData.details}</p>
+                                    <ul class="mt-4 list-disc list-inside text-sm text-slate-500 space-y-1">
+                                        ${contentData.features.map(f => `<li>${f}</li>`).join('')}
+                                    </ul>
+                                </div>
+                            </div>
+                        `;
+                    } else {
+                        techContentContainer.innerHTML = `<p class="text-center text-slate-500">Details not available for this pillar.</p>`;
+                    }
+                });
+            });
+        }
+
+        function populateEcosystemSectorFilter() {
+            const sectorFilter = document.getElementById('sector-filter');
+            if (sectorFilter) {
+                sectorFilter.innerHTML = ''; // Clear existing options
+                Object.keys(appData.admin.sectors).forEach(key => {
+                    const option = document.createElement('option');
+                    option.value = key;
+                    option.textContent = appData.admin.sectors[key].name;
+                    sectorFilter.appendChild(option);
+                });
+                sectorFilter.addEventListener('change', (e) => {
+                    displayEcosystemSectorInfo(e.target.value);
+                });
+            }
+        }
+
+        function displayEcosystemSectorInfo(sectorKey) {
+            const explorerContent = document.getElementById('explorer-content');
+            const sector = appData.admin.sectors[sectorKey];
+            if (!explorerContent || !sector) return;
+
+            explorerContent.innerHTML = `
+                <div class="dashboard-metric-card">
+                    <h3 class="dashboard-header-h2">${sector.name}</h3>
+                    <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold text-slate-600">Core Brands</h4>
+                            <ul class="mt-2 list-disc list-inside text-slate-500">
+                                ${sector.brands.map(b => `<li>${b}™</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-slate-600">Node Count</h4>
+                            <p class="text-3xl font-bold text-slate-700 mt-1">${sector.nodes.length}</p>
+                            <p class="text-sm text-slate-500">active product nodes</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function updateSovereignScrollsProgressBar() {
+            const progressBar = document.getElementById('progress-bar');
+            const pagesGeneratedSpan = document.getElementById('pages-generated');
+            const pagesTotalSpan = document.getElementById('pages-total');
+
+            if (!progressBar || !pagesGeneratedSpan || !pagesTotalSpan) return;
+
+            const generated = appData.admin.sovereignScrolls.generated;
+            const total = appData.admin.sovereignScrolls.total;
+            const progress = (generated / total) * 100;
+
+            progressBar.style.width = `${progress.toFixed(1)}%`;
+            progressBar.textContent = `${progress.toFixed(1)}%`;
+            pagesGeneratedSpan.textContent = `${generated.toLocaleString()} Generated`;
+            pagesTotalSpan.textContent = `${total.toLocaleString()} Total`;
+        }
+
+        // --- Hamburger menu toggle for mobile ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainNav = document.querySelector('.main-nav');
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
+
+            if (hamburgerMenu && mainNav) {
+                hamburgerMenu.addEventListener('click', () => {
+                    mainNav.classList.toggle('active');
+                });
+            }
+
+            // Close mobile nav on link click
+            document.querySelectorAll('.main-nav .nav-list a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script src="omnigrid-app.js"></script>
+</body>
+</html>

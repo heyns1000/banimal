@@ -1,0 +1,5697 @@
+{
+ "generated_at": "2026-09-26T23:58:31Z",
+ "source": "fruitful-superagent: Claude chats, Project files, artifacts, Perplexity index, application registry (counts only)",
+ "corpus": {
+  "claude_chats": 276,
+  "claude_project_files": 346,
+  "claude_artifacts": 57,
+  "perplexity_records": 420,
+  "applications": 161
+ },
+ "keywords": {
+  "agriculture": [
+   "agriculture",
+   "biotech"
+  ],
+  "fsf": [
+   "farming",
+   "soil"
+  ],
+  "banking": [
+   "banking",
+   "finance",
+   "fintech"
+  ],
+  "creative": [
+   "creative",
+   "design"
+  ],
+  "logistics": [
+   "logistics",
+   "packaging"
+  ],
+  "education-ip": [
+   "education",
+   "learning"
+  ],
+  "fashion": [
+   "fashion"
+  ],
+  "gaming": [
+   "gaming",
+   "simulation"
+  ],
+  "health": [
+   "health",
+   "hygiene",
+   "medical"
+  ],
+  "housing": [
+   "housing"
+  ],
+  "justice": [
+   "ethics",
+   "justice"
+  ],
+  "knowledge": [
+   "knowledge"
+  ],
+  "micromesh": [
+   "logistics",
+   "micro",
+   "micromesh"
+  ],
+  "media": [
+   "media",
+   "motion",
+   "music",
+   "sonic"
+  ],
+  "nutrition": [
+   "nutrition"
+  ],
+  "ai-logic": [
+   "artificial intelligence"
+  ],
+  "packaging": [
+   "materials",
+   "packaging"
+  ],
+  "quantum": [
+   "protocols",
+   "quantum"
+  ],
+  "ritual": [
+   "culture",
+   "ritual"
+  ],
+  "saas": [
+   "saas"
+  ],
+  "trade": [
+   "trade"
+  ],
+  "utilities": [
+   "energy",
+   "utilities"
+  ],
+  "voice": [
+   "audio",
+   "voice"
+  ],
+  "webless": [
+   "webless"
+  ],
+  "nft": [
+   "nft",
+   "token"
+  ],
+  "education-youth": [
+   "education",
+   "youth"
+  ],
+  "zerowaste": [
+   "recycl",
+   "waste",
+   "zero waste",
+   "zerowaste"
+  ],
+  "professional": [
+   "professional"
+  ],
+  "payroll-mining": [
+   "accounting",
+   "mining",
+   "payroll"
+  ],
+  "mining": [
+   "mining"
+  ],
+  "wildlife": [
+   "conservation",
+   "habitat",
+   "wildlife"
+  ]
+ },
+ "sectors": {
+  "agriculture": {
+   "claude_chats": 50,
+   "claude_project_files": 12,
+   "claude_artifacts": 1,
+   "perplexity_records": 1,
+   "applications": 1
+  },
+  "fsf": {
+   "claude_chats": 29,
+   "claude_project_files": 9,
+   "claude_artifacts": 7,
+   "perplexity_records": 0,
+   "applications": 0
+  },
+  "banking": {
+   "claude_chats": 60,
+   "claude_project_files": 24,
+   "claude_artifacts": 2,
+   "perplexity_records": 4,
+   "applications": 1
+  },
+  "creative": {
+   "claude_chats": 171,
+   "claude_project_files": 114,
+   "claude_artifacts": 14,
+   "perplexity_records": 2,
+   "applications": 1
+  },
+  "logistics": {
+   "claude_chats": 65,
+   "claude_project_files": 45,
+   "claude_artifacts": 4,
+   "perplexity_records": 2,
+   "applications": 2
+  },
+  "education-ip": {
+   "claude_chats": 65,
+   "claude_project_files": 55,
+   "claude_artifacts": 4,
+   "perplexity_records": 2,
+   "applications": 2
+  },
+  "fashion": {
+   "claude_chats": 13,
+   "claude_project_files": 4,
+   "claude_artifacts": 0,
+   "perplexity_records": 1,
+   "applications": 1
+  },
+  "gaming": {
+   "claude_chats": 48,
+   "claude_project_files": 12,
+   "claude_artifacts": 0,
+   "perplexity_records": 1,
+   "applications": 1
+  },
+  "health": {
+   "claude_chats": 119,
+   "claude_project_files": 68,
+   "claude_artifacts": 8,
+   "perplexity_records": 3,
+   "applications": 1
+  },
+  "housing": {
+   "claude_chats": 28,
+   "claude_project_files": 6,
+   "claude_artifacts": 0,
+   "perplexity_records": 1,
+   "applications": 1
+  },
+  "justice": {
+   "claude_chats": 17,
+   "claude_project_files": 6,
+   "claude_artifacts": 0,
+   "perplexity_records": 1,
+   "applications": 1
+  },
+  "knowledge": {
+   "claude_chats": 157,
+   "claude_project_files": 24,
+   "claude_artifacts": 4,
+   "perplexity_records": 1,
+   "applications": 1
+  },
+  "micromesh": {
+   "claude_chats": 78,
+   "claude_project_files": 39,
+   "claude_artifacts": 7,
+   "perplexity_records": 2,
+   "applications": 2
+  },
+  "media": {
+   "claude_chats": 166,
+   "claude_project_files": 172,
+   "claude_artifacts": 28,
+   "perplexity_records": 2,
+   "applications": 2
+  },
+  "nutrition": {
+   "claude_chats": 17,
+   "claude_project_files": 9,
+   "claude_artifacts": 0,
+   "perplexity_records": 1,
+   "applications": 1
+  },
+  "ai-logic": {
+   "claude_chats": 3,
+   "claude_project_files": 1,
+   "claude_artifacts": 0,
+   "perplexity_records": 0,
+   "applications": 0
+  },
+  "packaging": {
+   "claude_chats": 63,
+   "claude_project_files": 32,
+   "claude_artifacts": 5,
+   "perplexity_records": 2,
+   "applications": 1
+  },
+  "quantum": {
+   "claude_chats": 79,
+   "claude_project_files": 49,
+   "claude_artifacts": 2,
+   "perplexity_records": 2,
+   "applications": 1
+  },
+  "ritual": {
+   "claude_chats": 66,
+   "claude_project_files": 24,
+   "claude_artifacts": 1,
+   "perplexity_records": 2,
+   "applications": 2
+  },
+  "saas": {
+   "claude_chats": 42,
+   "claude_project_files": 18,
+   "claude_artifacts": 9,
+   "perplexity_records": 1,
+   "applications": 1
+  },
+  "trade": {
+   "claude_chats": 93,
+   "claude_project_files": 54,
+   "claude_artifacts": 6,
+   "perplexity_records": 1,
+   "applications": 1
+  },
+  "utilities": {
+   "claude_chats": 58,
+   "claude_project_files": 33,
+   "claude_artifacts": 3,
+   "perplexity_records": 1,
+   "applications": 1
+  },
+  "voice": {
+   "claude_chats": 83,
+   "claude_project_files": 34,
+   "claude_artifacts": 6,
+   "perplexity_records": 3,
+   "applications": 1
+  },
+  "webless": {
+   "claude_chats": 13,
+   "claude_project_files": 5,
+   "claude_artifacts": 0,
+   "perplexity_records": 1,
+   "applications": 1
+  },
+  "nft": {
+   "claude_chats": 112,
+   "claude_project_files": 53,
+   "claude_artifacts": 25,
+   "perplexity_records": 4,
+   "applications": 0
+  },
+  "education-youth": {
+   "claude_chats": 57,
+   "claude_project_files": 30,
+   "claude_artifacts": 3,
+   "perplexity_records": 2,
+   "applications": 2
+  },
+  "zerowaste": {
+   "claude_chats": 68,
+   "claude_project_files": 37,
+   "claude_artifacts": 5,
+   "perplexity_records": 1,
+   "applications": 1
+  },
+  "professional": {
+   "claude_chats": 86,
+   "claude_project_files": 54,
+   "claude_artifacts": 0,
+   "perplexity_records": 1,
+   "applications": 1
+  },
+  "payroll-mining": {
+   "claude_chats": 102,
+   "claude_project_files": 38,
+   "claude_artifacts": 2,
+   "perplexity_records": 4,
+   "applications": 3
+  },
+  "mining": {
+   "claude_chats": 72,
+   "claude_project_files": 9,
+   "claude_artifacts": 0,
+   "perplexity_records": 3,
+   "applications": 2
+  },
+  "wildlife": {
+   "claude_chats": 39,
+   "claude_project_files": 34,
+   "claude_artifacts": 0,
+   "perplexity_records": 1,
+   "applications": 1
+  }
+ },
+ "brands": {
+  "omnigrid": {
+   "claude": 131,
+   "perplexity": 2
+  },
+  "cratelogic": {
+   "claude": 49,
+   "perplexity": 0
+  },
+  "vaultkey": {
+   "claude": 18,
+   "perplexity": 0
+  },
+  "pulsegrid": {
+   "claude": 24,
+   "perplexity": 0
+  },
+  "yieldtrash": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "greenbeam": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "biodrop": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "econest": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "cleantrack": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "pulsegreen": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "ecovault": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "loopsort": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "sortclaim": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "wastegrid": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "compostgrid": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "zerocrate": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "loopnest": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "cyclesync": {
+   "claude": 4,
+   "perplexity": 0
+  },
+  "vaultcycle": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "trashecho": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "claimclean": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "sustainclaim": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "greenloop": {
+   "claude": 4,
+   "perplexity": 0
+  },
+  "recyclemap": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "claimroot": {
+   "claude": 110,
+   "perplexity": 1
+  },
+  "routemesh": {
+   "claude": 17,
+   "perplexity": 0
+  },
+  "buildnest": {
+   "claude": 57,
+   "perplexity": 2
+  },
+  "youthid": {
+   "claude": 12,
+   "perplexity": 0
+  },
+  "omnikey": {
+   "claude": 14,
+   "perplexity": 0
+  },
+  "ghosttrace": {
+   "claude": 33,
+   "perplexity": 0
+  },
+  "cratedance": {
+   "claude": 11,
+   "perplexity": 2
+  },
+  "omnibooks": {
+   "claude": 4,
+   "perplexity": 0
+  },
+  "vaultmaster": {
+   "claude": 18,
+   "perplexity": 0
+  },
+  "fingrid": {
+   "claude": 6,
+   "perplexity": 0
+  },
+  "fxstream": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "looppay": {
+   "claude": 11,
+   "perplexity": 0
+  },
+  "croplink": {
+   "claude": 6,
+   "perplexity": 0
+  },
+  "bridgeledger": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "tallycore": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "skyfin": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "balancegrid": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "centraclear": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "darkbank": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "scrollpath": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "metabank": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "crateteller": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "toneledger": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "wirevault": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "fathombank": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "indexgrid": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "gridtrust": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "zenscore": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "halomint": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "truecustody": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "linebank": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "goldmint": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "zoomledge": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "origintrust": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "hashvault": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "fundlattice": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "clearstack": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "sparkscore": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "rootbank": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "novascore": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "coreledge": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "trustforge": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "rapidtally": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "neutronmint": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "nodecapital": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "bittrust": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "latticescore": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "vectormint": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "lumenbank": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "chronobank": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "tangentbank": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "vaulthelix": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "flarepay": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "nodeyield": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "pulseclearing": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "meshcredit": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "cruxspend": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "indexpay": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "omnibank": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "numenyield": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "fractalfund": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "alphapulse": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "silocash": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "mintfuse": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "hyperfin": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "lockledger": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "scriptteller": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "taxnova": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "vergepay": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "flightclearing": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "credithelix": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "ringmint": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "atomscore": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "netteller": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "zentrypay": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "primegrid": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "peakcustody": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "beaconbank": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "pulsemint": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "lucidbank": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "fusemint": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "zenobank": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "zenithgrid": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "rivermint": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "logicpay": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "noblecredit": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "databank": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "aethertrust": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "tradeamp": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "altimeterfin": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "shardledger": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "unityfin": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "cruxfin": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "flowdrift": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "echotrust": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "glyphtrust": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "syncvault": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "nexusbank": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "crownbank": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "auravault": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "omniloop": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "microdelta": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "echoclearing": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "glidebank": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "looptrust": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "chainbank": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "quantark": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "orbitbank": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "bondrhythm": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "deltacustody": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "axialfin": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "quantumbank": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "syncteller": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "pillartrust": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "framecustody": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "layerbank": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "axonfin": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "omnirank": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "nebulabank": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "foliotrust": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "scriptscore": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "corealpha": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "jetreconcile": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "trustamp": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "ratiomint": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "banksingularity": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "novaledger": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "prismscore": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "kiteyield": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "alphaclearing": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "monetgrid": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "vaultmint": {
+   "claude": 4,
+   "perplexity": 0
+  },
+  "tracefin": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "nanopay": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "pulsematrix": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "veritaspay": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "fleetgrid": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "cashglyph": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "anchorprime": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "stackcash": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "sparkvault": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "trustcage": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "pulsehive": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "coremeta": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "torusfinance": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "signalcore": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "mindlift": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "minenest": {
+   "claude": 6,
+   "perplexity": 0
+  },
+  "vaultseal": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "syncpulse": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "omnisync": {
+   "claude": 4,
+   "perplexity": 0
+  },
+  "pulsenode": {
+   "claude": 10,
+   "perplexity": 0
+  },
+  "sortfleet": {
+   "claude": 6,
+   "perplexity": 0
+  },
+  "soilsense": {
+   "claude": 6,
+   "perplexity": 0
+  },
+  "biocrop": {
+   "claude": 6,
+   "perplexity": 0
+  },
+  "packchain": {
+   "claude": 6,
+   "perplexity": 0
+  },
+  "cleancast": {
+   "claude": 7,
+   "perplexity": 0
+  },
+  "formflex": {
+   "claude": 6,
+   "perplexity": 0
+  },
+  "vaultframe": {
+   "claude": 7,
+   "perplexity": 0
+  },
+  "logistack": {
+   "claude": 6,
+   "perplexity": 0
+  },
+  "edunest": {
+   "claude": 6,
+   "perplexity": 0
+  },
+  "medvault": {
+   "claude": 7,
+   "perplexity": 0
+  },
+  "vaultroute": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "paperid": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "sonicgrid": {
+   "claude": 5,
+   "perplexity": 0
+  },
+  "pulselogic": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "omnipulse": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "audiomesh": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "qrpath": {
+   "claude": 4,
+   "perplexity": 0
+  },
+  "vaultecho": {
+   "claude": 4,
+   "perplexity": 0
+  },
+  "meshid": {
+   "claude": 4,
+   "perplexity": 0
+  },
+  "agrivault": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "soilpulse": {
+   "claude": 4,
+   "perplexity": 0
+  },
+  "rootclaim": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "farmflag": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "scrollvault": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "voguesync": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "vibecastx": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "agriflow": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "scrollrelay": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "agrisync": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "fitmark": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "cropsource": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "styletracex": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "seedroot": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "fieldtoken": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "croptrace": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "badgemesh": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "fitclaim": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "nodestyle": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "fieldproof": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "fieldcast": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "agriplan": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "ruralflow": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "classsync": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "brandx": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "pulsevault": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "sculptwear": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "chicclaim": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "gridnode": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "pulseroot": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "dronesoil": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "terrapulse": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "signalmesh": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "droplook": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "vogueseal": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "styletracey": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "dropsync": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "croppulse": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "synclook": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "trackdrop": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "vaultsync": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "pulsewear": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "syncmesh": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "dresscore": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "soiltech": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "fitflow": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "marketgrow": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "claimgrid": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "castpoint": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "beamtrack": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "pathpulse": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "fieldnet": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "echoloop": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "nutrientpath": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "runwaytrace": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "gridscan": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "runwaypoint": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "voguepath": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "vibecast": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "meshgrid": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "catwalkcore": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "planmesh": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "echowear": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "cropvault": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "trendcore": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "trackgrid": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "dronecrop": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "terravault": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "fieldsync": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "soillogic": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "luxuryclaim": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "agriid": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "droppath": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "agrirank": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "dronetrace": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "pulsesync": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "modeechox": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "echovault": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "echomark": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "echobeam": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "formcert": {
+   "claude": 4,
+   "perplexity": 0
+  },
+  "vogueframe": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "agripulse": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "greentrace": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "vibetag": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "growvault": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "fitcheck": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "yieldtrace": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "dronegrid": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "claimrun": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "tagtrace": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "gridclaimx": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "fitcore": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "claimtrackx": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "yieldchain": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "ruralmesh": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "fitnest": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "dresssync": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "harvestloop": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "echonest": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "runwaynode": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "fitnestx": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "dresstrack": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "stylemesh": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "pulsepoint": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "trendcastx": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "styletrace": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "rootvault": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "scrollplay": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "agriscore": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "fieldnest": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "looptag": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "fashionpanel": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "sproutflow": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "harvestnode": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "fashionnest": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "grainsafe": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "voguetrace": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "looknode": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "nodeclaim": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "omniproof": {
+   "claude": 4,
+   "perplexity": 0
+  },
+  "trendpoint": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "fitpanel": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "modepulse": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "castmesh": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "chictrack": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "modewave": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "modetrack": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "stylecore": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "trendloop": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "agridepot": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "agrimetrics": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "tracenode": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "stylecrate": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "nutrientgrid": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "fitlink": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "soilgrid": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "luxurytag": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "agricast": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "modeframe": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "fashionbeam": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "wearsync": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "luxlink": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "vaultgrid": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "soiltrace": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "loopcrate": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "gridpath": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "stylecast": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "scrollnest": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "runwaypulse": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "pulseecho": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "pulseag": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "stylemeshx": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "rootmesh": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "soapdrop": {
+   "claude": 4,
+   "perplexity": 0
+  },
+  "glamroot": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "trendcast": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "voguemeshx": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "fittrack": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "catwalkmesh": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "taggrid": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "glamsync": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "farmpulse": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "greennode": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "trendbeam": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "vaultdrop": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "yieldstack": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "buildchain": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "echomap": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "tagfit": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "styleform": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "fitgrid": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "runwayloop": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "stylevault": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "scrollsync": {
+   "claude": 4,
+   "perplexity": 0
+  },
+  "voguemesh": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "voguedrop": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "pulsesoil": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "cropdoc": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "stylenode": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "soilvault": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "soilnet": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "marketroots": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "ecoseed": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "trendpath": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "claimcast": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "vaultlink": {
+   "claude": 4,
+   "perplexity": 0
+  },
+  "syncformx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "graincast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "housingid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omniroot": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "stericheck": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "plannode": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "gridcast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "geopermit": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "gridcrate": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "patientpath": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "runwayflow": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omniclaimx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "scrolllabs": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "superposvault": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omnibeacon": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaultpanel": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "quantumtrace": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "loadsecure": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "trackvitals": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "campusnet": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "dockflowx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omnisynccore": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "aiframe": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "sterimesh": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "infraloop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "pulsefield": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "marketsoil": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "logicdrop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "chaingate": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omnilogictrace": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "soillab": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "qubitnest": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "nestecho": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "qcalcx": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "zonemap": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "drillmark": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "oreecho": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "medpathway": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "scrollroof": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "carelink": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "vaultboard": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "passiveyield": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "echoritual": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "binlogicpro": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "saasboard": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "scrollplot": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "logilift": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "farmchain": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "chainvault": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaulttag": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "scrollroute": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omnitender": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "geonode": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "archiid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "touchproof": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "eduglow": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaultmapx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "audiodropx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "croptrack": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "cratejudge": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "lighttrace": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "soundloop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "ruralops": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "claimore": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "logictrace": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omniline": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "roofmesh": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "nurseyield": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "youthforge": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "recordvault": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "vaultseam": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "meshproof": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "certnode": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "gradesync": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "signalid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "edunestpro": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "claimprint": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "yieldnode": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaultmix": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omnitouch": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "airprint": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "dockflow": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vendorwrap": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "rocklogic": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "logicseal": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "steriboard": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "infragrid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "patientsync": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "pulseq": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "gridstate": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "qrnode": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "pureflow": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "rollfleet": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "lightgrid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "zeromesh": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "clanscroll": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "agroloop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "civicvault": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "signalcastx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "loopfarm": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "signalcast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "nodeclaimx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "passivevault": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "chainwrap": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "synclogic": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "certtrackx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaultjudge": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "plotlink": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "classecho": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "suitetrack": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "sitesnap": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "plantping": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "soundboard": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "qrbeam": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "permitdrop": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "autolabel": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "structmark": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "trackshaft": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "cropcode": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "gridloopx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "biotrack": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "echolook": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "learnflag": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "aiclaimx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "gridlogicfield": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "civicprint": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "scholarmesh": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "healthcast": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "nfcvault": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "signaltag": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "terraloop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "teachtrack": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "gradeforge": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "yieldcivic": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "ideanest": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "classflow": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "autolift": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "qrclaimmesh": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "tapmesh": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "wearclaim": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "agrolife": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaultsan": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "scenelock": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omnilogicfield": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "youthsignal": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "docklogic": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "claimsuite": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "medtrace": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "scrollbooks": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omnipattern": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "housingloop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "auradrop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "crateledger": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "syncpulsex": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "permitpath": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "pathlock": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "quicklabel": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "urbanmap": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaulttouch": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "flashid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "touchflow": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaultrock": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "medclaim": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "certifycast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "traytrack": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "carecast": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "omnimap": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "pulsekey": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "scansan": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "editclaim": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "scrollgrade": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "dotclaimpro": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "dotlogic": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "ledgerdrop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "beatproof": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "gridscanx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "soilline": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "motiondrop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "tokenyield": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "rendervault": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "regisync": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "claimnode": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "rendercast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaultai": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaultping": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "coldroute": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "sproutindex": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaultsignal": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "meshsignalx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "logiccertx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaultwellness": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "medlogix": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "packos": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omnilogicx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "ancestorsync": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "zonevault": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "tapsync": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "croprelay": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "passivesync": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "pulseform": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "planttrack": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "freightcore": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "scanmark": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "buildmark": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "harvestvault": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "harvesthub": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "signalore": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "nursegrid": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "vaultrender": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "logicspin": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "certtag": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "certloop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "tokenproof": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "keyloop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "cropid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "farmfresh": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "signalverse": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "civicgrid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "gridwear": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "beaconmesh": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "certai": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "tokenscanx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omniwave": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "careprint": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "seednest": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "seamsync": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "healthping": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "soundreel": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "formlogic": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "terracode": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "mythloop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "papermesh": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "qlogic": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "echoglyph": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "claimdrop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "auditmatrix": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "renderboard": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaultbeacon": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "meshcore": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "cratethread": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "pouchnode": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "logicecho": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "certlogic": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "qrmesh": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "yieldpath": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "beamnodex": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "oresync": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "syncsignal": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "visualcast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "editmesh": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "steriloop": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "harvestlink": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "glyphvault": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "tradvault": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "farmmanage": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "pathogentrace": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "archivault": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omninode": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "gridroot": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "nftboard": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "bioping": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "quiznet": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "castproof": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "nursecast": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "scrollkey": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omniloopx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "sonicindex": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "grainvault": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "audioindex": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "tokencast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "echotrackx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "meshtrigger": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "certsignal": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "beatcast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omnibrief": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "omnirender": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "beatgrid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "signaltrack": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "framesync": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaultlearn": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "pulsemap": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "schoolchain": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "terrafarm": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omnilicense": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "ledgernest": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "coldmanager": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "agronode": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "yieldpermit": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "meshkey": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "soilyield": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "labelflow": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "aigrid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "printsync": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "shipledger": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "pulseblast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "tilecast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "shiptrack": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "routemanager": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "castlink": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "tokensync": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "terragrow": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "packmaster": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "learnquest": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "zeronode": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "pulsesaas": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "plantrace": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "claimdocx": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "labelflowx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "gridboard": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "echogrid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "pathclean": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "omnimapx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "noderoute": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "mediaid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "pulsemine": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "syncproof": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omnitrack": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "scrollbuild": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "structplan": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "logicrootx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "motionkit": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "harvestcore": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "lawpathx": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "ecofarm": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "cliptrace": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "clausecraft": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "framebook": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "biopulse": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "airhealth": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "tokencert": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "loopxpress": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "tokentracex": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "oreline": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "meshcert": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "touchclean": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "voiceloop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "parcelsync": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "carenode": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "cropcircle": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "minttrack": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "packnet": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "ecoharvest": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "mineproof": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "pouchcast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omniproofx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "cleanline": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "scrollquiz": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "cratesecure": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "biocluster": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "dotgrid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "tileproof": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "sceneindex": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "plancast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "loopstudy": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "landcast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "traceqr": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "yielddrill": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaultwell": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "zipcrate": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "cementvault": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "aquafarm": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "signalline": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "aimapx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "mediarelay": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "civicplan": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "ledgerflow": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "passiveroute": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "harvestpro": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "audiodrop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "coldtrack": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "streamcert": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "tileyield": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "mediatrace": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "urbanpanel": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "licensemap": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "steripack": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "omnitag": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "pulsespirit": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "certping": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "synctrackx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "coldfleet": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "healthdrop": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "omniclaim": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "carepath": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "vaultindex": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "housingvault": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vendsort": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "pulseboard": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "harvestease": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "tokensaas": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "harvestclaim": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omnibeam": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "offlineyield": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "tracefarm": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "motionpanel": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "complytrack": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "zerolink": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "visualvault": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "logicfield": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "binsecure": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "geoclaim": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "agridata": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omnipupil": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "pulseechox": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "trackmeds": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "aitrack": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "bioclaim": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "fasttag": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "tagnode": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "studyboard": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "sitetrace": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "loadmanager": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaultquantum": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "dispatchloop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "budgetcast": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "scenelink": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "cropcare": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaultmeds": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "biofarm": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "croploop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "rootmap": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "peerpath": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "gridtagx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "certdrop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "recordgrid": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "packsyncpro": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "soilhealth": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "cropmesh": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "zoningnode": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "civicsync": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "beamindex": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "farmlink": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "gridid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaultedu": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omnicertx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "civicpath": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "civicecho": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "audiospan": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "signalframe": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "freightline": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "yieldkey": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "meshflow": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "farmwise": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "framenode": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "deliveryx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "boxsync": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "civictag": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "drillcorex": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "skillcast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "teachcircle": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "seedgrid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "logicpanel": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "cleanchain": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "trackvibe": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "meshstamp": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vendorsprout": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "boxnodex": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "scrollproof": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "audiomap": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "talentmap": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "symbolmap": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "pulsedrop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "archplan": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "learnbloom": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "assetnest": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "greensprout": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "minecast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "pupilchain": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "aibeam": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "buildecho": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "moisturemap": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "tokenroot": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "spraytrack": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "framecast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "moisturenode": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "sanitipath": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "loopdispatch": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "dronefarm": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "styleechox": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "nfcdrop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "digecho": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "signaltrace": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "archiloop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "claimmine": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "talentid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "zonepath": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "certsyncbeam": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "cerempath": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "biosprout": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "panelwear": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "audioclaim": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "bioyield": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "meshindex": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "structcast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "scandose": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "cementcast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "scrolltruck": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaultpath": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "buildcert": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "logiczonex": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "scrollyard": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "scrollaudit": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "autolabelx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "logiccastx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "civicmesh": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "tracecast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "pathcoach": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "beamclaim": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "palletpath": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaultcast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "gridbadge": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "gridtouch": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omnitagx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "sanitytrack": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "claimpanel": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "zoningboard": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "beamindexx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "palletcore": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "audioflag": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "seedlink": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "parcelchain": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "labelsecure": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "meshecho": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "cargovault": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "tapclaim": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "tokenseal": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "agrotech": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "meshroute": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "patientlink": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "aiproofcast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "permitcast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "freightgrid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "pulseclaim": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "ruralcast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaultvision": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "formpanel": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "claimsyncx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaultplans": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "gridbeam": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "hygienenode": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "dosevault": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "vaultvitals": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "fleettrace": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "dropcast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vendorfleet": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "scanpermit": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "pulsegrain": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "nfcgrid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "meshsync": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "corebeam": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "loopcheck": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "fashionform": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "saaschain": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "cropflow": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "deepcrate": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "rolegrid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "aiyieldgrid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "educhain": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "yieldtrack": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "learnsignal": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "buildtrack": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "logicpingx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "certbeam": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "claimsync": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "droploop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaultpupil": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "lineageclaim": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omniechox": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "urbanyield": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "civicproof": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "plotmesh": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "greenfield": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "marketsoilx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "shipmanager": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "audiotag": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "soilcertify": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "taglogic": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omniscan": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "soilbank": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "ecofarmgrid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "scrollnodex": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "phasegrid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "claimboard": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "shaftdrop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "gradevault": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "certsync": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "ritenest": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "qrfuse": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "pulsecrop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "proofmap": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "geogrid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "beamnode": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "freshsync": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "contractcast": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "dropledger": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "dotpulse": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "syncloop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "tokenpingx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "pulsetrack": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "specaudit": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "motionmap": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "rootyield": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omnidropx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "airdropvault": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "civicyield": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "nfctrace": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "farmbeacon": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "culturenest": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "nurseflow": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "scrollhealth": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "bioscan": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "scanproof": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "omnicertgrid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "scrollplan": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "cleanform": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "auditcrate": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "plantlink": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "yieldfield": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "seedsmart": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "gridlink": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "soundpath": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "drilllink": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "agriomni": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "claimnodegrid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "meshclaimx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omnidropgrid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "buildbeam": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "echoclaim": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "scenegrid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "buildcast": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "cropguard": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "flowvault": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "securemesh": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "renderdrop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "structid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "rockpath": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "autopack": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omnilink": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "meshnodex": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "syncframe": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omnitrackx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "griddrop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "meddrop": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "plotsync": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "signalpanel": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "scanwell": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "syncai": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "licensegrid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "soulpanel": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omniecho": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "lawtrace": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "logicnest": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "soilsmart": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaulttunnel": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "licensebeam": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "alertcare": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "syncline": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaultscript": {
+   "claude": 4,
+   "perplexity": 0
+  },
+  "formdrop": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "soundnest": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "clanroot": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "nodegrid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "foodproof": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "cratebox": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "signalflowx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "siteproof": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "totemcast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "sitevault": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "coredrill": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "aiform": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "tagbeacon": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "careyield": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "landclaim": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "claimloopq": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "grownode": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "dockmaster": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "voiceproof": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "binlogicx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "learnframe": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "logictracex": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omniproofchain": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "cratepulse": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "civicdrop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaultnurse": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "learnmesh": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "scrollfuse": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "nodeclause": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "pulseharvest": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "signalyield": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "buildnet": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "sortstack": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "tokenboard": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "sonicvault": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "budgetsync": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "cratelook": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "verifyline": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "packsignal": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "qubitecho": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "editframe": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "tagcast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "scenepulse": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "labeltrack": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "airloop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "idealink": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "terrasoil": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "plotcast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "forkyield": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "labelmesh": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "signalcompliance": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "pulsemedia": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "nursesignal": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "looppanel": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "seedcycle": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaultaitrack": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "schoolvault": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "sanitiid": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "meshcast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "cementdrop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "framegrid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "yieldbuild": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "patientcert": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "mentorloop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "frameyield": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "scrollping": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "youthgrid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "fashionnode": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "talentnest": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "spiritbeam": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "masktrack": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "scancare": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "greenpatch": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omnilogicnet": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaultclass": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "signalclaim": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "cratefarm": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "hygienecast": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "pulseacademy": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "seedvault": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "trackstack": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "visualclaim": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "pulseroute": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "iptrace": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "loopinspect": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "dosesync": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "omnimesh": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "terranova": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "quantumdrop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "purecare": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "synccrate": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "greenharvest": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "cratemanager": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "educast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "dockgrid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "agrisyncpro": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "gridpermit": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "alertvault": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "logicmeshcore": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "coldchainx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "ruralvault": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "plantcast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "claimdropx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "claimecho": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "sanitiloop": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "fitpanelx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "urbantrace": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "meshpulse": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "quantummesh": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "streamnode": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "papervault": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "sonicline": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "farmsync": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "cropgrid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "nftloop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "cleanpulse": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "riteclaim": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "beamstyle": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "agrisignal": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "plandrop": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "roadmapx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "qrtrigger": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "wavesignal": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "loopmix": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "chainlock": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "learnproof": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "signaldrop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "signalpulse": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "cropbinder": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "sonicview": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "lightdrop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "pulsestyle": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaulttouchpro": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "surveygrid": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "soilguard": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "smartcrate": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "echonode": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "buildyield": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "buildnode": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "teachstack": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "logicping": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "voguedropx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "entangleproof": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "aimapsync": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "scantoken": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "autotrack": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "tagsync": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "beamlogic": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "boxsignal": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "wellnesstrack": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "docloop": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "trackscene": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "meshmark": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omnigridx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "cratex": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "chainpulse": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "clipvault": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "gridproof": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "routeguard": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "casttoken": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "panelgrid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaultaiproof": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "studiopath": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "prooflayer": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "traceai": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "motionid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "pulseframe": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "agrimesh": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "agrinest": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "harvestping": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "pulsegrow": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "echofit": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "farmcloud": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "tileflow": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "tokensignal": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "proofcast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "nutritionclaim": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "tapvault": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "tilevault": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "packsphere": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "biosoil": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "claimdose": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "tokenclaim": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "signalmeshx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "mediagrid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "nursevault": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "landnodex": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "traceloop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "styletracez": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "soilstack": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "loopseal": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "studycast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaultbin": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "signalproofx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "structvault": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "aitracegrid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "loadcast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "farmdrop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "scrollcraft": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "sproutchain": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "skillnest": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaultfield": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "rendersync": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "agripanel": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "checknode": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "pathmentor": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "scrolltouch": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "logicboard": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "phaseclaim": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "trackseal": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "doselink": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "pulseclean": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "touchnodex": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "scrollsound": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaultprint": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "syncbeam": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "qrvitals": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "structflow": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "ecoagri": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "gridechox": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "logicpermit": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "trackproof": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "medfuse": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "syncclaim": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "dockyield": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "soapnode": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "omniqr": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "passivekey": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "tokenmark": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "qrbuild": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "ecozone": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaultroof": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "omnipathx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "voicecast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "assettrace": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "claimformx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "qrlogic": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "farmvision": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "soilecho": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "ideagrid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaulttracex": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "triggerdrop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "zeroid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "gridclass": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "soundcert": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "legalsync": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "claimpatch": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "soapgrid": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "touchscan": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "soundcast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "dotclaim": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "marketlink": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "scrollmark": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "entanglepath": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "loadframe": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "permitgrid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "logicmark": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "soilframe": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "mediapulse": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "scrolldrop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "gridyield": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "aquanest": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "logicgridx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "passivecast": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "culturegrid": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "scrollzero": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "autoroute": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "logicloop": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "lightpulse": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "youthsphere": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "sonicproof": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "flashnode": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "purevault": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "logicmap": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "claimnodex": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "agricore": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "medloop": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "biogrow": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "mindboard": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "mintecho": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "scanhealth": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "alertdose": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "clipnode": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "medialine": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "vaultmeshx": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "gridtrace": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "motioncert": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "trackline": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "logiccert": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "medportal": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "medecho": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "medcert": {
+   "claude": 3,
+   "perplexity": 0
+  },
+  "airpath": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "mediamesh": {
+   "claude": 2,
+   "perplexity": 0
+  },
+  "tokennode": {
+   "claude": 2,
+   "perplexity": 0
+  }
+ }
+}

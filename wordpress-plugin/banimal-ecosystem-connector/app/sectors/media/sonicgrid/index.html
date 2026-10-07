@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAA™ Motion, Media & Sonic Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Base Styles - Consistent with FAA.zone theme */
+        :root {
+            --text-color-light: #1d1d1f;
+            --text-color-dark: #f5f5f7;
+            --bg-color-light: #f5f5f7;
+            --bg-color-dark: #1a1a1c;
+            --card-bg-light: #ffffff;
+            --card-bg-dark: #2a2a2e;
+            --border-color-light: #e8e8ed;
+            --border-color-dark: #3a3a3e;
+            --primary-color: #0071e3; /* Apple Blue */
+            --secondary-color: #ff3b30; /* Vibrant Red for Sonic */
+            --muted-text-light: #6e6e73;
+            --muted-text-dark: #a0a0a5;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .light-mode {
+            background-color: var(--bg-color-light);
+            color: var(--text-color-light);
+        }
+
+        .dark-mode {
+            background-color: var(--bg-color-dark);
+            color: var(--text-color-dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .main-header {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color-light);
+            box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        .dark-mode .main-header {
+            background-color: var(--card-bg-dark);
+            border-bottom-color: var(--border-color-dark);
+            box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--text-color-light);
+            transition: color 0.3s ease;
+        }
+        .dark-mode .logo {
+            color: var(--text-color-dark);
+        }
+        .logo-faa {
+            color: var(--primary-color);
+        }
+        .logo-buildnest {
+            color: var(--text-color-light);
+        }
+        .dark-mode .logo-buildnest {
+            color: var(--text-color-dark);
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 25px;
+        }
+
+        .nav-list a {
+            text-decoration: none;
+            color: var(--muted-text-light);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+        .nav-list a:hover {
+            color: var(--primary-color);
+        }
+        .dark-mode .nav-list a {
+            color: var(--muted-text-dark);
+        }
+        .dark-mode .nav-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .cta-button:hover {
+            background-color: #0066cc;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .hamburger-menu {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-color-light);
+            transition: color 0.3s ease;
+        }
+        .dark-mode .hamburger-menu {
+            color: var(--text-color-dark);
+        }
+
+        /* Section Styling */
+        .section-padding {
+            padding: 80px 20px;
+            background-color: var(--card-bg-light);
+            border-bottom: 1px solid var(--border-color-light);
+            border-top: 1px solid var(--border-color-light);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        .dark-mode .section-padding {
+            background-color: var(--card-bg-dark);
+            border-bottom-color: var(--border-color-dark);
+            border-top-color: var(--border-color-dark);
+        }
+        .section-padding:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--text-color-light);
+            transition: color 0.3s ease;
+        }
+        .dark-mode .section-title {
+            color: var(--text-color-dark);
+        }
+
+        /* Dashboard Specific Styles */
+        .dashboard-hero {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: var(--bg-color-light);
+            transition: background-color 0.3s ease;
+        }
+        .dark-mode .dashboard-hero {
+            background-color: var(--bg-color-dark);
+        }
+        .dashboard-hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            letter-spacing: -0.03em;
+            color: var(--text-color-light);
+        }
+        .dark-mode .dashboard-hero h1 {
+            color: var(--text-color-dark);
+        }
+        .dashboard-hero p {
+            font-size: 1.1rem;
+            color: var(--muted-text-light);
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.5;
+        }
+        .dark-mode .dashboard-hero p {
+            color: var(--muted-text-dark);
+        }
+
+        .dashboard-grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .dashboard-grid-item {
+            background-color: var(--card-bg-light);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color-light);
+            text-align: center;
+            transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+        }
+        .dark-mode .dashboard-grid-item {
+            background-color: var(--card-bg-dark);
+            border-color: var(--border-color-dark);
+            box-shadow: 0 1px 5px rgba(0,0,0,0.15);
+        }
+        .dashboard-grid-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        .dark-mode .dashboard-grid-item:hover {
+            box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+        }
+        .dashboard-grid-item h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0;
+            color: var(--text-color-light);
+        }
+        .dark-mode .dashboard-grid-item h3 {
+            color: var(--text-color-dark);
+        }
+
+        .snapshot-section {
+            padding: 60px 20px;
+            text-align: left;
+        }
+        .snapshot-section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .snapshot-content {
+            background-color: var(--card-bg-light);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color-light);
+        }
+        .dark-mode .snapshot-content {
+            background-color: var(--card-bg-dark);
+            border-color: var(--border-color-dark);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .snapshot-content h3 {
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: var(--text-color-light);
+        }
+        .dark-mode .snapshot-content h3 {
+            color: var(--text-color-dark);
+        }
+        .snapshot-content ul {
+            list-style: disc;
+            padding-left: 25px;
+            margin-bottom: 20px;
+            color: var(--muted-text-light);
+        }
+        .dark-mode .snapshot-content ul {
+            color: var(--muted-text-dark);
+        }
+        .snapshot-content ul li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        .snapshot-content p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--muted-text-light);
+        }
+        .dark-mode .snapshot-content p {
+            color: var(--muted-text-dark);
+        }
+
+        /* Footer */
+        .main-footer {
+            background-color: var(--card-bg-light);
+            border-top: 1px solid var(--border-color-light);
+            padding: 40px 0;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+            margin-top: auto;
+        }
+        .dark-mode .main-footer {
+            background-color: var(--card-bg-dark);
+            border-top-color: var(--border-color-dark);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-brand {
+            flex: 1 1 300px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 15px;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: var(--muted-text-light);
+            line-height: 1.4;
+            transition: color 0.3s ease;
+        }
+        .dark-mode .copyright {
+            color: var(--muted-text-dark);
+        }
+
+        .footer-links {
+            display: flex;
+            flex: 2 1 500px;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-column {
+            flex: 1 1 150px;
+        }
+
+        .footer-column h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-color-light);
+            transition: color 0.3s ease;
+        }
+        .dark-mode .footer-column h4 {
+            color: var(--text-color-dark);
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column a {
+            text-decoration: none;
+            font-size: 0.9rem;
+            color: var(--muted-text-light);
+            margin-bottom: 8px;
+            display: block;
+            transition: color 0.3s ease;
+        }
+        .footer-column a:hover {
+            color: var(--primary-color);
+        }
+        .dark-mode .footer-column a {
+            color: var(--muted-text-dark);
+        }
+        .dark-mode .footer-column a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .main-nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--card-bg-light);
+                border-bottom: 1px solid var(--border-color-light);
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                padding: 20px 0;
+                z-index: 999;
+            }
+            .dark-mode .main-nav {
+                background-color: var(--card-bg-dark);
+                border-bottom-color: var(--border-color-dark);
+            }
+            .main-nav.active {
+                display: flex;
+            }
+            .nav-list {
+                flex-direction: column;
+                text-align: center;
+                width: 100%;
+            }
+            .nav-list li {
+                width: 100%;
+            }
+            .nav-list a {
+                display: block;
+                padding: 10px 0;
+            }
+            .nav-actions {
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                padding-top: 10px;
+                border-top: 1px solid var(--border-color-light);
+            }
+            .dark-mode .nav-actions {
+                border-top-color: var(--border-color-dark);
+            }
+            .nav-actions .cta-button {
+                width: calc(100% - 40px);
+                margin: 0 20px;
+                text-align: center;
+            }
+
+            .hamburger-menu {
+                display: block;
+            }
+
+            .dashboard-hero h1 {
+                font-size: 2.2rem;
+            }
+            .dashboard-hero p {
+                font-size: 1rem;
+            }
+            .dashboard-grid-container {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+            .dashboard-grid-item h3 {
+                font-size: 0.9rem;
+            }
+            .snapshot-section h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <span class="logo-faa">FAA.zone</span> / <span class="logo-buildnest">Admin</span>
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="admin-dashboard.html">Dashboard</a></li>
+                    <li><a href="user-management.html">Users</a></li>
+                    <li><a href="system-monitoring.html">System</a></li>
+                    <li><a href="data-analytics.html">Analytics</a></li>
+                    <li><a href="global-settings.html">Settings</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="index.html" class="cta-button nav-cta">Back to Main Site</a>
+                </div>
+            </nav>
+            <button class="hamburger-menu" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="dashboard-hero">
+            <div class="container">
+                <h1>FAA™ Motion, Media & Sonic Dashboard</h1>
+                <p>A comprehensive overview of all motion, media, and sonic products and services within the FAA.zone ecosystem.</p>
+                <a href="sonic-grid.html" class="cta-button">Go to Sonic Grid™ Public Page &rarr;</a>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container">
+                <h2 class="section-title">Product & Service Overview</h2>
+                <div class="dashboard-grid-container">
+                    <a href="wullvision.html" class="dashboard-grid-item"><h3>WullVision™</h3></a>
+                    <a href="aude-drap.html" class="dashboard-grid-item"><h3>Aude Drap™</h3></a>
+                    <a href="visudan.html" class="dashboard-grid-item"><h3>Visudan™</h3></a>
+                    <a href="handere.html" class="dashboard-grid-item"><h3>Handere™</h3></a>
+                    <a href="mationa.html" class="dashboard-grid-item"><h3>Mationa™</h3></a>
+                    <a href="ciprode.html" class="dashboard-grid-item"><h3>Ciprode™</h3></a>
+                    <a href="soundbeard.html" class="dashboard-grid-item"><h3>Soundbeard™</h3></a>
+                    <a href="medatsce.html" class="dashboard-grid-item"><h3>Medatsce™</h3></a>
+                    <a href="melondies.html" class="dashboard-grid-item"><h3>MelonDies™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>WullVision™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>Aude Drap™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>Visudan™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>Handere™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>Mationa™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>Ciprode™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>Soundbeard™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>Medatsce™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>MelonDies™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>WullVision™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>Aude Drap™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>Visudan™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>Handere™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>Mationa™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>Ciprode™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>Soundbeard™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>Medatsce™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>MelonDies™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>WullVision™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>Aude Drap™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>Visudan™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>Handere™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>Mationa™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>Ciprode™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>Soundbeard™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>Medatsce™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>MelonDies™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>WullVision™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>Aude Drap™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>Visudan™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>Handere™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>Mationa™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>Ciprode™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>Soundbeard™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>Medatsce™</h3></a>
+                    <a href="#" class="dashboard-grid-item"><h3>MelonDies™</h3></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="snapshot-section section-padding">
+            <div class="container">
+                <h2>SonicGrid™ Snapshot</h2>
+                <div class="snapshot-content">
+                    <h3>SonicGrid™ Product Scroll</h3>
+                    <p>SonicGrid™ provides a robust media management system for content, audio engineers, industry, and app integration.</p>
+                    <h4>Key Features:</h4>
+                    <ul>
+                        <li>Lossless audio and video processing</li>
+                        <li>Real-time synchronization with Omni Grid™</li>
+                        <li>Multi-platform compatibility</li>
+                        <li>Secure cloud-based storage</li>
+                    </ul>
+                    <h3>FAA Metadata</h3>
+                    <ul>
+                        <li>Product ID: SONIC-GRID-FAA-001</li>
+                        <li>Version: SG-4.0.0</li>
+                        <li>Supported Omni Grid™ Version: OG-4.2.0</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <span class="logo-faa">FAA.zone</span> / <span class="logo-buildnest">Admin</span>
+                </div>
+                <p class="copyright">&copy; 2025 FAA.zone. All systems, symbols, and brand echoes protected by the Omni Present Copyright™.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Admin Tools</h4>
+                    <ul>
+                        <li><a href="user-management.html">User Management</a></li>
+                        <li><a href="system-monitoring.html">System Monitoring</a></li>
+                        <li><a href="data-analytics.html">Analytics</a></li>
+                        <li><a href="global-settings.html">Platform Settings</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>FAA.zone</h4>
+                    <ul>
+                        <li><a href="about-faa.html">About FAA Systems™</a></li>
+                        <li><a href="index.html">Omni Grid™</a></li>
+                        <li><a href="baobab-archive.html">Baobab Archive™</a></li>
+                        <li><a href="compliance.html">Compliance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact-support.html">Contact Support</a></li>
+                        <li><a href="partner-program.html">Partner Program</a></li>
+                        <li><a href="developer-api.html">Developer API</a></li>
+                        <li><a href="legal-privacy.html">Legal & Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const body = document.body;
+            const mainNav = document.querySelector('.main-nav');
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
+
+            const savedMode = localStorage.getItem('themeMode');
+            if (savedMode) {
+                body.classList.add(savedMode);
+            } else {
+                body.classList.add('light-mode');
+            }
+
+            if (hamburgerMenu) {
+                hamburgerMenu.addEventListener('click', () => {
+                    if (mainNav) {
+                        mainNav.classList.toggle('active');
+                    }
+                });
+            }
+
+            document.querySelectorAll('.nav-list a').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    if (mainNav && mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonic Grid™ – FAA.zone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Base Styles - Apple inspired cleanliness with vibrant accents */
+        :root {
+            --text-color-light: #1d1d1f;
+            --text-color-dark: #f5f5f7;
+            --bg-color-light: #f5f5f7;
+            --bg-color-dark: #1a1a1c;
+            --card-bg-light: #ffffff;
+            --card-bg-dark: #2a2a2e;
+            --border-color-light: #e8e8ed;
+            --border-color-dark: #3a3a3e;
+            --primary-color: #0071e3; /* Apple Blue */
+            --secondary-color: #ff3b30; /* Vibrant Red for Sonic */
+            --tertiary-color: #007aff; /* Brighter Blue for accents */
+            --muted-text-light: #6e6e73;
+            --muted-text-dark: #a0a0a5;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .light-mode {
+            background-color: var(--bg-color-light);
+            color: var(--text-color-light);
+        }
+
+        .dark-mode {
+            background-color: var(--bg-color-dark);
+            color: var(--text-color-dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .main-header {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color-light);
+            box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        .dark-mode .main-header {
+            background-color: var(--card-bg-dark);
+            border-bottom-color: var(--border-color-dark);
+            box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--text-color-light);
+            transition: color 0.3s ease;
+        }
+        .dark-mode .logo {
+            color: var(--text-color-dark);
+        }
+        .logo-faa {
+            color: var(--primary-color);
+        }
+        .logo-buildnest {
+            color: var(--text-color-light);
+        }
+        .dark-mode .logo-buildnest {
+            color: var(--text-color-dark);
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 25px;
+        }
+
+        .nav-list a {
+            text-decoration: none;
+            color: var(--muted-text-light);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+        .nav-list a:hover {
+            color: var(--primary-color);
+        }
+        .dark-mode .nav-list a {
+            color: var(--muted-text-dark);
+        }
+        .dark-mode .nav-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .cta-button:hover {
+            background-color: #0066cc;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .hamburger-menu {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-color-light);
+            transition: color 0.3s ease;
+        }
+        .dark-mode .hamburger-menu {
+            color: var(--text-color-dark);
+        }
+
+        /* Section Styling */
+        .section-padding {
+            padding: 80px 20px;
+            background-color: var(--card-bg-light);
+            border-bottom: 1px solid var(--border-color-light);
+            border-top: 1px solid var(--border-color-light);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        .dark-mode .section-padding {
+            background-color: var(--card-bg-dark);
+            border-bottom-color: var(--border-color-dark);
+            border-top-color: var(--border-color-dark);
+        }
+        .section-padding:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--text-color-light);
+            transition: color 0.3s ease;
+        }
+        .dark-mode .section-title {
+            color: var(--text-color-dark);
+        }
+
+        /* Page Specific Sections */
+        .page-hero {
+            text-align: center;
+            padding: 100px 20px;
+            background-color: var(--bg-color-light);
+            transition: background-color 0.3s ease;
+        }
+        .dark-mode .page-hero {
+            background-color: var(--bg-color-dark);
+        }
+        .page-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -0.04em;
+            color: var(--text-color-light);
+            transition: color 0.3s ease;
+        }
+        .dark-mode .page-hero h1 {
+            color: var(--text-color-dark);
+        }
+        .page-hero p {
+            font-size: 1.3rem;
+            color: var(--muted-text-light);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.5;
+            transition: color 0.3s ease;
+        }
+        .dark-mode .page-hero p {
+            color: var(--muted-text-dark);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .product-card {
+            background-color: var(--card-bg-light);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-color-light);
+            text-align: center;
+            transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .dark-mode .product-card {
+            background-color: var(--card-bg-dark);
+            border-color: var(--border-color-dark);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        .dark-mode .product-card:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+        .product-card .icon {
+            font-size: 3.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        .product-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-color-light);
+        }
+        .dark-mode .product-card h3 {
+            color: var(--text-color-dark);
+        }
+        .product-card p {
+            font-size: 1rem;
+            color: var(--muted-text-light);
+            line-height: 1.6;
+            margin-bottom: 25px;
+            flex-grow: 1; /* Allows description to take available space */
+        }
+        .dark-mode .product-card p {
+            color: var(--muted-text-dark);
+        }
+        .product-card .cta-button {
+            background-color: var(--secondary-color);
+            box-shadow: 0 2px 8px rgba(255,59,48,0.2);
+        }
+        .product-card .cta-button:hover {
+            background-color: #cc2d24;
+            box-shadow: 0 4px 12px rgba(255,59,48,0.3);
+        }
+
+        /* Footer */
+        .main-footer {
+            background-color: var(--card-bg-light);
+            border-top: 1px solid var(--border-color-light);
+            padding: 40px 0;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+            margin-top: auto;
+        }
+        .dark-mode .main-footer {
+            background-color: var(--card-bg-dark);
+            border-top-color: var(--border-color-dark);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-brand {
+            flex: 1 1 300px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 15px;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: var(--muted-text-light);
+            line-height: 1.4;
+            transition: color 0.3s ease;
+        }
+        .dark-mode .copyright {
+            color: var(--muted-text-dark);
+        }
+
+        .footer-links {
+            display: flex;
+            flex: 2 1 500px;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-column {
+            flex: 1 1 150px;
+        }
+
+        .footer-column h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-color-light);
+            transition: color 0.3s ease;
+        }
+        .dark-mode .footer-column h4 {
+            color: var(--text-color-dark);
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column a {
+            text-decoration: none;
+            font-size: 0.9rem;
+            color: var(--muted-text-light);
+            margin-bottom: 8px;
+            display: block;
+            transition: color 0.3s ease;
+        }
+        .footer-column a:hover {
+            color: var(--primary-color);
+        }
+        .dark-mode .footer-column a {
+            color: var(--muted-text-dark);
+        }
+        .dark-mode .footer-column a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .main-nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--card-bg-light);
+                border-bottom: 1px solid var(--border-color-light);
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                padding: 20px 0;
+                z-index: 999;
+            }
+            .dark-mode .main-nav {
+                background-color: var(--card-bg-dark);
+                border-bottom-color: var(--border-color-dark);
+            }
+            .main-nav.active {
+                display: flex;
+            }
+            .nav-list {
+                flex-direction: column;
+                text-align: center;
+                width: 100%;
+            }
+            .nav-list li {
+                width: 100%;
+            }
+            .nav-list a {
+                display: block;
+                padding: 10px 0;
+            }
+            .nav-actions {
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                padding-top: 10px;
+                border-top: 1px solid var(--border-color-light);
+            }
+            .dark-mode .nav-actions {
+                border-top-color: var(--border-color-dark);
+            }
+            .nav-actions .cta-button {
+                width: calc(100% - 40px);
+                margin: 0 20px;
+                text-align: center;
+            }
+
+            .hamburger-menu {
+                display: block;
+            }
+
+            .page-hero h1 {
+                font-size: 2.8rem;
+            }
+            .page-hero p {
+                font-size: 1.1rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <span class="logo-faa">FAA.zone</span> / <span class="logo-buildnest">Sonic Grid™</span>
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="contact-support.html">Contact Sales</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="connect-to-omni-grid.html" class="cta-button nav-cta">Get Started</a>
+                </div>
+            </nav>
+            <button class="hamburger-menu" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container hero-content">
+                <h1>Sonic Grid™: The Future of Audio & Media Processing</h1>
+                <p>Sonic Grid™ by FAA.zone offers unparalleled tools for motion, media, and sonic data, empowering creators and engineers with precision, power, and seamless integration across the digital ecosystem.</p>
+                <a href="#products" class="cta-button hero-cta">Explore Products &rarr;</a>
+            </div>
+        </section>
+
+        <section id="overview" class="section-padding">
+            <div class="container">
+                <h2 class="section-title">Unleash Your Audio Potential</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <i class="fas fa-waveform icon"></i>
+                        <h3>Precision Audio Processing</h3>
+                        <p>Leverage advanced algorithms for crystal-clear sound, noise reduction, and audio enhancement.</p>
+                        <a href="#" class="cta-button">Learn More</a>
+                    </div>
+                    <div class="product-card">
+                        <i class="fas fa-video icon"></i>
+                        <h3>Integrated Media Workflows</h3>
+                        <p>Seamlessly combine audio with video and motion data for comprehensive media production.</p>
+                        <a href="#" class="cta-button">Learn More</a>
+                    </div>
+                    <div class="product-card">
+                        <i class="fas fa-cloud-arrow-up icon"></i>
+                        <h3>Scalable Cloud Solutions</h3>
+                        <p>Process large datasets and collaborate globally with our robust cloud-based infrastructure.</p>
+                        <a href="#" class="cta-button">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="products" class="section-padding">
+            <div class="container">
+                <h2 class="section-title">Our Core Sonic Grid™ Products</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <i class="fas fa-eye icon"></i>
+                        <h3>WullVision™</h3>
+                        <p>Advanced visual analytics for media synchronization and content understanding.</p>
+                        <a href="wullvision.html" class="cta-button">Discover WullVision</a>
+                    </div>
+                    <div class="product-card">
+                        <i class="fas fa-microphone-alt icon"></i>
+                        <h3>Aude Drap™</h3>
+                        <p>Intelligent audio transcription and semantic analysis for diverse media formats.</p>
+                        <a href="aude-drap.html" class="cta-button">Explore Aude Drap</a>
+                    </div>
+                    <div class="product-card">
+                        <i class="fas fa-chart-bar icon"></i>
+                        <h3>Visudan™</h3>
+                        <p>Dynamic data visualization tools for complex audio and media metrics.</p>
+                        <a href="visudan.html" class="cta-button">View Visudan</a>
+                    </div>
+                    <div class="product-card">
+                        <i class="fas fa-sliders-h icon"></i>
+                        <h3>Handere™</h3>
+                        <p>Real-time audio rendering engine with customizable effects and mastering capabilities.</p>
+                        <a href="handere.html" class="cta-button">Learn About Handere</a>
+                    </div>
+                    <div class="product-card">
+                        <i class="fas fa-film icon"></i>
+                        <h3>Mationa™</h3>
+                        <p>Automated motion graphics and animation generation from audio cues.</p>
+                        <a href="mationa.html" class="cta-button">Discover Mationa</a>
+                    </div>
+                    <div class="product-card">
+                        <i class="fas fa-code icon"></i>
+                        <h3>Ciprode™</h3>
+                        <p>Code-based audio synthesis and procedural sound design environment.</p>
+                        <a href="ciprode.html" class="cta-button">Explore Ciprode</a>
+                    </div>
+                    <div class="product-card">
+                        <i class="fas fa-headphones-alt icon"></i>
+                        <h3>Soundbeard™</h3>
+                        <p>AI-powered sound recognition and intelligent audio tagging for large libraries.</p>
+                        <a href="soundbeard.html" class="cta-button">Learn About Soundbeard</a>
+                    </div>
+                    <div class="product-card">
+                        <i class="fas fa-database icon"></i>
+                        <h3>Medatsce™</h3>
+                        <p>Centralized metadata management and intelligent content indexing for media assets.</p>
+                        <a href="medatsce.html" class="cta-button">Discover Medatsce</a>
+                    </div>
+                    <div class="product-card">
+                        <i class="fas fa-palette icon"></i>
+                        <h3>MelonDies™</h3>
+                        <p>Generative art and visual effects creation driven by audio input.</p>
+                        <a href="melondies.html" class="cta-button">Explore MelonDies</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="module-cta-section">
+            <div class="container">
+                <h2 class="section-title">Sonic Grid™ Key Features</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <i class="fas fa-robot icon"></i>
+                        <h3>AI-Powered Processing</h3>
+                        <p>Utilize advanced machine learning for intelligent audio analysis, enhancement, and generation.</p>
+                    </div>
+                    <div class="product-card">
+                        <i class="fas fa-cogs icon"></i>
+                        <h3>Modular & Extensible</h3>
+                        <p>Build custom workflows and integrate with third-party tools using our flexible module system.</p>
+                    </div>
+                    <div class="product-card">
+                        <i class="fas fa-globe icon"></i>
+                        <h3>Global Collaboration</h3>
+                        <p>Work seamlessly with teams worldwide on shared projects and real-time data.</p>
+                    </div>
+                    <div class="product-card">
+                        <i class="fas fa-lock icon"></i>
+                        <h3>Enterprise-Grade Security</h3>
+                        <p>Protect your valuable media assets and intellectual property with robust security protocols.</p>
+                    </div>
+                </div>
+                <p style="margin-top: 40px;">Ready to transform your audio and media production?</p>
+                <a href="contact-support.html?subject=Sonic Grid Sales Inquiry" class="cta-button hero-cta">Contact Sales &rarr;</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <span class="logo-faa">FAA.zone</span> / <span class="logo-buildnest">Sonic Grid™</span>
+                </div>
+                <p class="copyright">&copy; 2025 FAA.zone. All systems, symbols, and brand echoes protected by the Omni Present Copyright™.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Sonic Grid™</h4>
+                    <ul>
+                        <li><a href="sonic-grid.html#overview">Overview</a></li>
+                        <li><a href="sonic-grid.html#products">Products</a></li>
+                        <li><a href="sonic-grid.html#features">Key Features</a></li>
+                        <li><a href="contact-support.html">Contact Sales</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>FAA.zone</h4>
+                    <ul>
+                        <li><a href="about-faa.html">About FAA Systems™</a></li>
+                        <li><a href="index.html">Omni Grid™</a></li>
+                        <li><a href="baobab-archive.html">Baobab Archive™</a></li>
+                        <li><a href="compliance.html">Compliance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="contact-support.html">Contact Support</a></li>
+                        <li><a href="partner-program.html">Partner Program</a></li>
+                        <li><a href="developer-api.html">Developer API</a></li>
+                        <li><a href="legal-privacy.html">Legal & Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const body = document.body;
+            const mainNav = document.querySelector('.main-nav');
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
+
+            const savedMode = localStorage.getItem('themeMode');
+            if (savedMode) {
+                body.classList.add(savedMode);
+            } else {
+                body.classList.add('light-mode');
+            }
+
+            if (hamburgerMenu) {
+                hamburgerMenu.addEventListener('click', () => {
+                    if (mainNav) {
+                        mainNav.classList.toggle('active');
+                    }
+                });
+            }
+
+            document.querySelectorAll('.nav-list a').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    if (mainNav && mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                    }
+                    const href = this.getAttribute('href');
+                    if (href.startsWith('#') && href.length > 1) {
+                        e.preventDefault();
+                        const targetElement = document.querySelector(href);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+    <script src="../../../omnigrid-app.js" data-concept="1"></script>
+</body>
+</html>

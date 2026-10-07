@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" data-vault="FAA.Zone" data-claim="ClaimRoot™" data-sync="ScrollPrefs™">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings – CodeNest™</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #111;
+      color: #f5f5f5;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2rem;
+      color: #ffd700;
+      margin-bottom: 1rem;
+    }
+    section {
+      background-color: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    label {
+      display: block;
+      margin: 0.8rem 0 0.4rem;
+    }
+    input, select {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 6px;
+      border: none;
+      background-color: #2a2a2a;
+      color: #fefefe;
+      font-size: 1rem;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      font-weight: bold;
+      background-color: #ffd700;
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ffe666;
+    }
+    .info {
+      font-size: 0.95rem;
+      color: #aaa;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>⚙️ My Settings</h1>
+
+    <section>
+      <h2>Profile</h2>
+      <label for="displayName">Display Name</label>
+      <input type="text" id="displayName" value="ScrollUser001">
+
+      <label for="email">Email</label>
+      <input type="email" id="email" value="user@scrollmail.com">
+
+      <button>Update Profile</button>
+    </section>
+
+    <section>
+      <h2>Scroll Preferences</h2>
+      <label for="region">Default Deployment Region</label>
+      <select id="region">
+        <option value="global">Global</option>
+        <option value="local">Local</option>
+        <option value="pop-up">Street Scroll (Pop-up)</option>
+      </select>
+
+      <label for="autoClaim">Auto-Enable ClaimRoot™ on Save?</label>
+      <select id="autoClaim">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+
+      <button>Save Preferences</button>
+    </section>
+
+    <section>
+      <h2>Security</h2>
+      <label for="password">Change Password</label>
+      <input type="password" id="password" placeholder="New Password">
+
+      <label for="confirm">Confirm Password</label>
+      <input type="password" id="confirm" placeholder="Confirm Password">
+
+      <button>Update Password</button>
+    </section>
+
+    <p class="info">All changes are synced to your FAA.Zone vault and stored with encrypted ClaimRoot credentials.</p>
+  </div>
+    <script src="../../../omnigrid-app.js" data-concept="1"></script>
+</body>
+</html>

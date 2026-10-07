@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruitful™ | Ritual & Culture: Explore</title>
+    <link rel="icon" href="../../favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            /* Ritual & Culture Specific Colors - adjusted for dynamic use and subtlety */
+            --ritual-dark-purple: #1A0A33; /* Base background for main content - remains for overall theme */
+            --ritual-text: #f0f0f5; /* Light text on dark bg */
+            --ritual-muted-text: #c0c0c0; /* Muted text */
+
+            --fruitful-corporate-white: #ffffff; /* Consistent Fruitful logo color */
+
+            /* Core Thematic Colors for dynamic elements */
+            --ritual-gold-primary: #FFD700;
+            --ritual-blue-accent: #A0B3D9;
+
+            /* NEW Dynamic Color Pool for Cards (AVOIDING PURPLE) */
+            --card-color-1-start: #004D40; /* Dark Teal */
+            --card-color-1-end: #00695C;   /* Medium Teal */
+            --card-color-2-start: #0A3D62; /* Deep Blue */
+            --card-color-2-end: #1A5276;   /* Medium Blue */
+            --card-color-3-start: #051020; /* Very Dark Blue */
+            --card-color-3-end: #1A3045;   /* Darker blue-grey */
+            --card-color-4-start: #403010; /* Dark Bronze */
+            --card-color-4-end: #604515;   /* Medium Bronze */
+            --card-color-5-start: #302005; /* Even darker bronze/brown */
+            --card-color-5-end: #453010;   /* Muted Bronze */
+
+            /* Button and Border colors derived from primary accents */
+            --ritual-button-primary: #DAA520; /* Gold button */
+            --ritual-button-secondary: #6080B0; /* Muted blue button */
+            --ritual-border-highlight: #FFD700; /* Gold highlight for selected/hover */
+            --ritual-border-subtle: #304050; /* A dark blue-grey that blends well with new palette */
+
+            /* Shadows - subtle and performance-friendly */
+            --ritual-shadow-base: rgba(0, 0, 0, 0.15);
+            --ritual-shadow-card: rgba(0, 0, 0, 0.25);
+            --ritual-shadow-highlight: rgba(255, 215, 0, 0.2); /* Soft gold glow */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--ritual-dark-purple);
+            color: var(--ritual-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: center;
+            overflow-x: hidden;
+            padding: 0;
+            margin: 0;
+        }
+        header {
+            background-color: var(--ritual-dark-purple); /* Solid background for performance */
+            border-bottom: 1px solid var(--ritual-border-subtle);
+            padding: 1rem 2rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 50;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            box-shadow: 0 2px 10px var(--ritual-shadow-base); /* Simpler shadow */
+            box-sizing: border-box;
+        }
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo-fruitful {
+            color: var(--fruitful-corporate-white);
+            font-size: 1.6rem;
+            font-weight: 800;
+            text-decoration: none;
+            transition: color 0.1s ease; /* Shorter transition */
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo-fruitful .separator {
+            color: rgba(255, 255, 255, 0.4); /* Muted white for separator */
+            font-weight: 400;
+        }
+        .logo-fruitful .sector-name {
+            color: var(--ritual-gold-primary); /* Uses new gold variable */
+            font-weight: 600;
+        }
+
+        /* Main Content Section */
+        .content-section {
+            padding-top: 8rem;
+            padding-bottom: 4rem;
+            width: 100%;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            position: relative;
+            overflow: hidden;
+            background-color: var(--ritual-dark-purple); 
+            color: var(--ritual-text);
+        }
+
+        #ritual-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.5; /* Even more subtle opacity */
+        }
+
+        .section-header {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 2rem;
+        }
+        .section-header h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--ritual-gold-primary); /* Uses new gold variable */
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.15); /* Softer glow */
+            margin-bottom: 0.5rem;
+        }
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--ritual-muted-text);
+        }
+
+        /* Brand Cards Grid */
+        .brands-grid {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            width: 100%;
+            padding: 0 1rem;
+        }
+
+        .brand-card {
+            background-color: var(--ritual-card-bg); /* Default fallback */
+            border: 1px solid var(--ritual-border-subtle); /* Uses new subtle border */
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px var(--ritual-shadow-card); /* Simpler shadow */
+            transition: all 0.1s ease-in-out; /* Shorter transition */
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            height: 100%;
+            justify-content: space-between;
+        }
+        /* Dynamic backgrounds will be set by JS */
+        .brand-card:hover {
+            transform: translateY(-2px) scale(1.01); /* Less dramatic hover */
+            box-shadow: 0 4px 12px var(--ritual-shadow-card); /* Softer hover shadow */
+            border-color: var(--ritual-border-highlight); /* Gold highlight on hover */
+        }
+        .brand-card.selected {
+            border-color: var(--ritual-blue-accent); /* Blue highlight for selected */
+            box-shadow: 0 0 0 2px rgba(160, 179, 217, 0.4); /* Softer active shadow */
+        }
+        .brand-card .brand-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--ritual-gold-primary); /* Uses new gold variable */
+        }
+        .brand-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--ritual-text);
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+        .brand-card .cta-button-small {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 0.6rem 1.2rem;
+            background-color: var(--ritual-button-primary); /* Uses new gold button variable */
+            color: white !important;
+            text-decoration: none;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.1s ease-in-out; /* Shorter transition */
+            margin-top: 1rem;
+        }
+        .brand-card .cta-button-small:hover {
+            background-color: #B8860B; /* Darker gold on hover */
+            transform: translateY(-1px);
+        }
+
+        /* Snapshot Details Panel */
+        .brand-snapshot-detail {
+            position: relative;
+            z-index: 1;
+            background-color: var(--ritual-card-bg); /* Uses card background for consistency */
+            border: 1px solid var(--ritual-card-border);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            margin-top: 2rem;
+            max-width: 1200px;
+            width: 100%;
+            box-shadow: 0 4px 15px var(--ritual-shadow-card); /* Simpler shadow */
+            text-align: left;
+            color: var(--ritual-muted-text);
+            animation: fadeIn 0.3s ease-out; /* Faster fade in */
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .brand-snapshot-detail h4 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--ritual-gold-primary); /* Uses new gold variable */
+            margin-bottom: 1rem;
+        }
+        .brand-snapshot-detail .overview-text {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        .brand-snapshot-detail ul {
+            list-style: disc;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--ritual-muted-text);
+        }
+        .brand-snapshot-detail ul li {
+            margin-bottom: 0.5rem;
+        }
+        .brand-snapshot-detail .info-box {
+            background-color: rgba(0, 0, 0, 0.1); /* Lighter opacity */
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Lighter border */
+            border-radius: 0.5rem;
+            padding: 1rem;
+            font-size: 0.9rem;
+            color: var(--ritual-blue-accent); /* Uses new blue accent */
+            margin-top: 1.5rem;
+        }
+        .brand-snapshot-detail .info-box strong {
+            color: var(--ritual-text);
+        }
+        .brand-snapshot-detail .pricing-tier {
+            background-color: rgba(255, 255, 255, 0.02); /* Even less opaque */
+            border: 1px solid rgba(255, 255, 255, 0.05); /* Even less opaque border */
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+        .brand-snapshot-detail .pricing-tier h6 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--ritual-blue-accent); /* Uses new blue accent */
+        }
+        .brand-snapshot-detail .pricing-tier p {
+            font-size: 0.85rem;
+            color: var(--ritual-muted-text);
+        }
+        .brand-snapshot-detail .pricing-tier .cost {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--ritual-gold-primary); /* Uses new gold variable */
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .brand-snapshot-detail .close-btn {
+            background-color: #ff554a; /* Slightly softer red */
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.1s ease;
+            margin-top: 1.5rem;
+            display: inline-block;
+        }
+        .brand-snapshot-detail .close-btn:hover {
+            background-color: #cc443c;
+        }
+
+        /* Footer - Banimal Specific */
+        footer {
+            background-color: #1a1a1a; /* Dark background from Banimal footer */
+            color: white;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            width: 100%;
+            margin-top: auto; /* Pushes footer to the bottom */
+        }
+
+        @media (min-width: 768px) {
+            footer {
+                padding-left: 5rem;
+                padding-right: 5rem;
+            }
+        }
+
+        .banimal-footer-content {
+            max-width: 48rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .banimal-footer-content h1 {
+            font-size: 2rem;
+            line-height: 1.25;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .banimal-footer-content h1 {
+                font-size: 2.25rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .banimal-footer-content h1 {
+                font-size: 3rem;
+            }
+        }
+
+        .banimal-footer-content .text-blue-400 {
+            color: #60a5fa;
+        }
+
+        .banimal-footer-content p {
+            font-size: 1rem;
+            line-height: 1.625;
+            color: #d1d5db;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .banimal-footer-content p {
+                font-size: 1.125rem;
+            }
+        }
+
+        /* Shared CTA button style from Banimal footer */
+        .cta-button {
+            background-color: #3b82f6;
+            color: #ffffff !important; /* Ensure white text */
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition-property: background-color;
+            transition-duration: 0.2s;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            background-color: #2563eb;
+        }
+
+        .cta-button .ml-2 {
+            margin-left: 0.5rem;
+        }
+
+        .copyright {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 2rem;
+        }
+
+        .copyright a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            /* Header adjustments already present */
+
+            /* Footer adjustments for small screens */
+            footer {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+            .banimal-footer-content h1 {
+                font-size: 2.2rem;
+            }
+            .banimal-footer-content p {
+                font-size: 0.9rem;
+            }
+            .cta-button {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+            .copyright {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-group">
+            <a href="https://fruitful.faa.zone/" class="logo-fruitful">
+                Fruitful™ <span class="separator">|</span> <span class="sector-name">Ritual & Culture</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="content-section">
+        <canvas id="ritual-canvas"></canvas>
+        <div class="section-header">
+            <h1>Explore Rituals & Traditions</h1>
+            <p>Discover brands and initiatives harmonizing ancient practices with modern life.</p>
+        </div>
+
+        <div id="brandsGrid" class="brands-grid">
+            <!-- Brand cards will be dynamically loaded here -->
+        </div>
+
+        <div id="brandSnapshotDetail" class="brand-snapshot-detail hidden">
+            <!-- Brand snapshot details will be dynamically loaded here -->
+        </div>
+    </main>
+
+    <!-- START BANIMAL FOOTER -->
+    <footer class="footer-section">
+        <div class="banimal-footer-content text-center max-w-2xl mx-auto">
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight text-white mb-2">
+                Banimal™: <br> 
+                <span class="text-blue-400">🐑Kind Creatures. Global Impact.</span>
+            </h1>
+            <p class="text-base md:text-lg text-gray-300 leading-relaxed mb-6">
+                Discover Banimal's world of thoughtful baby essentials & innovative lighting. For every purchase, we deliver the same item to a child in need, identified by the Baobab Security Network's data-driven insights.
+            </p>
+            <a href="global_brands.html" class="cta-button bg-blue-600 text-white font-semibold py-3 px-6 rounded-full inline-flex items-center justify-center hover:bg-blue-700 transition-colors duration-200">
+                Explore Banimal's World <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+        <p class="copyright text-sm text-gray-500 mt-8">&copy; 👟2025 Banimal™. All rights reserved.</p>
+        <p class="copyright text-sm text-gray-500">A proud initiative of <a href="https://faa.zone/" target="_blank" class="text-blue-400 hover:underline">Fruitful™ Treaty System™</a></p>
+    </footer>
+    <!-- END BANIMAL FOOTER -->
+
+    <script>
+        // Data from the main admin portal, specifically for Ritual & Culture
+        const ALL_SECTOR_DATA_STATIC = {
+            "ritual": {
+                brands: ['RiteNest™', 'PulseSpirit™', 'ClanScroll™', 'CultureGrid™', 'MythLoop™', 'AuraDrop™', 'CeremPath™', 'EchoGlyph™', 'TradVault™', 'LineageClaim™', 'SymbolMap™', 'AncestorSync™', 'SoulPanel™', 'ClanRoot™', 'EchoRitual™', 'TotemCast™', 'RiteClaim™', 'GlyphVault™', 'CultureNest™', 'SpiritBeam™'],
+                subNodes: [
+                    ['TotemTrack', 'VaultSpirit', 'GlyphTag', 'ScrollLoop'],
+                    ['ClanPath', 'EchoTotem', 'PulseMyth', 'ScrollClaim'],
+                    ['CultureCast', 'VaultClaim', 'RiteMark', 'TradEcho'],
+                    ['LoopTotem', 'ClaimClan', 'VaultGlyph', 'SymbolTrack'],
+                    ['MythDrop', 'EchoPath', 'ScrollProof', 'RitualGrid'],
+                    ['AuraTrack', 'VaultCast', 'TotemPanel', 'GlyphEcho'],
+                    ['CeremSync', 'ClaimRite', 'ScrollVault', 'TotemBeam'],
+                    ['GlyphSync', 'SpiritClaim', 'VaultMyth', 'EchoClan'],
+                    ['TradPanel', 'LoopClaim', 'MythTrack', 'VaultCulture'],
+                    ['LineagePath', 'VaultTag', 'EchoGlyph', 'ScrollCast'],
+                    ['SymbolClaim', 'VaultScroll', 'TotemMap', 'ClanNest'],
+                    ['AncestorTag', 'VaultLoop', 'ClaimTotem', 'SpiritRoot'],
+                    ['SoulClaim', 'EchoMyth', 'GlyphPanel', 'VaultRite'],
+                    ['ClanVault', 'MythProof', 'TotemDrop', 'ScrollSpirit'],
+                    ['EchoRitualX', 'ClaimPanel', 'VaultTotem', 'CultureSync'],
+                    ['TotemEcho', 'LoopGlyph', 'VaultClaimX', 'SymbolProof'],
+                    ['ClaimCulture', 'VaultTrad', 'SpiritSync', 'EchoCast'],
+                    ['GlyphVaultX', 'ScrollTag', 'CultureDrop', 'TotemRoot'],
+                    ['NestSpirit', 'PulseClaim', 'VaultEchoX', 'MythPath'],
+                    ['BeamLoop', 'VaultSymbol', 'ScrollRite', 'ClanBeam']
+                ]
+            }
+        };
+
+        const canvas = document.getElementById('ritual-canvas');
+        const ctx = canvas.getContext('2d');
+        let animationFrameId;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        const particles = [];
+        const numParticles = 100; // Reduced particles for performance
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.radius = Math.random() * 1.5 + 1;
+                this.alpha = 0;
+                this.speed = Math.random() * 0.2 + 0.05;
+                this.directionX = Math.random() * 1 - 0.5;
+                this.directionY = Math.random() * 1 - 0.5;
+                
+                // Particle colors for Ritual & Culture explore page (avoiding purple)
+                const colors = [
+                    'rgba(255, 215, 0, ',     // Gold
+                    'rgba(173, 216, 230, ',   // Light Blue
+                    'rgba(0, 200, 200, ',     // Cyan/Aqua (new, non-purple)
+                    'rgba(0, 150, 150, '      // Darker Cyan/Teal (new, non-purple)
+                ];
+                const randomColorIndex = Math.floor(Math.random() * colors.length);
+                this.baseColor = colors[randomColorIndex];
+            }
+
+            update() {
+                this.x += this.directionX * this.speed;
+                this.y += this.directionY * this.speed;
+
+                if (this.alpha < 0.7 && this.speed > 0) { /* Max alpha 0.7 for subtlety */
+                    this.alpha += 0.005;
+                } else if (this.alpha > 0) {
+                    this.alpha -= 0.002;
+                } else {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.alpha = 0;
+                    this.speed = Math.random() * 0.2 + 0.05;
+                    this.directionX = Math.random() * 1 - 0.5;
+                    this.directionY = Math.random() * 1 - 0.5;
+                }
+
+                if (this.x < -this.radius || this.x > canvas.width + this.radius || this.y < -this.radius || this.y > canvas.height + this.radius) {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.alpha = 0;
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.baseColor + this.alpha + ')';
+                ctx.shadowBlur = 5; /* Softer glow */
+                ctx.shadowColor = this.baseColor + (this.alpha * 0.7) + ')'; /* More subtle shadow color */
+                ctx.fill();
+                ctx.shadowBlur = 0;
+            }
+        }
+
+        function initParticles() {
+            for (let i = 0; i < numParticles; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animateCanvas() {
+            ctx.fillStyle = 'rgba(26, 10, 51, 0.01)'; /* Very subtle dark purple overlay for clearing */
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+            }
+
+            animationFrameId = requestAnimationFrame(animateCanvas);
+        }
+
+        window.onload = function() {
+            initParticles();
+            animateCanvas();
+        };
+
+        // --- Brand Display and Snapshot Logic ---
+        const brandsGrid = document.getElementById('brandsGrid');
+        const brandSnapshotDetail = document.getElementById('brandSnapshotDetail');
+        let currentSelectedBrandCard = null;
+
+        // Define a pool of subtle background gradients for cards (NEW - AVOIDING PURPLE)
+        const cardBackgrounds = [
+            'linear-gradient(135deg, var(--card-color-1-start), var(--card-color-1-end))',
+            'linear-gradient(135deg, var(--card-color-2-start), var(--card-color-2-end))',
+            'linear-gradient(135deg, var(--card-color-3-start), var(--card-color-3-end))',
+            'linear-gradient(135deg, var(--card-color-4-start), var(--card-color-4-end))',
+            'linear-gradient(135deg, var(--card-color-5-start), var(--card-color-5-end))'
+        ];
+
+        function generateBrandSnapshotContent(sectorKey, brandName, subnodes) {
+            const sectorDisplayName = "Ritual & Culture"; 
+
+            const introVariations = [
+                `a profound initiative within the FAA.ZONE ${sectorDisplayName} sector, dedicated to preserving and evolving timeless traditions. It integrates seamlessly with the global PulseGrid for authentic cultural data flows.`,
+                `the premier FAA.ZONE platform, empowering ${sectorDisplayName} practices globally. Leveraging the PulseGrid, it offers robust insights into cultural heritage and spiritual expressions.`,
+                `an innovative FAA.ZONE protocol, specifically engineered to harmonize ancient wisdom with modern digital life in the ${sectorDisplayName} domain. Its deep integration with the PulseGrid ensures secure, real-time cultural exchange and profound understanding.`,
+                `a powerful FAA.ZONE framework amplifying the reach and impact of ${sectorDisplayName} worldwide. It connects effortlessly to the PulseGrid for optimized knowledge sharing and authentic engagement.`
+            ];
+            const randomIntro = introVariations[Math.floor(Math.random() * introVariations.length)];
+
+            const coreFeatures = [
+                `Direct integration with FAA ⚖️ Justice & Ethics Mesh for cultural preservation.`,
+                `Advanced lineage tracking with ${Array.isArray(subnodes) && subnodes.length > 0 ? subnodes[0] : 'core ceremonial nodes'}.`,
+                `Real-time authenticity validation via OmniSignal™ (${sectorKey} specific).`,
+                `Scalable architecture for x${Math.ceil(Math.random() * 20) + 5} cultural node expansion.`,
+                `AI-driven anomaly detection in ritual data for integrity.`,
+                `Community-governed protocol for inclusive heritage sharing.`
+            ];
+
+            const additionalFeaturesPool = [
+                `Cross-cultural knowledge exchange.`, `Soul-aligned AI algorithms for ethical insights.`, `Self-organizing community nodes for organic growth.`, `Digital artifact provenance and royalty enforcement.`, `Customizable spiritual dashboards and alert systems.`, `Secure multi-generational wisdom transmission.`, `Dynamic resource allocation for cultural initiatives.`, `Blockchain-secured ritual provenance.`
+            ];
+            const selectedAdditionalFeatures = [];
+            const tempAdditionalFeatures = [...additionalFeaturesPool];
+            for (let i = 0; i < Math.floor(Math.random() * 3) + 3; i++) {
+                if (tempAdditionalFeatures.length > 0) {
+                    const randomIndex = Math.floor(Math.random() * tempAdditionalFeatures.length);
+                    selectedAdditionalFeatures.push(tempAdditionalFeatures.splice(randomIndex, 1)[0]);
+                }
+            }
+            
+            const subnodeFeatures = Array.isArray(subnodes) ? subnodes.map(n => `<li>Subnode: ${n}</li>`) : [];
+            const allFeatures = [...coreFeatures, ...selectedAdditionalFeatures];
+
+            const baseFCU = Math.round(Math.random() * 50 + 50);
+            const proFCU = Math.round(baseFCU * (Math.random() * 2 + 2));
+            const enterpriseFCU = 'Custom pricing';
+
+            const pricingTiers = [
+                { name: "Initiate Node", cost: `FCU ${baseFCU}/mo`, description: "Connect to the basic cultural grid. Access essential practices and secure foundational knowledge.", benefits: ["Essential access", "Basic sync", "Community support"] },
+                { name: "Elder Grid", cost: `FCU ${proFCU}/mo`, description: `For those deepening their understanding. Includes ${Math.ceil(Math.random() * 5 + 3)} core features and enhanced spiritual data flows.`, benefits: ["Advanced insights", "High-volume cultural data", "Priority support", "Expanded analytics"] },
+                { name: "Ancestral Omni-Sync", cost: enterpriseFCU, description: "For institutions and large communities requiring full VaultMesh integration, custom wisdom exchanges, and dedicated resources.", benefits: ["Full VaultMesh access", "Dedicated cultural management", "Custom integrations", "24/7 Sacred Support"] }
+            ];
+
+            const metadata = {
+                id: `${brandName.slice(0, 3).toUpperCase().replace(/[^A-Z0-9]/g, '')}-RIT-${Math.floor(Math.random() * 9000) + 1000}`,
+                vault: `VAULT-${Math.random().toString(36).substring(2, 6).toUpperCase()}`,
+                layer: `Ritual Layer v${(Math.random() * 2 + 1).toFixed(1)}`,
+                deploymentZone: `Realm ${String.fromCharCode(65 + Math.floor(Math.random() * 5))} ${Math.floor(Math.random() * 10) + 1}`,
+                securityRating: `FAA-SEC ${['A+', 'A', 'B+'][Math.floor(Math.random() * 3)]}`,
+                activeNodes: Math.floor(Math.random() * 500) + 50
+            };
+
+            const recentActivity = [
+                `#${Math.floor(Math.random() * 9999)} - ${brandName.slice(0,5).toUpperCase().replace(/[^A-Z0-9]/g, '')} Soul Pulse - ${Math.random() > 0.5 ? 'Harmonized' : 'Resonance Detected'}`,
+                `#${Math.floor(Math.random() * 9999)} - ${sectorKey.slice(0,5).toUpperCase().replace(/[^A-Z0-9]/g, '')} Wisdom Sync - ${Math.random() > 0.5 ? 'Completed' : 'Seeking Alignment'}`,
+                `#${Math.floor(Math.random() * 9999)} - Tradition Node Activation - ${Math.random() > 0.5 ? 'Vibrating' : 'Meditating'}`,
+                `#${Math.floor(Math.random() * 9999)} - GlyphTrace Audit - ${Math.random() > 0.5 ? 'Pure Resonance' : 'Attunement Required'}`
+            ];
+
+            return `
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-extrabold text-white">✨ ${brandName}™ Core Protocol Overview</h4>
+                        <p class="overview-text leading-relaxed">
+                            ${brandName}™ is ${randomIntro}
+                        </p>
+                        <div>
+                            <h5 class="text-xl font-semibold text-white border-b border-gray-700 pb-2 mb-3">🎛️ Key Features</h5>
+                            <ul class="list-disc list-inside ml-4 space-y-2 text-sm text-gray-300">
+                                ${allFeatures.map(f => `<li>${f}</li>`).join("")}
+                                ${subnodeFeatures.join("")}
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="text-xl font-semibold text-white border-b border-gray-700 pb-2 mb-3">💳 Tiered Access</h5>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                                ${pricingTiers.map(tier => `
+                                    <div class="pricing-tier p-4 rounded-lg flex flex-col justify-between">
+                                        <h6 class="font-bold text-lg">${tier.name}</h6>
+                                        <p class="cost my-2">${tier.cost}</p>
+                                        <p class="text-xs mb-2">${tier.description}</p>
+                                        <ul class="text-xs list-disc list-inside ml-3">
+                                            ${tier.benefits.map(b => `<li>${b}</li>`).join('')}
+                                        </ul>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h5 class="text-xl font-semibold text-white border-b border-gray-700 pb-2 mb-3">🔗 FAA Metadata & Attunement</h5>
+                        <ul class="list-disc list-inside ml-4 space-y-2 text-sm text-gray-300">
+                            <li><strong>Initiative ID:</strong> <code class="text-gray-400">${metadata.id}</code></li>
+                            <li><strong>Sacred Vault:</strong> <code class="text-gray-400">${metadata.vault}</code></li>
+                            <li><strong>OmniSignal Layer:</strong> <code class="text-gray-400">${metadata.layer}</code></li>
+                            <li><strong>Spiritual Deployment Zone:</strong> <code class="text-gray-400">${metadata.deploymentZone}</code></li>
+                            <li><strong>Resonance Security Rating:</strong> <span class="font-bold text-green-400">${metadata.securityRating}</span></li>
+                            <li><strong>Active Aligned Nodes:</strong> <code class="text-gray-400">${metadata.activeNodes.toLocaleString()}</code></li>
+                            <li><strong>Last Attunement Audit:</strong> <code class="text-gray-400">${new Date(Date.now() - Math.floor(Math.random() * 30 * 24 * 60 * 60 * 1000)).toISOString().slice(0, 10)}</code></li>
+                            <li><strong>Harmonic Compliance:</strong> <span class="font-bold text-green-400">Certified & Aligned</span></li>
+                        </ul>
+                        <div class="info-box shadow-inner">
+                            <h6 class="font-bold mb-2 text-white">📊 Real-Time Pulse & Resonance Metrics:</h6>
+                            <p><strong class="text-yellow-400">Current Ritual Pulse Activity:</strong> ${Math.floor(Math.random() * 100000).toLocaleString()} pulses/sec</p>
+                            <p><strong class="text-yellow-400">Wisdom Flow Processed (24h):</strong> ${(Math.random() * 50).toFixed(2)} TB</p>
+                            <p><strong class="text-yellow-400">Latency Average (Inter-Realm):</strong> ${Math.floor(Math.random() * 100) + 10} ms</p>
+                        </div>
+                        <div class="info-box shadow-inner">
+                            <h6 class="font-bold mb-2 text-white">GhostTrace™ Ledger Entries (Recent Harmonizations):</h6>
+                            <ul class="list-none space-y-1">
+                                ${recentActivity.map(log => `<li><code class="text-gray-400">${log}</code></li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <button onclick="hideBrandSnapshot()" class="close-btn">Close Snapshot</button>
+                </div>
+            `;
+        }
+
+        function displayBrands() {
+            const ritualData = ALL_SECTOR_DATA_STATIC['ritual'];
+            if (!ritualData || !ritualData.brands || !ritualData.subNodes) {
+                brandsGrid.innerHTML = '<p class="text-red-400">Error: Ritual & Culture data not found.</p>';
+                return;
+            }
+
+            brandsGrid.innerHTML = ''; // Clear existing content
+
+            ritualData.brands.forEach((brandName, index) => {
+                const brandCard = document.createElement('div');
+                brandCard.classList.add('brand-card');
+
+                // Apply a random background gradient from the pool (NEW palette)
+                const randomGradient = cardBackgrounds[Math.floor(Math.random() * cardBackgrounds.length)];
+                brandCard.style.background = randomGradient;
+                brandCard.style.borderColor = `var(--ritual-border-subtle)`;
+
+
+                brandCard.innerHTML = `
+                    <div class="flex flex-col items-center">
+                        <span class="brand-icon">☯</span> <!-- Generic icon, could be dynamic -->
+                        <h3>${brandName}</h3>
+                    </div>
+                    <button class="cta-button-small" data-brand="${brandName}" data-index="${index}">
+                        View Details <i class="fas fa-chevron-right"></i>
+                    </button>
+                `;
+                brandCard.querySelector('button').addEventListener('click', (e) => {
+                    const clickedBrandName = e.currentTarget.dataset.brand;
+                    const clickedIndex = parseInt(e.currentTarget.dataset.index);
+                    const subnodes = ritualData.subNodes[clickedIndex] || [];
+                    showBrandSnapshot(clickedBrandName, subnodes, e.currentTarget.closest('.brand-card'));
+                });
+                brandsGrid.appendChild(brandCard);
+            });
+        }
+
+        function showBrandSnapshot(brandName, subnodes, clickedCard) {
+            // Remove 'selected' from previously selected card
+            if (currentSelectedBrandCard) {
+                currentSelectedBrandCard.classList.remove('selected');
+            }
+            
+            // Add 'selected' to the newly clicked card
+            if (clickedCard) {
+                clickedCard.classList.add('selected');
+                currentSelectedBrandCard = clickedCard;
+            }
+
+            brandSnapshotDetail.innerHTML = generateBrandSnapshotContent('ritual', brandName, subnodes);
+            brandSnapshotDetail.classList.remove('hidden');
+            brandSnapshotDetail.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function hideBrandSnapshot() {
+            brandSnapshotDetail.classList.add('hidden');
+            if (currentSelectedBrandCard) {
+                currentSelectedBrandCard.classList.remove('selected');
+                currentSelectedBrandCard = null;
+            }
+            // Optionally scroll back to the top of the grid or section
+            brandsGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            displayBrands();
+        });
+    </script>
+    <script src="../../omnigrid-app.js" data-concept="1"></script>
+</body>
+</html>

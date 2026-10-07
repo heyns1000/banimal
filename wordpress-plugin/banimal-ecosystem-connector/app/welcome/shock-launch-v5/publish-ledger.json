@@ -1,0 +1,72 @@
+{
+ "source": "heyns1000/banimal",
+ "sourceCommit": "fd55f5306a882a70bb35206a29381703a14a7f46",
+ "version": "v5",
+ "pulled_at": "2026-10-05T18:20:49Z",
+ "frozen": "merged versions are frozen in banimal; changes start a new version there",
+ "files": [
+  {
+   "published": "welcome/shock-launch-v5/i18n.js",
+   "source": "docs/welcome/shock-launch-v5/i18n.js",
+   "gitBlobSha": "441712449d86b31704d846bc0775705c07d59547",
+   "sha256": "d1872512cdb84f3798120fdcfe80c6d230b8e47ebc38d150714209b24e331734",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "welcome/shock-launch-v5/index.html",
+   "source": "docs/welcome/shock-launch-v5/index.html",
+   "gitBlobSha": "7b58c335a07692de2acbf6f0702e35ddf5ff56c8",
+   "sha256": "8abecf7b500fe8f9e61cb2dcb9fb783dcca42573104b5d4d2fbf34675f4a494d",
+   "action": "copied; one line added before </body>: OmniGrid router (data-shock)"
+  },
+  {
+   "published": "welcome/shock-launch-v5/script.js",
+   "source": "docs/welcome/shock-launch-v5/script.js",
+   "gitBlobSha": "72d6965e57b89b7d084a008aa847a0b14d541b06",
+   "sha256": "62a78287d23b2336609e9aafce0fe8623ba32f0282074efd2859eddb3f3d3427",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "welcome/shock-launch-v5/style.css",
+   "source": "docs/welcome/shock-launch-v5/style.css",
+   "gitBlobSha": "7d28ada900b41f93446856742349f4a469da719f",
+   "sha256": "0634ff8bc5d2cb9a50c405423f677afd630a60c3e86bbdb40b55b1c1073ae05b",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "welcome/shock-launch-v5/assets/fox-core-glassy.png",
+   "source": "docs/welcome/shock-launch-v5/assets/fox-core-glassy.png",
+   "gitBlobSha": "657c3af2835e568c005e3d375a229f1d48362ab1",
+   "sha256": "67a7431d3ec782869a267c178c219342dcb931a09ee7fa6be15f1f4168a44527",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "welcome/shock-launch-v5/assets/portal-01.jpg",
+   "source": "docs/welcome/shock-launch-v5/assets/portal-01.jpg",
+   "gitBlobSha": "b702bc50f66cbf8cf563280707126cff11580ec9",
+   "sha256": "42f109670790b004e372b642aaa90fdd2817d259008c06c2d05946c83c5da40e",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "welcome/shock-launch-v5/assets/portal-02.jpg",
+   "source": "docs/welcome/shock-launch-v5/assets/portal-02.jpg",
+   "gitBlobSha": "1975a584460fdb864e553ebcbca7f4947ef6b95f",
+   "sha256": "955eb7015e7d9774186bb7e02fd9c0c14836fe44a0b68f7471752c3ac419e588",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "welcome/shock-launch-v5/assets/portal-03.jpg",
+   "source": "docs/welcome/shock-launch-v5/assets/portal-03.jpg",
+   "gitBlobSha": "61a67d2baf7f8994dfbef8a035532c7a5ab37193",
+   "sha256": "d7021175f44aaad51c890b685d02e88d3106b2246e4cf1350ab6d0b061b84beb",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "welcome/shock-launch-v5/assets/shock-launch.png",
+   "source": "docs/welcome/shock-launch-v5/assets/shock-launch.png",
+   "gitBlobSha": "e48020887acf58e6d33db854ffd86ea196e6f105",
+   "sha256": "d6bcd64a2f48e49b0a827c7deae29752443267d4fcd850ff9f3ae07f8771991e",
+   "action": "copied unchanged"
+  }
+ ]
+}

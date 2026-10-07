@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>📊 FAA Payroll Dashboard — Real-Time Ops</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .glow-btn:hover { transform: translateY(-2px) scale(1.05); box-shadow: 0 4px 15px rgba(255,255,255,0.3); }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 tracking-tight">
+
+<!-- HEADER -->
+<header class="bg-white shadow p-6 flex justify-between items-center">
+  <div>
+    <h1 class="text-3xl font-extrabold text-indigo-700">📊 FAA Payroll OS – Shift + CTC Dashboard</h1>
+    <p class="text-sm text-gray-500">Live Grid • Role Vault Sync • FAA Time Drift Engine</p>
+  </div>
+  <div class="flex gap-3 text-sm">
+    <a href="../../../index.html" class="px-4 py-2 bg-blue-500 text-white rounded glow-btn">Home</a>
+    <a href="../../../features.html" class="px-4 py-2 bg-gray-600 text-white rounded glow-btn">Features</a>
+    <a href="../../../contact.html" class="px-4 py-2 bg-green-600 text-white rounded glow-btn">Support</a>
+  </div>
+</header>
+
+<!-- DASH NAVIGATION -->
+<nav class="bg-gray-100 flex gap-6 px-6 py-3 text-sm overflow-x-auto whitespace-nowrap">
+  <a href="#overview" class="text-indigo-700 font-semibold hover:-translate-y-1 hover:scale-105">🏁 Overview</a>
+  <a href="#ctc-flow" class="hover:text-indigo-600 hover:-translate-y-1 hover:scale-105">💰 CTC Flow</a>
+  <a href="#shifts" class="hover:text-indigo-600 hover:-translate-y-1 hover:scale-105">🕒 Shift Logs</a>
+  <a href="#alerts" class="hover:text-indigo-600 hover:-translate-y-1 hover:scale-105">⚠️ Risk Alerts</a>
+  <a href="#charts" class="hover:text-indigo-600 hover:-translate-y-1 hover:scale-105">📈 Trend Visuals</a>
+  <a href="#vault" class="hover:text-indigo-600 hover:-translate-y-1 hover:scale-105">🔐 Vault Status</a>
+</nav>
+
+<!-- DASHBOARD GRID BLOCKS -->
+<section class="w-full px-6 pt-10">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="bg-white rounded shadow p-4 text-center hover:bg-indigo-50 transition">
+      <h3 class="text-md font-bold text-gray-700">🧞 Total Payslips</h3>
+      <p class="mt-1 font-semibold text-indigo-600 text-lg">18,392</p>
+    </div>
+    <div class="bg-white rounded shadow p-4 text-center hover:bg-indigo-50 transition">
+      <h3 class="text-md font-bold text-gray-700">⚙️ Vaults Active</h3>
+      <p class="mt-1 font-semibold text-indigo-600 text-lg">94%</p>
+    </div>
+    <div class="bg-white rounded shadow p-4 text-center hover:bg-indigo-50 transition">
+      <h3 class="text-md font-bold text-gray-700">⏱ Drift Events</h3>
+      <p class="mt-1 font-semibold text-red-600 text-lg">412</p>
+    </div>
+    <div class="bg-white rounded shadow p-4 text-center hover:bg-indigo-50 transition">
+      <h3 class="text-md font-bold text-gray-700">💵 Avg. CTC Delta</h3>
+      <p class="mt-1 font-semibold text-green-600 text-lg">+R2,081</p>
+    </div>
+  </div>
+</section>
+
+<!-- SHIFT ANALYTICS + CTC PANEL -->
+<section id="shifts" class="w-full px-6 pt-6">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="bg-white p-6 rounded shadow">
+      <h3 class="text-lg font-bold text-gray-700">🕒 Shift Overlap Timeline</h3>
+      <p class="text-sm text-gray-500">Detects shift misalignment, ghost overlaps, and break drift zones.</p>
+      <div class="h-72 mt-4">
+        <canvas id="shiftTimelineChart" class="w-full h-full"></canvas>
+      </div>
+    </div>
+
+    <div class="bg-white p-6 rounded shadow">
+      <h3 class="text-lg font-bold text-gray-700">💰 CTC Drift Matrix</h3>
+      <p class="text-sm text-gray-500">Heatmap of total monthly drift vs contractual expected values.</p>
+      <div class="h-72 mt-4">
+        <canvas id="ctcDriftChart" class="w-full h-full"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLACEHOLDER CHART BLOCKS -->
+<section id="charts" class="w-full px-6 pt-12 pb-16">
+  <div class="bg-white p-6 rounded shadow">
+    <h2 class="text-xl font-bold text-gray-700">📉 Payroll Flow Chart</h2>
+    <div class="h-96 mt-4">
+      <canvas id="payrollChart" class="w-full h-full"></canvas>
+    </div>
+  </div>
+</section>
+
+<script type="module">
+document.addEventListener('DOMContentLoaded', () => {
+  const ctx = document.getElementById('payrollChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+      datasets: [
+        {
+          label: 'Total Payout (Rands)',
+          data: [18200000, 19100000, 19750000, 20300000, 21100000, 22400000],
+          borderColor: 'rgba(99,102,241,1)',
+          fill: false,
+          tension: 0.4
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom' }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: { callback: v => 'R' + v.toLocaleString() }
+        }
+      }
+    }
+  });
+});
+</script>
+
+<footer class="text-center text-xs text-gray-400 mt-16 py-6 border-t">
+  FAA.Zone Payroll Grid · VaultSynced · Compliant ⒲ 2025
+</footer>
+
+    <script src="../../../omnigrid-app.js" data-concept="1"></script>
+</body>
+</html>

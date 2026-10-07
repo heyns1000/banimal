@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cornex™ Dashboard – Housing Sector | FAA.Zone</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    .glow-btn:hover { transform: translateY(-2px) scale(1.05); box-shadow: 0 4px 15px rgba(255,255,255,0.3); }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 tracking-tight">
+
+<!-- HEADER + NAV -->
+<header class="bg-white shadow p-6 flex justify-between items-center">
+  <div>
+    <h1 class="text-3xl font-extrabold text-indigo-700">🏛️ Cornex™ Housing Sector Dashboard</h1>
+    <p class="text-sm text-gray-500">FAA.Zone Sovereign Scrolls · Housing Infrastructure Grid</p>
+  </div>
+  <div class="flex gap-3 text-sm">
+    <a href="owner-login.html" class="px-4 py-2 bg-blue-500 text-white rounded glow-btn">Owner Login</a>
+    <a href="hardware-login.html" class="px-4 py-2 bg-gray-600 text-white rounded glow-btn">Hardware Login</a>
+    <a href="distributor-login.html" class="px-4 py-2 bg-green-500 text-white rounded glow-btn">Distributor Login</a>
+  </div>
+</header>
+
+<!-- SUBNAV -->
+<nav class="bg-gray-100 flex flex-col gap-3 px-6 py-3 text-sm overflow-x-auto whitespace-nowrap">
+  <div class="flex gap-6">
+    <a href="quick-view.html" class="hover:text-indigo-600">Quick View</a>
+    <a href="pulse-monitor.html" class="hover:text-indigo-600">Pulse Monitor</a>
+    <a href="cornex-dashboard.html" class="text-indigo-700 font-semibold">Sales Dashboard</a>
+    <a href="ethics.html" class="hover:text-indigo-600">Ethics</a>
+    <a href="clause-index.html" class="hover:text-indigo-600">Clause Index</a>
+    <a href="node-reports.html" class="hover:text-indigo-600">Node Reports</a>
+    <a href="licensing.html" class="hover:text-indigo-600">Licensing</a>
+    <a href="cornex-ecosystem.html" class="hover:text-green-600 font-semibold">🌱 Ecosystem</a>
+    <a href="cornex-ai.html" class="hover:text-purple-600 font-semibold">🧠 AI Systems</a>
+    <!-- Add this to your dashboard subnav or grid -->
+<a href="cornex-brands.html" class="px-5 py-3 bg-indigo-600 text-white font-bold rounded hover:bg-indigo-700 glow-btn text-center">
+  🎨 Explore Cornex™ Brands
+</a>
+
+  </div>
+
+  <div class="text-xs text-gray-400 mt-2">
+    FAA.Zone Sovereign Scrolls · VaultMesh · TreatyMesh Validated
+  </div>
+</nav>
+
+
+<!-- PULSE CHART -->
+<section class="max-w-7xl mx-auto px-6 py-8">
+  <div class="bg-white p-6 rounded shadow">
+    <h2 class="text-xl font-bold text-gray-700">📈 Cornex™ 9-Province Sales Pulse</h2>
+    <p class="text-sm text-gray-500">Simulated sales turnover across RSA provincial grid.</p>
+    <div class="h-96">
+      <canvas id="pulseChart" class="w-full h-full"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- GRID METRICS -->
+<section class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-6 py-8">
+  <a href="top-provinces.html" class="bg-white p-5 rounded shadow text-center hover:bg-yellow-50">
+    <h3 class="text-md font-bold text-gray-700">🏆 Top Provinces</h3>
+    <p>🥇 Gauteng</p>
+    <p>🥈 Western Cape</p>
+    <p>🥉 KwaZulu-Natal</p>
+  </a>
+
+  <a href="avg-hardware-purchase.html" class="bg-white p-5 rounded shadow text-center hover:bg-yellow-50">
+    <h3 class="text-md font-bold text-gray-700">🔧 Avg Hardware Purchase</h3>
+    <p>~R12,500</p>
+  </a>
+
+  <a href="avg-unit-price.html" class="bg-white p-5 rounded shadow text-center hover:bg-yellow-50">
+    <h3 class="text-md font-bold text-gray-700">🛒 Avg Unit Price</h3>
+    <p>EPS Cornice: ~R10.74</p>
+  </a>
+
+  <a href="payment-terms.html" class="bg-white p-5 rounded shadow text-center hover:bg-yellow-50">
+    <h3 class="text-md font-bold text-gray-700">📈 Payment Terms</h3>
+    <p>COD: 70%</p>
+    <p>30 Days: 20%</p>
+    <p>Aged (60+): 10%</p>
+  </a>
+</section>
+
+<!-- BRAND VALUATION SNAPSHOT -->
+<section class="bg-white p-8 rounded-lg shadow space-y-10">
+  <h2 class="text-2xl font-bold text-gray-800 flex items-center gap-2">
+    💰 Cornex™ Brand Layer Snapshot
+  </h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    <a href="https://faa.zone/sectors/housing/cornex/cornex-brands" class="flex flex-col justify-center items-center bg-gray-50 rounded-lg p-6 shadow hover:bg-indigo-50 transition">
+      <div class="text-xl font-bold text-indigo-600 flex items-center gap-2">✏️ TrimStyle™</div>
+      <div class="text-sm text-gray-500 mt-2">Premium Cornice Design</div>
+    </a>
+
+    <a href="https://faa.zone/sectors/housing/cornex/cornex-brands" class="flex flex-col justify-center items-center bg-gray-50 rounded-lg p-6 shadow hover:bg-indigo-50 transition">
+      <div class="text-xl font-bold text-blue-600 flex items-center gap-2">🔮 DesignAura™</div>
+      <div class="text-sm text-gray-500 mt-2">Virtual Interior Styling</div>
+    </a>
+
+    <a href="https://faa.zone/sectors/housing/cornex/cornex-brands" class="flex flex-col justify-center items-center bg-gray-50 rounded-lg p-6 shadow hover:bg-indigo-50 transition">
+      <div class="text-xl font-bold text-green-600 flex items-center gap-2">🧩 CorniceCraft™</div>
+      <div class="text-sm text-gray-500 mt-2">Custom Manufacturing</div>
+    </a>
+
+    <a href="https://faa.zone/sectors/housing/cornex/cornex-brands" class="flex flex-col justify-center items-center bg-gray-50 rounded-lg p-6 shadow hover:bg-indigo-50 transition">
+      <div class="text-xl font-bold text-pink-600 flex items-center gap-2">🧱 CeilingTech™</div>
+      <div class="text-sm text-gray-500 mt-2">Ceiling Systems & Panels</div>
+    </a>
+
+  </div>
+</section>
+
+
+  <!-- FACTORY SETUP CTA BLOCK -->
+<section class="max-w-7xl mx-auto px-6 py-8">
+  <a href="cornex-factory.html" class="block bg-white p-6 rounded shadow hover:bg-indigo-50 text-center">
+    <h2 class="text-xl font-bold text-indigo-700">🏭 Cornex™ Factory Setup</h2>
+    <p class="text-sm text-gray-600 mt-2">View Asset Transfer, Timeline & Ownership Benefits</p>
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center text-xs text-gray-400 mt-16 py-6 border-t">
+  FAA.Zone Sovereign Scrolls · VaultMesh · TreatyMesh Validated
+</footer>
+
+<!-- SALES PULSE CHART SCRIPT -->
+<script type="module">
+document.addEventListener('DOMContentLoaded', () => {
+  const ctx = document.getElementById('pulseChart').getContext('2d');
+  const provinces = ['Gauteng', 'Western Cape', 'KwaZulu-Natal', 'Eastern Cape', 'Limpopo', 'Mpumalanga', 'North West', 'Free State', 'Northern Cape'];
+  const baseTurnovers = [2572306, 2338460, 2125873, 1932612, 1756920, 1597200, 1452000, 1320000, 1200000];
+
+  const salesData = {
+    labels: [],
+    datasets: provinces.map((prov, idx) => ({
+      label: prov,
+      data: [],
+      borderColor: `hsl(${idx * 40}, 70%, 50%)`,
+      borderWidth: 2,
+      fill: false,
+      tension: 0.4
+    }))
+  };
+
+  const chart = new Chart(ctx, {
+    type: 'line',
+    data: salesData,
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      animation: false,
+      scales: {
+        y: { min: 1000000, max: 3000000, ticks: { callback: v => 'R' + (v / 1000).toFixed(0) + 'k' } }
+      },
+      plugins: { legend: { position: 'bottom' } }
+    }
+  });
+
+  function pushData() {
+    const now = new Date().toLocaleTimeString();
+    if (salesData.labels.length > 30) {
+      salesData.labels.shift();
+      salesData.datasets.forEach(d => d.data.shift());
+    }
+    salesData.labels.push(now);
+    salesData.datasets.forEach((d, idx) => {
+      d.data.push(baseTurnovers[idx] + Math.random() * 30000 - 15000); 
+    });
+    chart.update();
+  }
+
+  pushData();
+  setInterval(pushData, 3000);
+});
+</script>
+
+    <script src="../../../omnigrid-app.js" data-concept="1"></script>
+</body>
+</html>
+

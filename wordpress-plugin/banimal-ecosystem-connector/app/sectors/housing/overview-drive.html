@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>🏛️ Housing Sector – FAA.Zone</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f7;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .nav {
+      margin-top: 30px;
+    }
+    .nav a {
+      display: block;
+      margin: 10px 0;
+      background: #0056b3;
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+    .nav a:hover {
+      background: #003d80;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>🏛️ Housing Sector</h1>
+  <p>Explore Cornex™ projects, factories, brands, and scalable infrastructure under FAA.Zone.</p>
+
+  <div class="nav">
+    <!-- Updated path to match correct directory structure -->
+    <a href="cornex/cornex-dashboard.html">🚀 Cornex™ Private Label Dashboard</a>
+    <!-- Added FAA Real Estate AI link with correct path -->
+    <a href="realestate/dashboard.html">🏡 FAA Real Estate AI™ Dashboard</a>
+  </div>
+
+</div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAA Real Estate AI™ | South Africa Valuation Sync</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://cdn.jsdelivr.net/npm/prop-types@15.8.1/prop-types.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/recharts@2.7.2/umd/Recharts.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-900">
+
+<!-- 🏡 HEADER -->
+<section class="bg-gradient-to-br from-green-800 to-blue-900 text-white py-16 text-center">
+  <h1 class="text-5xl font-extrabold">🏡 FAA Real Estate AI™</h1>
+  <p class="mt-4 max-w-2xl mx-auto text-lg opacity-80">
+    AI-Powered Valuations · Mortgage Risk Engine · FAA VaultMint™ Sync Grid
+  </p>
+</section>
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>🍇Fruitful™ Dashboard – Housing Sector | FAA.Zone</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    .glow-btn:hover { transform: translateY(-2px) scale(1.05); box-shadow: 0 4px 15px rgba(255,255,255,0.3); }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 tracking-tight">
+
+<!-- HEADER + NAV -->
+<header class="bg-white shadow p-6 flex justify-between items-center">
+  <div>
+    <h1 class="text-3xl font-extrabold text-indigo-700">🍇 Fruitful™ Housing Sector Dashboard</h1>
+    <p class="text-sm text-gray-500">FAA.Zone Sovereign Scrolls · Housing Infrastructure Grid</p>
+  </div>
+  <div class="flex gap-3 text-sm">
+    <a href="owner-login.html" class="px-4 py-2 bg-blue-500 text-white rounded glow-btn">Owner Login</a>
+    <a href="hardware-login.html" class="px-4 py-2 bg-gray-600 text-white rounded glow-btn">Realtor login</a>
+    <a href="distributor-login.html" class="px-4 py-2 bg-green-500 text-white rounded glow-btn">Agent Login</a>
+  </div>
+</header>
+
+<!-- SUBNAV -->
+<nav class="bg-gray-100 flex gap-6 px-6 py-3 text-sm overflow-x-auto whitespace-nowrap">
+  <a href="quick-view.html" class="hover:text-indigo-600">Quick View</a>
+  <a href="pulse-monitor.html" class="hover:text-indigo-600">Pulse Monitor</a>
+  <a href="cornex-dashboard.html" class="text-indigo-700 font-semibold">Sales Dashboard</a>
+  <a href="ethics.html" class="hover:text-indigo-600">Ethics</a>
+  <a href="clause-index.html" class="hover:text-indigo-600">Clause Index</a>
+  <a href="node-reports.html" class="hover:text-indigo-600">Node Reports</a>
+  <a href="licensing.html" class="hover:text-indigo-600">Licensing</a>
+  <a href="cornex-ecosystem.html" class="hover:text-green-600 font-semibold">🌱 Ecosystem</a>
+  <a href="#valuation" class="text-blue-700 hover:underline font-semibold text-sm">Valuation AI</a>
+  <a href="#mortgage" class="text-blue-700 hover:underline font-semibold text-sm">Mortgage Grid</a>
+  <a href="#forecast" class="text-blue-700 hover:underline font-semibold text-sm">Market Forecast</a>
+</nav>
+
+<!-- 🧠 LIVE AI GRID -->
+<div id="root" class="max-w-7xl mx-auto px-6"></div>
+
+<script type="text/babel">
+const { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } = window.Recharts;
+const generateData = (base) => {
+  const now = Date.now();
+  return Array.from({ length: 9 }, (_, i) => ({
+    time: new Date(now - (9 - i) * 1000).toLocaleTimeString(),
+    value: +(base + (Math.random() - 0.5) * 2.3).toFixed(2)
+  }));
+};
+
+const sectors = [
+  { id: 'val-ai', title: 'Real-Time Valuation AI', color: '#10b981', base: 1522.6 },
+  { id: 'mort-risk', title: 'Mortgage Risk Grid', color: '#f59e0b', base: 0.85 },
+  { id: 'forecast', title: 'Market Trend Forecasting', color: '#3b82f6', base: 5.2 },
+];
+
+function Dashboard() {
+  const [metrics, setMetrics] = React.useState(
+    sectors.map(s => ({ ...s, data: generateData(s.base) }))
+  );
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setMetrics(sectors.map(s => ({ ...s, data: generateData(s.base) })));
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-12">
+      {metrics.map(({ id, title, color, data }) => (
+        <div key={id} className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h3 className="text-xl font-bold mb-2">{title}</h3>
+          <ResponsiveContainer width="100%" height={160}>
+            <LineChart data={data}>
+              <XAxis dataKey="time" hide />
+              <YAxis domain={['auto', 'auto']} hide />
+              <Tooltip formatter={v => `${v.toLocaleString()} units`} />
+              <Line type="monotone" dataKey="value" stroke={color} strokeWidth={3} dot={false} />
+            </LineChart>
+          </ResponsiveContainer>
+          <button className="mt-4 w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700 transition">
+            Launch {title.split(' ')[0]} Engine
+          </button>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<Dashboard />);
+</script>
+
+<!-- 📊 MARKET ENGINE + CTA FULL WIDTH -->
+<section class="bg-blue-900 text-white py-16 text-center">
+  <h2 class="text-3xl font-bold">FAA Market Intelligence Engine™</h2>
+  <p class="mt-4 max-w-3xl mx-auto text-lg opacity-90">
+    Leverage machine learning models trained on South African macroeconomic indicators, real estate trends,
+    and global investment signals to deliver accurate, forward-looking market movement insights.
+  </p>
+  <div class="mt-8">
+    <a href="https://faa.zone/contact" class="bg-white text-blue-900 px-10 py-4 rounded-lg font-semibold hover:bg-gray-100">
+      Request Full Market Access API License
+    </a>
+  </div>
+</section>
+
+  <!-- PULSE CHART -->
+<section class="max-w-7xl mx-auto px-6 py-8">
+  <div class="bg-white p-6 rounded shadow">
+    <h2 class="text-xl font-bold text-gray-700">📈 Cornex™ 9-Province Sales Pulse</h2>
+    <p class="text-sm text-gray-500">Simulated sales turnover across RSA provincial grid.</p>
+    <div class="h-96">
+      <canvas id="pulseChart" class="w-full h-full"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- GRID METRICS -->
+<section class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-6 py-8">
+  <a href="top-provinces.html" class="bg-white p-5 rounded shadow text-center hover:bg-yellow-50">
+    <h3 class="text-md font-bold text-gray-700">🏆 Top Provinces</h3>
+    <p>🥇 Gauteng</p>
+    <p>🥈 Western Cape</p>
+    <p>🥉 KwaZulu-Natal</p>
+  </a>
+
+  <a href="avg-hardware-purchase.html" class="bg-white p-5 rounded shadow text-center hover:bg-yellow-50">
+    <h3 class="text-md font-bold text-gray-700">🔧 Avg Hardware Purchase</h3>
+    <p>~R12,500</p>
+  </a>
+
+  <a href="avg-unit-price.html" class="bg-white p-5 rounded shadow text-center hover:bg-yellow-50">
+    <h3 class="text-md font-bold text-gray-700">🛒 Avg Unit Price</h3>
+    <p>EPS Cornice: ~R10.74</p>
+  </a>
+
+  <a href="payment-terms.html" class="bg-white p-5 rounded shadow text-center hover:bg-yellow-50">
+    <h3 class="text-md font-bold text-gray-700">📈 Payment Terms</h3>
+    <p>COD: 70%</p>
+    <p>30 Days: 20%</p>
+    <p>Aged (60+): 10%</p>
+  </a>
+</section>
+
+<!-- BRAND VALUATION SNAPSHOT -->
+<section class="max-w-7xl mx-auto px-6 py-8">
+  <div class="bg-white p-6 rounded shadow">
+    <h2 class="text-xl font-bold text-gray-700">💰 Cornex™ Brand Layer Snapshot</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+      <a href="trimstyle.html" class="bg-gray-50 p-4 rounded-xl shadow-inner text-center hover:bg-yellow-100">
+        <h3 class="text-lg font-bold text-yellow-600">✏️ TrimStyle™</h3>
+        <p class="text-sm text-gray-600">Premium Cornice Design</p>
+      </a>
+
+      <a href="designaura.html" class="bg-gray-50 p-4 rounded-xl shadow-inner text-center hover:bg-blue-100">
+        <h3 class="text-lg font-bold text-blue-600">🔮 DesignAura™</h3>
+        <p class="text-sm text-gray-600">Virtual Interior Styling</p>
+      </a>
+
+      <a href="cornicecraft.html" class="bg-gray-50 p-4 rounded-xl shadow-inner text-center hover:bg-green-100">
+        <h3 class="text-lg font-bold text-green-600">🧩 CorniceCraft™</h3>
+        <p class="text-sm text-gray-600">Custom Manufacturing</p>
+      </a>
+
+      <a href="ceilingtech.html" class="bg-gray-50 p-4 rounded-xl shadow-inner text-center hover:bg-pink-100">
+        <h3 class="text-lg font-bold text-pink-600">🧱 CeilingTech™</h3>
+        <p class="text-sm text-gray-600">Ceiling Systems & Panels</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center text-xs text-gray-400 mt-16 py-6 border-t">
+  FAA.Zone Sovereign Scrolls · VaultMesh · TreatyMesh Validated
+</footer>
+
+<!-- SALES PULSE CHART SCRIPT -->
+<script type="module">
+document.addEventListener('DOMContentLoaded', () => {
+  const ctx = document.getElementById('pulseChart').getContext('2d');
+  const provinces = ['Gauteng', 'Western Cape', 'KwaZulu-Natal', 'Eastern Cape', 'Limpopo', 'Mpumalanga', 'North West', 'Free State', 'Northern Cape'];
+  const baseTurnovers = [2572306, 2338460, 2125873, 1932612, 1756920, 1597200, 1452000, 1320000, 1200000];
+
+  const salesData = {
+    labels: [],
+    datasets: provinces.map((prov, idx) => ({
+      label: prov,
+      data: [],
+      borderColor: `hsl(${idx * 40}, 70%, 50%)`,
+      borderWidth: 2,
+      fill: false,
+      tension: 0.4
+    }))
+  };
+
+  const chart = new Chart(ctx, {
+    type: 'line',
+    data: salesData,
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      animation: false,
+      scales: {
+        y: { min: 1000000, max: 3000000, ticks: { callback: v => 'R' + (v / 1000).toFixed(0) + 'k' } }
+      },
+      plugins: { legend: { position: 'bottom' } }
+    }
+  });
+
+  function pushData() {
+    const now = new Date().toLocaleTimeString();
+    if (salesData.labels.length > 30) {
+      salesData.labels.shift();
+      salesData.datasets.forEach(d => d.data.shift());
+    }
+    salesData.labels.push(now);
+    salesData.datasets.forEach((d, idx) => {
+      d.data.push(baseTurnovers[idx] + Math.random() * 30000 - 15000); 
+    });
+    chart.update();
+  }
+
+  pushData();
+  setInterval(pushData, 3000);
+});
+</script>
+
+</body>
+</html>
+
+
+
+
+<footer class="text-center text-xs py-6 text-gray-500">
+  © 2025 Heyns Schoeman · FAA™ Compliance Engine Active
+</footer>
+    <script src="../../omnigrid-app.js" data-concept="1"></script>
+</body>
+</html>
+

@@ -1,0 +1,94 @@
+{
+ "generated_at": "2026-10-06T17:22:01Z",
+ "source": "fruitful-superagent (counts only); repos, commits and systems from the A–Z stocktake (hat/summary.json)",
+ "index": "hat.html",
+ "flow": {
+  "green": 2,
+  "amber": 4,
+  "red": 0
+ },
+ "stations": [
+  {
+   "id": "seed",
+   "dot": "dot-1",
+   "title": "Seed · Claude memory",
+   "status": "green",
+   "headline": "275 chats · 24 Projects",
+   "lines": [
+    "28 artifacts · 12 design chats",
+    "83 memory files",
+    "Full-stack Claude build, export of 26 Sep 2026",
+    "Project merges M6–M9 complete"
+   ],
+   "link": "#vaultmesh"
+  },
+  {
+   "id": "roots",
+   "dot": "dot-2",
+   "title": "Roots · Repos & code",
+   "status": "amber",
+   "headline": "127 repos · 111 heyns1000 · 16 Fruitful-Global-Planet",
+   "lines": [
+    "13,684 commits indexed A–Z",
+    "CI paused: GitHub billing lock",
+    "Secrets removed from current code in 6 repos"
+   ],
+   "link": "#features"
+  },
+  {
+   "id": "trunk",
+   "dot": "dot-3",
+   "title": "Trunk · Applications",
+   "status": "green",
+   "headline": "161 applications · 336 instances",
+   "lines": [
+    "466 systems · 194 with several versions (A–Z stocktake)",
+    "Top platforms: GitHub 118, Vercel 65, faa.zone 32, Lovable 8",
+    "One registry, every profile and agent"
+   ],
+   "link": "#sector-glyphs-container"
+  },
+  {
+   "id": "branches",
+   "dot": "dot-stepdad",
+   "title": "Branches · Deploy & runtime",
+   "status": "amber",
+   "headline": "Hosting paused by design until launch",
+   "lines": [
+    "16 atom branches: every system's history, oldest first",
+    "93 Vercel projects in the FAA team",
+    "Cloudflare Workers deploying",
+    "Apple Pay verification route live",
+    "Every page reachable in-app today"
+   ],
+   "link": "#baobab-terminal-access"
+  },
+  {
+   "id": "guardian",
+   "dot": "dot-4",
+   "title": "Guardian · Security",
+   "status": "amber",
+   "headline": "7 repos made private · 6 key-removal PRs merged",
+   "lines": [
+    "Every repo scanned for live keys",
+    "Key rotations in progress",
+    "Database policies under review"
+   ],
+   "link": "#treaty"
+  },
+  {
+   "id": "fruit",
+   "dot": "dot-5",
+   "title": "Fruit · Commerce & brands",
+   "status": "amber",
+   "headline": "Banimal WordPress Core 1.1.0 packaged",
+   "lines": [
+    "Banimal Ecosystem Connector 5.1.1 packaged",
+    "Shopify store awaiting plan",
+    "Ticket Tailor store setup pending",
+    "7038 FAA brands in the grid"
+   ],
+   "link": "#shareprice"
+  }
+ ]
+}

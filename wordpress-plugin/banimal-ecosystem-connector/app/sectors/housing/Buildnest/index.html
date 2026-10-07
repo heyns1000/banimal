@@ -1,0 +1,980 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildNest™ – FAA.zone Housing Infrastructure Protocol</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+        :root {
+            --text-color-light: #1d1d1f;
+            --text-color-dark: #f5f5f7;
+            --bg-color-light: #f5f5f7;
+            --bg-color-dark: #1a1a1c;
+            --card-bg-light: #ffffff;
+            --card-bg-dark: #2a2a2e;
+            --border-color-light: #e8e8ed;
+            --border-color-dark: #3a3a3e;
+            --primary-color: #0071e3; /* Apple Blue */
+            --secondary-color: #30d158; /* Apple Green */
+            --muted-text-light: #6e6e73;
+            --muted-text-dark: #a0a0a5;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .light-mode {
+            background-color: var(--bg-color-light);
+            color: var(--text-color-light);
+        }
+
+        .dark-mode {
+            background-color: var(--bg-color-dark);
+            color: var(--text-color-dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .main-header {
+            background-color: var(--card-bg-light); /* Light mode default */
+            border-bottom: 1px solid var(--border-color-light);
+            box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .dark-mode .main-header {
+            background-color: var(--card-bg-dark);
+            border-bottom-color: var(--border-color-dark);
+            box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--text-color-light);
+            transition: color 0.3s ease;
+        }
+        .dark-mode .logo {
+            color: var(--text-color-dark);
+        }
+        .logo-faa {
+            color: var(--primary-color);
+        }
+        .logo-buildnest {
+            color: var(--text-color-light);
+        }
+        .dark-mode .logo-buildnest {
+            color: var(--text-color-dark);
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 25px;
+        }
+
+        .nav-list a {
+            text-decoration: none;
+            color: var(--muted-text-light);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+        .nav-list a:hover {
+            color: var(--primary-color);
+        }
+        .dark-mode .nav-list a {
+            color: var(--muted-text-dark);
+        }
+        .dark-mode .nav-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .mode-toggle {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--muted-text-light);
+            transition: color 0.3s ease;
+        }
+        .mode-toggle:hover {
+            color: var(--primary-color);
+        }
+        .dark-mode .mode-toggle {
+            color: var(--muted-text-dark);
+        }
+        .dark-mode .mode-toggle:hover {
+            color: var(--primary-color);
+        }
+
+        .light-icon { display: block; }
+        .dark-icon { display: none; }
+        .dark-mode .light-icon { display: none; }
+        .dark-mode .dark-icon { display: block; }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .cta-button:hover {
+            background-color: #0066cc;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .hamburger-menu {
+            display: none; /* Hidden on desktop */
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-color-light);
+            transition: color 0.3s ease;
+        }
+        .dark-mode .hamburger-menu {
+            color: var(--text-color-dark);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            padding: 100px 20px;
+            background-color: var(--bg-color-light);
+            transition: background-color 0.3s ease;
+        }
+        .dark-mode .hero-section {
+            background-color: var(--bg-color-dark);
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -0.03em;
+            color: var(--text-color-light);
+            transition: color 0.3s ease;
+        }
+        .dark-mode .hero-content h1 {
+            color: var(--text-color-dark);
+        }
+
+        .hero-content .tagline {
+            font-size: 1.3rem;
+            color: var(--muted-text-light);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.5;
+            transition: color 0.3s ease;
+        }
+        .dark-mode .hero-content .tagline {
+            color: var(--muted-text-dark);
+        }
+
+        .hero-cta {
+            font-size: 1.1rem;
+            padding: 12px 30px;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .hero-subtext {
+            font-size: 0.9rem;
+            color: var(--muted-text-light);
+            margin-top: 30px;
+            transition: color 0.3s ease;
+        }
+        .dark-mode .hero-subtext {
+            color: var(--muted-text-dark);
+        }
+
+        /* Section Padding */
+        .section-padding {
+            padding: 80px 20px;
+            background-color: var(--card-bg-light);
+            border-top: 1px solid var(--border-color-light);
+            border-bottom: 1px solid var(--border-color-light);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        .dark-mode .section-padding {
+            background-color: var(--card-bg-dark);
+            border-top-color: var(--border-color-dark);
+            border-bottom-color: var(--border-color-dark);
+        }
+        .section-padding:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--text-color-light);
+            transition: color 0.3s ease;
+        }
+        .dark-mode .section-title {
+            color: var(--text-color-dark);
+        }
+
+        /* Features Section */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            background-color: var(--card-bg-light);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color-light);
+            transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+        }
+        .dark-mode .feature-item {
+            background-color: var(--card-bg-dark);
+            border-color: var(--border-color-dark);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        .dark-mode .feature-item:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        .feature-item .icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .feature-item h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-color-light);
+            transition: color 0.3s ease;
+        }
+        .dark-mode .feature-item h3 {
+            color: var(--text-color-dark);
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: var(--muted-text-light);
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+        .dark-mode .feature-item p {
+            color: var(--muted-text-dark);
+        }
+
+        .learn-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        .learn-more:hover {
+            text-decoration: underline;
+        }
+
+        /* Use Cases Section */
+        .use-case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .use-case-item {
+            background-color: var(--card-bg-light);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color-light);
+            transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .dark-mode .use-case-item {
+            background-color: var(--card-bg-dark);
+            border-color: var(--border-color-dark);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .use-case-item .icon {
+            font-size: 2.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .use-case-item h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-color-light);
+            transition: color 0.3s ease;
+        }
+        .dark-mode .use-case-item h3 {
+            color: var(--text-color-dark);
+        }
+
+        .use-case-item ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .use-case-item li {
+            font-size: 0.95rem;
+            color: var(--muted-text-light);
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 25px;
+            transition: color 0.3s ease;
+        }
+        .dark-mode .use-case-item li {
+            color: var(--muted-text-dark);
+        }
+        .use-case-item li .fas.fa-check {
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+            top: 3px;
+        }
+
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .pricing-card {
+            background-color: var(--card-bg-light);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color-light);
+            transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .dark-mode .pricing-card {
+            background-color: var(--card-bg-dark);
+            border-color: var(--border-color-dark);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-color-light);
+            transition: color 0.3s ease;
+        }
+        .dark-mode .pricing-card h3 {
+            color: var(--text-color-dark);
+        }
+
+        .pricing-card .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        .pricing-card .price span {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--muted-text-light);
+        }
+        .dark-mode .pricing-card .price span {
+            color: var(--muted-text-dark);
+        }
+
+        .pricing-card .description {
+            font-size: 0.9rem;
+            color: var(--muted-text-light);
+            min-height: 40px; /* Ensure consistent height */
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+        .dark-mode .pricing-card .description {
+            color: var(--muted-text-dark);
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px;
+            text-align: left;
+        }
+
+        .pricing-card li {
+            font-size: 0.95rem;
+            color: var(--muted-text-light);
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 25px;
+            transition: color 0.3s ease;
+        }
+        .dark-mode .pricing-card li {
+            color: var(--muted-text-dark);
+        }
+        .pricing-card li .fas.fa-check {
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+            top: 3px;
+        }
+        .pricing-card li .fas.fa-times {
+            color: #dc3545; /* Red for unavailable features */
+            position: absolute;
+            left: 0;
+            top: 3px;
+        }
+
+        .featured-card {
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 4px 20px rgba(0, 113, 227, 0.2);
+        }
+        .dark-mode .featured-card {
+            box-shadow: 0 4px 20px rgba(0, 113, 227, 0.4);
+        }
+
+        .secondary-cta {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            box-shadow: none;
+        }
+        .secondary-cta:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            background-color: var(--bg-color-light);
+            transition: background-color 0.3s ease;
+        }
+        .dark-mode .cta-section {
+            background-color: var(--bg-color-dark);
+        }
+
+        .cta-section .section-title {
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: var(--muted-text-light);
+            margin-bottom: 40px;
+            transition: color 0.3s ease;
+        }
+        .dark-mode .cta-section p {
+            color: var(--muted-text-dark);
+        }
+
+        /* Footer */
+        .main-footer {
+            background-color: var(--card-bg-light);
+            border-top: 1px solid var(--border-color-light);
+            padding: 40px 0;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        .dark-mode .main-footer {
+            background-color: var(--card-bg-dark);
+            border-top-color: var(--border-color-dark);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-brand {
+            flex: 1 1 300px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 15px;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: var(--muted-text-light);
+            line-height: 1.4;
+            transition: color 0.3s ease;
+        }
+        .dark-mode .copyright {
+            color: var(--muted-text-dark);
+        }
+
+        .footer-links {
+            display: flex;
+            flex: 2 1 500px;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-column {
+            flex: 1 1 150px;
+        }
+
+        .footer-column h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-color-light);
+            transition: color 0.3s ease;
+        }
+        .dark-mode .footer-column h4 {
+            color: var(--text-color-dark);
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column a {
+            text-decoration: none;
+            font-size: 0.9rem;
+            color: var(--muted-text-light);
+            margin-bottom: 8px;
+            display: block;
+            transition: color 0.3s ease;
+        }
+        .footer-column a:hover {
+            color: var(--primary-color);
+        }
+        .dark-mode .footer-column a {
+            color: var(--muted-text-dark);
+        }
+        .dark-mode .footer-column a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .main-nav {
+                gap: 20px;
+            }
+            .nav-list {
+                gap: 15px;
+            }
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            .hero-content .tagline {
+                font-size: 1.2rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-nav {
+                display: none; /* Hide nav on small screens */
+                flex-direction: column;
+                position: absolute;
+                top: 70px; /* Below header */
+                left: 0;
+                width: 100%;
+                background-color: var(--card-bg-light);
+                border-bottom: 1px solid var(--border-color-light);
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                padding: 20px 0;
+                z-index: 999;
+            }
+            .dark-mode .main-nav {
+                background-color: var(--card-bg-dark);
+                border-bottom-color: var(--border-color-dark);
+            }
+            .main-nav.active {
+                display: flex;
+            }
+            .nav-list {
+                flex-direction: column;
+                text-align: center;
+                width: 100%;
+            }
+            .nav-list li {
+                width: 100%;
+            }
+            .nav-list a {
+                display: block;
+                padding: 10px 0;
+            }
+            .nav-actions {
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                padding-top: 10px;
+                border-top: 1px solid var(--border-color-light);
+            }
+            .dark-mode .nav-actions {
+                border-top-color: var(--border-color-dark);
+            }
+            .nav-actions .cta-button {
+                width: calc(100% - 40px); /* Adjust for padding */
+                margin: 0 20px;
+                text-align: center;
+            }
+            .mode-toggle {
+                margin-bottom: 10px;
+            }
+
+            .hamburger-menu {
+                display: block; /* Show hamburger on small screens */
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .hero-content .tagline {
+                font-size: 1.1rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .feature-item, .use-case-item, .pricing-card {
+                padding: 20px;
+            }
+            .pricing-card .price {
+                font-size: 2rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-brand, .footer-links {
+                flex: 1 1 100%;
+            }
+            .footer-column {
+                flex: 1 1 100%;
+                margin-bottom: 20px;
+            }
+            .footer-column h4 {
+                margin-bottom: 10px;
+            }
+            .footer-column ul {
+                text-align: center;
+            }
+            .footer-column a {
+                display: inline-block; /* Allow inline display for better spacing on mobile */
+                margin: 0 10px 8px;
+            }
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <span class="logo-faa">FAA.zone</span> / <span class="logo-buildnest">BuildNest™</span>
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#use-cases">Use Cases</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="plotvault.html">Modules</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button id="mode-toggle" class="mode-toggle" aria-label="Toggle light/dark mode">
+                        <i class="fas fa-moon light-icon"></i>
+                        <i class="fas fa-sun dark-icon"></i>
+                    </button>
+                    <a href="#" class="cta-button nav-cta">Launch Secure Claim Panel</a>
+                </div>
+            </nav>
+            <button class="hamburger-menu" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container hero-content">
+                <h1>BuildNest™ is the VaultMesh™-secured, scroll-synced deployment system for compliant housing sectors across FAA-regulated grids.</h1>
+                <p class="tagline">Combines geospatial grid logic, land-claim enforcement, vault-locked permit orchestration, and actuarial-grade risk modeling — all in one interface.</p>
+                <a href="#" class="cta-button hero-cta">Verify Deployment &rarr;</a>
+                <p class="hero-subtext">Part of the FAA Vault™ Global Infrastructure Protocol</p>
+            </div>
+        </section>
+
+        <section id="features" class="features-section section-padding">
+            <div class="container">
+                <h2 class="section-title">Functional Pillars</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-cube icon"></i>
+                        <h3>PlotVault™</h3>
+                        <p>Stores, locks, and indexes geo-plots at Atom-Level™ fidelity. No duplication.</p>
+                        <a href="plotvault.html" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-scroll icon"></i>
+                        <h3>GridPermit™</h3>
+                        <p>Issues secure scroll-bound permits for construction and zoning.</p>
+                        <a href="gridpermit.html" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-file-contract icon"></i>
+                        <h3>ScrollClaim™</h3>
+                        <p>Immutable registration of housing rights; built on ScrollSync™ chain.</p>
+                        <a href="scrollclaim.html" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-map-marker-alt icon"></i>
+                        <h3>LandNode™</h3>
+                        <p>Validates physical build events tied to grid and FAA orbital overlays.</p>
+                        <a href="landnode.html" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="use-cases" class="use-cases-section section-padding">
+            <div class="container">
+                <h2 class="section-title">Intended Users & Use Cases</h2>
+                <div class="use-case-grid">
+                    <div class="use-case-item">
+                        <i class="fas fa-building icon"></i>
+                        <h3>Government Entities</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Deploy public housing with scroll-based audits.</li>
+                            <li><i class="fas fa-check"></i> Monitor land fraud and double-claim prevention.</li>
+                        </ul>
+                    </div>
+                    <div class="use-case-item">
+                        <i class="fas fa-hard-hat icon"></i>
+                        <h3>Private Sector Developers</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Link infrastructure directly to grid nodes.</li>
+                            <li><i class="fas fa-check"></i> Validate funding tied to FAA Inline Verification™.</li>
+                        </ul>
+                    </div>
+                    <div class="use-case-item">
+                        <i class="fas fa-users icon"></i>
+                        <h3>Citizens & Communities</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Apply for residential plots.</li>
+                            <li><i class="fas fa-check"></i> Monitor build status with full chain-of-trust.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="pricing-section section-padding">
+            <div class="container">
+                <h2 class="section-title">BuildNest™ Pricing Model</h2>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>Free (Viewer)</h3>
+                        <p class="price">$0</p>
+                        <p class="description">Basic grid view, vault status, public claim logs.</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Grid view access</li>
+                            <li><i class="fas fa-check"></i> Public claim log review</li>
+                            <li><i class="fas fa-times"></i> Claim registration</li>
+                            <li><i class="fas fa-times"></i> Vault locking</li>
+                        </ul>
+                        <a href="#" class="cta-button secondary-cta">Get Started</a>
+                    </div>
+                    <div class="pricing-card featured-card">
+                        <h3>Pro Operator</h3>
+                        <p class="price">$499<span>/mo</span></p>
+                        <p class="description">Build deployment, claim registration, vault locking.</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> All Viewer features</li>
+                            <li><i class="fas fa-check"></i> Build deployment tools</li>
+                            <li><i class="fas fa-check"></i> Claim registration</li>
+                            <li><i class="fas fa-check"></i> Vault locking</li>
+                            <li><i class="fas fa-check"></i> Sector-level deployment</li>
+                        </ul>
+                        <a href="#" class="cta-button primary-cta">Begin Deployment</a>
+                    </div>
+                    <div class="pricing-card">
+                        <h3>FAA Enterprise</h3>
+                        <p class="price">Custom</p>
+                        <p class="description">Full intergrid permissions, ScrollKey™ authority issuance, SRI sync.</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> All Pro Operator features</li>
+                            <li><i class="fas fa-check"></i> Intergrid permissions</li>
+                            <li><i class="fas fa-check"></i> ScrollKey™ authority</li>
+                            <li><i class="fas fa-check"></i> SRI sync integration</li>
+                            <li><i class="fas fa-check"></i> Dedicated FAA support</li>
+                        </ul>
+                        <a href="#" class="cta-button secondary-cta">Contact Sales</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section section-padding">
+            <div class="container">
+                <h2 class="section-title">Ready to secure your next deployment?</h2>
+                <p>Join the future of compliant housing infrastructure with BuildNest™.</p>
+                <a href="#" class="cta-button hero-cta">Request Vault Access &rarr;</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <span class="logo-faa">FAA.zone</span> / <span class="logo-buildnest">BuildNest™</span>
+                </div>
+                <p class="copyright">&copy; 2025 FAA.zone. All systems, symbols, and brand echoes protected by the Omni Present Copyright™.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>BuildNest™</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#use-cases">Use Cases</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="plotvault.html">Modules</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>FAA.zone</h4>
+                    <ul>
+                        <li><a href="#">About FAA Systems™</a></li>
+                        <li><a href="#">Omni Grid™</a></li>
+                        <li><a href="#">Baobab Archive™</a></li>
+                        <li><a href="#">Compliance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Contact Support</a></li>
+                        <li><a href="#">Partner Program</a></li>
+                        <li><a href="#">Developer API</a></li>
+                        <li><a href="#">Legal & Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modeToggle = document.getElementById('mode-toggle');
+            const body = document.body;
+            const mainNav = document.querySelector('.main-nav');
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
+
+            // Load saved mode from localStorage
+            const savedMode = localStorage.getItem('themeMode');
+            if (savedMode) {
+                body.classList.add(savedMode);
+            } else {
+                body.classList.add('light-mode'); // Default to light mode
+            }
+
+            // Toggle light/dark mode
+            modeToggle.addEventListener('click', () => {
+                if (body.classList.contains('light-mode')) {
+                    body.classList.remove('light-mode');
+                    body.classList.add('dark-mode');
+                    localStorage.setItem('themeMode', 'dark-mode');
+                } else {
+                    body.classList.remove('dark-mode');
+                    body.classList.add('light-mode');
+                    localStorage.setItem('themeMode', 'light-mode');
+                }
+            });
+
+            // Toggle hamburger menu
+            hamburgerMenu.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
+            });
+
+            // Close hamburger menu when a nav link is clicked (for mobile)
+            document.querySelectorAll('.nav-list a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                    }
+                });
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const id = this.getAttribute('href').slice(1);
+                    const target = id && document.getElementById(id);
+                    if (!target) return; // bare "#": leave it to the app router
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        });
+    </script>
+    <script src="../../../omnigrid-app.js" data-concept="1"></script>
+</body>
+</html>

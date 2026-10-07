@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAA Real Estate AI™ Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+
+    /* Pulse effect for active elements */
+    .pulse {
+      animation: pulse-animation 3s infinite;
+    }
+
+    @keyframes pulse-animation {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    /* Enhanced cards */
+    .card {
+      transition: transform 0.2s ease-in-out;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-content {
+      transition: color 0.3s ease-in-out;
+    }
+
+    .card-content:hover {
+      color: #1d4ed8;
+    }
+
+    footer {
+      background-color: #1e293b;
+    }
+
+    .pulse-grid {
+      width: 100%;
+      height: 400px;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+<!-- HEADER -->
+<header class="bg-white shadow p-6 flex justify-between items-center sticky top-0 z-50">
+  <div>
+    <h1 class="text-3xl font-extrabold text-indigo-700"><a href="index.html">FAA Real Estate AI™ Dashboard</a></h1>
+    <p class="text-sm text-gray-500">Valuation Intelligence | Loan Recovery | Scroll Licensing</p>
+  </div>
+</header>
+
+<!-- NAVIGATION -->
+<nav class="flex flex-wrap gap-4 px-6 py-4 text-sm font-medium bg-gray-100 border-b sticky top-20 z-40">
+  <a href="vault-upload.html" class="text-indigo-700 hover:underline">📤 Upload Deals</a>
+  <a href="realestate-replay.html" class="text-indigo-700 hover:underline">🧠 Deal Replay</a>
+  <a href="pricing-saas.html" class="text-indigo-700 hover:underline">💳 Pricing</a>
+  <a href="valuation-grid.html" class="text-indigo-700 hover:underline">📍 Valuation Grid</a>
+  <a href="licensing.html" class="text-indigo-700 hover:underline">📜 Licensing</a>
+  <a href="forecast-dashboard.html" class="text-indigo-700 hover:underline">📈 Forecast Panel</a>
+  <a href="risk-matrix.html" class="text-indigo-700 hover:underline">⚠️ Risk Matrix</a>
+  <a href="api-access.html" class="text-indigo-700 hover:underline">🔑 API Access</a>
+  <a href="agent-insights.html" class="text-indigo-700 hover:underline">🧭 Agent Insights</a>
+</nav>
+
+<!-- SYSTEM EXPLANATION MODULE -->
+<section class="max-w-6xl mx-auto px-6 py-16">
+  <div class="bg-white p-8 rounded-xl shadow-xl mb-12">
+    <h2 class="text-2xl font-bold text-indigo-800 mb-4">📖 <a href="overview.html">What is FAA Real Estate AI™?</a></h2>
+    <p class="text-sm text-gray-700 leading-relaxed mb-4">
+      <a href="overview.html">FAA Real Estate AI™</a> is an autonomous, AI-powered system that instantly calculates valuations, forecasts market trends, and automates real estate transactions for banks, agents, developers, and investors.
+    </p>
+  </div>
+</section>
+
+<!-- MARKET OPPORTUNITY & COMPETITIVE EDGE -->
+<section class="max-w-6xl mx-auto px-6 py-16">
+  <div class="bg-white p-8 rounded-xl shadow-xl mb-12">
+    <h2 class="text-2xl font-bold text-indigo-800 mb-4">📊 <a href="competitive-edge.html">Market Opportunity & Competitive Edge</a></h2>
+    <p class="text-sm text-gray-700 leading-relaxed mb-4">
+      The South African Real Estate Market, valued at R5 trillion+, remains highly fragmented with outdated manual processes. <a href="ai-disruption.html">FAA™ Real Estate AI™</a> disrupts this by offering real-time, automated valuations and market forecasting that reduce operational costs by 30% and improve transaction speeds by 50%.
+    </p>
+    <table class="min-w-full text-sm text-left text-gray-700">
+      <thead>
+        <tr>
+          <th class="px-4 py-2 border-b">Feature</th>
+          <th class="px-4 py-2 border-b">FAA™ Real Estate AI™</th>
+          <th class="px-4 py-2 border-b">Traditional Methods</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="px-4 py-2 border-b"><a href="valuation-speed.html">Speed of Valuation</a></td>
+          <td class="px-4 py-2 border-b">Instant AI-generated reports</td>
+          <td class="px-4 py-2 border-b">Manual process takes days/weeks</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-2 border-b"><a href="pricing-accuracy.html">Pricing Accuracy</a></td>
+          <td class="px-4 py-2 border-b">95% predictive accuracy</td>
+          <td class="px-4 py-2 border-b">Often subjective and inconsistent</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-2 border-b"><a href="buyer-prediction.html">Buyer Prediction</a></td>
+          <td class="px-4 py-2 border-b">AI-driven intent analysis</td>
+          <td class="px-4 py-2 border-b">No predictive analytics</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- REALTIME PULSE GRAPH -->
+<section class="max-w-7xl mx-auto px-6 py-12">
+  <div class="bg-white p-10 rounded-2xl shadow-xl mb-10">
+    <h2 class="text-2xl font-bold text-indigo-800">📉 FAA™ Real-Time Valuation Pulse</h2>
+    <p class="text-sm text-gray-600 mb-6">Live property valuations based on real-time data.</p>
+    <canvas id="pulseGridChart" class="pulse-grid"></canvas>
+  </div>
+</section>
+
+<!-- DASHBOARD GRID -->
+<section class="max-w-7xl mx-auto px-6 py-12">
+  <div class="bg-white p-10 rounded-2xl shadow-xl mb-10">
+    <h2 class="text-2xl font-bold mb-2 text-indigo-800"><a href="dashboard.html">FAA™ Control Room</a></h2>
+    <p class="text-sm text-gray-600 mb-6">Every route leads to scroll-triggered insights. This grid will grow as your intelligence deepens.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <a href="vault-upload.html" class="bg-indigo-100 p-6 rounded-xl shadow hover:shadow-lg pulse card">
+        <h3 class="font-bold text-indigo-700">📤 Upload Property Data</h3>
+        <p class="text-sm text-gray-700 mt-2">Import past deals for replay analysis.</p>
+      </a>
+      <a href="realestate-replay.html" class="bg-green-100 p-6 rounded-xl shadow hover:shadow-lg pulse card">
+        <h3 class="font-bold text-green-700">🧠 Replay Missed Gains</h3>
+        <p class="text-sm text-gray-700 mt-2">Based on actual market deltas.</p>
+      </a>
+      <a href="pricing-saas.html" class="bg-yellow-100 p-6 rounded-xl shadow hover:shadow-lg pulse card">
+        <h3 class="font-bold text-yellow-700">💳 View SaaS Pricing</h3>
+        <p class="text-sm text-gray-700 mt-2">Tier-based licensing and access to APIs.</p>
+      </a>
+      <a href="valuation-grid.html" class="bg-blue-100 p-6 rounded-xl shadow hover:shadow-lg pulse card">
+        <h3 class="font-bold text-blue-700">📍 Suburb Valuation Grid</h3>
+        <p class="text-sm text-gray-700 mt-2">Live pricing + LTV + rent forecasts.</p>
+      </a>
+      <a href="licensing.html" class="bg-pink-100 p-6 rounded-xl shadow hover:shadow-lg pulse card">
+        <h3 class="font-bold text-pink-700">📜 Licensing Console</h3>
+        <p class="text-sm text-gray-700 mt-2">Vault scroll management and territory binding.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center text-xs text-gray-400 mt-20 py-10 border-t">
+  FAA Scroll Engine™ | Real Estate AI™ | TreatyGrid™ | Sovereign Forecast Mesh © 2025
+</footer>
+
+<script>
+  // Initialize the pulse chart (line graph)
+  const ctx = document.getElementById('pulseGridChart').getContext('2d');
+  const provinces = ['Gauteng', 'Western Cape', 'KwaZulu-Natal', 'Eastern Cape', 'Limpopo', 'Mpumalanga', 'North West', 'Free State', 'Northern Cape'];
+  const baseTurnovers = [2572306, 2338460, 2125873, 1932612, 1756920, 1597200, 1452000, 1320000, 1200000];
+
+  const salesData = {
+    labels: [],
+    datasets: provinces.map((prov, idx) => ({
+      label: prov,
+      data: [],
+      borderColor: `hsl(${idx * 40}, 70%, 50%)`,
+      borderWidth: 2,
+      fill: false,
+      tension: 0.4
+    }))
+  };
+
+  const chart = new Chart(ctx, {
+    type: 'line',
+    data: salesData,
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      animation: false,
+      scales: {
+        y: { min: 1000000, max: 3000000, ticks: { callback: v => 'R' + (v / 1000).toFixed(0) + 'k' } }
+      },
+      plugins: { legend: { position: 'bottom' } }
+    }
+  });
+
+  function pushData() {
+    const now = new Date().toLocaleTimeString();
+    if (salesData.labels.length > 30) {
+      salesData.labels.shift();
+      salesData.datasets.forEach(d => d.data.shift());
+    }
+    salesData.labels.push(now);
+    salesData.datasets.forEach((d, idx) => {
+      d.data.push(baseTurnovers[idx] + Math.random() * 30000 - 15000); // Simulating fluctuating data
+    });
+    chart.update();
+  }
+
+  pushData();
+  setInterval(pushData, 3000);  // Update every 3 seconds
+</script>
+
+    <script src="../../../omnigrid-app.js" data-concept="1"></script>
+</body>
+</html>
+

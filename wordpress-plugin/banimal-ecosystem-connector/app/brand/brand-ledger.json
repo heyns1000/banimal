@@ -1,0 +1,79 @@
+{
+ "policyId": "BANIMAL-GLOBAL-CI-NONVARIATION-2026-09-14",
+ "source": "heyns1000/banimal",
+ "sourceCommit": "fd55f5306a882a70bb35206a29381703a14a7f46",
+ "pulled_at": "2026-10-05T18:20:46Z",
+ "audit": "passed: every pinned mark matches canonical-brand-manifest.json; every published copy matches its source",
+ "files": [
+  {
+   "published": "brand/banimal-logo-ink.png",
+   "alsoPublished": "brand/assets/banimal-logo-ink.png",
+   "source": "docs/brand/assets/banimal-logo-ink.png",
+   "role": "canonicalBanimalLogo.ink",
+   "gitBlobSha": "4e6405e04cddb992c69bff3787ca6387f442c147",
+   "pinnedByManifest": true,
+   "sha256": "69dde0f56235dc9ceb0e5c37cd9b9cbf37462b6edd65803f1b25decb3862ece7",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "brand/banimal-logo-white.png",
+   "alsoPublished": "brand/assets/banimal-logo-white.png",
+   "source": "docs/brand/assets/banimal-logo-white.png",
+   "role": "canonicalBanimalLogo.white",
+   "gitBlobSha": "3935f5bdd17662472473cd625dc449c7cd648da5",
+   "pinnedByManifest": true,
+   "sha256": "ddb603c9115f53f134dea4f6753dfaf647d45d69024a4fd184d5742d0a5a22ac",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "brand/samfox-icon-verified-ink.png",
+   "alsoPublished": "brand/assets/samfox-icon-verified-ink.png",
+   "source": "docs/brand/assets/samfox-icon-verified-ink.png",
+   "role": "canonicalConnectorIcon.ink",
+   "gitBlobSha": "708b62effcf3c36b86820eaaf9127e947941952e",
+   "pinnedByManifest": true,
+   "sha256": "e150097f953f50221cd1ba2ea50503d3a98d2f89a7c2536e31ae7df1c7d683aa",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "brand/samfox-icon-verified-cream.png",
+   "alsoPublished": "brand/assets/samfox-icon-verified-cream.png",
+   "source": "docs/brand/assets/samfox-icon-verified-cream.png",
+   "role": "canonicalConnectorIcon.cream",
+   "gitBlobSha": "21ddfe2de349e613e13e83d1c3cbc24a1f0d4006",
+   "pinnedByManifest": true,
+   "sha256": "f7c752f6982c233c13ccd32de403ec11f606f003a6f4a74864dc5ce1900bead8",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "brand/fruitful-lockup-verified.png",
+   "alsoPublished": "brand/assets/fruitful-lockup-verified.png",
+   "source": "docs/brand/assets/fruitful-lockup-verified.png",
+   "role": "fruitfulMaster",
+   "gitBlobSha": "9621280dba13a580345b9e7b515dd6bfb89f1131",
+   "pinnedByManifest": false,
+   "sha256": "e424028cecac673651548456b92483916ffb64a6f3c4f31c99535ae137184496",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "brand/fruitful-wordmark-verified.png",
+   "alsoPublished": "brand/assets/fruitful-wordmark-verified.png",
+   "source": "docs/brand/assets/fruitful-wordmark-verified.png",
+   "role": "fruitfulMaster",
+   "gitBlobSha": "f72df88f21c1f54a82c0398f1f3b4dcbe044f46a",
+   "pinnedByManifest": false,
+   "sha256": "7255b4e060b8941cee848b2e1b8289bc894a8d844179aa47de6abea664b55e93",
+   "action": "copied unchanged"
+  },
+  {
+   "published": "brand/fruitful-pear-verified.png",
+   "alsoPublished": "brand/assets/fruitful-pear-verified.png",
+   "source": "docs/brand/assets/fruitful-pear-verified.png",
+   "role": "fruitfulMaster",
+   "gitBlobSha": "60a8835e9edd673ab4b7b046aa184e0598df75dd",
+   "pinnedByManifest": false,
+   "sha256": "300a3c045eff3c21f5882968632b44da55106d635e19c358cd99a741db6885ef",
+   "action": "copied unchanged"
+  }
+ ]
+}

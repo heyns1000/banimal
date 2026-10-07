@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>🤖 FAA Payroll OS — AI Modules</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .glow-btn:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    .bounce-link:hover {
+      animation: bounce 0.5s ease;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+<header class="bg-white shadow p-6 flex justify-between items-center">
+  <div>
+    <h1 class="text-3xl font-extrabold text-indigo-700">🤖 FAA Payroll OS — AI Modules</h1>
+    <p class="text-sm text-gray-500">Next-gen Payroll AI Engines • Real-time Intelligence Layers • FAA Neural Grid</p>
+  </div>
+  <div class="flex gap-3 text-sm">
+    <a href="../../index.html" class="px-4 py-2 bg-blue-600 text-white rounded glow-btn">Home</a>
+    <a href="../../contact.html" class="px-4 py-2 bg-gray-600 text-white rounded glow-btn">Contact</a>
+    <a href="onboarding.html" class="px-4 py-2 bg-green-600 text-white rounded glow-btn">Onboard</a>
+  </div>
+</header>
+
+<section class="bg-gradient-to-r from-purple-700 to-indigo-800 text-white py-16 text-center">
+  <h2 class="text-4xl font-bold">Explore FAA AI™ Modules</h2>
+  <p class="mt-4 max-w-2xl mx-auto text-lg opacity-90">
+    Intelligence Engines • Predictive Compliance • ScrollMesh AI Logic™
+  </p>
+</section>
+
+<section class="py-12 px-6 max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+  <a href="ai/paypredict.html" class="bg-white p-6 rounded shadow block transition-all bounce-link hover:shadow-lg transition-all">
+    <h3 class="text-xl font-semibold text-purple-700">📊 PayPredict AI</h3>
+    <p class="text-sm text-gray-600 mt-2">Forecasts salary trends, seasonal bonuses, and contractual irregularities using historical FAA data and market syncs.</p>
+    <p class="text-sm text-gray-500 mt-4 italic">Launch</p>
+    <canvas id="payPredictChart" class="mt-4"></canvas>
+  </a>
+
+  <a href="ai/scrollsentinel.html" class="bg-white p-6 rounded shadow block hover:shadow-lg transition-all bounce-link">
+    <h3 class="text-xl font-semibold text-purple-700">🔍 ScrollSentinel</h3>
+    <p class="text-sm text-gray-600 mt-2">AI surveillance across payslips, ghost patterns, unauthorized overrides and noncompliant vault entries.</p>
+    <p class="text-sm text-gray-500 mt-4 italic">Run Scan</p>
+    <ul class="mt-4 text-sm text-gray-500 list-disc list-inside">
+      <li>Ghost Shift Alerts: <span class="text-red-600 font-semibold">Active</span></li>
+      <li>Override Watch: <span class="text-green-600 font-semibold">Clean</span></li>
+      <li>CTC Signature Drift: <span class="text-yellow-600 font-semibold">2 anomalies</span></li>
+    </ul>
+  </a>
+
+  <a href="ai/bonuslogic.html" class="bg-white p-6 rounded shadow block hover:shadow-lg transition-all bounce-link">
+    <h3 class="text-xl font-semibold text-purple-700">🤖 BonusLogic Core</h3>
+    <p class="text-sm text-gray-600 mt-2">Analyzes payout eligibility, performance triggers, threshold logic, and enforces role-specific bonus compliance grids.</p>
+    <p class="text-sm text-gray-500 mt-4 italic">Analyze</p>
+    <canvas id="bonusLogicChart" class="mt-4"></canvas>
+  </a>
+
+  <a href="ai/timedrift.html" class="bg-white p-6 rounded shadow block hover:shadow-lg transition-all bounce-link">
+    <h3 class="text-xl font-semibold text-purple-700">📌 TimeDrift Mapper</h3>
+    <p class="text-sm text-gray-600 mt-2">Visualizes anomalies in shift logs, breaks, drift accumulation and cross-role time misalignment detection.</p>
+    <p class="text-sm text-gray-500 mt-4 italic">Map Drift</p>
+    <canvas id="timeDriftChart" class="mt-4"></canvas>
+  </a>
+</section>
+
+<section class="mt-16 text-center">
+  <p class="text-xs text-gray-500">FAA™ NeuralGrid Engines • Vault AI Compliance • Last AI Sync: 8s ago</p>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const ctx1 = document.getElementById('payPredictChart');
+    const ctx2 = document.getElementById('bonusLogicChart');
+    const ctx3 = document.getElementById('timeDriftChart');
+
+    new Chart(ctx1, {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr'],
+        datasets: [{ label: 'Projected Growth', data: [3200, 4000, 4500, 4900], borderColor: '#6B21A8', borderWidth: 2 }]
+      },
+      options: { responsive: true, plugins: { legend: { display: false } } }
+    });
+
+    new Chart(ctx2, {
+      type: 'bar',
+      data: {
+        labels: ['Team A', 'Team B', 'Team C'],
+        datasets: [{ label: 'Bonus Trigger Rate', data: [70, 85, 60], backgroundColor: '#7C3AED' }]
+      },
+      options: { responsive: true, plugins: { legend: { display: false } } }
+    });
+
+    new Chart(ctx3, {
+      type: 'doughnut',
+      data: {
+        labels: ['Aligned', 'Drifted'],
+        datasets: [{ label: 'Drift Status', data: [80, 20], backgroundColor: ['#10B981', '#EF4444'] }]
+      },
+      options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
+    });
+  });
+</script>
+
+    <script src="../../omnigrid-app.js" data-concept="1"></script>
+</body>
+</html>

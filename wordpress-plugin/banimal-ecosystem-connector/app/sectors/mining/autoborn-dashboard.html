@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AutoBorn™ Master Sync Grid | FAA Mining Ecosystem</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- React and ReactDOM (UMD) -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+
+  <!-- PropTypes (needed for Recharts) -->
+  <script src="https://cdn.jsdelivr.net/npm/prop-types@15.8.1/prop-types.min.js"></script>
+
+  <!-- Recharts -->
+  <script src="https://cdn.jsdelivr.net/npm/recharts@2.7.2/umd/Recharts.min.js"></script>
+
+  <!-- Babel for JSX compilation -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+<!-- 🔷 HERO SECTION -->
+<section class="bg-gradient-to-br from-gray-900 to-indigo-900 text-white py-16">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <h1 class="text-4xl sm:text-5xl font-extrabold mb-4">AutoBorn™ Master Sync Grid</h1>
+    <p class="max-w-2xl mx-auto text-lg opacity-90">
+      Monitor AutoBorn™ scrolls and fleets in real-time with FAA VaultChain™ assurance.
+    </p>
+  </div>
+</section>
+
+<!-- 🔹 MINI NAVIGATION -->
+<nav class="flex justify-center gap-6 my-8">
+  <a href="autoborn-overview.html" class="text-indigo-700 hover:underline font-semibold text-sm">Overview</a>
+  <a href="autoborn-pricing.html" class="text-indigo-700 hover:underline font-semibold text-sm">Pricing</a>
+  <a href="https://faa.zone/contact" class="text-indigo-700 hover:underline font-semibold text-sm">Book Demo</a>
+</nav>
+
+<!-- 🔶 REACT ROOT -->
+<div id="root" class="max-w-7xl mx-auto px-6"></div>
+
+<!-- 🚀 REACT SCRIPT (this time properly type="text/babel") -->
+<script type="text/babel">
+const generatePulse = (base, vol = 1.8) => {
+  const now = Date.now();
+  return Array.from({ length: 9 }, (_, i) => ({
+    time: new Date(now - (9 - i) * 1000).toLocaleTimeString(),
+    value: +(base + (Math.random() - 0.5) * vol).toFixed(2),
+  }));
+};
+
+const scrolls = [
+  {
+    id: 'scroll-9082',
+    brand: 'AutoBorn™ Prime',
+    icon: '🚗',
+    type: 'Master Scroll',
+    licenseFee: 'R12,000',
+    monthly: 'R999 (Live)',
+    royalty: '9.2% / Split: G',
+    countdown: 42,
+    vaultId: 'VAULT-092X-AUTO',
+    claimRoot: 'https://faa.zone/claimroot/autoborn-prime',
+    region: 'SA | EU | APAC',
+    base: 84,
+    color: '#facc15',
+    link: 'autoborn-overview.html',
+  },
+  {
+    id: 'scroll-9083',
+    brand: 'AutoBorn™ MinerLink',
+    icon: '⛏️',
+    type: 'Sub Scroll',
+    licenseFee: 'R8,700',
+    monthly: 'R760 (Node)',
+    royalty: '6.1% / Split: L',
+    countdown: 37,
+    vaultId: 'VAULT-092X-MINER',
+    claimRoot: 'https://faa.zone/claimroot/autoborn-minerlink',
+    region: 'BRZ | SA',
+    base: 79,
+    color: '#60a5fa',
+    link: 'autoborn-overview.html',
+  },
+  {
+    id: 'scroll-9084',
+    brand: 'AutoBorn™ VaultMesh',
+    icon: '📦',
+    type: 'Deploy License',
+    licenseFee: 'R15,400',
+    monthly: 'R1,340 (HQ)',
+    royalty: '10.5% / Split: R',
+    countdown: 55,
+    vaultId: 'VAULT-092X-MESH',
+    claimRoot: 'https://faa.zone/claimroot/autoborn-vaultmesh',
+    region: 'NAM | SA | DRC',
+    base: 91,
+    color: '#34d399',
+    link: 'autoborn-overview.html',
+  },
+];
+
+const Card = ({ children }) => (
+  <div className="bg-white border shadow rounded-xl hover:shadow-md transition">{children}</div>
+);
+const CardContent = ({ children }) => <div className="p-4">{children}</div>;
+const Button = ({ children }) => (
+  <button className="mt-4 w-full bg-black text-white text-sm py-2 rounded">{children}</button>
+);
+
+function App() {
+  if (!(window.Recharts && window.Recharts.LineChart)) {
+    return <p className="text-center text-red-600 mt-10">Loading charts…</p>;
+  }
+  const { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } = window.Recharts;
+  const [pulses, setPulses] = React.useState(scrolls.map(s => ({ ...s, data: generatePulse(s.base) })));
+
+  React.useEffect(() => {
+    const id = setInterval(() => {
+      setPulses(scrolls.map(s => ({ ...s, data: generatePulse(s.base) })));
+    }, 3000);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <div className="space-y-10">
+
+      {/* Live Sync Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {pulses.map(scroll => (
+          <a href={scroll.link} key={scroll.id} className="block">
+            <Card>
+              <CardContent>
+                <div className="flex justify-between items-center mb-2">
+                  <h2 className="font-bold text-lg">{scroll.icon} {scroll.brand}</h2>
+                  <span className="text-xs text-gray-500">{scroll.type}</span>
+                </div>
+                <p className="text-sm">💳 License Fee: {scroll.licenseFee}</p>
+                <p className="text-sm">📦 Monthly: {scroll.monthly}</p>
+                <p className="text-sm">💰 Royalty: {scroll.royalty}</p>
+                <p className="text-xs text-gray-600 mt-1">⏱ {scroll.countdown}s</p>
+                <p className="text-xs text-gray-600">🌍 {scroll.region}</p>
+                <p className="text-xs text-gray-500 mt-1">Vault ID: {scroll.vaultId}</p>
+                <a href={scroll.claimRoot} target="_blank" rel="noopener noreferrer" className="text-blue-600 text-xs underline inline-block mt-1">🌐 ClaimRoot™</a>
+                <div className="mt-4 h-2 w-full bg-gray-200 rounded">
+                  <div className="bg-green-400 h-2 rounded" style={{ width: `${scroll.countdown}%` }}></div>
+                </div>
+                <div className="h-32 mt-4">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <LineChart data={scroll.data}>
+                      <XAxis dataKey="time" hide />
+                      <YAxis domain={['auto', 'auto']} hide />
+                      <Tooltip />
+                      <Line type="monotone" dataKey="value" stroke={scroll.color} strokeWidth={2} dot={false} />
+                    </LineChart>
+                  </ResponsiveContainer>
+                </div>
+                <Button>Pay with VaultPay™</Button>
+              </CardContent>
+            </Card>
+          </a>
+        ))}
+      </div>
+
+      {/* Feature Matrix */}
+      <div className="mt-12 border-t bg-white pt-6">
+        <h2 className="text-xl font-bold text-gray-800 mb-6 text-center">🔍 AutoBorn™ Feature Matrix</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {scrolls.map(scroll => (
+            <a href={scroll.link} key={scroll.id} className="block">
+              <div className="bg-gray-50 p-6 rounded-xl shadow-inner">
+                <h3 className="text-lg font-bold text-indigo-700 mb-2">{scroll.icon} {scroll.brand}</h3>
+                <ul className="list-disc list-inside text-sm text-gray-700 space-y-1">
+                  <li>📛 Type: {scroll.type}</li>
+                  <li>💸 License Fee: {scroll.licenseFee}</li>
+                  <li>📦 Monthly: {scroll.monthly}</li>
+                  <li>💰 Royalty Model: {scroll.royalty}</li>
+                  <li>🌐 ClaimRoot™ enabled</li>
+                  <li>🗺️ Region Deployment: {scroll.region}</li>
+                  <li>⏱ Countdown Sync: {scroll.countdown}s</li>
+                  <li>🧠 Vault ID: {scroll.vaultId}</li>
+                  <li>📊 Live Pulse Chart</li>
+                  <li>🪙 VaultPay™ Ready</li>
+                </ul>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  );
+}
+
+(function init() {
+  if (window.Recharts && window.Recharts.LineChart) {
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  } else {
+    setTimeout(init, 50);
+  }
+})();
+</script>
+
+<!-- FOOTER -->
+<footer class="text-center text-xs py-8 text-gray-500 mt-20">
+  © 2025 Heyns Schoeman · FAA™ Inline Compliance
+</footer>
+
+</body>
+</html>
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>AutoBorn™ | FAA Mining Ecosystem</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50 text-gray-800 leading-relaxed">
+
+<!-- ─────────────────────────  HERO  ───────────────────────── -->
+<section class="bg-gradient-to-br from-gray-900 to-indigo-900 text-white">
+  <div class="max-w-7xl mx-auto px-6 py-20 text-center">
+    <h1 class="text-4xl sm:text-5xl font-extrabold mb-4">
+      <span class="text-yellow-400">AutoBorn™</span><br>
+      The Self-Driving Mining Ecosystem
+    </h1>
+    <p class="max-w-2xl mx-auto text-lg opacity-90">
+      Real-time AI · 9-second fleet sync · Immutable FAA VaultChain™ security.<br>
+      Mine smarter, safer and faster—without daily micromanagement.
+    </p>
+    <a href="#modules"
+       class="mt-10 inline-block px-10 py-4 bg-yellow-400 text-gray-900 font-semibold rounded hover:bg-yellow-300 transition">
+      See How It Works ↓
+    </a>
+  </div>
+</section>
+
+<!-- ─────────────────  WHAT IS AUTOBORN?  ───────────────── -->
+<section class="max-w-6xl mx-auto px-6 py-16">
+  <h2 class="text-3xl font-bold mb-6">What exactly is AutoBorn™?</h2>
+  <p class="mb-4">
+    AutoBorn™ isn’t another “mining app.” It’s an <strong>AI-driven ecosystem</strong> that
+    <em>thinks, reacts and scales</em> on your behalf:
+  </p>
+  <ul class="list-disc list-inside space-y-2">
+    <li><strong>Central Brain →</strong> auto-orchestrates equipment, crews &amp; haulage in real time.</li>
+    <li><strong>PulseGrid™ Sync →</strong> 9-second updates keep every machine on the same plan.</li>
+    <li><strong>VaultChain™ Security →</strong> tamper-proof audit trail of every load &amp; decision.</li>
+    <li><strong>ClauseIndex™ Compliance →</strong> auto-generates regulatory reports you used to fill in manually.</li>
+  </ul>
+</section>
+
+<!-- ───────────────────────  MODULES  ─────────────────────── -->
+<section id="modules" class="bg-white py-20">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-10 text-center">Three Powerhouse Modules</h2>
+
+    <div class="grid gap-10 md:grid-cols-3">
+
+      <!-- PRIME -->
+      <div class="bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-bold text-gray-900 mb-1">🚗 AutoBorn™ Prime</h3>
+        <p class="text-sm text-gray-700 mb-4">The Master Brain</p>
+        <ul class="list-disc list-inside text-sm space-y-1">
+          <li class="text-black">Live Coordination Dashboard</li>
+          <li class="text-black">Dynamic Forecast Engine</li>
+          <li class="text-black">24/7 AI Field Director</li>
+          <li class="text-black">Full PulseGrid™ Sync <span class="whitespace-nowrap">(9&nbsp;s)</span></li>
+        </ul>
+      </div>
+
+      <!-- MINERLINK -->
+      <div class="bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-bold text-gray-900 mb-1">⛏️ AutoBorn™ MinerLink</h3>
+        <p class="text-sm text-gray-700 mb-4">Node Powerhouse</p>
+        <ul class="list-disc list-inside text-sm space-y-1">
+          <li class="text-black">Autonomous Surface-Mesh Logic</li>
+          <li class="text-black">Fault-Tolerant Mining Grid</li>
+          <li class="text-black">GlowFlow™ Smart-Speed Balancing</li>
+          <li class="text-black">FAA LedgerMesh™ Audit Sync</li>
+        </ul>
+      </div>
+
+      <!-- VAULTMESH -->
+      <div class="bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-bold text-gray-900 mb-1">📦 AutoBorn™ VaultMesh</h3>
+        <p class="text-sm text-gray-700 mb-4">Deployment Command</p>
+        <ul class="list-disc list-inside text-sm space-y-1">
+          <li class="text-black">AI Safety &amp; Efficiency Scoring</li>
+          <li class="text-black">GeoFence™ + RouteOptimizer™</li>
+          <li class="text-black">FAA Zone Compliance Gateway</li>
+          <li class="text-black">GiftNode™ Reward Engine</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────  HOW IT WORKS (dark band)  ────────────────── -->
+<section class="bg-gray-900 text-white">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <h2 class="text-3xl font-bold mb-8 text-center">How AutoBorn™ Syncs Your Mine</h2>
+
+    <div class="flex flex-col items-center">
+     <!-- Inline SVG flow diagram -->
+<svg width="680" height="160" viewBox="0 0 680 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .box   { fill:#f3f4f6; stroke:#ffffff; stroke-width:1.2px; }
+    /* ↓↓↓ changed from #ffffff to near-black for readability ↓↓↓ */
+    .label { font:600 14px 'Helvetica Neue',Arial,sans-serif; fill:#111827; }
+    .arrow { stroke:#ffffff; stroke-width:2; marker-end:url(#arrow); }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <polygon points="0 0, 8 4, 0 8" fill="#ffffff"/>
+    </marker>
+  </defs>
+
+  <!-- boxes -->
+  <rect x="10"  y="50" width="130" height="60" rx="6" class="box"/>
+  <rect x="180" y="50" width="130" height="60" rx="6" class="box"/>
+  <rect x="350" y="50" width="130" height="60" rx="6" class="box"/>
+  <rect x="520" y="50" width="150" height="60" rx="6" class="box"/>
+
+  <!-- readable labels -->
+  <text x="75"  y="85"  text-anchor="middle" class="label">Fleet</text>
+  <text x="245" y="85"  text-anchor="middle" class="label">PulseGrid™</text>
+  <text x="415" y="85"  text-anchor="middle" class="label">Prime&nbsp;AI</text>
+  <text x="595" y="85"  text-anchor="middle" class="label">VaultChain™</text>
+
+  <!-- arrows -->
+  <line x1="140" y1="80" x2="180" y2="80" class="arrow"/>
+  <line x1="310" y1="80" x2="350" y2="80" class="arrow"/>
+  <line x1="480" y1="80" x2="520" y2="80" class="arrow"/>
+</svg>
+
+      <p class="text-sm text-gray-300 mt-6 max-w-2xl text-center">
+        Vehicles &amp; sensors stream live data → PulseGrid™ normalises and predicts →
+        Prime&nbsp;AI issues optimised commands → every event is immutably recorded on VaultChain™.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────────────  BENEFITS  ──────────────────── -->
+<section class="bg-gray-900 text-white py-20">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold mb-8">Why miners choose AutoBorn™</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-sm">
+      <div><strong class="text-yellow-400 text-2xl">+12&nbsp;%</strong><br>Average ore-grade uplift</div>
+      <div><strong class="text-yellow-400 text-2xl">–18&nbsp;%</strong><br>Fuel &amp; maintenance overhead</div>
+      <div><strong class="text-yellow-400 text-2xl">24 / 7</strong><br>AI monitoring &amp; safety alerts</div>
+      <div><strong class="text-yellow-400 text-2xl">99.7&nbsp;%</strong><br>Ledger-verified uptime</div>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────────────  FAQ  ──────────────────── -->
+<section class="max-w-6xl mx-auto px-6 py-16">
+  <h2 class="text-3xl font-bold mb-8">Frequently Asked Questions</h2>
+  <details class="mb-4">
+    <summary class="cursor-pointer font-semibold">How long does deployment take?</summary>
+    <p class="text-sm mt-2">A pilot VaultMesh node is usually live in <strong>≈ 14 days</strong>. Full fleet roll-out takes around 4–12 weeks, depending on scale.</p>
+  </details>
+  <details class="mb-4">
+    <summary class="cursor-pointer font-semibold">Will it replace my existing dispatch system?</summary>
+    <p class="text-sm mt-2">AutoBorn™ can integrate alongside your current dispatch or replace it entirely. Many sites start in overlay mode, then switch to full AutoBorn™ control.</p>
+  </details>
+  <details>
+    <summary class="cursor-pointer font-semibold">Is my data really immutable?</summary>
+    <p class="text-sm mt-2">Yes. Every transaction is written to FAA VaultChain™—an append-only, cryptographically linked ledger that cannot be altered without consensus.</p>
+  </details>
+</section>
+
+<!-- ────────────────────  CTA  ──────────────────── -->
+<section class="bg-indigo-700 text-white">
+  <div class="max-w-4xl mx-auto px-6 py-16 text-center">
+    <h2 class="text-3xl font-bold mb-4">Ready to evolve your mine?</h2>
+    <p class="mb-8">Secure your AutoBorn™ deployment slot <em>before the next mining cycle closes.</em></p>
+    <a href="https://faa.zone/contact"
+       class="inline-block bg-yellow-400 text-gray-900 font-semibold px-10 py-4 rounded hover:bg-yellow-300 transition">
+      BOOK A 30-MIN DEMO
+    </a>
+  </div>
+</section>
+
+<footer class="text-center text-xs py-6 text-gray-500">
+  © 2025 Heyns Schoeman · FAA™ Inline Compliance
+</footer>
+    <script src="../../omnigrid-app.js" data-concept="1"></script>
+</body>
+</html>

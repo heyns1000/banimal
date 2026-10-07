@@ -1,0 +1,198 @@
+{
+ "generated_at": "2026-10-06T17:20:33Z",
+ "source": "heyns1000/fruitful-superagent A–Z stocktake",
+ "repos": {
+  "heyns1000": 111,
+  "Fruitful-Global-Planet": 16,
+  "total": 127,
+  "in_commit_index": 120
+ },
+ "systems": 466,
+ "systems_multi_version": 194,
+ "versions": 2274,
+ "file_groups": 7778,
+ "folders": 1103,
+ "commits": 13684,
+ "atom_branches": 16,
+ "file_rows": null,
+ "distinct_files": null,
+ "homes": {
+  "Review": 222,
+  "Core shell": 86,
+  "Sector template": 66,
+  "Checkout": 26,
+  "Global footer": 22,
+  "Admin": 19,
+  "Scroll maps / ClaimRoot": 19,
+  "Heritage & culture": 6
+ },
+ "letters": {
+  "#": {
+   "systems": 2,
+   "files": 0,
+   "folders": 18,
+   "commits": 27
+  },
+  "A": {
+   "systems": 31,
+   "files": 832,
+   "folders": 84,
+   "commits": 1331
+  },
+  "B": {
+   "systems": 67,
+   "files": 554,
+   "folders": 109,
+   "commits": 1038
+  },
+  "C": {
+   "systems": 52,
+   "files": 618,
+   "folders": 110,
+   "commits": 1039
+  },
+  "D": {
+   "systems": 11,
+   "files": 293,
+   "folders": 34,
+   "commits": 224
+  },
+  "E": {
+   "systems": 18,
+   "files": 266,
+   "folders": 32,
+   "commits": 242
+  },
+  "F": {
+   "systems": 15,
+   "files": 450,
+   "folders": 86,
+   "commits": 1048
+  },
+  "G": {
+   "systems": 7,
+   "files": 218,
+   "folders": 31,
+   "commits": 14
+  },
+  "H": {
+   "systems": 16,
+   "files": 147,
+   "folders": 42,
+   "commits": 5
+  },
+  "I": {
+   "systems": 12,
+   "files": 240,
+   "folders": 31,
+   "commits": 652
+  },
+  "J": {
+   "systems": 3,
+   "files": 26,
+   "folders": 2,
+   "commits": 0
+  },
+  "K": {
+   "systems": 6,
+   "files": 21,
+   "folders": 5,
+   "commits": 2
+  },
+  "L": {
+   "systems": 19,
+   "files": 395,
+   "folders": 39,
+   "commits": 30
+  },
+  "M": {
+   "systems": 30,
+   "files": 226,
+   "folders": 53,
+   "commits": 1200
+  },
+  "N": {
+   "systems": 5,
+   "files": 118,
+   "folders": 13,
+   "commits": 3
+  },
+  "O": {
+   "systems": 17,
+   "files": 129,
+   "folders": 23,
+   "commits": 13
+  },
+  "P": {
+   "systems": 32,
+   "files": 704,
+   "folders": 93,
+   "commits": 3523
+  },
+  "Q": {
+   "systems": 4,
+   "files": 66,
+   "folders": 7,
+   "commits": 1
+  },
+  "R": {
+   "systems": 12,
+   "files": 258,
+   "folders": 43,
+   "commits": 725
+  },
+  "S": {
+   "systems": 35,
+   "files": 1432,
+   "folders": 116,
+   "commits": 198
+  },
+  "T": {
+   "systems": 23,
+   "files": 302,
+   "folders": 58,
+   "commits": 592
+  },
+  "U": {
+   "systems": 4,
+   "files": 205,
+   "folders": 11,
+   "commits": 952
+  },
+  "V": {
+   "systems": 25,
+   "files": 163,
+   "folders": 15,
+   "commits": 776
+  },
+  "W": {
+   "systems": 15,
+   "files": 87,
+   "folders": 31,
+   "commits": 47
+  },
+  "X": {
+   "systems": 0,
+   "files": 3,
+   "folders": 0,
+   "commits": 0
+  },
+  "Y": {
+   "systems": 2,
+   "files": 9,
+   "folders": 2,
+   "commits": 0
+  },
+  "Z": {
+   "systems": 3,
+   "files": 16,
+   "folders": 15,
+   "commits": 2
+  }
+ },
+ "atlas": {
+  "last_refresh": "2026-10-05",
+  "status": "blocked",
+  "reason": "Base44 connector not connected; refresh runs read-only once it is reconnected"
+ }
+}

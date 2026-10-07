@@ -1,0 +1,787 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAA Wildlife UI - Sub-Icon Table</title>
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" xintegrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEbMoHwXTz6cFaAUwfjC5fxYvJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* General body styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8fafc; /* Light gray background for corporate feel */
+            color: #334155; /* Darker text for readability */
+            line-height: 1.6;
+        }
+
+        /* Heading styling */
+        h1 {
+            text-align: center;
+            color: #1e3a8a; /* Dark blue heading */
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: 800;
+            letter-spacing: 0.03em;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Table container for centering and shadow */
+        .table-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #ffffff; /* Clean white background for table */
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Softer shadow */
+            overflow-x: auto; /* Ensures table is scrollable on small screens */
+            border: 1px solid #e2e8f0; /* Light border */
+        }
+
+        /* Table styling */
+        table {
+            width: 100%;
+            border-collapse: separate; /* Use separate for rounded corners */
+            border-spacing: 0;
+            margin: 0;
+            font-size: 0.95em;
+        }
+
+        /* Table header cells */
+        th {
+            background-color: #edf2f7; /* Slightly warmer light gray header background */
+            color: #475569; /* Muted header text */
+            font-weight: 700; /* Bolder header font */
+            padding: 18px 25px;
+            text-align: left;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 2px solid #e2e8f0; /* Light border */
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        th:first-child { border-top-left-radius: 12px; }
+        th:last-child { border-top-right-radius: 12px; }
+
+        /* Table data cells */
+        td {
+            border-bottom: 1px solid #e2e8f0; /* Light bottom border */
+            border-right: 1px solid #e2e8f0; /* Light right border */
+            padding: 15px 25px;
+            text-align: left;
+            vertical-align: middle; /* Align content to the middle */
+            color: #475569; /* Standard text color for data */
+        }
+        td:last-child { border-right: none; } /* Remove right border on last cell */
+
+        /* Zebra striping for table rows */
+        tbody tr:nth-child(even) {
+            background-color: #fcfdfe; /* Very light alternate row */
+        }
+        tbody tr:nth-child(odd) {
+            background-color: #ffffff; /* White alternate row */
+        }
+
+        /* Hover effect for rows */
+        tbody tr:hover {
+            background-color: #f7f9fa; /* Very subtle light gray on hover */
+            transition: background-color 0.3s ease;
+        }
+
+        /* Icon styling */
+        .icon {
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900; /* For solid icons */
+            margin-right: 10px;
+            color: #2563eb; /* Corporate blue (Tailwind blue-600) for icons */
+            font-size: 1.2em;
+            text-shadow: 0 0 5px rgba(37, 99, 235, 0.2);
+        }
+
+        /* Redirect path styling */
+        .redirect-path {
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+            background-color: #e2e8f0; /* Light gray background for code */
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 0.85em;
+            color: #0d9488; /* Teal for path text */
+            white-space: nowrap;
+            display: inline-block;
+            border: 1px solid #cbd5e1; /* Lighter border */
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        /* LLM Insight Button */
+        .llm-button {
+            background-color: #3b82f6; /* Blue button */
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.85em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .llm-button:hover {
+            background-color: #2563eb; /* Darker blue on hover */
+            transform: translateY(-1px);
+        }
+        .llm-button:active {
+            transform: translateY(0);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        .llm-button:disabled {
+            background-color: #9ca3af; /* Gray out when disabled */
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+        .llm-insight-output {
+            margin-top: 8px;
+            /* No default styling here, it's for the generated insight div */
+        }
+        .llm-insight {
+            padding: 10px;
+            background-color: #f0f4f8; /* Light background for insight */
+            border-left: 4px solid #3b82f6; /* Blue left border */
+            border-radius: 4px;
+            font-size: 0.85em;
+            color: #475569;
+            animation: fadeIn 0.5s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .llm-anomaly-report {
+            padding: 10px;
+            background-color: #fffbeb; /* Light orange/yellow background for anomaly */
+            border-left: 4px solid #f59e0b; /* Orange left border */
+            border-radius: 4px;
+            font-size: 0.85em;
+            color: #92400e; /* Darker orange text */
+            animation: fadeIn 0.5s ease-out;
+        }
+
+
+        /* Responsive adjustments for smaller screens (Mobile first approach) */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 2em;
+                margin-bottom: 20px;
+            }
+
+            .table-container {
+                box-shadow: none; /* Remove shadow on small screens */
+                border-radius: 0;
+                border: none;
+            }
+
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+            tr {
+                border: 1px solid #e2e8f0; /* Light border for mobile rows */
+                margin-bottom: 15px;
+                border-radius: 8px;
+                overflow: hidden;
+                background-color: #ffffff !important; /* Ensure consistent background */
+            }
+
+            td {
+                border: none;
+                border-bottom: 1px solid #e2e8f0; /* Light bottom border for separation */
+                position: relative;
+                padding-left: 50%;
+                text-align: right;
+                font-size: 0.9em;
+            }
+
+            td:last-child {
+                border-bottom: none;
+            }
+
+            td:before {
+                content: attr(data-label);
+                position: absolute;
+                left: 15px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                text-align: left;
+                font-weight: bold;
+                color: #64748b; /* Muted label color */
+            }
+
+            /* Specific styling for the Parent Button cell on mobile */
+            td[rowspan] {
+                display: block;
+                text-align: center;
+                background-color: #eef2f7 !important; /* Light gray background for parent button */
+                font-size: 1.1em;
+                padding: 18px 10px;
+                font-weight: bold;
+                color: #1e3a8a; /* Dark blue for parent button text */
+                border-bottom: 2px solid #cbd5e1; /* Softer gray border */
+                margin-bottom: 10px;
+                border-radius: 8px 8px 0 0; /* Rounded top corners for parent button */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="table-container">
+        <h1>FAA Wildlife UI - Sub-Icon Table</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Parent Button</th>
+                    <th>Sub-Icon</th>
+                    <th>Label</th>
+                    <th>Redirect Path</th>
+                    <th>Function</th>
+                    <th>AI Anomaly Report</th> </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="3" data-label="Parent Button">View Map</td>
+                    <td data-label="Sub-Icon"><i class="fas fa-layer-group icon"></i></td>
+                    <td data-label="Label" class="function-label">Toggle Layers</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">/sectors/wildlife/dashboard</span></td>
+                    <td data-label="Function" class="function-description">Switch between terrain, satellite, scroll overlays</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'Toggle Layers', 'Switch between terrain, satellite, scroll overlays')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Sub-Icon"><i class="fas fa-crosshairs icon"></i></td>
+                    <td data-label="Label" class="function-label">Auto Zoom</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">/sectors/wildlife/dashboard</span></td>
+                    <td data-label="Function" class="function-description">Auto-focus to nearest active node</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'Auto Zoom', 'Auto-focus to nearest active node')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Sub-Icon"><i class="fas fa-map-pin icon"></i></td>
+                    <td data-label="Label" class="function-label">Center to Region</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">—</span></td>
+                    <td data-label="Function" class="function-description">Centers viewport on scroll-licensed region</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'Center to Region', 'Centers viewport on scroll-licensed region')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td rowspan="2" data-label="Parent Button">Drone Feed</td>
+                    <td data-label="Sub-Icon"><i class="fas fa-eye icon"></i></td>
+                    <td data-label="Label" class="function-label">Open Live Feed</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">/dashboard?view=drone</span></td>
+                    <td data-label="Function" class="function-description">Opens drone camera view in UI overlay</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'Open Live Feed', 'Opens drone camera view in UI overlay')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Sub-Icon"><i class="fas fa-scroll icon"></i></td>
+                    <td data-label="Label" class="function-label">View Drone Scroll License</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">/licenses?filter=drone</span></td>
+                    <td data-label="Function" class="function-description">Shows which scrolls apply to current drone</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'View Drone Scroll License', 'Shows which scrolls apply to current drone')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td rowspan="3" data-label="Parent Button">Tracker View</td>
+                    <td data-label="Sub-Icon"><i class="fas fa-heartbeat icon"></i></td>
+                    <td data-label="Label" class="function-label">View Animal Health</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">/dashboard/trackers</span></td>
+                    <td data-label="Function" class="function-description">Shows vitals: pulse, movement, temperature</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'View Animal Health', 'Shows vitals: pulse, movement, temperature')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Sub-Icon"><i class="fas fa-paw icon"></i></td>
+                    <td data-label="Label" class="function-label">Identify Animal</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">—</span></td>
+                    <td data-label="Function" class="function-description">Hover/Click to show animal name/species</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'Identify Animal', 'Hover/Click to show animal name/species')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Sub-Icon"><i class="fas fa-sync-alt icon"></i></td>
+                    <td data-label="Label" class="function-label">Sync Tracker Data</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">—</span></td>
+                    <td data-label="Function" class="function-description">Pulls updated location from Sentinel Ring™</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'Sync Tracker Data', 'Pulls updated location from Sentinel Ring™')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td rowspan="3" data-label="Parent Button">Environment</td>
+                    <td data-label="Sub-Icon"><i class="fas fa-tint icon"></i></td>
+                    <td data-label="Label" class="function-label">Soil Moisture Levels</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">/dashboard/environment</span></td>
+                    <td data-label="Function" class="function-description">Displays last soil sample reading</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'Soil Moisture Levels', 'Displays last soil sample reading')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Sub-Icon"><i class="fas fa-wave-square icon"></i></td>
+                    <td data-label="Label" class="function-label">Infrasound Pulse Scan</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">/dashboard/environment</span></td>
+                    <td data-label="Function" class="function-description">Detects seismic/animal movement sounds</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'Infrasound Pulse Scan', 'Detects seismic/animal movement sounds')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Sub-Icon"><i class="fas fa-cloud icon"></i></td>
+                    <td data-label="Label" class="function-label">Weather Reading</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">—</span></td>
+                    <td data-label="Function" class="function-description">Pulls current weather from beacon sensor</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'Weather Reading', 'Pulls current weather from beacon sensor')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td rowspan="2" data-label="Parent Button">Alerts</td>
+                    <td data-label="Sub-Icon"><i class="fas fa-ban icon"></i></td>
+                    <td data-label="Label" class="function-label">Lock Region</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">/admin/alerts</span></td>
+                    <td data-label="Function" class="function-description">Triggers lockdown of the affected GPS zone</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'Lock Region', 'Triggers lockdown of the affected GPS zone')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Sub-Icon"><i class="fas fa-list-alt icon"></i></td>
+                    <td data-label="Label" class="function-label">View Incident Log</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">/admin/alerts</span></td>
+                    <td data-label="Function" class="function-description">Shows all alert triggers and timestamps</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'View Incident Log', 'Shows all alert triggers and timestamps')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td rowspan="2" data-label="Parent Button">Risk Alerts</td>
+                    <td data-label="Sub-Icon"><i class="fas fa-key icon"></i></td>
+                    <td data-label="Label" class="function-label">Unauthorized Scroll Access</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">/admin/alerts/risk</span></td>
+                    <td data-label="Function" class="function-description">Alert for region mismatch or expired scroll</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'Unauthorized Scroll Access', 'Alert for region mismatch or expired scroll')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Sub-Icon"><i class="fas fa-exclamation-triangle icon"></i></td>
+                    <td data-label="Label" class="function-label">Zone Entry Violation</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">—</span></td>
+                    <td data-label="Function" class="function-description">Displays unauthorized movement alert</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'Zone Entry Violation', 'Displays unauthorized movement alert')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td rowspan="2" data-label="Parent Button">Timeline Tracker</td>
+                    <td data-label="Sub-Icon"><i class="fas fa-hourglass-half icon"></i></td>
+                    <td data-label="Label" class="function-label">View Scroll Lifetime</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">/timeline</span></td>
+                    <td data-label="Function" class="function-description">Scroll status: issued, synced, expired</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'View Scroll Lifetime', 'Scroll status: issued, synced, expired')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Sub-Icon"><i class="fas fa-file-invoice icon"></i></td>
+                    <td data-label="Label" class="function-label">Scroll Event Log</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">/timeline</span></td>
+                    <td data-label="Function" class="function-description">Complete lifecycle of scroll including user actions</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'Scroll Event Log', 'Complete lifecycle of scroll including user actions')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td rowspan="2" data-label="Parent Button">Deployment Calculator</td>
+                    <td data-label="Sub-Icon"><i class="fas fa-calculator icon"></i></td>
+                    <td data-label="Label" class="function-label">Launch Calculator</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">/tools/deployment-calc</span></td>
+                    <td data-label="Function" class="function-description">Opens input form for km² / terrain</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'Launch Calculator', 'Opens input form for km² / terrain')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Sub-Icon"><i class="fas fa-box-open icon"></i></td>
+                    <td data-label="Label" class="function-label">Output Recommendation</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">—</span></td>
+                    <td data-label="Function" class="function-description">Outputs list of needed hardware and scroll types</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'Output Recommendation', 'Outputs list of needed hardware and scroll types')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td rowspan="2" data-label="Parent Button">AI Recommender</td>
+                    <td data-label="Sub-Icon"><i class="fas fa-brain icon"></i></td>
+                    <td data-label="Label" class="function-label">Suggest Scroll/Hardware</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">/tools/recommender</span></td>
+                    <td data-label="Function" class="function-description">Uses threat index + region to auto-assign equipment</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'Suggest Scroll/Hardware', 'Uses threat index + region to auto-assign equipment')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Sub-Icon"><i class="fas fa-map-marker-alt icon"></i></td>
+                    <td data-label="Label" class="function-label">Autofill by GPS</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">—</span></td>
+                    <td data-label="Function" class="function-description">Auto-suggests scroll class based on GPS location</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'Autofill by GPS', 'Auto-suggests scroll class based on GPS location')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td rowspan="2" data-label="Parent Button">QR Generator</td>
+                    <td data-label="Sub-Icon"><i class="fas fa-qrcode icon"></i></td>
+                    <td data-label="Label" class="function-label">Generate QR Code</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">/tools/qr</span></td>
+                    <td data-label="Function" class="function-description">Creates a VaultMesh-verified hardware tag</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'Generate QR Code', 'Creates a VaultMesh-verified hardware tag')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Sub-Icon"><i class="fas fa-paperclip icon"></i></td>
+                    <td data-label="Label" class="function-label">Bind Scroll to Product</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">—</span></td>
+                    <td data-label="Function" class="function-description">Locks scroll to SKU before deployment</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'Bind Scroll to Product', 'Locks scroll to SKU before deployment')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td rowspan="2" data-label="Parent Button">Product Detail Page</td>
+                    <td data-label="Sub-Icon"><i class="fas fa-certificate icon"></i></td>
+                    <td data-label="Label" class="function-label">View Scrolls</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">/hardware/:id</span></td>
+                    <td data-label="Function" class="function-description">List of valid scrolls this product can activate</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'View Scrolls', 'List of valid scrolls this product can activate')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Sub-Icon"><i class="fas fa-file-pdf icon"></i></td>
+                    <td data-label="Label" class="function-label">View Warranty PDF</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">—</span></td>
+                    <td data-label="Function" class="function-description">Opens FAA-FDN-W-2025 scroll with legal metadata</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'View Warranty PDF', 'Opens FAA-FDN-W-2025 scroll with legal metadata')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td rowspan="2" data-label="Parent Button">Compare Products</td>
+                    <td data-label="Sub-Icon"><i class="fas fa-balance-scale icon"></i></td>
+                    <td data-label="Label" class="function-label">Add to Compare</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">/hardware/compare</span></td>
+                    <td data-label="Function" class="function-description">Queues product for side-by-side view</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'Add to Compare', 'Queues product for side-by-side view')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Sub-Icon"><i class="fas fa-chart-bar icon"></i></td>
+                    <td data-label="Label" class="function-label">Compare Specs</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">—</span></td>
+                    <td data-label="Function" class="function-description">Opens spec sheet panel for visual comparison</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'Compare Specs', 'Opens spec sheet panel for visual comparison')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td data-label="Parent Button">Scroll Dashboard</td>
+                    <td data-label="Sub-Icon"><i class="fas fa-scroll icon"></i></td>
+                    <td data-label="Label" class="function-label">All Scrolls View</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">/licenses</span></td>
+                    <td data-label="Function" class="function-description">Grid view of scrolls: active, expired, revoked</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'All Scrolls View', 'Grid view of scrolls: active, expired, revoked')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td rowspan="3" data-label="Parent Button">Scroll Issue</td>
+                    <td data-label="Sub-Icon"><i class="fas fa-plus-circle icon"></i></td>
+                    <td data-label="Label" class="function-label">Issue New Scroll</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">/licenses/new</span></td>
+                    <td data-label="Function" class="function-description">Starts new scroll issuance wizard</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'Issue New Scroll', 'Starts new scroll issuance wizard')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Sub-Icon"><i class="fas fa-tag icon"></i></td>
+                    <td data-label="Label" class="function-label">Assign Region</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">/licenses/new</span></td>
+                    <td data-label="Function" class="function-description">Opens region selector map before issuing scroll</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'Assign Region', 'Opens region selector map before issuing scroll')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Sub-Icon"><i class="fas fa-history icon"></i></td>
+                    <td data-label="Label" class="function-label">View Log</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">/licenses/history</span></td>
+                    <td data-label="Function" class="function-description">Opens timestamped scroll change history</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'View Log', 'Opens timestamped scroll change history')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td data-label="Parent Button">Generate PDF</td>
+                    <td data-label="Sub-Icon"><i class="fas fa-file-pdf icon"></i></td>
+                    <td data-label="Label" class="function-label">FAA-FDN Generator</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">/licenses/pdf</span></td>
+                    <td data-label="Function" class="function-description">Creates official scroll PDF with signature</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'FAA-FDN Generator', 'Creates official scroll PDF with signature')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td rowspan="2" data-label="Parent Button">Vault Logs</td>
+                    <td data-label="Sub-Icon"><i class="fas fa-lock icon"></i></td>
+                    <td data-label="Label" class="function-label">View All Logs</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">/logs/vault</span></td>
+                    <td data-label="Function" class="function-description">Opens scroll/node sync logs</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'View All Logs', 'Opens scroll/node sync logs')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Sub-Icon"><i class="fas fa-clock icon"></i></td>
+                    <td data-label="Label" class="function-label">View Sync Timeline</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">/logs/vault</span></td>
+                    <td data-label="Function" class="function-description">Shows each activation/deactivation event</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'View Sync Timeline', 'Shows each activation/deactivation event')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td data-label="Parent Button">Audit Bot</td>
+                    <td data-label="Sub-Icon"><i class="fas fa-robot icon"></i></td>
+                    <td data-label="Label" class="function-label">Run Audit</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">/compliance/audit</span></td>
+                    <td data-label="Function" class="function-description">Triggers automated license compliance check</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'Run Audit', 'Triggers automated license compliance check')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td data-label="Parent Button">Export Reports</td>
+                    <td data-label="Sub-Icon"><i class="fas fa-file-export icon"></i></td>
+                    <td data-label="Label" class="function-label">Download Compliance Pack</td>
+                    <td data-label="Redirect Path"><span class="redirect-path">/compliance/reports</span></td>
+                    <td data-label="Function" class="function-description">Exports scroll bundle ZIP or PDF</td>
+                    <td data-label="AI Anomaly Report">
+                        <button class="llm-button" onclick="generateAnomaly(this, 'Download Compliance Pack', 'Exports scroll bundle ZIP or PDF')">
+                            ☢️ Generate Anomaly
+                        </button>
+                        <div class="llm-insight-output"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        async function generateAnomaly(buttonElement, label, currentFunction) {
+            const outputDiv = buttonElement.nextElementSibling; // The div to display the output
+            const originalButtonText = buttonElement.innerHTML;
+
+            // Disable button and show loading
+            buttonElement.disabled = true;
+            buttonElement.innerHTML = 'Generating...';
+            outputDiv.innerHTML = ''; // Clear previous output
+
+            const prompt = `Generate a very brief (1-2 sentences), subtly unsettling, or slightly surreal "AI Anomaly Report" for the function: '${label}' which is described as '${currentFunction}'. Make it sound like a system log entry or an unusual observation from an AI.`;
+
+            let chatHistory = [];
+            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+
+            const payload = { contents: chatHistory };
+            const apiKey = ""; // Leave as-is for Canvas to provide
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const text = result.candidates[0].content.parts[0].text;
+                    outputDiv.innerHTML = `<div class="llm-anomaly-report">${text}</div>`;
+                } else {
+                    outputDiv.innerHTML = `<div class="llm-anomaly-report text-red-600">Error: Anomaly report generation failed.</div>`;
+                    console.error("Gemini API returned no candidates or content:", result);
+                }
+            } catch (error) {
+                outputDiv.innerHTML = `<div class="llm-anomaly-report text-red-600">Error: Failed to connect to Gemini API.</div>`;
+                console.error("Error calling Gemini API:", error);
+            } finally {
+                // Re-enable button and restore original text
+                buttonElement.disabled = false;
+                buttonElement.innerHTML = originalButtonText;
+            }
+        }
+    </script>
+
+    <script src="../../omnigrid-app.js" data-concept="1"></script>
+</body>
+</html>

@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAA™ Housing & Infrastructure Dashboard - Global Index</title>
+    <link rel="icon" href="../../favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Base Styles - Apple inspired cleanliness */
+        body {
+            font-family: 'Inter', sans-serif; /* Closest free alternative to San Francisco */
+            background-color: #f5f5f7; /* Very light gray, almost white */
+            color: #1d1d1f; /* Near black for primary text */
+            line-height: 1.4; /* Tighter line height for Apple feel */
+            -webkit-font-smoothing: antialiased; /* Smoother font rendering */
+            -moz-osx-font-smoothing: grayscale;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header - Minimalist and clean */
+        header {
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+            backdrop-filter: blur(10px); /* Frosted glass effect */
+            border-bottom: 1px solid #e8e8ed; /* Subtle bottom border */
+            padding-top: 1rem; /* Adjust padding */
+            padding-bottom: 1rem;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.05); /* Very subtle shadow */
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            display: flex; /* Ensure flex properties apply */
+            justify-content: space-between; /* Space out logo and nav */
+            align-items: center; /* Vertically align items */
+            padding-left: 1.5rem; /* Tailwind px-6 */
+            padding-right: 1.5rem; /* Tailwind px-6 */
+        }
+        header h1 {
+            color: #1d1d1f; /* Dark text for logo */
+            font-weight: 700; /* Bolder logo */
+            font-size: 1.5rem; /* Slightly smaller logo */
+            letter-spacing: -0.02em; /* Tighter letter spacing */
+        }
+        header nav a {
+            color: #424245; /* Muted gray for nav links */
+            font-size: 0.9rem; /* Smaller nav links */
+            font-weight: 500;
+            padding: 0.5rem 0.8rem; /* Adjusted padding */
+            border-radius: 6px; /* Subtle rounding */
+            transition: all 0.2s ease-in-out;
+            position: relative; /* For potential future underline/indicator */
+        }
+        header nav a:hover {
+            color: #0071e3; /* Apple blue on hover */
+            background-color: rgba(0, 0, 0, 0.03); /* Very subtle background on hover */
+        }
+        header nav a.cta-button-header { /* Specific style for "Sign Up" button in header */
+            background-color: #0071e3; /* Apple blue */
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px; /* More rounded button */
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-left: 1rem; /* Space from other nav items */
+        }
+        header nav a.cta-button-header:hover {
+            background-color: #0077ed; /* Slightly lighter blue on hover */
+            transform: translateY(-1px); /* Subtle lift */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+
+        /* Hero Section - Clean, bold, and inviting */
+        .hero-section {
+            background-color: rgb(220, 240, 255); /* Very light pastel blue background */
+            min-height: 50vh; /* Shorter hero for a global index */
+            padding: 6rem 1.5rem;
+            box-shadow: none; /* No shadow */
+            color: #1d1d1f; /* Dark text */
+            position: relative; /* Essential for absolute positioning of canvas */
+            overflow: hidden; /* Hide overflow of canvas */
+            display: flex;
+            flex-direction: column; /* Stack content vertically */
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-bottom: 1px solid #e8e8ed; /* Subtle separator */
+        }
+        /* Canvas for spiderweb background */
+        .hero-section canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            z-index: 0; /* Place canvas behind content */
+            background-color: transparent; /* Canvas itself is transparent, parent provides color */
+        }
+        .hero-content {
+            max-width: 800px; /* Narrower content for focus */
+            position: relative; /* Ensure content is above the canvas */
+            z-index: 1; /* Place content above canvas */
+        }
+        .hero-section h2 {
+            font-size: 3.5rem; /* Larger, bolder headline */
+            font-weight: 800;
+            letter-spacing: -0.03em; /* Tighter letter spacing */
+            color: #1d1d1f;
+            line-height: 1.1;
+        }
+        .hero-section h2 span {
+            color: #0071e3; /* Apple blue accent */
+        }
+        .hero-section p {
+            font-size: 1.2rem; /* Slightly smaller body text */
+            font-weight: 400;
+            color: #424245; /* Muted text */
+            margin-top: 1.5rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.5;
+        }
+        .cta-button { /* Re-style CTA button for Apple look */
+            background: #0071e3; /* Apple blue */
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none; /* Remove underline */
+        }
+        .cta-button:hover {
+            background-color: #0077ed;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+        .cta-button span { /* Remove emoji for Apple style */
+            display: none;
+        }
+
+        /* Sections - Clean, defined blocks */
+        section {
+            padding: 4rem 2rem; /* Generous padding */
+            background-color: #ffffff; /* White background for sections */
+            box-shadow: none; /* No shadows */
+            border-bottom: 1px solid #e8e8ed; /* Subtle separator */
+            text-align: center; /* Default text alignment for sections */
+        }
+        section:last-of-type {
+            border-bottom: none; /* No border on the last section */
+        }
+        section h2, section h3 {
+            color: #1d1d1f;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 2rem;
+            font-size: 2.2rem; /* Consistent heading size */
+        }
+        section p {
+            color: #424245;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        /* Grid Module Cards (formerly .grid-module-card) - now .glyph style */
+        .glyph {
+            background-color: #ffffff; /* White background */
+            color: #424245;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid #e8e8ed;
+            text-decoration: none; /* Remove underline for links */
+            display: inline-flex; /* For better padding/sizing */
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 100%; /* Ensure cards take full height in grid */
+            flex-direction: column; /* Stack content vertically */
+        }
+        .glyph:hover {
+            background-color: #f0f0f0;
+            color: #1d1d1f;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .glyph h3 { /* Style for h3 inside glyphs */
+            font-size: 1rem; /* Smaller text for module names */
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 0; /* Remove default margin */
+            line-height: 1.2;
+        }
+
+        /* Footer - Minimalist */
+        footer {
+            background-color: #f5f5f7; /* Matching body background */
+            color: #6e6e73;
+            padding: 2rem;
+            font-size: 0.85rem;
+            border-top: 1px solid #e8e8ed;
+            text-align: center;
+            margin-top: auto; /* Push footer to bottom */
+        }
+        footer a {
+            color: #6e6e73;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        footer a:hover {
+            color: #1d1d1f;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-section h2 {
+                font-size: 2.8rem;
+            }
+            .hero-section p {
+                font-size: 1rem;
+            }
+            .cta-button {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            header nav {
+                flex-wrap: wrap; /* Allow nav items to wrap */
+                justify-content: center;
+                margin-top: 1rem;
+            }
+            header nav a {
+                margin: 0.25rem 0.5rem;
+            }
+            section {
+                padding: 4rem 1.5rem;
+            }
+            section h2, section h3 {
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+            }
+            section p {
+                font-size: 1rem;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .glyph {
+                padding: 0.6rem 0.8rem;
+                font-size: 0.85rem;
+            }
+            .glyph h3 {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>FAA.zone</h1>
+        <nav class="space-x-2 sm:space-x-4">
+            <a href="sectors/housing/BuildNest/VaultFrame/index.html">BuildNest™</a>
+            <a href="#">Sectors</a>
+            <a href="#">About</a>
+            <a href="#" class="cta-button-header">Access Vault</a>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <canvas id="spiderwebCanvas"></canvas>
+        <div class="hero-content">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
+                Global Housing Index: <span class="text-blue-600">Connect. Build. Thrive.</span>
+            </h2>
+            <p class="text-lg md:text-xl mb-8">
+                Explore the interconnected network of sovereign housing and infrastructure projects across the FAA.zone.
+            </p>
+            <a href="sectors/housing/BuildNest/VaultFrame/dashboard.html" class="cta-button">
+                View Live Dashboard
+            </a>
+        </div>
+    </section>
+
+    <section class="py-16 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-extrabold text-left">FAA™ Housing & Infrastructure Dashboard</h2>
+                <button class="text-gray-500 hover:text-gray-900 transition-colors text-lg">
+                    <span class="sr-only">Close Panel</span>
+                    X Close Panel
+                </button>
+            </div>
+
+            <p class="text-gray-600 mb-8 leading-relaxed text-left">
+                Welcome to the central nexus for all FAA.zone Housing & Infrastructure protocols. This dashboard provides a global overview and direct access to specialized brands and core modules, ensuring seamless navigation across the sovereign housing grid.
+            </p>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <a href="sectors/housing/BuildNest/VaultFrame/index.html" class="glyph">
+                    <h3 class="font-bold">BuildNest™</h3>
+                </a>
+                <a href="sectors/housing/BuildNest/VaultFrame/infragrid.html" class="glyph">
+                    <h3 class="font-bold">InfraGrid™</h3>
+                </a>
+                <a href="sectors/housing/BuildNest/VaultFrame/civicpath.html" class="glyph">
+                    <h3 class="font-bold">CivicPath™</h3>
+                </a>
+                <a href="sectors/housing/BuildNest/VaultFrame/vaultframe-core.html" class="glyph">
+                    <h3 class="font-bold">VaultFrame™</h3>
+                </a>
+                <a href="sectors/housing/BuildNest/VaultFrame/scrollclaim.html" class="glyph">
+                    <h3 class="font-bold">ScrollPlot™</h3>
+                </a>
+                <a href="sectors/housing/BuildNest/VaultFrame/urbantrace.html" class="glyph">
+                    <h3 class="font-bold">UrbanTrace™</h3>
+                </a>
+                <a href="#" class="glyph">
+                    <h3 class="font-bold">PlotMesh™</h3>
+                </a>
+                <a href="sectors/housing/BuildNest/VaultFrame/scrollclaim.html" class="glyph">
+                    <h3 class="font-bold">LandClaim</h3>
+                </a>
+                <a href="#" class="glyph">
+                    <h3 class="font-bold">CementDrop</h3>
+                </a>
+                <a href="#" class="glyph">
+                    <h3 class="font-bold">CivicVault</h3>
+                </a>
+                <a href="#" class="glyph">
+                    <h3 class="font-bold">StructFlow™</h3>
+                </a>
+                <a href="#" class="glyph">
+                    <h3 class="font-bold">BuildChain™</h3>
+                </a>
+                <a href="#" class="glyph">
+                    <h3 class="font-bold">CivicPlan</h3>
+                </a>
+                <a href="#" class="glyph">
+                    <h3 class="font-bold">VaultRoof™</h3>
+                </a>
+                <a href="#" class="glyph">
+                    <h3 class="font-bold">PlotCast</h3>
+                </a>
+                <a href="#" class="glyph">
+                    <h3 class="font-bold">TileYield™</h3>
+                </a>
+                <a href="#" class="glyph">
+                    <h3 class="font-bold">ScanPermit</h3>
+                </a>
+                <a href="sectors/housing/BuildNest/VaultFrame/permitcast.html" class="glyph">
+                    <h3 class="font-bold">PermitCast™</h3>
+                </a>
+                <a href="#" class="glyph">
+                    <h3 class="font-bold">BuildYield™</h3>
+                </a>
+                <a href="#" class="glyph">
+                    <h3 class="font-bold">CivicEcho™</h3>
+                </a>
+                <a href="#" class="glyph">
+                    <h3 class="font-bold">ArchiVault™</h3>
+                </a>
+                <a href="#" class="glyph">
+                    <h3 class="font-bold">ScrollPlan™</h3>
+                </a>
+                <a href="#" class="glyph">
+                    <h3 class="font-bold">ZoningBoard™</h3>
+                </a>
+                <a href="#" class="glyph">
+                    <h3 class="font-bold">InfraLoop™</h3>
+                </a>
+                <a href="#" class="glyph">
+                    <h3 class="font-bold">CivicSync™</h3>
+                </a>
+                <a href="#" class="glyph">
+                    <h3 class="font-bold">HousingVault™</h3>
+                </a>
+                <a href="#" class="glyph">
+                    <h3 class="font-bold">LandNodeX™</h3>
+                </a>
+                <a href="sectors/housing/BuildNest/VaultFrame/claimboard.html" class="glyph">
+                    <h3 class="font-bold">ClaimBoard™</h3>
+                </a>
+                <a href="#" class="glyph">
+                    <h3 class="font-bold">UrbanMap™</h3>
+                </a>
+                <a href="sectors/housing/BuildNest/VaultFrame/buildnet.html" class="glyph">
+                    <h3 class="font-bold">BuildNet™</h3>
+                </a>
+                <a href="#" class="glyph">
+                    <h3 class="font-bold">YieldPermit™</h3>
+                </a>
+                <a href="#" class="glyph">
+                    <h3 class="font-bold">StructMark™</h3>
+                </a>
+                <a href="#" class="glyph">
+                    <h3 class="font-bold">PlanCast™</h3>
+                </a>
+                <a href="#" class="glyph">
+                    <h3 class="font-bold">HousingID™</h3>
+                </a>
+                <a href="#" class="glyph">
+                    <h3 class="font-bold">CementCast</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        © 2025 FAA™ Treaty System™. All Rights Reserved. Powered by 🦍 glyphs + Vault API. Synced with Seedwave™.
+    </footer>
+
+    <script>
+        // Spiderweb background logic (from Fruitful Innovations homepage)
+        const spiderwebCanvas = document.getElementById('spiderwebCanvas');
+        const ctx = spiderwebCanvas.getContext('2d');
+
+        let heroSectionWidth;
+        let heroSectionHeight;
+
+        const particles = [];
+        let numParticles;
+        const numParticlesDesktop = 1000;
+        const numParticlesMobile = 800;
+
+        const maxDistance = 90;
+        const mouseDistance = 180;
+
+        const mouse = {
+            x: null,
+            y: null,
+            radius: 150
+        };
+
+        function updateCanvasDimensions() {
+            const heroSection = document.querySelector('.hero-section');
+            if (heroSection) {
+                heroSectionWidth = heroSection.clientWidth;
+                heroSectionHeight = heroSection.clientHeight;
+                spiderwebCanvas.width = heroSectionWidth;
+                spiderwebCanvas.height = heroSectionHeight;
+
+                if (heroSectionWidth > 768) {
+                    numParticles = numParticlesDesktop;
+                } else {
+                    numParticles = numParticlesMobile;
+                }
+            }
+        }
+
+        spiderwebCanvas.addEventListener('mousemove', function(event) {
+            const rect = spiderwebCanvas.getBoundingClientRect();
+            mouse.x = event.clientX - rect.left;
+            mouse.y = event.clientY - rect.top;
+        });
+
+        spiderwebCanvas.addEventListener('mouseout', function() {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        window.addEventListener('resize', function() {
+            updateCanvasDimensions();
+            initParticles();
+        });
+
+        class Particle {
+            constructor(x, y, directionX, directionY, size, color) {
+                this.x = x;
+                this.y = y;
+                this.directionX = directionX;
+                this.directionY = directionY;
+                this.baseSize = size;
+                this.size = size;
+                this.color = color;
+                this.baseOpacity = 0.7;
+                this.opacity = 0.7;
+                this.pulseOffset = Math.random() * Math.PI * 2;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                ctx.fillStyle = `rgba(0, 0, 0, ${this.opacity})`;
+                ctx.fill();
+            }
+
+            update() {
+                if (this.x + this.size > heroSectionWidth || this.x - this.size < 0) {
+                    this.directionX = -this.directionX;
+                }
+                if (this.y + this.size > heroSectionHeight || this.y - this.size < 0) {
+                    this.directionY = -this.directionY;
+                }
+
+                this.x += this.directionX * 3;
+                this.y += this.directionY * 3;
+
+                const pulseSpeed = 0.05;
+                const pulseMagnitude = 0.1;
+                this.opacity = this.baseOpacity + Math.sin(Date.now() * pulseSpeed + this.pulseOffset) * pulseMagnitude;
+                this.opacity = Math.max(0.4, Math.min(1, this.opacity));
+
+                if (mouse.x !== null && mouse.y !== null) {
+                    let dx = mouse.x - this.x;
+                    let dy = mouse.y - this.y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < mouse.radius + this.size) {
+                        let forceDirectionX = dx / distance;
+                        let forceDirectionY = dy / distance;
+                        let force = (mouse.radius + this.size - distance) / (mouse.radius + this.size);
+                        let repulsionStrength = 7;
+                        let directionX = forceDirectionX * force * repulsionStrength;
+                        let directionY = forceDirectionY * force * repulsionStrength;
+
+                        this.x -= directionX;
+                        this.y -= directionY;
+
+                        let normalizedDistance = distance / (mouse.radius + this.size);
+                        this.size = this.baseSize * Math.max(0.1, normalizedDistance);
+                        this.opacity = this.baseOpacity * Math.max(0.1, normalizedDistance);
+                        this.opacity = Math.min(1, this.opacity);
+                    } else {
+                        if (this.size < this.baseSize) {
+                            this.size += 0.1;
+                            if (this.size > this.baseSize) this.size = this.baseSize;
+                        }
+                    }
+                } else {
+                    if (this.size < this.baseSize) {
+                        this.size += 0.1;
+                        if (this.size > this.baseSize) this.size = this.baseSize;
+                    }
+                }
+                this.draw();
+            }
+        }
+
+        function initParticles() {
+            particles.length = 0;
+            for (let i = 0; i < numParticles; i++) {
+                let size = (Math.random() * 1.0) + 0.5;
+                let x = (Math.random() * ((heroSectionWidth - size * 2) - (size * 2)) + size * 2);
+                let y = (Math.random() * ((heroSectionHeight - size * 2) - (size * 2)) + size * 2);
+                let directionX = (Math.random() * 2) - 1;
+                let directionY = (Math.random() * 2) - 1;
+                let color = 'rgba(0, 0, 0, 0.7)';
+                particles.push(new Particle(x, y, directionX, directionY, size, color));
+            }
+        }
+
+        let hue = 0;
+
+        function connectParticles() {
+            let opacity = 1;
+            hue = (hue + 2.5) % 360;
+
+            for (let a = 0; a < particles.length; a++) {
+                for (let b = a; b < particles.length; b++) {
+                    let distance = Math.sqrt(
+                        ((particles[a].x - particles[b].x) * (particles[a].x - particles[b].x)) +
+                        ((particles[a].y - particles[b].y) * (particles[a].y - particles[b].y))
+                    );
+                    if (distance < maxDistance) {
+                        opacity = 1 - (distance / maxDistance);
+                        ctx.strokeStyle = `hsla(${hue}, 90%, 50%, ${opacity})`;
+                        ctx.lineWidth = 1.5;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[a].x, particles[a].y);
+                        ctx.lineTo(particles[b].x, particles[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            ctx.clearRect(0, 0, heroSectionWidth, heroSectionHeight);
+
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+            }
+            connectParticles();
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCanvasDimensions();
+            initParticles();
+            animate();
+        });
+    </script>
+    <script src="../../omnigrid-app.js" data-concept="1"></script>
+</body>
+</html>

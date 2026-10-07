@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🇰🇪 Kenya Wildlife Deployment – FAA.Zone</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const now = new Date();
+      document.getElementById("mapUpdateTime").textContent = now.toLocaleString();
+      document.getElementById("geoLastSignal").textContent = now.toLocaleTimeString();
+    });
+  </script>
+</head>
+<body class="bg-gray-50 text-gray-800 p-8">
+
+<!-- HEADER -->
+<header class="bg-white shadow p-6 flex justify-between items-center">
+  <div>
+    <h1 class="text-3xl font-extrabold text-green-700">🇰🇪 Kenya Region Overview</h1>
+    <p class="text-sm text-gray-500">FAA.Zone Verified Scroll Deployment · TreatyMesh Linked</p>
+  </div>
+  <a href="../../quick-view.html" class="text-sm text-blue-600 underline">← Back to Quick View</a>
+</header>
+
+<!-- REGION DETAILS -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+  <div class="bg-white p-6 rounded shadow">
+    <h2 class="text-lg font-bold">🧠 Core Nodes</h2>
+    <p class="text-2xl text-indigo-700 font-extrabold">3</p>
+    <ul class="text-xs mt-2 text-gray-800 list-disc list-inside">
+      <li>AI sync rate: every 9s via PulseGenesis™</li>
+      <li>Downstream nodes managed: 17</li>
+      <li>Manual intervention reduced: 93%</li>
+      <li>Tasks: Drone routing logic, FaunaTag™ data decisioning</li>
+    </ul>
+    <p class="text-xs mt-2 text-gray-500">Root-Sync™ Layer · ClaimRoot™ verified</p>
+  </div>
+
+  <div class="bg-white p-6 rounded shadow">
+    <h2 class="text-lg font-bold">🚱️ Geo Lenses Active</h2>
+    <p class="text-2xl text-green-600 font-extrabold">2</p>
+    <ul class="text-xs mt-2 text-gray-800 list-disc list-inside">
+      <li>Zones: Tsavo East + Samburu East</li>
+      <li>Avg pings/hour: 8,400 (Temp, Humidity, Terrain)</li>
+      <li>Uplink interval: every 15s to Core Node</li>
+      <li>Triggers this week: 3 migratory heatmap events</li>
+      <li>Drone reactions: 2 repositioning pings triggered</li>
+      <li>Overlays exported: ScrollStack™ FieldFeed™ Active</li>
+    </ul>
+    <p class="text-xs text-gray-500 mt-2">Geo Lens IDs: KEN-GL-34A, KEN-GL-34B · Last signal: <span id="geoLastSignal">--:--</span></p>
+  </div>
+
+  <div class="bg-white p-6 rounded shadow">
+    <h2 class="text-lg font-bold">⚡ Energy Beacon Units</h2>
+    <p class="text-2xl text-yellow-600 font-extrabold">4</p>
+    <p class="text-xs mt-2">What they do: Deliver grid-free solar + kinetic energy to sustain node operations during blackouts. Backup cycles are holding 810W avg, vital for uplink zones without infrastructure.</p>
+    <p class="text-xs mt-2 text-gray-500">EcoPulse Radiants™ · Avg Yield: 810W · Grid-buffered</p>
+  </div>
+
+  <div class="bg-white p-6 rounded shadow">
+    <h2 class="text-lg font-bold">🛡️ Secure Nodes</h2>
+    <p class="text-2xl text-red-600 font-extrabold">2</p>
+    <p class="text-xs mt-2">What they do: These run GhostTrace™ perimeter logic to detect illegal movement near buffer zones. Triggered 2 escalations and blocked a perimeter breach attempt this week.</p>
+    <p class="text-xs mt-2 text-gray-500">GhostTrace™ Enabled · 2 threats logged (last 48h)</p>
+  </div>
+
+  <div class="bg-white p-6 rounded shadow">
+    <h2 class="text-lg font-bold">📦 Omnidrop Kits Used</h2>
+    <p class="text-2xl text-purple-600 font-extrabold">6</p>
+    <p class="text-xs mt-2">What they do: Full kits deployed in conservation zones. Used to activate new scrolls and connect physical devices to VaultMesh™. Three assigned to RhinoTag™ and three to corridor Node-C5.</p>
+    <p class="text-xs mt-2 text-gray-500">Includes RootCable™, GlyphRouter™, SyncSphere™</p>
+  </div>
+
+  <div class="bg-white p-6 rounded shadow">
+    <h2 class="text-lg font-bold">🔗 Licensing & Scroll ID</h2>
+    <p class="text-sm">Scroll ID: KENYA-FAAZ-4312</p>
+    <p class="text-xs mt-2">What it means: This region is scroll-licensed. It ensures Kenya's deployment complies with FAA TreatyMesh™ and can access revenue from PulseTrade™ token emissions.</p>
+    <p class="text-xs mt-2 text-gray-500">TreatyMesh™ certified · FAA VaultMesh™ enabled</p>
+  </div>
+</section>
+
+<!-- LIVE MAP DISPLAY -->
+<section class="mt-12 bg-white p-6 rounded shadow">
+  <h3 class="text-xl font-bold text-indigo-700 mb-4">🛰️ Geo Lens Live Activity Map</h3>
+
+  <div class="w-full h-[500px] rounded overflow-hidden border border-indigo-100 shadow-inner">
+    <iframe
+      src="https://scrollmap.faa.zone/kenya/tsavo-samburu-live?overlay=ecozone&theme=light"
+      class="w-full h-full"
+      frameborder="0"
+      title="FAA Kenya Wildlife Geo Lens Map"
+      loading="lazy"
+    ></iframe>
+  </div>
+
+  <p class="text-xs text-gray-500 mt-3 italic">
+    Powered by FAA.MapModule™ via ScrollFeed™ · Uplink from Geo Lens™ Nodes KEN-GL-34A / 34B · Last sync: 
+    <span id="mapUpdateTime">...</span>
+  </p>
+</section>
+
+
+<!-- REGION FOOTPRINT -->
+<section class="mt-12 bg-white p-6 rounded shadow">
+  <h3 class="text-xl font-bold text-green-700 mb-2">🩾 Operational Snapshot</h3>
+  <ul class="list-disc list-inside text-sm space-y-1 text-gray-700">
+    <li>3 Core Nodes managing Baobab™ AI logic and sync layers</li>
+    <li>Energy yield consistent across 4 solar + kinetic beacons</li>
+    <li>Geo Lens data streams live to ScrollStack™ every 15s — including active telemetry from Tsavo North and Samburu East. Lions tagged under Cluster K-3 are currently observed migrating northeast, triggering drone lens repositioning every 90s. AI overlays suggest high-density grazing patterns near river delta nodes.</li>
+    <li>2 Secure Perimeter nodes fencing southern conservation zones</li>
+    <li>Wildlife tag routes monitored via Fauna Tag™ uplinks</li>
+    <li>All nodes passed latest Scroll Echo validation</li>
+  </ul>
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center text-xs text-gray-400 mt-16 pt-6 border-t">
+  FAA.Zone Kenya Node Index · ScrollStack™ Powered · TreatyMesh Wildlife Verified
+</footer>
+
+    <script src="../../omnigrid-app.js" data-concept="1"></script>
+</body>
+</html>

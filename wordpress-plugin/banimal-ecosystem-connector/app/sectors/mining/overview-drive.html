@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAA™ | Mining Sector Unified Dashboard</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .glow-box {
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      transition: box-shadow 0.3s ease-in-out, transform 0.3s ease;
+    }
+    .glow-box:hover {
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
+      transform: translateY(-4px);
+    }
+    .glow-btn {
+      transition: all 0.2s ease-in-out;
+    }
+    .glow-btn:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 4px 15px rgba(255,255,255,0.3);
+    }
+  </style>
+</head>
+
+<body class="bg-black text-white font-sans tracking-tight">
+<div class="p-8 space-y-20 bg-gradient-to-b from-black via-gray-900 to-black">
+
+<header class="text-center">
+  <h1 class="text-5xl font-extrabold text-lime-400 animate-glow">🌍 FAA WORLD-FIRST MINING INTELLIGENCE GRID – SIGNAL GROWING 🌱</h1>
+  <p class="text-white/70 text-lg mt-3">All Brands Synced to PulseGrid™, Secured via VaultChain™ · TreatyMesh™ · ClauseIndex™</p>
+  <p class="text-xs text-white/40 mt-1">Sovereign Compliance Infrastructure Certified FAA-CERT-ALLSECTORS-2025</p>
+</header>
+
+<!-- SUBNAVIGATION LINKS (black launch grid) -->
+<nav class="flex flex-wrap justify-center gap-6 text-sm text-white/80 mt-8">
+  <a href="quick-view.html" class="hover:text-lime-400">Quick View</a>
+  <a href="sovereign-dashboard.html" class="hover:text-lime-400">Pulse Monitor</a>
+  <a href="heartbeat_dashboard.html" class="font-semibold text-green-600">Heartbeat Dashboard</a>
+  <a href="glup-ethics.html" class="hover:text-lime-400">GLUP Ethics</a>
+  <a href="tokenized-clauses.html" class="hover:text-lime-400">Tokenized Clauses</a>
+  <a href="node-reports.html" class="hover:text-lime-400">Node Reports</a>
+  <a href="licensing.html" class="hover:text-lime-400">Licensing</a>
+</nav>
+
+<!-- (Your brand glow cards start here next) -->
+
+
+<!-- BRAND LAUNCH GRID START -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-12">
+  <!-- OreXcel™ -->
+  <div class="glow-box border border-yellow-400 rounded-xl p-6">
+    <h2 class="text-2xl font-bold text-yellow-300">🧪 OreXcel™</h2>
+    <p class="mt-2 text-white/70">Ore Quality + Yield Optimization AI</p>
+    <div class="mt-4 flex gap-2 flex-wrap">
+      <a href="orexcel-pulse.html" class="glow-btn bg-yellow-500 text-black px-4 py-2 rounded-full">Pulse</a>
+      <a href="orexcel-pricing.html" class="glow-btn bg-white text-black px-4 py-2 rounded-full">Pricing</a>
+      <a href="orexcel-dashboard.html" class="glow-btn bg-yellow-800 text-white px-4 py-2 rounded-full">Dashboard</a>
+    </div>
+  </div>
+
+  <!-- Minerva™ -->
+  <div class="glow-box border border-blue-400 rounded-xl p-6">
+    <h2 class="text-2xl font-bold text-blue-300">🧠 Minerva™</h2>
+    <p class="mt-2 text-white/70">Geological Forecasting AI Engine</p>
+    <div class="mt-4 flex gap-2 flex-wrap">
+      <a href="minerva-pulse.html" class="glow-btn bg-blue-500 text-black px-4 py-2 rounded-full">Pulse</a>
+      <a href="minerva-pricing.html" class="glow-btn bg-white text-black px-4 py-2 rounded-full">Pricing</a>
+      <a href="minerva-dashboard.html" class="glow-btn bg-blue-800 text-white px-4 py-2 rounded-full">Dashboard</a>
+    </div>
+  </div>
+
+  <!-- Digium™ -->
+  <div class="glow-box border border-green-400 rounded-xl p-6">
+    <h2 class="text-2xl font-bold text-green-300">⚙️ Digium™</h2>
+    <p class="mt-2 text-white/70">Smart Resource Allocation + Autonomous Sync</p>
+    <div class="mt-4 flex gap-2 flex-wrap">
+      <a href="digium-pulse.html" class="glow-btn bg-green-500 text-black px-4 py-2 rounded-full">Pulse</a>
+      <a href="digium-pricing.html" class="glow-btn bg-white text-black px-4 py-2 rounded-full">Pricing</a>
+      <a href="digium-dashboard.html" class="glow-btn bg-green-800 text-white px-4 py-2 rounded-full">Dashboard</a>
+    </div>
+  </div>
+
+  <!-- MineForge™ -->
+  <div class="glow-box border border-pink-400 rounded-xl p-6">
+    <h2 class="text-2xl font-bold text-pink-300">⛏️ MineForge™</h2>
+    <p class="mt-2 text-white/70">Blockchain Mining Validator</p>
+    <div class="mt-4 flex gap-2 flex-wrap">
+      <a href="mineforge-pulse.html" class="glow-btn bg-pink-400 text-black px-4 py-2 rounded-full">Pulse</a>
+      <a href="mineforge-pricing.html" class="glow-btn bg-white text-black px-4 py-2 rounded-full">Pricing</a>
+      <a href="mineforge-dashboard.html" class="glow-btn bg-pink-800 text-white px-4 py-2 rounded-full">Dashboard</a>
+    </div>
+  </div>
+
+  <!-- MineralVision™ -->
+  <div class="glow-box border border-purple-400 rounded-xl p-6">
+    <h2 class="text-2xl font-bold text-purple-300">🪨 MineralVision™</h2>
+    <p class="mt-2 text-white/70">Surface Imaging AI + Defect Detection</p>
+    <div class="mt-4 flex gap-2 flex-wrap">
+      <a href="mineralvision-pulse.html" class="glow-btn bg-purple-400 text-black px-4 py-2 rounded-full">Pulse</a>
+      <a href="mineralvision-pricing.html" class="glow-btn bg-white text-black px-4 py-2 rounded-full">Pricing</a>
+      <a href="mineralvision-dashboard.html" class="glow-btn bg-purple-800 text-white px-4 py-2 rounded-full">Dashboard</a>
+    </div>
+  </div>
+
+  <!-- AutoBorn™ -->
+  <div class="glow-box border border-indigo-600 rounded-xl p-6">
+    <h2 class="text-2xl font-bold text-indigo-300">🚗 AutoBorn™ Ecosystem</h2>
+    <p class="mt-2 text-white/70">Explore AutoBorn™ Brands and their unique features</p>
+    <div class="mt-4 flex gap-2 flex-wrap">
+      <a href="autoborn-dashboard.html" class="glow-btn bg-indigo-400 text-black px-4 py-2 rounded-full">Explore AutoBorn™</a>
+    </div>
+  </div>
+</section>
+
+<div class="h-12"></div> <!-- SPACER to avoid overlap -->
+</div> <!-- End black launchpad section -->
+
+
+<!-- Start white dashboard section -->
+<div class="bg-gray-100 text-gray-800 font-sans tracking-tight -mt-10">
+
+<!-- FAA SECTOR DASHBOARD MINI-HEADER -->
+<nav class="bg-white border-b px-6 py-3 flex justify-between items-center shadow-sm">
+  <div class="font-bold text-indigo-600 text-lg">🧬 FAA Sector Dashboard</div>
+  <div class="space-x-4 text-sm text-gray-600 text-center">
+    <a href="orexcel-dashboard.html" class="hover:text-indigo-600">OreXcel™</a>
+    <a href="minerva-dashboard.html" class="hover:text-indigo-600">Minerva™</a>
+    <a href="digium-dashboard.html" class="hover:text-indigo-600">Digium™</a>
+    <a href="mineforge-dashboard.html" class="hover:text-indigo-600">MineForge™</a>
+    <a href="mineralvision-dashboard.html" class="hover:text-indigo-600">MineralVision™</a>
+  </div>
+  <div class="text-xs text-gray-400">Node Sovereign: Heyns Schoeman · FAA-X13</div>
+</nav>
+
+<!-- SUBNAVIGATION LINKS -->
+<div class="bg-gray-50 border-b px-6 py-2 text-sm flex gap-6 overflow-x-auto whitespace-nowrap">
+  <a href="quick-view.html" class="font-semibold text-indigo-700">Quick View</a>
+  <a href="sovereign-dashboard.html">Pulse Monitor</a>
+  <a href="heartbeat_dashboard.html" class="font-semibold text-green-600">Heartbeat Dashboard</a>
+  <a href="glup-ethics.html">GLUP Ethics</a>
+  <a href="tokenized-clauses.html">Tokenized Clauses</a>
+  <a href="node-reports.html">Node Reports</a>
+  <a href="licensing.html">Licensing</a>
+</div>
+
+<!-- 📈 ORE GRADE PULSE -->
+<div class="max-w-7xl mx-auto px-6 py-8">
+  <div class="bg-white p-6 rounded shadow">
+    <h2 class="text-xl font-bold text-gray-700">📡 Ore Grade Pulse – Live Grid Feed</h2>
+    <p class="text-sm text-gray-500">Live chart for all 5 brands across global nodes, refreshed every 3 s</p>
+    <div class="h-96">
+      <canvas id="gradeChart" class="w-full h-full"></canvas>
+    </div>
+    <div class="text-xs mt-4 bg-blue-50 p-3 border border-blue-200 rounded">
+      <strong>Interpretation:</strong> Tracks real-time signal per AI unit. Yellow: watch volatility. Red: potential extraction anomaly.
+    </div>
+  </div>
+</div>
+
+<!-- FAA GRID HEALTH -->
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 px-6 py-8">
+  <div class="bg-white p-5 rounded shadow text-center">
+    <h3 class="text-sm font-bold text-gray-700">FAA Grid Health</h3>
+    <p class="text-green-600 mt-2">GLUP Logic: ✅ Stable</p>
+    <p class="text-green-600">Ethics Stream: ✅ Clear</p>
+    <p class="text-blue-600">Node: FAA-X13</p>
+  </div>
+  <div class="bg-white p-5 rounded shadow text-center">
+    <h3 class="text-sm font-bold text-gray-700">Yield Metrics</h3>
+    <p>Avg Grade: <span class="font-bold text-blue-600">85.1%</span></p>
+    <p>Variance: <span class="font-bold text-yellow-600">±4.3%</span></p>
+    <p>Max Grade: <span class="font-bold text-green-600">91%</span></p>
+  </div>
+  <div class="bg-white p-5 rounded shadow text-center">
+    <h3 class="text-sm font-bold text-gray-700">FAA Reports</h3>
+    <ul class="list-disc pl-4 text-sm text-blue-700 space-y-1 text-left">
+      <li><a href="faa-reports.html#ethics-sync">Ethics Sync</a></li>
+      <li><a href="faa-reports.html#token-grid">Token Grid</a></li>
+      <li><a href="faa-reports.html#clausemap-audit">ClauseMap Audit</a></li>
+      <li><a href="faa-reports.html#vault-session">Vault Session Stats</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- BRAND VALUATION SNAPSHOT -->
+<div class="max-w-7xl mx-auto px-6 mb-10">
+  <div class="bg-white p-6 rounded shadow">
+    <h2 class="text-xl font-bold text-gray-700">💰 Valuation Snapshot (Brand Layer)</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+      <div class="bg-gray-50 p-4 rounded-xl shadow-inner text-center">
+        <h3 class="text-lg font-bold text-yellow-500">✏️ OreXcel™</h3>
+        <p class="text-sm">Valuation: <span class="text-indigo-700 font-bold">ZAR 1.4B</span></p>
+        <p class="text-xs text-gray-600">Trait: Ore optimizer</p>
+        <p class="text-xs text-gray-600">Reach: 6 countries / 43 mines</p>
+      </div>
+      <div class="bg-gray-50 p-4 rounded-xl shadow-inner text-center">
+        <h3 class="text-lg font-bold text-blue-500">🔮 Minerva™</h3>
+        <p class="text-sm">Valuation: <span class="text-indigo-700 font-bold">ZAR 820M</span></p>
+        <p class="text-xs text-gray-600">Trait: Geo‑AI forecast</p>
+        <p class="text-xs text-gray-600">Reach: LATAM, SA, CAN</p>
+      </div>
+      <div class="bg-gray-50 p-4 rounded-xl shadow-inner text-center">
+        <h3 class="text-lg font-bold text-green-500">🧩 Digium™</h3>
+        <p class="text-sm">Valuation: <span class="text-indigo-700 font-bold">ZAR 950M</span></p>
+        <p class="text-xs text-gray-600">Trait: Autonomous routing</p>
+        <p class="text-xs text-gray-600">Reach: 340+ daily loads</p>
+      </div>
+      <div class="bg-gray-50 p-4 rounded-xl shadow-inner text-center">
+        <h3 class="text-lg font-bold text-pink-500">🧱 MineForge™</h3>
+        <p class="text-sm">Valuation: <span class="text-indigo-700 font-bold">ZAR 1.1B</span></p>
+        <p class="text-xs text-gray-600">Trait: Notarization engine</p>
+        <p class="text-xs text-gray-600">Reach: 27 zones</p>
+      </div>
+      <div class="bg-gray-50 p-4 rounded-xl shadow-inner text-center">
+        <h3 class="text-lg font-bold text-purple-500">🛰 MineralVision™</h3>
+        <p class="text-sm">Valuation: <span class="text-indigo-700 font-bold">ZAR 610M</span></p>
+        <p class="text-xs text-gray-600">Trait: Surface vision AI</p>
+        <p class="text-xs text-gray-600">Reach: Brazil, DRC, Chile</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AUTOBORN MINI PULSE GRID -->
+<div id="autoborn-sync-root" class="max-w-7xl mx-auto p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+<!-- FOOTER -->
+<footer class="text-center text-xs text-gray-500 mt-20 py-6 border-t border-gray-300">
+  <a href="../../public/vaultchain-protocol.html" class="hover:underline">FAA VaultChain Protocol</a> · 
+  <a href="../../public/omnisynced.html" class="hover:underline">OmniSynced</a> · 
+  <a href="../../public/ethics-grid.html" class="hover:underline">Ethics Grid</a> · 
+  <a href="../../public/treatymesh-validated.html" class="hover:underline">TreatyMesh™ Validated</a> · 
+  <a href="../../public/global-sovereign-ai.html" class="hover:underline">FAA.Zone Global Sovereign AI Network</a>
+</footer>
+
+</div> <!-- End white section -->
+
+<!-- SCRIPT FOR LIVE CHARTS -->
+<script type="module">
+document.addEventListener('DOMContentLoaded', () => {
+  // Main Ore Pulse
+  const ctx = document.getElementById('gradeChart').getContext('2d');
+  const brands = ['OreXcel', 'Minerva', 'Digium', 'MineForge', 'MineralVision'];
+  const colors = ['#fbbf24', '#3b82f6', '#10b981', '#ec4899', '#8b5cf6'];
+
+  const gradeData = { labels: [], datasets: brands.map((b, i) => ({ label: b, data: [], borderColor: colors[i], borderWidth: 2, fill: false, tension: 0.4 })) };
+  const gradeChart = new Chart(ctx, { type: 'line', data: gradeData, options: { responsive: true, maintainAspectRatio: false, animation: false, scales: { y: { min: 60, max: 100, ticks: { callback: (v) => v + '%' } } }, plugins: { legend: { position: 'bottom' } } } });
+
+  function pushGrade() {
+    const now = new Date();
+    if (gradeData.labels.length > 30) { gradeData.labels.shift(); gradeData.datasets.forEach(d => d.data.shift()); }
+    gradeData.labels.push(now.toLocaleTimeString());
+    gradeData.datasets.forEach(d => d.data.push(+(80 + Math.random() * 12).toFixed(2)));
+    gradeChart.update();
+  }
+  pushGrade(); setInterval(pushGrade, 3000);
+
+  // AutoBorn Mini Pulse
+  const scrolls = [{ id: 'scroll-9082', brand: 'AutoBorn™ Prime', icon: '🚗', type: 'Master Scroll', licenseFee: 'R12,000', monthly: 'R999 (Live)', royalty: '9.2% / Split: G', region: 'SA | EU | APAC', base: 84, color: '#facc15' }];
+  const autobornRoot = document.getElementById('autoborn-sync-root');
+  const pulseCharts = {};
+
+  scrolls.forEach(scroll => {
+    const card = document.createElement('div');
+    card.className = 'bg-white rounded-xl shadow p-4 flex flex-col space-y-2';
+    card.innerHTML = `
+      <div class="flex items-center space-x-2">
+        <span class="text-2xl">${scroll.icon}</span>
+        <h4 class="font-bold">${scroll.brand}</h4>
+      </div>
+      <p class="text-xs text-gray-500">${scroll.type}</p>
+      <div class="w-full h-48">
+        <canvas id="pulse-${scroll.id}" class="w-full h-full"></canvas>
+      </div>
+      <div class="grid grid-cols-2 gap-1 text-xs mt-2">
+        <span class="font-semibold">License:</span><span>${scroll.licenseFee}</span>
+        <span class="font-semibold">Monthly:</span><span>${scroll.monthly}</span>
+        <span class="font-semibold">Royalty:</span><span>${scroll.royalty}</span>
+        <span class="font-semibold">Region:</span><span>${scroll.region}</span>
+      </div>
+    `;
+    autobornRoot.appendChild(card);
+
+    const miniCtx = document.getElementById(`pulse-${scroll.id}`).getContext('2d');
+    const miniChart = new Chart(miniCtx, { type: 'line', data: { labels: [], datasets: [{ label: scroll.brand, data: [], borderColor: scroll.color, borderWidth: 2, fill: false, tension: 0.4 }] }, options: { responsive: true, maintainAspectRatio: false, animation: false, scales: { y: { min: scroll.base - 5, max: scroll.base + 5, ticks: { display: false } }, x: { display: false } }, plugins: { legend: { display: false }, tooltip: { enabled: false } } } });
+
+    pulseCharts[scroll.id] = { chart: miniChart, base: scroll.base };
+  });
+
+  function updateMiniPulses() {
+    const now = new Date().toLocaleTimeString();
+    Object.values(pulseCharts).forEach(({ chart, base }) => {
+      if (chart.data.labels.length > 20) { chart.data.labels.shift(); chart.data.datasets[0].data.shift(); }
+      chart.data.labels.push(now);
+      chart.data.datasets[0].data.push(+(base + (Math.random() - 0.5) * 1.8).toFixed(2));
+      chart.update();
+    });
+  }
+  setInterval(updateMiniPulses, 3000);
+});
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>AutoBorn™ Overview | FAA Mining Ecosystem</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50 text-gray-800 leading-relaxed">
+
+<!-- ─────────────────────  HERO  ───────────────────── -->
+<section class="bg-gradient-to-br from-gray-900 to-indigo-900 text-white">
+  <div class="max-w-7xl mx-auto px-6 py-20 text-center">
+    <h1 class="text-4xl sm:text-5xl font-extrabold mb-4">
+      <span class="text-yellow-400">AutoBorn™</span><br>
+      Mining, Evolved
+    </h1>
+    <p class="max-w-3xl mx-auto text-lg opacity-90">
+      Real-time AI, 9-second PulseGrid™ sync, FAA VaultChain™ security.<br>
+      Turn your fleet into a self-driving, self-optimising ecosystem.
+    </p>
+    <a href="#central-brain" class="mt-10 inline-block px-10 py-4 bg-yellow-400 text-gray-900 font-semibold rounded hover:bg-yellow-300 transition">
+      Learn More ↓
+    </a>
+  </div>
+</section>
+
+<!-- ─────────────────  BIG PICTURE  ───────────────── -->
+<section class="max-w-5xl mx-auto px-6 py-16">
+  <h2 class="text-3xl font-bold mb-6">What exactly is AutoBorn™?</h2>
+  <p class="mb-4">
+    AutoBorn™ isn’t another dispatch program. It’s a <strong>full AI ecosystem</strong> that thinks,
+    reacts, and scales on your behalf. Imagine every truck, shovel and sensor in your pit acting like
+    a single, coordinated swarm.
+  </p>
+  <ul class="list-disc list-inside space-y-2">
+    <li><strong>Central Brain →</strong> auto-orchestrates equipment, crews and haulage in real time.</li>
+    <li><strong>PulseGrid™ Sync →</strong> 9-second updates keep every machine on the same plan.</li>
+    <li><strong>VaultChain™ Security →</strong> tamper-proof audit trail of every load &amp; decision.</li>
+    <li><strong>ClauseIndex™ Compliance →</strong> one-click legal &amp; ESG reporting.</li>
+  </ul>
+</section>
+
+<!-- ─────────────────  FOUR PILLARS (dark band, white text)  ───────────────── -->
+<section id="central-brain" class="bg-gray-900 text-white">
+  <div class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10">
+
+    <!-- Central Brain -->
+    <div>
+      <h3 class="text-2xl font-bold mb-4">Central Brain</h3>
+      <p class="mb-4">
+        A cloud AI that never sleeps. It pulls live data from every vehicle, re-plans haul
+        routes, and pushes new tasks back out — <em>in seconds</em>.
+      </p>
+      <ul class="list-disc list-inside space-y-1">
+        <li>Live fleet map &amp; queue prediction</li>
+        <li>Adaptive speed &amp; route limits</li>
+        <li>Blend optimisation to hit plant grade</li>
+      </ul>
+    </div>
+
+    <!-- PulseGrid -->
+    <div>
+      <h3 class="text-2xl font-bold mb-4">PulseGrid™ (9-second heartbeat)</h3>
+      <p class="mb-4">
+        Every truck, drill and drone sends a packet every nine seconds. All packets align
+        to one clock, so the AI always sees a synchronised snapshot.
+      </p>
+      <ul class="list-disc list-inside space-y-1">
+        <li>GNSS position, payload, tyre pressure</li>
+        <li>Engine health &amp; fuel burn</li>
+        <li>Safety events (hard brake, overspeed)</li>
+      </ul>
+    </div>
+
+    <!-- VaultChain -->
+    <div>
+      <h3 class="text-2xl font-bold mb-4">VaultChain™ Security</h3>
+      <p class="mb-4">
+        An append-only ledger: new blocks are written, old ones can’t be changed.
+        Any tampering breaks the hash chain and is rejected automatically.
+      </p>
+      <ul class="list-disc list-inside space-y-1">
+        <li>SHA-256 Merkle roots per shift</li>
+        <li>On-prem signing + cloud replication</li>
+        <li>Auditor read-only portals</li>
+      </ul>
+    </div>
+
+    <!-- ClauseIndex -->
+    <div>
+      <h3 class="text-2xl font-bold mb-4">ClauseIndex™ Compliance</h3>
+      <p class="mb-4">
+        A rule engine that converts raw VaultChain™ data into the PDFs, Excel sheets
+        and ESG metrics regulators need.
+      </p>
+      <ul class="list-disc list-inside space-y-1">
+        <li>Safety, environmental &amp; HR clauses</li>
+        <li>Immediate breach alerts</li>
+        <li>Auto-generated monthly packs</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- HARDWARE / DEVICES  (dark band) -->
+<section class="bg-gray-900 text-white py-20">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-8">What devices do we need?</h2>
+
+    <div class="grid md:grid-cols-2 gap-10">
+      <!-- Mobile Kits -->
+      <div class="space-y-3">
+        <h4 class="font-semibold text-lg">1. Mobile Equipment Kits</h4>
+        <ul class="list-disc list-inside space-y-1">
+          <li class="text-white">Rugged tablet (Android 11+)</li>
+          <li class="text-white">GNSS antenna (sub-meter)</li>
+          <li class="text-white">On-board IoT hub</li>
+          <li class="text-white">12/24 V power harness</li>
+        </ul>
+        <p class="text-sm text-gray-300">Install ≈ 1 hour per asset.</p>
+      </div>
+
+      <!-- Site Connectivity -->
+      <div class="space-y-3">
+        <h4 class="font-semibold text-lg">2. Site Connectivity</h4>
+        <ul class="list-disc list-inside space-y-1">
+          <li class="text-white">LTE-A / 5 G or Wi-Fi mesh</li>
+          <li class="text-white">Redundant backhaul to VaultMesh</li>
+          <li class="text-white">Solar repeaters (optional)</li>
+        </ul>
+        <p class="text-sm text-gray-300">PulseGrid™ packets are only a few kB.</p>
+      </div>
+
+      <!-- VaultMesh Rack -->
+      <div class="space-y-3">
+        <h4 class="font-semibold text-lg">3. VaultMesh Server Rack</h4>
+        <ul class="list-disc list-inside space-y-1">
+          <li class="text-white">2 × 2 U GPU servers (HA)</li>
+          <li class="text-white">1 U ledger signer (HSM)</li>
+          <li class="text-white">7-day local storage cache</li>
+        </ul>
+        <p class="text-sm text-gray-300">Lives in your IT or control room.</p>
+      </div>
+
+      <!-- Operator Interfaces -->
+      <div class="space-y-3">
+        <h4 class="font-semibold text-lg">4. Operator Interfaces</h4>
+        <ul class="list-disc list-inside space-y-1">
+          <li class="text-white">In-cab tablet app (haul Waze)</li>
+          <li class="text-white">Supervisor tablet dashboard</li>
+          <li class="text-white">Browser portal for engineers</li>
+        </ul>
+        <p class="text-sm text-gray-300">No thick-client installs required.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────  HOW IT WORKS (dark)  ────────────────── -->
+<section class="bg-gray-900 text-white">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <h2 class="text-3xl font-bold mb-8 text-center">How AutoBorn™ Syncs Your Mine</h2>
+
+    <div class="flex flex-col items-center">
+      <svg width="680" height="160" viewBox="0 0 680 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <style>
+          .box   { fill:#f3f4f6; stroke:#ffffff; stroke-width:1.2px; }
+          .label { font:600 14px 'Helvetica Neue',Arial,sans-serif; fill:#111827; }
+          .arrow { stroke:#ffffff; stroke-width:2; marker-end:url(#arrow); }
+        </style>
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <polygon points="0 0, 8 4, 0 8" fill="#ffffff"/>
+          </marker>
+        </defs>
+
+        <!-- boxes -->
+        <rect x="10"  y="50" width="130" height="60" rx="6" class="box"/>
+        <rect x="180" y="50" width="130" height="60" rx="6" class="box"/>
+        <rect x="350" y="50" width="130" height="60" rx="6" class="box"/>
+        <rect x="520" y="50" width="150" height="60" rx="6" class="box"/>
+
+        <!-- labels -->
+        <text x="75"  y="85"  text-anchor="middle" class="label">Fleet</text>
+        <text x="245" y="85"  text-anchor="middle" class="label">PulseGrid™</text>
+        <text x="415" y="85"  text-anchor="middle" class="label">Prime&nbsp;AI</text>
+        <text x="595" y="85"  text-anchor="middle" class="label">VaultChain™</text>
+
+        <!-- arrows -->
+        <line x1="140" y1="80" x2="180" y2="80" class="arrow"/>
+        <line x1="310" y1="80" x2="350" y2="80" class="arrow"/>
+        <line x1="480" y1="80" x2="520" y2="80" class="arrow"/>
+      </svg>
+
+      <p class="text-sm text-gray-300 mt-6 max-w-2xl text-center">
+        Live data → PulseGrid™ normalises &amp; predicts → Prime AI issues optimised commands →
+        every event is immutably recorded on VaultChain™.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────────────  BENEFITS  ──────────────────── -->
+<section class="bg-gray-900 text-white py-20">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold mb-8">Why miners choose AutoBorn™</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-sm">
+      <div><strong class="text-yellow-400 text-2xl">+12&nbsp;%</strong><br>Average ore-grade uplift</div>
+      <div><strong class="text-yellow-400 text-2xl">–18&nbsp;%</strong><br>Fuel &amp; maintenance overhead</div>
+      <div><strong class="text-yellow-400 text-2xl">24 / 7</strong><br>AI monitoring &amp; safety alerts</div>
+      <div><strong class="text-yellow-400 text-2xl">99.7&nbsp;%</strong><br>Ledger-verified uptime</div>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────────────  FAQ  ──────────────────── -->
+<section class="max-w-6xl mx-auto px-6 py-16">
+  <h2 class="text-3xl font-bold mb-8">Frequently Asked Questions</h2>
+  <details class="mb-4">
+    <summary class="cursor-pointer font-semibold">How long does deployment take?</summary>
+    <p class="text-sm mt-2">Pilot node in ≈ 14 days. Full fleet roll-out takes about 4–12 weeks, scaled to fleet size and network coverage.</p>
+  </details>
+  <details class="mb-4">
+    <summary class="cursor-pointer font-semibold">Will it replace my existing dispatch system?</summary>
+    <p class="text-sm mt-2">AutoBorn™ can integrate alongside your current dispatch or replace it entirely. Most sites start in overlay mode, then switch once value is proven.</p>
+  </details>
+  <details>
+    <summary class="cursor-pointer font-semibold">Is my data really immutable?</summary>
+    <p class="text-sm mt-2">Yes. Every transaction is written to FAA VaultChain™. Blocks can’t be altered without cryptographic consensus, and auditors can verify the hash chain any time.</p>
+  </details>
+</section>
+
+<!-- ────────────────────  CTA  ──────────────────── -->
+<section class="bg-indigo-700 text-white">
+  <div class="max-w-4xl mx-auto px-6 py-16 text-center">
+    <h2 class="text-3xl font-bold mb-4">Ready to evolve your mine?</h2>
+    <p class="mb-8">Book a 30-min live demo and discover your first “quick-win” optimisation.</p>
+    <a href="https://faa.zone/contact"
+       class="inline-block bg-yellow-400 text-gray-900 font-semibold px-10 py-4 rounded hover:bg-yellow-300 transition">
+      BOOK DEMO
+    </a>
+  </div>
+</section>
+
+<footer class="text-center text-xs py-6 text-gray-500">
+  © 2025 Heyns Schoeman · FAA™ Inline Compliance
+</footer>
+    <script src="../../omnigrid-app.js" data-concept="1"></script>
+</body>
+</html>

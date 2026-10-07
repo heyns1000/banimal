@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAA™ | Scroll Homepage</title>
+  <meta name="description" content="FAA™ Treaty Interface — Glyph-Locked Protocols" />
+  <link rel="icon" href="../../../favicon.ico" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Global Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8f8f8;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      background: transparent;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+      transition: background-color 0.3s ease;
+    }
+
+    header .logo {
+      font-size: 2rem;
+      font-weight: 600;
+      color: white;
+    }
+
+    header nav a {
+      color: white;
+      padding: 10px 20px;
+      font-weight: 500;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: all 0.3s ease-in-out;
+    }
+
+    header nav a:hover {
+      color: #ff6f61;
+      border-bottom: 2px solid #ff6f61;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(135deg, #ff6f61, #d4a5a5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero h1 {
+      font-size: 4.5rem;
+      font-weight: 700;
+      background: -webkit-linear-gradient(#ff6f61, #d4a5a5);
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 20px;
+      animation: gradientText 3s ease-in-out infinite alternate;
+      transform: translateY(20px);
+      animation: moveUp 1s ease-out infinite;
+    }
+
+    @keyframes moveUp {
+      0% { transform: translateY(20px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes gradientText {
+      0% {
+        background: linear-gradient(45deg, #ff6f61, #d4a5a5);
+      }
+      100% {
+        background: linear-gradient(45deg, #6a5acd, #ff6347);
+      }
+    }
+
+    .cta-button {
+      padding: 20px 40px;
+      background-color: #ff6f61;
+      border-radius: 50px;
+      color: white;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      border: none;
+      cursor: pointer;
+      animation: bounceButton 2s infinite alternate;
+    }
+
+    @keyframes bounceButton {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .cta-button:hover {
+      background-color: #e75f4e;
+      transform: scale(1.05);
+    }
+
+    /* Product Grid Section */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 4rem 2rem;
+      margin-top: 5rem;
+      position: relative;
+      z-index: 5;
+    }
+
+    .product-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      padding: 2rem;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 0.6s forwards, scaleUp 0.6s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes scaleUp {
+      0% { transform: scale(0.9); }
+      100% { transform: scale(1); }
+    }
+
+    .product-card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .product-card h3 {
+      font-size: 1.8rem;
+      color: #333;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .product-card p {
+      color: #777;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #121212;
+      color: #fff;
+      padding: 3rem 0;
+      text-align: center;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 5px;
+      transition: all 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #ff6f61;
+    }
+
+    /* Mobile Adjustments */
+    @media (max-width: 768px) {
+      header nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: rgba(0, 0, 0, 0.9);
+        padding: 1rem;
+        border-radius: 10px;
+      }
+
+      header nav.active {
+        display: flex;
+      }
+
+      header nav a {
+        padding: 15px;
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">🍇 FAA™</div>
+    <nav>
+      <a href="../../../global-checkout.html">Global Checkout</a>
+      <a href="../../../wolrd-first-7000-brands.html">7000+ Brands</a>
+      <a href="../../../fruitful.america.html">Fruitful.America™</a>
+      <a href="../../../vrugtige-planet-verandering.html">Planet Change™</a>
+      <a href="#treaty">Treaty™</a>
+      <a href="#vaultmesh">VaultMesh™</a>
+      <a href="https://www.fruitfulcratedance.com" target="_blank">Crate Dance</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div>
+      <h1>Fruitful Planet Change™</h1>
+      <button class="cta-button">Explore the Vault</button>
+    </div>
+  </section>
+
+  <!-- Product Grid Section -->
+  <section class="product-grid">
+    <div class="product-card">
+      <h3>AI-Powered Listing Optimization</h3>
+      <p>Optimize property listings with real-time insights and AI-powered recommendations.</p>
+    </div>
+    <div class="product-card">
+      <h3>Real-Time Market Pulse</h3>
+      <p>Track and adjust listings based on user interaction and real-time data trends.</p>
+    </div>
+    <div class="product-card">
+      <h3>Seamless Valuation Sync</h3>
+      <p>Automatically sync valuations with bank and agency systems for accuracy.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 FAA.zone · RealEstate Grid Engine™</p>
+    <p><a href="#privacy-policy">Privacy Policy</a> | <a href="#terms-of-service">Terms of Service</a></p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('header nav').classList.toggle('active');
+    }
+  </script>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAA RealEstate™ | Features</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <!-- 🧩 FAA RealEstate Features Page -->
+  <header class="bg-gradient-to-r from-purple-700 to-indigo-600 text-white py-16 text-center" data-aos="fade-down">
+    <h1 class="text-4xl font-extrabold">FAA RealEstate™ Features</h1>
+    <p class="mt-2 text-sm opacity-90">Discover the advanced tools and AI features that make FAA RealEstate™ the most powerful property listing and valuation platform.</p>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-12">
+    <section data-aos="fade-up" data-aos-delay="100">
+      <h2 class="text-2xl font-bold mb-6">AI-Powered Listing Optimization</h2>
+      <p class="text-lg text-gray-700">FAA RealEstate™ uses machine learning algorithms to help you optimize property listings, ensuring that they are priced competitively and appealing to buyers. Our system analyzes thousands of data points, delivering real-time recommendations based on market trends and user behavior.</p>
+    </section>
+
+    <section data-aos="fade-up" data-aos-delay="200" class="mt-12">
+      <h2 class="text-2xl font-bold mb-6">Real-Time Market Pulse</h2>
+      <p class="text-lg text-gray-700">Get immediate insights into how your property listings are performing. Our Market Pulse Engine tracks key metrics such as user interactions, listing views, and search trends, allowing you to make informed decisions and adjust your strategy in real-time.</p>
+    </section>
+
+    <section data-aos="fade-up" data-aos-delay="300" class="mt-12">
+      <h2 class="text-2xl font-bold mb-6">Valuation Sync Integration</h2>
+      <p class="text-lg text-gray-700">Integrate seamlessly with your bank and agency systems for automatic property valuation updates. FAA RealEstate™ syncs with your data sources to provide accurate, real-time valuation calculations for every property in your portfolio.</p>
+    </section>
+
+    <section data-aos="fade-up" data-aos-delay="400" class="mt-12">
+      <h2 class="text-2xl font-bold mb-6">Smart Listing Enhancements</h2>
+      <p class="text-lg text-gray-700">FAA RealEstate™ allows you to customize your listings with AI-driven enhancements, including smart descriptions, property highlights, and dynamic images that capture buyer attention and improve conversion rates.</p>
+    </section>
+
+    <section data-aos="fade-up" data-aos-delay="500" class="mt-12">
+      <h2 class="text-2xl font-bold mb-6">Integrated CRM Tools</h2>
+      <p class="text-lg text-gray-700">Streamline your property management with our integrated CRM tools. FAA RealEstate™ features lead management, client tracking, automated follow-ups, and reporting tools, all in one easy-to-use platform.</p>
+    </section>
+
+    <section data-aos="fade-up" data-aos-delay="600" class="mt-12">
+      <h2 class="text-2xl font-bold mb-6">Syndication and Listing Distribution</h2>
+      <p class="text-lg text-gray-700">With FAA RealEstate™, your property listings can be syndicated across multiple platforms, including Property24, ensuring that your listings reach a larger audience and attract more potential buyers.</p>
+    </section>
+  </main>
+
+  <footer class="text-center text-xs text-gray-400 py-6 border-t mt-12">
+    FAA.zone · RealEstate Grid Engine™ · VaultMesh Synced · Sector: Housing
+  </footer>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+  </script>
+</body>
+</html
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAA RealEstate™ | About</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800">
+  <!-- 🧩 FAA RealEstate About Page -->
+  <header class="bg-gradient-to-r from-indigo-700 to-blue-800 text-white py-16 text-center">
+    <h1 class="text-4xl font-extrabold">FAA RealEstate™</h1>
+    <p class="text-sm opacity-90 mt-2">Transforming Real Estate with AI-driven Tools for Property Agencies</p>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-12">
+    <section>
+      <h2 class="text-2xl font-bold mb-6">About FAA RealEstate™</h2>
+      <p class="text-lg text-gray-700">FAA RealEstate™ is an advanced SaaS platform that equips property agencies with cutting-edge AI tools to enhance their property listings, valuations, and market performance. With integrations into global property networks like Property24, FAA RealEstate™ is designed to optimize real-time listing management, enhance valuation accuracy, and boost sales potential.</p>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-2xl font-bold mb-6">Our Mission</h2>
+      <p class="text-lg text-gray-700">We aim to empower real estate agencies by providing them with powerful, data-driven tools to optimize their operations and offer more value to their clients. FAA RealEstate™ bridges the gap between traditional real estate practices and the future of property technology.</p>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-2xl font-bold mb-6">Our Vision</h2>
+      <p class="text-lg text-gray-700">Our vision is to become the leading provider of real estate AI solutions that foster a smarter, faster, and more efficient property market. We believe in the power of data and innovation to create a more transparent and accessible real estate ecosystem for everyone.</p>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-2xl font-bold mb-6">Meet the Team</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="border rounded-xl p-6 shadow hover:shadow-lg transition">
+          <h3 class="text-xl font-bold text-indigo-700">Heyns Schoeman</h3>
+          <p class="text-sm text-gray-600 mt-2">Founder & CEO</p>
+          <p class="text-sm text-gray-600 mt-2">A visionary in tech and real estate. Focused on revolutionizing the property industry through AI.</p>
+        </div>
+        <div class="border rounded-xl p-6 shadow hover:shadow-lg transition">
+          <h3 class="text-xl font-bold text-indigo-700">Sam Fox</h3>
+          <p class="text-sm text-gray-600 mt-2">Chief Technical Officer</p>
+          <p class="text-sm text-gray-600 mt-2">Leading the development of cutting-edge technologies that power FAA RealEstate™ solutions.</p>
+        </div>
+        <div class="border rounded-xl p-6 shadow hover:shadow-lg transition">
+          <h3 class="text-xl font-bold text-indigo-700">John Doe</h3>
+          <p class="text-sm text-gray-600 mt-2">Chief Product Officer</p>
+          <p class="text-sm text-gray-600 mt-2">Passionate about creating user-friendly, powerful tools that help property agents close deals faster.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="text-center text-xs text-gray-400 py-6 border-t mt-12">
+    FAA.zone · RealEstate Grid Engine™ · VaultMesh Synced · Sector: Housing
+  </footer>
+    <script src="../../../omnigrid-app.js" data-concept="1"></script>
+</body>
+</html>

@@ -1,0 +1,396 @@
+{
+ "source": "faa.zone sector concept pages (Drive tree + heyns1000/faa.zone)",
+ "count": 74,
+ "sectors": {
+  "ai-logic": [
+   {
+    "file": "sectors/ai-logic/codenest/dashboard.html",
+    "title": "CodeNest™ Desktop Dashboard",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/ai-logic/codenest/index.html",
+    "title": "CodeNest™ – FAA-Certified Web Dev Scroll Studio",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/ai-logic/codenest/license.html",
+    "title": "My Licenses – CodeNest™",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/ai-logic/codenest/newproject.html",
+    "title": "Create New Project – CodeNest™",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/ai-logic/codenest/scrollbuilder.html",
+    "title": "Scroll Builder – CodeNest™",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/ai-logic/codenest/settings.html",
+    "title": "Settings – CodeNest™",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/ai-logic/codenest/templates.html",
+    "title": "Templates – CodeNest™",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/ai-logic/overview.html",
+    "title": "AI, Logic & Grid Systems – FAA Sector Index",
+    "origin": "Drive faa.zone"
+   }
+  ],
+  "education-ip": [
+   {
+    "file": "sectors/education/overview.html",
+    "title": "Fruitful Smart Toys™ | FAA Treaty Activation",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/education/smart-toys/dashboard.html",
+    "title": "Welcome to Fruitful Smart Toys™ | FAA Zone",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/education/smart-toys/modularview.html",
+    "title": "ModularView | FAA Zone",
+    "origin": "Drive faa.zone"
+   }
+  ],
+  "housing": [
+   {
+    "file": "sectors/housing/Buildnest/dashboard.html",
+    "title": "FAA.zone – BuildNest™ Sector Dashboard",
+    "origin": "faa.zone repo"
+   },
+   {
+    "file": "sectors/housing/Buildnest/index.html",
+    "title": "BuildNest™ – FAA.zone Housing Infrastructure Protocol",
+    "origin": "faa.zone repo"
+   },
+   {
+    "file": "sectors/housing/cornex/cornex-ai.html",
+    "title": "Cornex™ AI Systems – FAA.Zone Housing Sector",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/housing/cornex/cornex-brands.html",
+    "title": "Cornex™ Brand Portfolio – FAA.Zone Housing Sector",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/housing/cornex/cornex-contact.html",
+    "title": "Cornex™ Contact – FAA.Zone Housing Sector",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/housing/cornex/cornex-dashboard.html",
+    "title": "Cornex™ Dashboard – Housing Sector | FAA.Zone",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/housing/cornex/cornex-ecosystem.html",
+    "title": "Cornex™ Ecosystem Growth – FAA Housing Sector",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/housing/cornex/cornex-factory.html",
+    "title": "Cornex™ Factory Setup – FAA.Zone Housing Sector",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/housing/cornex/licensing.html",
+    "title": "Cornex™ Ecosystem Licensing – FAA.Zone",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/housing/overview-drive.html",
+    "title": "🏛️ Housing Sector – FAA.Zone",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/housing/overview.html",
+    "title": "FAA™ Housing & Infrastructure Dashboard - Global Index",
+    "origin": "faa.zone repo"
+   },
+   {
+    "file": "sectors/housing/realestate/dashboard.html",
+    "title": "FAA Real Estate AI™ Dashboard",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/housing/realestate/index.html",
+    "title": "FAA™ | Scroll Homepage",
+    "origin": "faa.zone repo"
+   }
+  ],
+  "media": [
+   {
+    "file": "sectors/media/sonicgrid/index.html",
+    "title": "FAA™ Motion, Media & Sonic Dashboard",
+    "origin": "faa.zone repo"
+   }
+  ],
+  "mining": [
+   {
+    "file": "sectors/mining/autoborn-dashboard.html",
+    "title": "AutoBorn™ Master Sync Grid | FAA Mining Ecosystem",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/mining/autoborn-overview.html",
+    "title": "AutoBorn™ Overview | FAA Mining Ecosystem",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/mining/autoborn-pricing.html",
+    "title": "AutoBorn™ Pricing | FAA Mining Ecosystem",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/mining/digium-dashboard.html",
+    "title": "Digium™ | FAA Mining Intelligence Dashboard",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/mining/digium-pricing.html",
+    "title": "Digium™ Pricing | FAA Autonomous Grid Deployment",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/mining/digium-pulse.html",
+    "title": "digium-pulse.html",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/mining/faa-clausevault.html",
+    "title": "🧬 FAA ClauseVault™",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/mining/glup-ethics.html",
+    "title": "glup-ethics.html",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/mining/heartbeat_dashboard.html",
+    "title": "FAA.Zone | Mining Sector Heartbeat",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/mining/licensing.html",
+    "title": "licensing.html",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/mining/mineforge-dashboard.html",
+    "title": "MineForge™ | FAA Mining Intelligence Dashboard",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/mining/mineforge-pricing.html",
+    "title": "MineForge™ Pricing | FAA Licensing & Tiers",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/mining/mineforge-pulse.html",
+    "title": "mineforge-pulse.html",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/mining/mineralvision-dashboard.html",
+    "title": "MineralVision™ Dashboard | FAA Mining AI",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/mining/mineralvision-pricing.html",
+    "title": "MineralVision™ Pricing | FAA Visual AI Licensing",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/mining/mineralvision-pulse.html",
+    "title": "mineralvision-pulse.html",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/mining/minerva-dashboard.html",
+    "title": "Minerva™ | FAA OmniPage | VaultChain Synced",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/mining/minerva-pricing.html",
+    "title": "Minerva™ Pricing | FAA VaultChain",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/mining/minerva-pulse.html",
+    "title": "minerva-pulse.html",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/mining/node-reports.html",
+    "title": "node-reports.html",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/mining/orexcel-dashboard.html",
+    "title": "OreXcel™ Dashboard | FAA Mining AI",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/mining/orexcel-pricing.html",
+    "title": "OreXcel™ Pricing | FAA VaultChain",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/mining/orexcel-pulse.html",
+    "title": "OreXcel™ | FAA Mining Dashboard",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/mining/overview-drive.html",
+    "title": "FAA™ | Mining Sector Unified Dashboard",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/mining/overview.html",
+    "title": "FAA™ Mining & Resources - Innovate. Connect. Thrive.",
+    "origin": "faa.zone repo"
+   },
+   {
+    "file": "sectors/mining/quick-view.html",
+    "title": "quick-view.html",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/mining/sovereign-dashboard.html",
+    "title": "sovereign-dashboard.html",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/mining/tokenized-clauses.html",
+    "title": "tokenized-clauses.html",
+    "origin": "Drive faa.zone"
+   }
+  ],
+  "logistics": [
+   {
+    "file": "sectors/packaging-logistics/routemesh/products.html",
+    "title": "🌐 RouteMesh™ Products - Network Optimization Solutions",
+    "origin": "faa.zone repo"
+   }
+  ],
+  "payroll-mining": [
+   {
+    "file": "sectors/payroll/ai-modules.html",
+    "title": "🤖 FAA Payroll OS — AI Modules",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/payroll/client/portal-landing.html",
+    "title": "🪙 Payroll Core Systems | FAA™",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/payroll/client/welcome-dashboard.html",
+    "title": "📊 FAA Payroll Dashboard — Real-Time Ops",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/payroll/client/welcome.html",
+    "title": "🪙 Payroll Core Systems | FAA™",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/payroll/contact.html",
+    "title": "🍇 FAA™ Contact + Compliance",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/payroll/dashboard.html",
+    "title": "FAA™ Payroll Dashboard",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/payroll/features.html",
+    "title": "🏛️ Housing Sector – FAA.Zone",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/payroll/global-metrics.html",
+    "title": "🌍 FAA Payroll OS — Global Metrics",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/payroll/intelligence-hub.html",
+    "title": "📈 FAA Payroll OS — Intelligence Hub",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/payroll/onboarding.html",
+    "title": "🍇 FAA Payroll – Onboarding Portal",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/payroll/onboarding/activation.html",
+    "title": "🍇 FAA Payroll — Node Activation",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/payroll/overview.html",
+    "title": "🧬 FAA™ Payroll OS — Master Index",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/payroll/products-and-service.html",
+    "title": "🍇 FAA™ Payroll – Sub-Features",
+    "origin": "Drive faa.zone"
+   }
+  ],
+  "professional": [
+   {
+    "file": "sectors/pro-services/omnibooks/index.html",
+    "title": "OmniBooks™ Core Protocol Overview",
+    "origin": "faa.zone repo"
+   }
+  ],
+  "ritual": [
+   {
+    "file": "sectors/ritual/overview.html",
+    "title": "Fruitful™ | Ritual & Culture: Explore",
+    "origin": "faa.zone repo"
+   }
+  ],
+  "wildlife": [
+   {
+    "file": "sectors/wildlife/checklist.html",
+    "title": "FAA Wildlife UI - Sub-Icon Table",
+    "origin": "faa.zone repo"
+   },
+   {
+    "file": "sectors/wildlife/dashboard.html",
+    "title": "Wildlife Dashboard – FAA.Zone",
+    "origin": "faa.zone repo"
+   },
+   {
+    "file": "sectors/wildlife/deployment-kenya.html",
+    "title": "🇰🇪 Kenya Wildlife Deployment – FAA.Zone",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/wildlife/nodes/core-node.html",
+    "title": "🌳 Core Node™ – FAA.Zone",
+    "origin": "Drive faa.zone"
+   },
+   {
+    "file": "sectors/wildlife/quick-view.html",
+    "title": "Quick View – FAA.Zone",
+    "origin": "Drive faa.zone"
+   }
+  ]
+ }
+}

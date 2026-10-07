@@ -1,0 +1,3131 @@
+{
+ "generated_at": "2026-10-05T18:21:30Z",
+ "source": "fruitful-superagent/tools/build_ecosystem_manifest.py (counts only)",
+ "readiness": {
+  "total": 77,
+  "built": 77,
+  "in_app": 0,
+  "missing": 0
+ },
+ "pages": [
+  {
+   "file": "about-faa.html",
+   "title": "About FAA Systems™ · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "admin-login.html",
+   "title": "Admin Sign-in · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "admin-portal.html",
+   "title": "Admin Portal · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "admin/admin-portal-approval.html",
+   "title": "Portal Access Approval · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "audit-tracker.html",
+   "title": "Audit Tracker · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "banimal-connector.html",
+   "title": "Banimal Connector · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "baobab-archive.html",
+   "title": "Baobab Archive™ · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "baobab.html",
+   "title": "Portal.faa.zone - Your Central Access Hub",
+   "kind": "portal",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "baobab_terminal.html",
+   "title": "Portal.faa.zone - Your Central Access Hub",
+   "kind": "portal",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "brand.html",
+   "title": "Brand Scroll · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "brandmetrics.html",
+   "title": "Brand Metrics · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "checkout.html",
+   "title": "🌐 VaultMesh™ | Banimal Loop Checkout",
+   "kind": "portal",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "clause-index.html",
+   "title": "FAA Clauses · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "codenest_desktop_dashboard.html",
+   "title": "CodeNest™ Dashboard · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "compliance.html",
+   "title": "Compliance · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "connect-to-omni-grid.html",
+   "title": "Connect to Omni Grid™ · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "contact-support.html",
+   "title": "Contact Support · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "cookies.html",
+   "title": "Cookies · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "cube-lattice.html",
+   "title": "Cube Lattice GPT · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "dashboard.html",
+   "title": "⚙️Fruitful Dashboard vs2.0",
+   "kind": "portal",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "developer-api.html",
+   "title": "Developer API · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "distribution.html",
+   "title": "Distribution GPT · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "draft.html",
+   "title": "Fruitful Innovations - Unified Portal",
+   "kind": "portal",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "ecosync-logs.html",
+   "title": "EcoSync Logs · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "ecosystem.html",
+   "title": "Fruitful™ Global Ecosystem",
+   "kind": "portal",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "explore.html",
+   "title": "Portal.faa.zone - Your Central Access Hub",
+   "kind": "portal",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "faa-brands.html",
+   "title": "7038 FAA Brands · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "faa-distributor.html",
+   "title": "Distributor Panel · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "faa-hardware.html",
+   "title": "Hardware Access · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "faa-licenses.html",
+   "title": "FAA™ Licences · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "faa-owner.html",
+   "title": "FAA Owner · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "freight-ops.html",
+   "title": "Freight Ops GPT · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "fruitful-social-engin.html",
+   "title": "Fruitful Social Engin™ (FSE) · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "global-view.html",
+   "title": "Global View GPT · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "global_brands.html",
+   "title": "Global Brands · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "grid-index.html",
+   "title": "Scroll Grid Index · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "hubs.html",
+   "title": "Global Hubs · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "index.html",
+   "title": "🦍Fruitful Innovations - Your Future, Today",
+   "kind": "portal",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "landing_page.html",
+   "title": "Portal.faa.zone - Your Central Access Hub",
+   "kind": "portal",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "legal-privacy.html",
+   "title": "Legal & Privacy · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "license-grid.html",
+   "title": "License Grid · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "licensing.html",
+   "title": "License Ledger · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "loop-watch.html",
+   "title": "Loop Watch GPT · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "node-activity.html",
+   "title": "Node Activity · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "node-packs.html",
+   "title": "Node Packs · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "node-status.html",
+   "title": "Node Index · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "omnigrid.html",
+   "title": "Portal.faa.zone - Your Central Access Hub",
+   "kind": "portal",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "omnigrid_zone.html",
+   "title": "World 1st 7000+ Brands by Fruitful™ – FAA.zone™",
+   "kind": "portal",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "partner-program.html",
+   "title": "Partner Program · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "plotvault.html",
+   "title": "Modules · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "privacy-policy.html",
+   "title": "Privacy Policy · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "pulse-monitor.html",
+   "title": "Signal Sync · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "quick-view.html",
+   "title": "Quick View · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "rossouw_nexus.html",
+   "title": "Rossouw Nexus Anchor Point - Bad Boys Protocol Enabled",
+   "kind": "portal",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "scroll-grid.html",
+   "title": "Scroll Grid · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "scroll-layers.html",
+   "title": "Scroll Layers · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "scrollmap.html",
+   "title": "ScrollMap · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sector-grid.html",
+   "title": "Sector Grid · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sector-map.html",
+   "title": "Sector Map · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/agriculture/index.html",
+   "title": "Agriculture & Biotech · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/ai-logic-grid/AIverseSignal.html",
+   "title": "AIverse Signal · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/ai-logic-grid/GridNest.html",
+   "title": "GridNest AI · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/ai-logic-grid/LogicMirror.html",
+   "title": "LogicMirror Co. · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/ai-logic-grid/OmniThread.html",
+   "title": "OmniThread OS · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/ai-logic-grid/PathLink.html",
+   "title": "PathLink Index · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/ai-logic-grid/SignalCore.html",
+   "title": "SignalCore GPT · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/ai-logic-grid/ThreadAxis.html",
+   "title": "ThreadAxis Hub · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/ai-logic-grid/VaultNeuronX.html",
+   "title": "VaultNeuronX · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/ai-logic/codenest/dashboard.html",
+   "title": "CodeNest™ Desktop Dashboard",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/ai-logic/codenest/index.html",
+   "title": "CodeNest™ – FAA-Certified Web Dev Scroll Studio",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/ai-logic/codenest/license.html",
+   "title": "My Licenses – CodeNest™",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/ai-logic/codenest/newproject.html",
+   "title": "Create New Project – CodeNest™",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/ai-logic/codenest/scrollbuilder.html",
+   "title": "Scroll Builder – CodeNest™",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/ai-logic/codenest/settings.html",
+   "title": "Settings – CodeNest™",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/ai-logic/codenest/templates.html",
+   "title": "Templates – CodeNest™",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/ai-logic/index.html",
+   "title": "AI, Logic & Grid · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/ai-logic/overview.html",
+   "title": "AI, Logic & Grid Systems – FAA Sector Index",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/analytics/index.html",
+   "title": "Analytics · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/banking/index.html",
+   "title": "Banking & Finance · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/community/index.html",
+   "title": "Community · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/content-creation/index.html",
+   "title": "Content Creation · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/creative/index.html",
+   "title": "Creative Tech · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/culture/index.html",
+   "title": "Ritual & Culture · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/dance-movement/index.html",
+   "title": "Dance Movement · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/design/index.html",
+   "title": "Creative Tech · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/education-ip/index.html",
+   "title": "Education & IP · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/education-youth/index.html",
+   "title": "Education & Youth · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/education/ai-feedback.html",
+   "title": "Interactive AI Feedback · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/education/alerts.html",
+   "title": "Recent Updates & Alerts · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/education/family-learning.html",
+   "title": "Family Learning Experience · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/education/index.html",
+   "title": "Education & IP · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/education/overview.html",
+   "title": "Fruitful Smart Toys™ | FAA Treaty Activation",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/education/parent-dashboard.html",
+   "title": "Parental Dashboard · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/education/smart-toys/dashboard.html",
+   "title": "Welcome to Fruitful Smart Toys™ | FAA Zone",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/education/smart-toys/full-grid.html",
+   "title": "Explore the Full Smart Toys™ Grid · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/education/smart-toys/modularview.html",
+   "title": "ModularView | FAA Zone",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/education/smart-toys/modules.html",
+   "title": "Start Learning · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/education/smart-toys/progress.html",
+   "title": "Learning Progress · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/education/smart-toys/saas-licensing.html",
+   "title": "SaaS Licensing Treaty Active · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/education/smart-toys/settings.html",
+   "title": "Modify Settings · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/event-management/index.html",
+   "title": "Event Management · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/fashion/index.html",
+   "title": "Fashion & Identity · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/finance/index.html",
+   "title": "Banking & Finance · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/financial/index.html",
+   "title": "Financial · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/food/index.html",
+   "title": "Food, Soil & Farming · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/fsf/index.html",
+   "title": "Food, Soil & Farming · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/gaming/index.html",
+   "title": "Gaming & Simulation · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/health-hygiene/index.html",
+   "title": "Health & Hygiene · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/health/index.html",
+   "title": "Health & Hygiene · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/housing/Buildnest/dashboard.html",
+   "title": "FAA.zone – BuildNest™ Sector Dashboard",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/housing/Buildnest/gridpermit.html",
+   "title": "GridPermit™ · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/housing/Buildnest/index.html",
+   "title": "BuildNest™ – FAA.zone Housing Infrastructure Protocol",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/housing/Buildnest/landnode.html",
+   "title": "LandNode™ · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/housing/Buildnest/scrollclaim.html",
+   "title": "ScrollClaim™ · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/housing/cornex/cornex-ai.html",
+   "title": "Cornex™ AI Systems – FAA.Zone Housing Sector",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/housing/cornex/cornex-brands.html",
+   "title": "Cornex™ Brand Portfolio – FAA.Zone Housing Sector",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/housing/cornex/cornex-contact.html",
+   "title": "Cornex™ Contact – FAA.Zone Housing Sector",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/housing/cornex/cornex-dashboard.html",
+   "title": "Cornex™ Dashboard – Housing Sector | FAA.Zone",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/housing/cornex/cornex-ecosystem.html",
+   "title": "Cornex™ Ecosystem Growth – FAA Housing Sector",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/housing/cornex/cornex-factory.html",
+   "title": "Cornex™ Factory Setup – FAA.Zone Housing Sector",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/housing/cornex/licensing.html",
+   "title": "Cornex™ Ecosystem Licensing – FAA.Zone",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/housing/index.html",
+   "title": "Housing & Infrastructure · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/housing/overview-drive.html",
+   "title": "🏛️ Housing Sector – FAA.Zone",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/housing/overview.html",
+   "title": "FAA™ Housing & Infrastructure Dashboard - Global Index",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/housing/realestate/dashboard.html",
+   "title": "FAA Real Estate AI™ Dashboard",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/housing/realestate/index.html",
+   "title": "FAA™ | Scroll Homepage",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/housing/realestate/overview.html",
+   "title": "What is FAA Real Estate AI™? · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/housing/realestate/valuation-speed.html",
+   "title": "Speed of Valuation · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/justice/index.html",
+   "title": "Justice & Ethics · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/knowledge/index.html",
+   "title": "Knowledge & Archives · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/logistics/index.html",
+   "title": "Logistics & Packaging · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/marketing/index.html",
+   "title": "Marketing · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/media/index.html",
+   "title": "Motion, Media & Sonic · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/media/sonicgrid/aude-drap.html",
+   "title": "Aude Drap™ · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/media/sonicgrid/ciprode.html",
+   "title": "Ciprode™ · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/media/sonicgrid/handere.html",
+   "title": "Handere™ · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/media/sonicgrid/index.html",
+   "title": "FAA™ Motion, Media & Sonic Dashboard",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/media/sonicgrid/mationa.html",
+   "title": "Mationa™ · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/media/sonicgrid/medatsce.html",
+   "title": "Medatsce™ · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/media/sonicgrid/melondies.html",
+   "title": "MelonDies™ · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/media/sonicgrid/sonic-grid.html",
+   "title": "FAA™ Motion, Media & Sonic Dashboard · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/media/sonicgrid/soundbeard.html",
+   "title": "Soundbeard™ · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/media/sonicgrid/visudan.html",
+   "title": "Visudan™ · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/media/sonicgrid/wullvision.html",
+   "title": "WullVision™ · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/micromesh/index.html",
+   "title": "Micro-Mesh Logistics · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/mining/autoborn-dashboard.html",
+   "title": "AutoBorn™ Master Sync Grid | FAA Mining Ecosystem",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/mining/autoborn-overview.html",
+   "title": "AutoBorn™ Overview | FAA Mining Ecosystem",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/mining/autoborn-pricing.html",
+   "title": "AutoBorn™ Pricing | FAA Mining Ecosystem",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/mining/digium-dashboard.html",
+   "title": "Digium™ | FAA Mining Intelligence Dashboard",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/mining/digium-pricing.html",
+   "title": "Digium™ Pricing | FAA Autonomous Grid Deployment",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/mining/digium-pulse.html",
+   "title": "sectors/mining/digium-pulse.html",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/mining/faa-clausevault.html",
+   "title": "🧬 FAA ClauseVault™",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/mining/glup-ethics.html",
+   "title": "sectors/mining/glup-ethics.html",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/mining/heartbeat_dashboard.html",
+   "title": "FAA.Zone | Mining Sector Heartbeat",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/mining/index.html",
+   "title": "Mining & Resources · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/mining/licensing.html",
+   "title": "sectors/mining/licensing.html",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/mining/mineforge-dashboard.html",
+   "title": "MineForge™ | FAA Mining Intelligence Dashboard",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/mining/mineforge-pricing.html",
+   "title": "MineForge™ Pricing | FAA Licensing & Tiers",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/mining/mineforge-pulse.html",
+   "title": "sectors/mining/mineforge-pulse.html",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/mining/mineralvision-dashboard.html",
+   "title": "MineralVision™ Dashboard | FAA Mining AI",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/mining/mineralvision-pricing.html",
+   "title": "MineralVision™ Pricing | FAA Visual AI Licensing",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/mining/mineralvision-pulse.html",
+   "title": "sectors/mining/mineralvision-pulse.html",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/mining/minerva-dashboard.html",
+   "title": "Minerva™ | FAA OmniPage | VaultChain Synced",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/mining/minerva-pricing.html",
+   "title": "Minerva™ Pricing | FAA VaultChain",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/mining/minerva-pulse.html",
+   "title": "sectors/mining/minerva-pulse.html",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/mining/node-reports.html",
+   "title": "sectors/mining/node-reports.html",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/mining/orexcel-dashboard.html",
+   "title": "OreXcel™ Dashboard | FAA Mining AI",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/mining/orexcel-pricing.html",
+   "title": "OreXcel™ Pricing | FAA VaultChain",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/mining/orexcel-pulse.html",
+   "title": "OreXcel™ | FAA Mining Dashboard",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/mining/overview-drive.html",
+   "title": "FAA™ | Mining Sector Unified Dashboard",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/mining/overview.html",
+   "title": "FAA™ Mining & Resources - Innovate. Connect. Thrive.",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/mining/quick-view.html",
+   "title": "sectors/mining/quick-view.html",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/mining/sovereign-dashboard.html",
+   "title": "sectors/mining/sovereign-dashboard.html",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/mining/tokenized-clauses.html",
+   "title": "sectors/mining/tokenized-clauses.html",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/music-sound/index.html",
+   "title": "Music Sound · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/nft/index.html",
+   "title": "NFT & Ownership · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/nutrition/index.html",
+   "title": "Nutrition & Food Chain · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/packaging-logistics/index.html",
+   "title": "Logistics & Packaging · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/packaging-logistics/routemesh/products.html",
+   "title": "🌐 RouteMesh™ Products - Network Optimization Solutions",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/packaging/index.html",
+   "title": "Packaging & Materials · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/payroll-mining/index.html",
+   "title": "Payroll Mining & Accounting · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/payroll/ai-modules.html",
+   "title": "🤖 FAA Payroll OS — AI Modules",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/payroll/client/portal-landing.html",
+   "title": "🪙 Payroll Core Systems | FAA™",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/payroll/client/welcome-dashboard.html",
+   "title": "📊 FAA Payroll Dashboard — Real-Time Ops",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/payroll/client/welcome.html",
+   "title": "🪙 Payroll Core Systems | FAA™",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/payroll/contact.html",
+   "title": "🍇 FAA™ Contact + Compliance",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/payroll/dashboard.html",
+   "title": "FAA™ Payroll Dashboard",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/payroll/features.html",
+   "title": "🏛️ Housing Sector – FAA.Zone",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/payroll/global-metrics.html",
+   "title": "🌍 FAA Payroll OS — Global Metrics",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/payroll/index.html",
+   "title": "Payroll Mining & Accounting · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/payroll/intelligence-hub.html",
+   "title": "📈 FAA Payroll OS — Intelligence Hub",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/payroll/onboarding.html",
+   "title": "🍇 FAA Payroll – Onboarding Portal",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/payroll/onboarding/activation.html",
+   "title": "🍇 FAA Payroll — Node Activation",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/payroll/overview.html",
+   "title": "🧬 FAA™ Payroll OS — Master Index",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/payroll/products-and-service.html",
+   "title": "🍇 FAA™ Payroll – Sub-Features",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/pro-services/index.html",
+   "title": "Professional Services · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/pro-services/omnibooks/index.html",
+   "title": "OmniBooks™ Core Protocol Overview",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/professional/index.html",
+   "title": "Professional Services · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/quantum/index.html",
+   "title": "Quantum Protocols · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/retail/index.html",
+   "title": "Trade Systems · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/ritual/index.html",
+   "title": "Ritual & Culture · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/ritual/overview.html",
+   "title": "Fruitful™ | Ritual & Culture: Explore",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/saas/index.html",
+   "title": "SaaS & Licensing · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/sponsorship/index.html",
+   "title": "Sponsorship · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/talent-development/index.html",
+   "title": "Talent Development · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/trade/index.html",
+   "title": "Trade Systems · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/utilities/index.html",
+   "title": "Utilities & Energy · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/voice/index.html",
+   "title": "Voice & Audio · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/webless/index.html",
+   "title": "Webless Tech & Nodes · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/wildlife/checklist.html",
+   "title": "FAA Wildlife UI - Sub-Icon Table",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/wildlife/dashboard.html",
+   "title": "Wildlife Dashboard – FAA.Zone",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/wildlife/deployment-kenya.html",
+   "title": "🇰🇪 Kenya Wildlife Deployment – FAA.Zone",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/wildlife/index.html",
+   "title": "Wildlife & Habitat · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "sectors/wildlife/nodes/core-node.html",
+   "title": "🌳 Core Node™ – FAA.Zone",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/wildlife/quick-view.html",
+   "title": "Quick View – FAA.Zone",
+   "kind": "concept",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "sectors/zerowaste/index.html",
+   "title": "Zero Waste · Fruitful™ OmniGrid™",
+   "kind": "sector",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "seedwave.html",
+   "title": "Seedwave GPT · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "seedwave_admin.html",
+   "title": "⚙️ Seedwave™ Admin Portal",
+   "kind": "portal",
+   "noodle": false,
+   "wired": true
+  },
+  {
+   "file": "signal-zones.html",
+   "title": "Signal Zones · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "signal.html",
+   "title": "Signal GPT · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "signup.html",
+   "title": "Join the Ecosystem · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "terms-of-service.html",
+   "title": "Terms of Service · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "vault-deployments.html",
+   "title": "Vault Deployments · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "vault-master.html",
+   "title": "VaultMaster Terminal · Fruitful™ OmniGrid™",
+   "kind": "detail",
+   "noodle": true,
+   "wired": true
+  },
+  {
+   "file": "welcome/shock-launch-v5/index.html",
+   "title": "Welcome to Fruitful — The Shock Launch",
+   "kind": "portal",
+   "noodle": false,
+   "wired": true
+  }
+ ],
+ "groups": [
+  {
+   "id": "A",
+   "name": "Sector Terminals",
+   "items": [
+    {
+     "page": "vault-master.html",
+     "status": "built",
+     "via": "vault-master.html",
+     "linked_from": []
+    },
+    {
+     "page": "cube-lattice.html",
+     "status": "built",
+     "via": "cube-lattice.html",
+     "linked_from": []
+    },
+    {
+     "page": "global-view.html",
+     "status": "built",
+     "via": "global-view.html",
+     "linked_from": []
+    },
+    {
+     "page": "freight-ops.html",
+     "status": "built",
+     "via": "freight-ops.html",
+     "linked_from": []
+    },
+    {
+     "page": "loop-watch.html",
+     "status": "built",
+     "via": "loop-watch.html",
+     "linked_from": []
+    },
+    {
+     "page": "seedwave.html",
+     "status": "built",
+     "via": "seedwave.html",
+     "linked_from": []
+    },
+    {
+     "page": "distribution.html",
+     "status": "built",
+     "via": "distribution.html",
+     "linked_from": []
+    },
+    {
+     "page": "signal.html",
+     "status": "built",
+     "via": "signal.html",
+     "linked_from": []
+    },
+    {
+     "page": "faa-brands.html",
+     "status": "built",
+     "via": "faa-brands.html",
+     "linked_from": []
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "name": "Admin metrics",
+   "items": [
+    {
+     "page": "vault-deployments.html",
+     "status": "built",
+     "via": "vault-deployments.html",
+     "linked_from": []
+    },
+    {
+     "page": "audit-tracker.html",
+     "status": "built",
+     "via": "audit-tracker.html",
+     "linked_from": []
+    },
+    {
+     "page": "grid-index.html",
+     "status": "built",
+     "via": "grid-index.html",
+     "linked_from": []
+    },
+    {
+     "page": "ecosync-logs.html",
+     "status": "built",
+     "via": "ecosync-logs.html",
+     "linked_from": []
+    },
+    {
+     "page": "license-grid.html",
+     "status": "built",
+     "via": "license-grid.html",
+     "linked_from": []
+    },
+    {
+     "page": "signal-zones.html",
+     "status": "built",
+     "via": "signal-zones.html",
+     "linked_from": []
+    },
+    {
+     "page": "node-activity.html",
+     "status": "built",
+     "via": "node-activity.html",
+     "linked_from": []
+    },
+    {
+     "page": "admin/admin-portal-approval.html",
+     "status": "built",
+     "via": "admin/admin-portal-approval.html",
+     "linked_from": []
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "name": "Seedwave admin",
+   "items": [
+    {
+     "page": "brandmetrics.html",
+     "status": "built",
+     "via": "brandmetrics.html",
+     "linked_from": []
+    },
+    {
+     "page": "clause-index.html",
+     "status": "built",
+     "via": "clause-index.html",
+     "linked_from": []
+    },
+    {
+     "page": "ecosystem.html",
+     "status": "built",
+     "via": "ecosystem.html",
+     "linked_from": []
+    },
+    {
+     "page": "faa-distributor.html",
+     "status": "built",
+     "via": "faa-distributor.html",
+     "linked_from": []
+    },
+    {
+     "page": "faa-hardware.html",
+     "status": "built",
+     "via": "faa-hardware.html",
+     "linked_from": []
+    },
+    {
+     "page": "faa-owner.html",
+     "status": "built",
+     "via": "faa-owner.html",
+     "linked_from": []
+    },
+    {
+     "page": "licensing.html",
+     "status": "built",
+     "via": "licensing.html",
+     "linked_from": []
+    },
+    {
+     "page": "node-packs.html",
+     "status": "built",
+     "via": "node-packs.html",
+     "linked_from": []
+    },
+    {
+     "page": "node-status.html",
+     "status": "built",
+     "via": "node-status.html",
+     "linked_from": []
+    },
+    {
+     "page": "pulse-monitor.html",
+     "status": "built",
+     "via": "pulse-monitor.html",
+     "linked_from": []
+    },
+    {
+     "page": "quick-view.html",
+     "status": "built",
+     "via": "quick-view.html",
+     "linked_from": []
+    },
+    {
+     "page": "scroll-layers.html",
+     "status": "built",
+     "via": "scroll-layers.html",
+     "linked_from": []
+    },
+    {
+     "page": "scrollmap.html",
+     "status": "built",
+     "via": "scrollmap.html",
+     "linked_from": []
+    },
+    {
+     "page": "sector-grid.html",
+     "status": "built",
+     "via": "sector-grid.html",
+     "linked_from": []
+    },
+    {
+     "page": "admin-login.html",
+     "status": "built",
+     "via": "admin-login.html",
+     "linked_from": []
+    },
+    {
+     "page": "signup.html",
+     "status": "built",
+     "via": "signup.html",
+     "linked_from": []
+    }
+   ]
+  },
+  {
+   "id": "D",
+   "name": "FAA Zone info",
+   "items": [
+    {
+     "page": "about-faa.html",
+     "status": "built",
+     "via": "about-faa.html",
+     "linked_from": []
+    },
+    {
+     "page": "baobab-archive.html",
+     "status": "built",
+     "via": "baobab-archive.html",
+     "linked_from": []
+    },
+    {
+     "page": "compliance.html",
+     "status": "built",
+     "via": "compliance.html",
+     "linked_from": []
+    },
+    {
+     "page": "connect-to-omni-grid.html",
+     "status": "built",
+     "via": "connect-to-omni-grid.html",
+     "linked_from": []
+    },
+    {
+     "page": "contact-support.html",
+     "status": "built",
+     "via": "contact-support.html",
+     "linked_from": []
+    },
+    {
+     "page": "developer-api.html",
+     "status": "built",
+     "via": "developer-api.html",
+     "linked_from": []
+    },
+    {
+     "page": "legal-privacy.html",
+     "status": "built",
+     "via": "legal-privacy.html",
+     "linked_from": []
+    },
+    {
+     "page": "partner-program.html",
+     "status": "built",
+     "via": "partner-program.html",
+     "linked_from": []
+    },
+    {
+     "page": "plotvault.html",
+     "status": "built",
+     "via": "plotvault.html",
+     "linked_from": []
+    },
+    {
+     "page": "global_brands.html",
+     "status": "built",
+     "via": "global_brands.html",
+     "linked_from": []
+    }
+   ]
+  },
+  {
+   "id": "E",
+   "name": "Legal",
+   "items": [
+    {
+     "page": "privacy-policy.html",
+     "status": "built",
+     "via": "privacy-policy.html",
+     "linked_from": []
+    },
+    {
+     "page": "terms-of-service.html",
+     "status": "built",
+     "via": "terms-of-service.html",
+     "linked_from": []
+    },
+    {
+     "page": "cookies.html",
+     "status": "built",
+     "via": "cookies.html",
+     "linked_from": []
+    }
+   ]
+  },
+  {
+   "id": "F",
+   "name": "CodeNest",
+   "items": [
+    {
+     "page": "codenest_desktop_dashboard.html",
+     "status": "built",
+     "via": "codenest_desktop_dashboard.html",
+     "linked_from": []
+    }
+   ]
+  },
+  {
+   "id": "G",
+   "name": "Sector pages",
+   "items": [
+    {
+     "page": "sectors/agriculture/index.html",
+     "status": "built",
+     "via": null,
+     "linked_from": [
+      "omnigrid.html"
+     ]
+    },
+    {
+     "page": "sectors/fsf/index.html",
+     "status": "built",
+     "via": null,
+     "linked_from": [
+      "omnigrid.html"
+     ]
+    },
+    {
+     "page": "sectors/banking/index.html",
+     "status": "built",
+     "via": null,
+     "linked_from": [
+      "omnigrid.html"
+     ]
+    },
+    {
+     "page": "sectors/creative/index.html",
+     "status": "built",
+     "via": null,
+     "linked_from": [
+      "omnigrid.html"
+     ]
+    },
+    {
+     "page": "sectors/logistics/index.html",
+     "status": "built",
+     "via": null,
+     "linked_from": [
+      "omnigrid.html"
+     ]
+    },
+    {
+     "page": "sectors/education/index.html",
+     "status": "built",
+     "via": null,
+     "linked_from": [
+      "omnigrid.html"
+     ]
+    },
+    {
+     "page": "sectors/fashion/index.html",
+     "status": "built",
+     "via": null,
+     "linked_from": [
+      "omnigrid.html"
+     ]
+    },
+    {
+     "page": "sectors/gaming/index.html",
+     "status": "built",
+     "via": null,
+     "linked_from": [
+      "omnigrid.html"
+     ]
+    },
+    {
+     "page": "sectors/health-hygiene/index.html",
+     "status": "built",
+     "via": null,
+     "linked_from": [
+      "omnigrid.html"
+     ]
+    },
+    {
+     "page": "sectors/housing/index.html",
+     "status": "built",
+     "via": null,
+     "linked_from": [
+      "omnigrid.html"
+     ]
+    },
+    {
+     "page": "sectors/justice/index.html",
+     "status": "built",
+     "via": null,
+     "linked_from": [
+      "omnigrid.html"
+     ]
+    },
+    {
+     "page": "sectors/knowledge/index.html",
+     "status": "built",
+     "via": null,
+     "linked_from": [
+      "omnigrid.html"
+     ]
+    },
+    {
+     "page": "sectors/micromesh/index.html",
+     "status": "built",
+     "via": null,
+     "linked_from": [
+      "omnigrid.html"
+     ]
+    },
+    {
+     "page": "sectors/media/index.html",
+     "status": "built",
+     "via": null,
+     "linked_from": [
+      "omnigrid.html"
+     ]
+    },
+    {
+     "page": "sectors/nutrition/index.html",
+     "status": "built",
+     "via": null,
+     "linked_from": [
+      "omnigrid.html"
+     ]
+    },
+    {
+     "page": "sectors/packaging/index.html",
+     "status": "built",
+     "via": null,
+     "linked_from": [
+      "omnigrid.html"
+     ]
+    },
+    {
+     "page": "sectors/quantum/index.html",
+     "status": "built",
+     "via": null,
+     "linked_from": [
+      "omnigrid.html"
+     ]
+    },
+    {
+     "page": "sectors/ritual/index.html",
+     "status": "built",
+     "via": null,
+     "linked_from": [
+      "omnigrid.html"
+     ]
+    },
+    {
+     "page": "sectors/saas/index.html",
+     "status": "built",
+     "via": null,
+     "linked_from": [
+      "omnigrid.html"
+     ]
+    },
+    {
+     "page": "sectors/trade/index.html",
+     "status": "built",
+     "via": null,
+     "linked_from": [
+      "omnigrid.html"
+     ]
+    },
+    {
+     "page": "sectors/utilities/index.html",
+     "status": "built",
+     "via": null,
+     "linked_from": [
+      "omnigrid.html"
+     ]
+    },
+    {
+     "page": "sectors/voice/index.html",
+     "status": "built",
+     "via": null,
+     "linked_from": [
+      "omnigrid.html"
+     ]
+    },
+    {
+     "page": "sectors/webless/index.html",
+     "status": "built",
+     "via": null,
+     "linked_from": [
+      "omnigrid.html"
+     ]
+    },
+    {
+     "page": "sectors/nft/index.html",
+     "status": "built",
+     "via": null,
+     "linked_from": [
+      "omnigrid.html"
+     ]
+    },
+    {
+     "page": "sectors/zerowaste/index.html",
+     "status": "built",
+     "via": null,
+     "linked_from": [
+      "omnigrid.html"
+     ]
+    },
+    {
+     "page": "sectors/professional/index.html",
+     "status": "built",
+     "via": null,
+     "linked_from": [
+      "omnigrid.html"
+     ]
+    },
+    {
+     "page": "sectors/ai-logic/index.html",
+     "status": "built",
+     "via": null,
+     "linked_from": [
+      "omnigrid.html"
+     ]
+    },
+    {
+     "page": "sectors/mining/index.html",
+     "status": "built",
+     "via": null,
+     "linked_from": [
+      "omnigrid.html"
+     ]
+    },
+    {
+     "page": "sectors/payroll/index.html",
+     "status": "built",
+     "via": null,
+     "linked_from": [
+      "omnigrid.html"
+     ]
+    },
+    {
+     "page": "sectors/wildlife/index.html",
+     "status": "built",
+     "via": null,
+     "linked_from": [
+      "omnigrid.html"
+     ]
+    }
+   ]
+  }
+ ],
+ "sectors": [
+  {
+   "slug": "agriculture",
+   "name": "🌱 Agriculture & Biotech",
+   "status": "built"
+  },
+  {
+   "slug": "fsf",
+   "name": "🥦 Food, Soil & Farming",
+   "status": "built"
+  },
+  {
+   "slug": "banking",
+   "name": "🏦 Banking & Finance",
+   "status": "built"
+  },
+  {
+   "slug": "creative",
+   "name": "🖋️ Creative Tech",
+   "status": "built"
+  },
+  {
+   "slug": "logistics",
+   "name": "📦 Logistics & Packaging",
+   "status": "built"
+  },
+  {
+   "slug": "education",
+   "name": "📚 Education & IP",
+   "status": "built"
+  },
+  {
+   "slug": "fashion",
+   "name": "✂ Fashion & Identity",
+   "status": "built"
+  },
+  {
+   "slug": "gaming",
+   "name": "🎮 Gaming & Simulation",
+   "status": "built"
+  },
+  {
+   "slug": "health-hygiene",
+   "name": "🧴 Health & Hygiene",
+   "status": "built"
+  },
+  {
+   "slug": "housing",
+   "name": "🏛️ Housing & Infrastructure",
+   "status": "built"
+  },
+  {
+   "slug": "justice",
+   "name": "⚖ Justice & Ethics",
+   "status": "built"
+  },
+  {
+   "slug": "knowledge",
+   "name": "🧠 Knowledge & Archives",
+   "status": "built"
+  },
+  {
+   "slug": "micromesh",
+   "name": "☰ Micro-Mesh Logistics",
+   "status": "built"
+  },
+  {
+   "slug": "media",
+   "name": "🎬 Motion, Media & Sonic",
+   "status": "built"
+  },
+  {
+   "slug": "nutrition",
+   "name": "✿ Nutrition & Food Chain",
+   "status": "built"
+  },
+  {
+   "slug": "packaging",
+   "name": "📦 Packaging & Materials",
+   "status": "built"
+  },
+  {
+   "slug": "quantum",
+   "name": "✴️ Quantum Protocols",
+   "status": "built"
+  },
+  {
+   "slug": "ritual",
+   "name": "☯ Ritual & Culture",
+   "status": "built"
+  },
+  {
+   "slug": "saas",
+   "name": "🔑 SaaS & Licensing",
+   "status": "built"
+  },
+  {
+   "slug": "trade",
+   "name": "🧺 Trade Systems",
+   "status": "built"
+  },
+  {
+   "slug": "utilities",
+   "name": "🔋 Utilities & Energy",
+   "status": "built"
+  },
+  {
+   "slug": "voice",
+   "name": "🎙️️ Voice & Audio",
+   "status": "built"
+  },
+  {
+   "slug": "webless",
+   "name": "📡 Webless Tech & Nodes",
+   "status": "built"
+  },
+  {
+   "slug": "nft",
+   "name": "🔁 NFT & Ownership",
+   "status": "built"
+  },
+  {
+   "slug": "zerowaste",
+   "name": "♻️ Zero Waste",
+   "status": "built"
+  },
+  {
+   "slug": "professional",
+   "name": "🧾 Professional Services",
+   "status": "built"
+  },
+  {
+   "slug": "ai-logic",
+   "name": "🧠 AI, Logic & Grid Systems",
+   "status": "built"
+  },
+  {
+   "slug": "mining",
+   "name": "⛏️ Mining & Resources",
+   "status": "built"
+  },
+  {
+   "slug": "payroll",
+   "name": "💰 Payroll Core Systems",
+   "status": "built"
+  },
+  {
+   "slug": "wildlife",
+   "name": "🚁 Wildlife Sector",
+   "status": "built"
+  }
+ ],
+ "domains": [
+  {
+   "domain": "faa.zone",
+   "pages": 15
+  },
+  {
+   "domain": "baobab.faa.zone",
+   "pages": 7
+  },
+  {
+   "domain": "fruitfulcratedance.com",
+   "pages": 7
+  },
+  {
+   "domain": "portal.faa.zone",
+   "pages": 7
+  },
+  {
+   "domain": "faa.faa.zone",
+   "pages": 5
+  },
+  {
+   "domain": "homemart.africa",
+   "pages": 5
+  },
+  {
+   "domain": "fruitful.faa.zone",
+   "pages": 4
+  },
+  {
+   "domain": "vaultmesh.faa.zone",
+   "pages": 2
+  },
+  {
+   "domain": "",
+   "pages": 1
+  },
+  {
+   "domain": "admin.faa.zone",
+   "pages": 1
+  },
+  {
+   "domain": "github.com",
+   "pages": 1
+  },
+  {
+   "domain": "open.spotify.com",
+   "pages": 1
+  },
+  {
+   "domain": "scrollmap.faa.zone",
+   "pages": 1
+  },
+  {
+   "domain": "www.fruitfulcratedance.com",
+   "pages": 1
+  }
+ ],
+ "intelligence": {
+  "claude": {
+   "chats": 275,
+   "projects": 24,
+   "artifacts": 28,
+   "memory_files": 83,
+   "export": "2026-09-26"
+  },
+  "perplexity": {
+   "records": 419,
+   "links": 331,
+   "systems": 10,
+   "date": "2026-09-24"
+  },
+  "applications": {
+   "applications": 161,
+   "instances": 336
+  },
+  "repos": {
+   "total": 110,
+   "public": 87,
+   "private": 23
+  }
+ },
+ "conceptBacklog": {
+  "count": 116,
+  "items": [
+   {
+    "page": "ai-routing.html",
+    "linked_from": [
+     "sectors/wildlife/nodes/core-node.html"
+    ]
+   },
+   {
+    "page": "brands/codenest/editor-blog.html",
+    "linked_from": [
+     "sectors/ai-logic/codenest/templates.html"
+    ]
+   },
+   {
+    "page": "brands/codenest/editor-checkout.html",
+    "linked_from": [
+     "sectors/ai-logic/codenest/license.html",
+     "sectors/ai-logic/codenest/templates.html"
+    ]
+   },
+   {
+    "page": "brands/codenest/editor-landing.html",
+    "linked_from": [
+     "sectors/ai-logic/codenest/license.html",
+     "sectors/ai-logic/codenest/templates.html"
+    ]
+   },
+   {
+    "page": "brands/codenest/editor-microsite.html",
+    "linked_from": [
+     "sectors/ai-logic/codenest/license.html",
+     "sectors/ai-logic/codenest/templates.html"
+    ]
+   },
+   {
+    "page": "deployment-kenya.html",
+    "linked_from": [
+     "sectors/wildlife/nodes/core-node.html",
+     "sectors/wildlife/quick-view.html"
+    ]
+   },
+   {
+    "page": "distributor-portal.html",
+    "linked_from": [
+     "sectors/wildlife/nodes/core-node.html"
+    ]
+   },
+   {
+    "page": "ethics.html",
+    "linked_from": [
+     "sectors/wildlife/nodes/core-node.html"
+    ]
+   },
+   {
+    "page": "features.html",
+    "linked_from": [
+     "sectors/payroll/client/welcome-dashboard.html"
+    ]
+   },
+   {
+    "page": "fruitful.america.html",
+    "linked_from": [
+     "sectors/housing/realestate/index.html"
+    ]
+   },
+   {
+    "page": "login/label.html",
+    "linked_from": [
+     "sectors/payroll/contact.html"
+    ]
+   },
+   {
+    "page": "login/node.html",
+    "linked_from": [
+     "sectors/payroll/contact.html"
+    ]
+   },
+   {
+    "page": "login/payroll.html",
+    "linked_from": [
+     "sectors/payroll/contact.html"
+    ]
+   },
+   {
+    "page": "node-reports.html",
+    "linked_from": [
+     "sectors/wildlife/nodes/core-node.html",
+     "sectors/wildlife/quick-view.html"
+    ]
+   },
+   {
+    "page": "node-setup.html",
+    "linked_from": [
+     "sectors/wildlife/nodes/core-node.html"
+    ]
+   },
+   {
+    "page": "products-and-service.html",
+    "linked_from": [
+     "sectors/payroll/overview.html"
+    ]
+   },
+   {
+    "page": "public/ethics-grid.html",
+    "linked_from": [
+     "sectors/mining/overview-drive.html"
+    ]
+   },
+   {
+    "page": "public/global-sovereign-ai.html",
+    "linked_from": [
+     "sectors/mining/overview-drive.html"
+    ]
+   },
+   {
+    "page": "public/omnisynced.html",
+    "linked_from": [
+     "sectors/mining/overview-drive.html"
+    ]
+   },
+   {
+    "page": "public/treatymesh-validated.html",
+    "linked_from": [
+     "sectors/mining/overview-drive.html"
+    ]
+   },
+   {
+    "page": "public/vaultchain-protocol.html",
+    "linked_from": [
+     "sectors/mining/overview-drive.html"
+    ]
+   },
+   {
+    "page": "scrollstack.html",
+    "linked_from": [
+     "sectors/wildlife/nodes/core-node.html"
+    ]
+   },
+   {
+    "page": "sectors/ai-logic/codenest/editor-checkout.html",
+    "linked_from": [
+     "sectors/ai-logic/codenest/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/ai-logic/codenest/editor-landing.html",
+    "linked_from": [
+     "sectors/ai-logic/codenest/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/ai-logic/codenest/editor-microsite.html",
+    "linked_from": [
+     "sectors/ai-logic/codenest/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/education/smart-toys/ai-parental-dashboard.html",
+    "linked_from": [
+     "sectors/education/smart-toys/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/education/smart-toys/ar-enhanced-interactive-books.html",
+    "linked_from": [
+     "sectors/education/smart-toys/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/education/smart-toys/core-subjects.html",
+    "linked_from": [
+     "sectors/education/smart-toys/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/education/smart-toys/emotional-intelligence-storytelling.html",
+    "linked_from": [
+     "sectors/education/smart-toys/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/education/smart-toys/gamified-educational-apps.html",
+    "linked_from": [
+     "sectors/education/smart-toys/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/education/smart-toys/interactive-holographic-story-units.html",
+    "linked_from": [
+     "sectors/education/smart-toys/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/education/smart-toys/multilingual-framework.html",
+    "linked_from": [
+     "sectors/education/smart-toys/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/education/smart-toys/omni-scroll-infinite-ledger.html",
+    "linked_from": [
+     "sectors/education/smart-toys/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/education/smart-toys/smart-learning-companions.html",
+    "linked_from": [
+     "sectors/education/smart-toys/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/education/smart-toys/smart-pens-ai-feedback.html",
+    "linked_from": [
+     "sectors/education/smart-toys/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/education/smart-toys/speech-recognition-engine.html",
+    "linked_from": [
+     "sectors/education/smart-toys/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/education/smart-toys/vaultmint-certified.html",
+    "linked_from": [
+     "sectors/education/smart-toys/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/avg-hardware-purchase.html",
+    "linked_from": [
+     "sectors/housing/overview-drive.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/avg-unit-price.html",
+    "linked_from": [
+     "sectors/housing/overview-drive.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/ceilingtech.html",
+    "linked_from": [
+     "sectors/housing/overview-drive.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/cornex-dashboard.html",
+    "linked_from": [
+     "sectors/housing/overview-drive.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/cornex-ecosystem.html",
+    "linked_from": [
+     "sectors/housing/overview-drive.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/cornex/avg-hardware-purchase.html",
+    "linked_from": [
+     "sectors/housing/cornex/cornex-dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/cornex/avg-unit-price.html",
+    "linked_from": [
+     "sectors/housing/cornex/cornex-dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/cornex/ethics.html",
+    "linked_from": [
+     "sectors/housing/cornex/cornex-dashboard.html",
+     "sectors/housing/cornex/cornex-ecosystem.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/cornex/node-reports.html",
+    "linked_from": [
+     "sectors/housing/cornex/cornex-dashboard.html",
+     "sectors/housing/cornex/cornex-ecosystem.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/cornex/payment-terms.html",
+    "linked_from": [
+     "sectors/housing/cornex/cornex-dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/cornex/top-provinces.html",
+    "linked_from": [
+     "sectors/housing/cornex/cornex-dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/cornicecraft.html",
+    "linked_from": [
+     "sectors/housing/overview-drive.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/designaura.html",
+    "linked_from": [
+     "sectors/housing/overview-drive.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/ethics.html",
+    "linked_from": [
+     "sectors/housing/overview-drive.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/node-reports.html",
+    "linked_from": [
+     "sectors/housing/overview-drive.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/payment-terms.html",
+    "linked_from": [
+     "sectors/housing/overview-drive.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/realestate/agent-insights.html",
+    "linked_from": [
+     "sectors/housing/realestate/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/realestate/ai-disruption.html",
+    "linked_from": [
+     "sectors/housing/realestate/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/realestate/api-access.html",
+    "linked_from": [
+     "sectors/housing/realestate/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/realestate/buyer-prediction.html",
+    "linked_from": [
+     "sectors/housing/realestate/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/realestate/competitive-edge.html",
+    "linked_from": [
+     "sectors/housing/realestate/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/realestate/forecast-dashboard.html",
+    "linked_from": [
+     "sectors/housing/realestate/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/realestate/pricing-accuracy.html",
+    "linked_from": [
+     "sectors/housing/realestate/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/realestate/pricing-saas.html",
+    "linked_from": [
+     "sectors/housing/realestate/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/realestate/realestate-replay.html",
+    "linked_from": [
+     "sectors/housing/realestate/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/realestate/risk-matrix.html",
+    "linked_from": [
+     "sectors/housing/realestate/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/realestate/valuation-grid.html",
+    "linked_from": [
+     "sectors/housing/realestate/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/realestate/vault-upload.html",
+    "linked_from": [
+     "sectors/housing/realestate/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/sectors/housing/BuildNest/VaultFrame/buildnet.html",
+    "linked_from": [
+     "sectors/housing/overview.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/sectors/housing/BuildNest/VaultFrame/civicpath.html",
+    "linked_from": [
+     "sectors/housing/overview.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/sectors/housing/BuildNest/VaultFrame/claimboard.html",
+    "linked_from": [
+     "sectors/housing/overview.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/sectors/housing/BuildNest/VaultFrame/infragrid.html",
+    "linked_from": [
+     "sectors/housing/overview.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/sectors/housing/BuildNest/VaultFrame/permitcast.html",
+    "linked_from": [
+     "sectors/housing/overview.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/sectors/housing/BuildNest/VaultFrame/scrollclaim.html",
+    "linked_from": [
+     "sectors/housing/overview.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/sectors/housing/BuildNest/VaultFrame/urbantrace.html",
+    "linked_from": [
+     "sectors/housing/overview.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/sectors/housing/BuildNest/VaultFrame/vaultframe-core.html",
+    "linked_from": [
+     "sectors/housing/overview.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/top-provinces.html",
+    "linked_from": [
+     "sectors/housing/overview-drive.html"
+    ]
+   },
+   {
+    "page": "sectors/housing/trimstyle.html",
+    "linked_from": [
+     "sectors/housing/overview-drive.html"
+    ]
+   },
+   {
+    "page": "sectors/media/sonicgrid/admin-dashboard.html",
+    "linked_from": [
+     "sectors/media/sonicgrid/index.html"
+    ]
+   },
+   {
+    "page": "sectors/media/sonicgrid/data-analytics.html",
+    "linked_from": [
+     "sectors/media/sonicgrid/index.html"
+    ]
+   },
+   {
+    "page": "sectors/media/sonicgrid/global-settings.html",
+    "linked_from": [
+     "sectors/media/sonicgrid/index.html"
+    ]
+   },
+   {
+    "page": "sectors/media/sonicgrid/system-monitoring.html",
+    "linked_from": [
+     "sectors/media/sonicgrid/index.html"
+    ]
+   },
+   {
+    "page": "sectors/media/sonicgrid/user-management.html",
+    "linked_from": [
+     "sectors/media/sonicgrid/index.html"
+    ]
+   },
+   {
+    "page": "sectors/mining/MineNest/NestTrack/auth.html",
+    "linked_from": [
+     "sectors/mining/overview.html"
+    ]
+   },
+   {
+    "page": "sectors/mining/digium-legal.html",
+    "linked_from": [
+     "sectors/mining/digium-dashboard.html",
+     "sectors/mining/digium-pricing.html"
+    ]
+   },
+   {
+    "page": "sectors/mining/faa-reports.html",
+    "linked_from": [
+     "sectors/mining/overview-drive.html"
+    ]
+   },
+   {
+    "page": "sectors/mining/mineforge-legal.html",
+    "linked_from": [
+     "sectors/mining/mineforge-dashboard.html",
+     "sectors/mining/mineforge-pricing.html"
+    ]
+   },
+   {
+    "page": "sectors/mining/mineralvision-legal.html",
+    "linked_from": [
+     "sectors/mining/mineralvision-dashboard.html",
+     "sectors/mining/mineralvision-pricing.html"
+    ]
+   },
+   {
+    "page": "sectors/mining/minerva-legal.html",
+    "linked_from": [
+     "sectors/mining/minerva-dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/mining/orexcel-legal.html",
+    "linked_from": [
+     "sectors/mining/orexcel-dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/packaging-logistics-dashboard.html",
+    "linked_from": [
+     "sectors/packaging-logistics/routemesh/products.html"
+    ]
+   },
+   {
+    "page": "sectors/packaging-logistics/routemesh/about.html",
+    "linked_from": [
+     "sectors/packaging-logistics/routemesh/products.html"
+    ]
+   },
+   {
+    "page": "sectors/packaging-logistics/routemesh/auth.html",
+    "linked_from": [
+     "sectors/packaging-logistics/routemesh/products.html"
+    ]
+   },
+   {
+    "page": "sectors/packaging-logistics/routemesh/clauses.html",
+    "linked_from": [
+     "sectors/packaging-logistics/routemesh/products.html"
+    ]
+   },
+   {
+    "page": "sectors/packaging-logistics/routemesh/features.html",
+    "linked_from": [
+     "sectors/packaging-logistics/routemesh/products.html"
+    ]
+   },
+   {
+    "page": "sectors/packaging-logistics/routemesh/metrics.html",
+    "linked_from": [
+     "sectors/packaging-logistics/routemesh/products.html"
+    ]
+   },
+   {
+    "page": "sectors/packaging-logistics/routemesh/pricing.html",
+    "linked_from": [
+     "sectors/packaging-logistics/routemesh/products.html"
+    ]
+   },
+   {
+    "page": "sectors/packaging-logistics/routemesh/terms.html",
+    "linked_from": [
+     "sectors/packaging-logistics/routemesh/products.html"
+    ]
+   },
+   {
+    "page": "sectors/payroll/ai/bonuslogic.html",
+    "linked_from": [
+     "sectors/payroll/ai-modules.html"
+    ]
+   },
+   {
+    "page": "sectors/payroll/ai/paypredict.html",
+    "linked_from": [
+     "sectors/payroll/ai-modules.html"
+    ]
+   },
+   {
+    "page": "sectors/payroll/ai/scrollsentinel.html",
+    "linked_from": [
+     "sectors/payroll/ai-modules.html"
+    ]
+   },
+   {
+    "page": "sectors/payroll/ai/timedrift.html",
+    "linked_from": [
+     "sectors/payroll/ai-modules.html"
+    ]
+   },
+   {
+    "page": "sectors/wildlife/ethics.html",
+    "linked_from": [
+     "sectors/wildlife/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/wildlife/node-reports.html",
+    "linked_from": [
+     "sectors/wildlife/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/wildlife/nodes/celestial-aligner.html",
+    "linked_from": [
+     "sectors/wildlife/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/wildlife/nodes/drone-sentinel.html",
+    "linked_from": [
+     "sectors/wildlife/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/wildlife/nodes/energy-beacon.html",
+    "linked_from": [
+     "sectors/wildlife/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/wildlife/nodes/fauna-tag.html",
+    "linked_from": [
+     "sectors/wildlife/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/wildlife/nodes/geo-lens.html",
+    "linked_from": [
+     "sectors/wildlife/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/wildlife/nodes/human-input-port.html",
+    "linked_from": [
+     "sectors/wildlife/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/wildlife/nodes/plastic-crisis.html",
+    "linked_from": [
+     "sectors/wildlife/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/wildlife/nodes/poacher-jammer.html",
+    "linked_from": [
+     "sectors/wildlife/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/wildlife/nodes/security-perimeter.html",
+    "linked_from": [
+     "sectors/wildlife/dashboard.html"
+    ]
+   },
+   {
+    "page": "sectors/wildlife/wildlife-price.html",
+    "linked_from": [
+     "sectors/wildlife/dashboard.html"
+    ]
+   },
+   {
+    "page": "vaultmesh.html",
+    "linked_from": [
+     "sectors/wildlife/nodes/core-node.html"
+    ]
+   },
+   {
+    "page": "vrugtige-planet-verandering.html",
+    "linked_from": [
+     "sectors/housing/realestate/index.html"
+    ]
+   },
+   {
+    "page": "wildlife-dashboard.html",
+    "linked_from": [
+     "sectors/wildlife/nodes/core-node.html"
+    ]
+   },
+   {
+    "page": "wildlife-price.html",
+    "linked_from": [
+     "sectors/wildlife/nodes/core-node.html",
+     "sectors/wildlife/quick-view.html"
+    ]
+   },
+   {
+    "page": "wolrd-first-7000-brands.html",
+    "linked_from": [
+     "sectors/housing/realestate/index.html"
+    ]
+   }
+  ]
+ },
+ "milestones": [
+  {
+   "date": "2026-09-26",
+   "title": "Full-stack Claude build",
+   "detail": "Every Claude chat, Project, file, artifact and memory in one private record"
+  },
+  {
+   "date": "2026-09-26",
+   "title": "Repos secured",
+   "detail": "7 repos made private, live keys removed from current code in 6 repos"
+  },
+  {
+   "date": "2026-09-26",
+   "title": "Banimal WordPress packages",
+   "detail": "Core 1.1.0 and Connector 5.1.1 built and verified"
+  },
+  {
+   "date": "2026-09-26",
+   "title": "Claude Projects consolidated",
+   "detail": "Merges M6–M9 complete; nothing reduced"
+  },
+  {
+   "date": "2026-09-26",
+   "title": "OmniGrid in-app",
+   "detail": "Every OmniGrid button routes in-app; global data on the pulse noodle (#16, #17)"
+  },
+  {
+   "date": "2026-09-26",
+   "title": "Global Ecosystem page",
+   "detail": "One landing page for the whole ecosystem, with launch readiness"
+  }
+ ]
+}

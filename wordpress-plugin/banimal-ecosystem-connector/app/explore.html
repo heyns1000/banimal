@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal.faa.zone - Your Central Access Hub</title>
+    <link rel="icon" href="favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Base Styles - Apple inspired cleanliness */
+        :root {
+            --text-color-light: #1d1d1f;
+            --text-color-dark: #f5f5f7;
+            --bg-color-light: #ffffff; /* Set default light background to pure white */
+            --bg-color-dark: #1a1a1c;
+            --card-bg-light: #ffffff; /* Ensure card background is also pure white */
+            --card-bg-dark: #2a2a2e;
+            --border-color-light: #e8e8ed;
+            --border-color-dark: #3a3a3e;
+            --primary-color: #0071e3; /* Apple Blue */
+            --secondary-color: #30d158; /* Apple Green */
+            --tertiary-color: #ff3b30; /* Vibrant Red for specific accents */
+            --muted-text-light: #6e6e73;
+            --muted-text-dark: #a0a0a5;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color-light); /* Will now be pure white */
+            color: var(--text-color-light);
+            line-height: 1.4;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .dark-mode {
+            background-color: var(--bg-color-dark);
+            color: var(--text-color-dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header - Minimalist and clean */
+        header {
+            background-color: #ffffff; /* Changed background to solid white, removed backdrop-filter for full white */
+            border-bottom: 1px solid #e8e8ed;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            display: flex;
+            justify-content: space-between; /* Space between logo and nav */
+            align-items: center;
+            padding: 15px 0; /* Base padding */
+        }
+        .dark-mode header {
+            background-color: var(--card-bg-dark);
+            border-bottom-color: var(--border-color-dark);
+            box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-color-light);
+            transition: color 0.3s ease;
+        }
+        .dark-mode .logo-group {
+            color: var(--text-color-dark);
+        }
+        .logo-group .logo-link {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .logo-fruitful {
+            color: var(--primary-color);
+            font-size: 1.6rem;
+            font-weight: 800;
+        }
+        .logo-separator {
+            color: var(--muted-text-light);
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        .dark-mode .logo-separator {
+            color: var(--muted-text-dark);
+        }
+        .logo-omnigrid {
+            color: var(--text-color-light);
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        .dark-mode .logo-omnigrid {
+            color: var(--text-color-dark);
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 20px; /* Space between nav list and actions */
+        }
+
+        .nav-list { /* Now containing the primary nav links, with icons */
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            justify-content: center;
+        }
+
+        .nav-list a {
+            text-decoration: none;
+            color: var(--muted-text-light);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            padding: 0.5rem 0.8rem; /* Adjusted padding to be button-like */
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px; /* Space between icon and text */
+        }
+        .nav-list a:hover {
+            color: var(--primary-color);
+            background-color: rgba(0, 0, 0, 0.03); /* Subtle background on hover */
+        }
+        .dark-mode .nav-list a {
+            color: var(--muted-text-dark);
+        }
+        .dark-mode .nav-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-actions { /* Now containing the CTA buttons (Homemart, Explore, Dev) */
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-left: auto; /* Pushes action buttons to the right */
+        }
+
+        /* Styling for header CTA buttons (cta-button and cta-button-secondary from original code) */
+        .cta-button {
+            display: inline-flex; /* Use inline-flex for icon alignment */
+            align-items: center; /* Vertically align icon and text */
+            gap: 6px; /* Space between icon and text */
+            padding: 10px 20px; /* Original padding from first version of CTA buttons */
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem; /* Original font size from first version of CTA buttons */
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            line-height: 1.2; /* Better line height for vertical alignment */
+            /* Crucial for consistent sizing: flex-shrink-0 prevents shrinking, min-width provides base */
+            flex-shrink: 0;
+            /* Explicit min-width and max-width based on your "perfect" screenshot of Homemart button */
+            min-width: 140px; 
+            max-width: 160px; /* Adjust as needed, but this aligns well with Homemart in screenshot */
+            justify-content: center; /* Center content horizontally */
+        }
+        .cta-button:hover {
+            background-color: #0066cc;
+            transform: translateY(-2px); /* Original subtle lift */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .cta-button.cta-button-secondary { /* Renamed from .secondary to match your existing hero buttons */
+            background-color: #e8e8ed; /* Light gray button */
+            color: #424245;
+            box-shadow: none;
+            border: 1px solid #dcdcdc;
+        }
+        .cta-button.cta-button-secondary:hover {
+            background-color: #dcdcdc; /* Slightly darker on hover */
+            color: #1d1d1f;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+
+        .hamburger-menu {
+            display: none; /* Hidden on desktop */
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-color-light);
+            transition: color 0.3s ease;
+        }
+        .dark-mode .hamburger-menu {
+            color: var(--text-color-dark);
+        }
+
+        /* Pulse Grid Noodle Rope Styling */
+        .pulse-grid-noodle-rope {
+            display: flex;
+            align-items: center;
+            height: 2px; /* Height of the line */
+            width: 200px; /* Expanded length for "sambok whip" effect */
+            background-color: var(--muted-text-light); /* Base color of the line */
+            border-radius: 1px;
+            position: relative;
+            margin: 0 30px; /* Space around the noodle rope */
+            opacity: 0.7;
+        }
+        .dark-mode .pulse-grid-noodle-rope {
+            background-color: var(--muted-text-dark);
+        }
+
+        .noodle-dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            transform: translate(-50%, -50%); /* Center dot on the line */
+            top: 50%;
+            animation: pulse 3s infinite ease-in-out; /* Pulse every 3 seconds */
+        }
+        .noodle-dot.dot-stepdad {
+            width: 10px; /* Larger */
+            height: 10px; /* Larger */
+            background-color: var(--secondary-color); /* Different color for stepdad */
+        }
+
+        /* Staggered animation delays */
+        .noodle-dot.dot-1 { left: 0%; animation-delay: 0s; }
+        .noodle-dot.dot-2 { left: 20%; animation-delay: 0.5s; }
+        .noodle-dot.dot-3 { left: 40%; animation-delay: 1s; }
+        .noodle-dot.dot-stepdad { left: 60%; animation-delay: 1.5s; } /* Stepdad placed before brothers */
+        .noodle-dot.dot-4 { left: 80%; animation-delay: 2s; }
+        .noodle-dot.dot-5 { left: 100%; animation-delay: 2.5s; }
+
+
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.7;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.7;
+            }
+        }
+
+        /* Moved Hero Content Section */
+        .innovate-connect-thrive-section {
+            padding: 4rem 1.5rem; /* Adjust padding as needed */
+            text-align: center;
+            color: var(--text-color-light);
+            background-color: var(--bg-color-light); /* Match body background (now white) */
+            border-bottom: 1px solid var(--border-color-light); /* Keep separator */
+        }
+        .innovate-connect-thrive-section h2 {
+            font-size: 3.5rem; /* Retain large size for impact */
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: var(--text-color-light);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+        .innovate-connect-thrive-section h2 span {
+            color: var(--primary-color); /* Apply primary color accent */
+        }
+        .innovate-connect-thrive-section p {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--muted-text-light);
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.5;
+        }
+        .innovate-connect-thrive-section .cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem; /* Space between buttons */
+        }
+        /* Using .cta-button for hero-cta-button as they have similar base styles in your provided code */
+        .innovate-connect-thrive-section .hero-cta-button {
+            background: #0071e3; /* Apple blue */
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+        .innovate-connect-thrive-section .hero-cta-button:hover {
+            background-color: #0077ed;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+        .innovate-connect-thrive-section .cta-button-secondary {
+            background-color: #f0f0f0; /* Light gray button */
+            color: #424245;
+            box-shadow: none;
+            border: 1px solid #dcdcdc;
+        }
+        .innovate-connect-thrive-section .cta-button-secondary:hover {
+            background-color: #e8e8ed;
+            color: #1d1d1f;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+
+        /* Hero Section (now just canvas background) */
+        .hero-canvas-section {
+            position: relative;
+            min-height: 70vh; /* Increased height for immersive effect */
+            background-color: #ffffff; /* Explicitly set to pure white */
+            overflow: hidden;
+            display: flex; /* Use flex to center content if any */
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-canvas-section #rhythmicCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            z-index: 0;
+            background-color: transparent;
+        }
+        .hero-canvas-overlay { /* New overlay for subtle effect */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(0, 113, 227, 0.1) 0%, transparent 70%); /* Subtle blue glow */
+            pointer-events: none; /* Allow clicks to pass through to canvas */
+            z-index: 1; /* Above canvas, below any text */
+            animation: subtlePulse 5s infinite ease-in-out alternate;
+        }
+
+        @keyframes subtlePulse {
+            0% { opacity: 0.6; transform: scale(1); }
+            100% { opacity: 0.8; transform: scale(1.05); }
+        }
+
+
+        /* Sections - Clean, defined blocks (general styling) */
+        section {
+            padding: 8rem 2rem;
+            background-color: #ffffff; /* Ensure all sections have pure white background */
+            box-shadow: none;
+            border-bottom: 1px solid #e8e8ed;
+            text-align: center;
+        }
+        section:last-of-type {
+            border-bottom: none;
+        }
+        section h2, section h3 {
+            color: var(--text-color-light);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+        }
+        section p {
+            color: var(--muted-text-light);
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        /* Specific section background overrides to ensure white */
+        #shareprice { background-color: var(--bg-color-light); }
+        #seedwave { background-color: var(--card-bg-light); }
+        section.bg-gray-700 { background-color: var(--bg-color-light); } /* Founder's Note */
+        #vault-access { background-color: var(--card-bg-light); }
+        section.bg-gray-800.text-center { background-color: var(--bg-color-light); } /* Sector Scrolls */
+        #treaty { background-color: var(--card-bg-light); }
+        #vaultmesh { background-color: var(--bg-color-light); }
+        #about { background-color: var(--card-bg-light); }
+        #cta { background: var(--bg-color-light); }
+        footer { background-color: var(--bg-color-light); }
+
+
+        /* Share Signal Section - Clean data display */
+        #shareprice h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        #price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.02em;
+        }
+        #timestamp {
+            color: var(--muted-text-light);
+            font-size: 0.85rem;
+        }
+
+        /* Seedwave Growth - Integrated chart */
+        #seedwave h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--text-color-light);
+        }
+        #seedwave .w-full.max-w-4xl {
+            background-color: #fcfcfc;
+            border: 1px solid var(--border-color-light);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        /* Founder's Note - Elegant text block */
+        section.bg-gray-700 h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-color-light);
+        }
+        section.bg-gray-700 p {
+            font-size: 1.1rem;
+            color: var(--muted-text-light);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        section.bg-gray-700 p.italic {
+            color: var(--muted-text-light);
+            font-style: italic;
+        }
+        section.bg-gray-700 p.font-semibold {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-top: 2rem;
+        }
+
+        /* Vault Terminal Access - Clean buttons */
+        #vault-access {
+            background-color: var(--card-bg-light);
+            padding: 6rem 2rem;
+            border-bottom: 1px solid var(--border-color-light);
+        }
+        #vault-access h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-color-light);
+            margin-bottom: 2.5rem;
+        }
+        #vault-access .w-full.h-\[800px\] { /* Iframe container */
+            background-color: #f0f0f0; /* Light gray background for iframe */
+            border: 1px solid #dcdcdc; /* Light border */
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        .terminal-btn {
+            background-color: #f0f0f0; /* Light gray button */
+            color: #424245;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid #dcdcdc;
+            cursor: pointer;
+        }
+        .terminal-btn:hover {
+            background-color: #e8e8ed;
+            color: #1d1d1f;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .terminal-btn.ring { /* Active state */
+            border-color: #0071e3;
+            box-shadow: 0 0 0 2px #0071e3;
+        }
+
+        /* Sector Scrolls - Clean link grid */
+        section.bg-gray-800.text-center h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-color-light);
+            margin-bottom: 2.5rem;
+        }
+        .glyph {
+            background-color: #ffffff; /* White background */
+            color: #424245;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid #e8e8ed;
+            text-decoration: none; /* Remove underline for links */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .glyph:hover {
+            background-color: #f0f0f0;
+            color: #1d1d1f;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Treaty Section - Elegant quote */
+        #treaty h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-color-light);
+            margin-bottom: 1.5rem;
+        }
+        #treaty p {
+            font-size: 1.1rem;
+            color: var(--muted-text-light);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 2rem;
+        }
+        #treaty blockquote {
+            font-size: 1.5rem;
+            color: var(--text-color-light);
+            font-weight: 600;
+            line-height: 1.4;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #treaty blockquote::before, #treaty blockquote::after {
+            content: '“'; /* Apple-style quotes */
+            font-size: 2.5em;
+            line-height: 0.1;
+            vertical-align: -0.4em;
+            color: #dcdcdc; /* Muted quote color */
+            margin-right: 0.1em;
+        }
+        #treaty blockquote::after {
+            content: '”';
+            margin-left: 0.05em;
+        }
+
+        /* Signal Packet - Developer focused, clean code block */
+        section.bg-gray-900.text-green-400 { /* Signal Packet */
+            background-color: #1d1d1f; /* Dark background for code */
+            color: #00e393; /* Greenish text for code */
+            padding: 4rem 1.5rem;
+            border-bottom: 1px solid #333;
+        }
+        section.bg-gray-900.text-green-400 pre {
+            background-color: #0a0a0a; /* Even darker code block */
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+            white-space: pre-wrap; /* Allow wrapping for long lines */
+            word-break: break-all;
+        }
+
+        /* VaultMesh Executive Summary - Structured and readable */
+        #vaultmesh h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-color-light);
+            margin-bottom: 1.5rem;
+        }
+        #vaultmesh h2.text-purple-400 {
+            color: var(--primary-color); /* Apple blue for main heading */
+        }
+        #vaultmesh h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-color-light);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        #vaultmesh p {
+            font-size: 1.05rem;
+            color: var(--muted-text-light);
+            line-height: 1.5;
+        }
+        #vaultmesh ul {
+            list-style-type: disc; /* Default disc */
+            margin-left: 1.5rem;
+            color: var(--muted-text-light);
+        }
+        #vaultmesh ul li {
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+        #vaultmesh ul.list-decimal {
+            list-style-type: decimal;
+        }
+        #vaultmesh code {
+            background-color: #e8e8ed;
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+            color: var(--text-color-light);
+        }
+
+        /* About Section - Simple and clear */
+        #about h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-color-light);
+            margin-bottom: 1.5rem;
+        }
+        #about p {
+            font-size: 1.1rem;
+            color: var(--muted-text-light);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Call to Action Section - Prominent and inviting */
+        #cta h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-color-light);
+            margin-bottom: 1.5rem;
+        }
+        #cta p {
+            font-size: 1.2rem;
+            color: var(--muted-text-light);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Footer - Minimalist */
+        footer {
+            border-top: 1px solid var(--border-color-light);
+            text-align: center;
+            color: var(--muted-text-light);
+            padding: 2rem;
+            font-size: 0.85rem;
+        }
+        footer a {
+            color: var(--muted-text-light);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        footer a:hover {
+            color: var(--text-color-light);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding-bottom: 10px;
+                align-items: flex-start;
+                background-color: #ffffff; /* Ensure header is white on mobile */
+            }
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .logo-group {
+                margin-bottom: 15px;
+            }
+            .logo-group .logo-link {
+                gap: 5px;
+            }
+            .logo-fruitful {
+                font-size: 1.4rem;
+            }
+            .pulse-grid-noodle-rope {
+                display: none; /* Hide on small screens if it clutters */
+            }
+
+            .main-nav {
+                display: none; /* Hidden by default on mobile */
+                flex-direction: column;
+                position: static;
+                width: 100%;
+                background-color: var(--card-bg-light); /* Now pure white */
+                border-top: 1px solid var(--border-color-light);
+                padding: 10px 0;
+                box-shadow: none;
+            }
+            .dark-mode .main-nav {
+                background-color: var(--card-bg-dark);
+                border-top-color: var(--border-color-dark);
+            }
+            .main-nav.active {
+                display: flex;
+                background-color: #ffffff; /* Ensure mobile nav is white when active */
+            }
+            .nav-list {
+                flex-direction: column;
+                text-align: center;
+                width: 100%;
+                gap: 10px;
+            }
+            .nav-list li {
+                width: 100%;
+            }
+            .nav-list a {
+                display: block;
+                padding: 8px 0;
+            }
+            .nav-actions {
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                padding-top: 10px;
+                border-top: 1px solid var(--border-color-light);
+                margin-top: 10px;
+            }
+            .dark-mode .nav-actions {
+                border-top-color: var(--border-color-dark);
+            }
+            .nav-actions .cta-button {
+                width: calc(100% - 40px);
+                margin: 0 20px;
+                text-align: center;
+            }
+
+            .hamburger-menu {
+                display: block;
+                position: absolute;
+                top: 15px;
+                right: 20px;
+                z-index: 1001;
+                color: var(--text-color-light); /* Ensure hamburger icon is visible on white */
+            }
+
+            .hero-section h1 {
+                font-size: 2.8rem;
+            }
+            .hero-section p {
+                font-size: 1rem;
+            }
+            .hero-cta-button {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            section {
+                padding: 4rem 1.5rem;
+                background-color: #ffffff; /* Ensure all sections are white on mobile */
+            }
+            section h2, section h3 {
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+            }
+            section p {
+                font-size: 1rem;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            #shareprice h2 {
+                font-size: 1.5rem;
+            }
+            #price {
+                font-size: 2.5rem;
+            }
+            #vault-access .w-full.h-\[800px\] {
+                height: 500px;
+            }
+            .terminal-btn {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+            #treaty blockquote {
+                font-size: 1.2rem;
+            }
+            #vaultmesh h2, #vaultmesh h3 {
+                font-size: 1.8rem;
+            }
+            #vaultmesh p, #vaultmesh ul li {
+                font-size: 0.95rem;
+            }
+            #cta h3 {
+                font-size: 2rem;
+            }
+            #cta p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="light-mode">
+
+    <header class="main-header">
+        <div class="container header-content">
+            <div class="logo-group">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-fruitful">Fruitful™</span>
+                </a>
+                <button class="hamburger-menu" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="pulse-grid-noodle-rope">
+                <span class="noodle-dot dot-1"></span>
+                <span class="noodle-dot dot-2"></span>
+                <span class="noodle-dot dot-3"></span>
+                <span class="noodle-dot dot-stepdad"></span>
+                <span class="noodle-dot dot-4"></span>
+                <span class="noodle-dot dot-5"></span>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="https://homemart.africa" target="_blank">🛍️ Homemart.africa</a></li>
+                    <li><a href="https://faa.zone/features.html">💡 Features</a></li>
+                    <li><a href="https://faa.zone/signal.html">📈 Signal</a></li>
+                    <li><a href="https://faa.zone/vault-access.html">🔒 Vault</a></li>
+                    <li><a href="https://faa.zone/treaty.html">📜 Treaty</a></li>
+                    <li><a href="https://faa.zone/vaultmesh.html">🧠 VaultMesh</a></li>
+                    <li><a href="https://faa.zone/about-us.html">ℹ️ About</a></li>
+                    <li><a href="https://faa.zone/careers/hiring-homepage.html">💼 Careers</a></li>
+                    <li><a href="faa.zone/legal/index.html">🧬 Developers</a></li>
+                    <li><a href="https://faa.zone/legal/securesign.html">🖋️ SecureSign™</a></li>
+                    <li><a href="https://faa.faa.zone/saas.html">🔑 SaaS</a></li>
+                    <li><a href="https://faa.zone/dashboard.html">📊 Dashboard</a></li>
+                    <li><a href="https://faa.zone/contact-us.html">✉️ Contact Us</a></li>
+                    <li><a href="https://faa.zone/support.html">🆘 Support</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <!-- Nav actions now just for spacing, actual links are in nav-list -->
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="innovate-connect-thrive-section">
+            <h2 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+                Innovate. Connect. <span class="text-blue-600">Thrive.</span>
+            </h2>
+            <div class="cta-group">
+                <a href="https://faa.zone/omnigrid.html" class="hero-cta-button">
+                    🕸️ Explore Ecosystem
+                </a>
+                <a href="https://fruitful.faa.zone/baobab_terminal.html" class="hero-cta-button cta-button-secondary">
+                    🌳 Baobab Network
+                     </a>
+                <a href="https://baobab.faa.zone" class="hero-cta-button cta-button-secondary">
+                    🌳 Baobab terminal
+                </a>
+                <a href="https://fruitfulcratedance.com/" class="hero-cta-button cta-button-secondary">
+                    📦 Fruitful™ Crate Dance
+                </a>
+                <a href="https://portal.faa.zone/payroll.html" class="hero-cta-button cta-button-secondary">
+                    💰 Fruitful™ Payroll
+                </a>
+                <a href="admin-login.html" class="hero-cta-button cta-button-secondary">
+                    ⚙️ Admin Login
+                </a>
+                <a href="https://faa.zone/contact-us.html" class="hero-cta-button cta-button-secondary">
+                    ✉️ Contact Us
+                </a>
+            </div>
+        </section>
+
+        <section class="hero-canvas-section">
+            <canvas id="rhythmicCanvas"></canvas>
+            <div class="hero-canvas-overlay"></div> </section>
+
+        <section id="shareprice" class="py-12 text-center">
+            <h2 class="text-3xl font-semibold mb-2">FAA™ Share Signal</h2>
+            <div id="price" class="text-5xl font-bold">$88.88</div>
+            <div class="text-sm text-gray-400 mt-1">Last updated: <span id="timestamp">Live</span></div>
+        </section>
+
+        <section id="seedwave" class="py-16 px-6 text-center">
+            <h2 class="text-4xl font-bold mb-8">🌱 Seedwave Brand Growth 🌱</h2>
+            <div class="w-full max-w-4xl mx-auto p-6 rounded-xl shadow-lg">
+                <canvas id="brandChart"></canvas>
+            </div>
+        </section>
+
+        <section class="py-16 px-6 text-center">
+            <h2 class="text-4xl font-bold mb-8">🧬 Founder's Glyph™</h2>
+            <p class="max-w-3xl mx-auto text-xl leading-relaxed">
+                FAA™ wasn’t built like a typical startup. It emerged — out of silence, out of signal, out of glyphs and patterns that refused to be ignored.
+                What you're seeing isn't a site. It’s a vault interface. A codebase of culture. A trust-machine powered by real human intelligence.
+            </p>
+            <p class="mt-6 max-w-2xl mx-auto italic">
+                Where others scale with speed, we scale with meaning. Every brand here agreed to something deeper than growth — they signed a Treaty.
+                That’s why this isn’t eCommerce. It’s TreatyCommerce™.
+            </p>
+            <p class="mt-6 font-semibold">— Written from the edge of code & culture 🌍 FAA.zone™ Founder Glyph Activated™</p>
+        </section>
+
+        <section id="vault-access" class="py-16 px-6">
+            <h3 class="text-4xl font-bold text-center mb-10">🔐 Sector Terminals</h3>
+
+            <div class="w-full max-w-6xl mx-auto mb-10">
+                <div class="w-full h-\[800px\] border-4 rounded-xl shadow-2xl overflow-hidden">
+                    <iframe
+                        id="vault-frame"
+                        src="vault-master.html"
+                        class="w-full h-full rounded-xl"
+                        frameborder="0"
+                        title="VaultMaster Terminal"
+                        sandbox="allow-scripts allow-same-origin allow-forms"
+                    ></iframe>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <button onclick="loadTerminal('vault-master.html')" class="terminal-btn p-6">🦍 VaultMaster Terminal</button>
+                <button onclick="loadTerminal('cube-lattice.html')" class="terminal-btn p-6">🧱 Cube Lattice GPT</button>
+                <button onclick="loadTerminal('global-view.html')" class="terminal-btn p-6">🌍 Global View GPT</button>
+                <button onclick="loadTerminal('freight-ops.html')" class="terminal-btn p-6">🚚 Freight Ops GPT</button>
+                <button onclick="loadTerminal('loop-watch.html')" class="terminal-btn p-6">♻️ Loop Watch GPT</button>
+                <button onclick="loadTerminal('seedwave.html')" class="terminal-btn p-6">🌱 Seedwave GPT</button>
+                <button onclick="loadTerminal('distribution.html')" class="terminal-btn p-6">📦 Distribution GPT</button>
+                <button onclick="loadTerminal('signal.html')" class="terminal-btn p-6">🔐 Signal GPT</button>
+                <button onclick="loadTerminal('faa-brands.html')" class="terminal-btn p-6">📦 7038 FAA Brands</button>
+            </div>
+        </section>
+
+        <section class="py-16 px-6 text-center">
+            <h2 class="text-4xl font-bold mb-8">🧬 Sector Scrolls</h2>
+            <div id="sector-glyphs-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+            </div>
+            <div id="sector-content-container" class="mt-10 px-6 max-w-6xl mx-auto"></div>
+        </section>
+
+        <section id="treaty" class="py-16 px-6 text-center">
+            <h2 class="text-4xl font-bold mb-6">📜 Treaty System™</h2>
+            <p class="max-w-2xl mx-auto text-lg mb-8">The FAA.zone™ Treaty Layer binds interface to intention. This is not UI. This is glyph-encoded law.</p>
+            <blockquote class="text-2xl italic font-semibold">"FAA.zone™ isn't a site. It's the shape of alignment — and 🦍 holds the flame."</blockquote>
+        </section>
+
+        <section class="py-10 text-xs text-center bg-gray-900 text-green-400">
+            <pre class="max-w-2xl mx-auto p-4 rounded-lg overflow-auto"><code>{
+    "signal": "omnidrop",
+    "origin": "If you dont like the fruits you are growing, change the seed™ / FAA Vault Layer",
+    "payload": {
+        "type": "scroll",
+        "value": "homepage + VaultRouter + all terminal iframe buttons live + Treaty Grid"
+    }
+}</code></pre>
+        </section>
+
+        <section id="vaultmesh" class="py-20 px-6">
+            <div class="max-w-4xl mx-auto text-left space-y-6">
+
+                <h2 class="text-4xl font-bold">🧠 VaultMesh™: Executive Summary</h2>
+
+                <p>VaultMesh™ is an intelligent data orchestration framework designed for the segmentation, synchronization, and secure deployment of high-value digital assets—referred to as scrolls—across decentralized and permissioned networks such as FAA.zone™.</p>
+
+                <ul class="list-disc ml-6 space-y-2">
+                    <li>Captures metadata-rich content streams (chats, code, brands, assets)</li>
+                    <li>Assigns them to programmable claim structures (ScrollClaims™)</li>
+                    <li>Secures their lineage using OmniSignal™, PulseGrid™, and GhostTrace™ layers</li>
+                    <li>Enforces royalty logic, scroll integrity, and traceability on-chain and off-grid</li>
+                </ul>
+
+                <p>VaultMesh™ powers high-tier operations like HSOMNI9000™, enabling Diamond-tier deployments, cross-sector scroll claims, and enterprise-scale content monetization with full compliance and provenance.</p>
+
+                <p>A critical operator in this ecosystem is HSOMNI9000™, the certified scroll class which governs Diamond-tier logic, enforces 10–11% royalty triggers, and auto-deploys ScrollClaims™ with real-time ClaimRoot™ verification.</p>
+
+                <h3 class="text-2xl font-semibold mt-10">📖 VaultMesh™ Index</h3>
+                <ul class="list-decimal ml-6 space-y-2">
+                    <li>Introduction to VaultMesh™</li>
+                    <li>Core System Components</li>
+                    <li><li>ScrollClaim™ Infrastructure</li>
+                    <li>Data Flow and Claim Lifecycle</li>
+                    <li>Tiering, Royalties, and Compliance</li>
+                    <li>Integration with FAA.zone™</li>
+                    <li>Market Segments & Use Cases</li>
+                    <li>Revenue Streams & Monetization</li>
+                    <li>Technology Roadmap</li>
+                    <li>Team & Governance</li>
+                </ul>
+
+                <h3 class="text-xl font-bold mt-10">☑️ 1. Introduction to VaultMesh™</h3>
+                <p>VaultMesh™ transforms disorganized digital content into claimable, trackable assets. It bridges enterprise content systems, decentralized data vaults, and monetization layers through FAA-compliant infrastructure.</p>
+
+                <h3 class="text-xl font-bold mt-10">⚒️ 2. Core System Components</h3>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li>VaultDNA™: Immutable identifiers for scroll content</li>
+                    <li>ClaimRoot™: Origin anchor & timestamp</li>
+                    <li>ScrollClaim™ Contracts: Programmable wrappers</li>
+                    <li>PulseGrid™ Sync: Real-time scroll presence & sync</li>
+                    <li>OmniSignal™: Global scroll verification</li>
+                    <li>GhostTrace™ Gen2: Scroll interaction backtrace</li>
+                </ul>
+
+                <h3 class="text-xl font-bold mt-10">🛠️ 3. ScrollClaim™ Infrastructure</h3>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li>Set tier access (e.g., Diamond)</li>
+                    <li>Define royalty logic (10–11%)</li>
+                    <li>Lock scrolls with PulseGrid™ sync and OmniSignal™</li>
+                    <li>Deploy via FAA.zone™ with compliant ZIP bundles</li>
+                </ul>
+
+                <h3 class="text-xl font-bold mt-10">📀 4. Data Flow and Claim Lifecycle</h3>
+                <ul class="list-decimal ml-6 space-y-1">
+                    <li>Ingest — content enters VaultMesh™</li>
+                    <li>Encode — metadata & VaultDNA™ attached</li>
+                    <li>Wrap — ScrollClaim™ smart-wrapped</li>
+                    <li>Deploy — FAA.zone™ push (ZIP, manifest, HTML)</li>
+                    <li>Sync — PulseGrid™ status & OmniSignal™ locked</li>
+                    <li>Enforce — Royalties, access & scroll activity logged via GhostTrace™</li>
+                </ul>
+
+                <h3 class="text-xl font-bold mt-10">💸 5. Tiering, Royalties, and Compliance</h3>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li>Diamond Tier: 10–11% royalty enforced</li>
+                    <li>SmartWallet Integration: ScrollClaim™ payments and transfers</li>
+                    <li>VaultPay™ Tier III: Required for commercial deployments</li>
+                    <li>Compliance: FAA scroll ID, ClaimRoot™ hash, and royalty schema</li>
+                </ul>
+
+                <h3 class="text-xl font-bold mt-10">📡 6. Integration with FAA.zone™</h3>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li>Native support for /public/diamond/ structure</li>
+                    <li>ZIP, HTML, Manifest deployment bundles</li>
+                    <li>ClaimRoot™ timestamp validation</li>
+                    <li>Seamless PulseGrid™ auto-sync for live claim state</li>
+                    <li>Brand hosting via vault.faa.zone™</li>
+                </ul>
+
+                <h3 class="text-xl font-bold mt-10">🏢 7. Market Segments & Use Cases</h3>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li>GPT Conversations & Expert Threads</li>
+                    <li>Knowledge/Training Archives</li>
+                    <li>Creative IP Scrolls (music, literature, visuals)</li>
+                    <li>GeoSector Deployment Archives</li>
+                    <li>Enterprise Scroll Logs & Audit Trails</li>
+                </ul>
+
+                <h3 class="text-xl font-bold mt-10">💰 8. Revenue Streams & Monetization</h3>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li>Diamond Royalties (10–11%)</li>
+                    <li>Scroll Packaging Fees</li>
+                    <li>VaultMesh™ API Subscriptions</li>
+                    <li>PulseGrid™ and OmniSignal™ Licensing</li>
+                </ul>
+
+                <h3 class="text-xl font-bold mt-10">⚖️ 9. Technology Roadmap</h3>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li>Q2 2025: ScrollClaim™ v2.2 with multi-claim staking</li>
+                    <li>Q3 2025: GhostTrace™ Gen3 with forensic backtrace tooling</li>
+                    <li>Q4 2025: Autonomous AI Sector Agents</li>
+                    <li>Q1 2026: Inter-vault Federation</li>
+                </ul>
+
+                <h3 class="text-xl font-bold mt-10">🔧 10. Team & Governance</h3>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li>FAA-certified engineers (scroll claimers)</li>
+                    <li>Scroll Ministers: Compliance + tiering</li>
+                    <li>Vault Admins: Metadata + ClaimRoot™ enforcement</li>
+                    <li>HSOMNI9000™ Operators: Diamond-tier execution agents</li>
+                </ul>
+
+                <p class="text-sm mt-10">📎 This plan can now be exported as HTML, PDF, or ZIP.</p>
+            </div>
+        </section>
+
+        <section id="about" class="py-16 md:py-24 px-6 md:px-12 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h3 class="text-4xl font-bold mb-8">About Fruitful™ Innovations</h3>
+                <p class="text-lg leading-relaxed mb-6">
+                    At Fruitful™, we believe in a future where technology empowers positive change. Our platform is designed to break down traditional barriers, fostering a collaborative ecosystem where businesses and individuals can thrive while making a meaningful impact on the world.
+                </p>
+                <p class="text-lg leading-relaxed">
+                    We are committed to transparency, sustainability, and innovation, driven by a powerful AI that ensures fairness, efficiency, and personalized experiences for every user. Join us in building a more fruitful™ planet.
+                </p>
+            </div>
+        </section>
+
+        <section id="cta" class="py-16 md:py-24 px-6 md:px-12 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h3 class="text-4xl font-extrabold mb-8 leading-tight">
+                    Ready to Transform Your Future?
+                </h3>
+                <p class="text-xl mb-10">
+                    Join the Fruitful™ community today and start your journey towards innovation, connection, and a sustainable tomorrow.
+                </p>
+                <a href="signup.html" class="hero-cta-button">
+                    Sign Up Now
+                </a>
+            </div>
+        </section>
+
+        <footer class="py-8 px-6 md:px-12 text-center">
+            © 2025 FAA.zone™ Treaty System™. All Rights Reserved. Powered by 🦍 glyphs + Vault API. Synced with Seedwave™.
+        </footer>
+
+    <script>
+        // --- Rhythmic Canvas Glyph Drawing Logic ---
+        const canvas = document.getElementById('rhythmicCanvas');
+        const ctx = canvas.getContext('2d');
+        let animationFrameId;
+
+        // Set canvas size for responsiveness
+        function resizeCanvas() {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+            if (canvas.width < 300) canvas.width = 300;
+            if (canvas.height < 150) canvas.height = 150;
+            // Recalculate lineAmplitude based on new height
+            lineAmplitude = canvas.height / 4;
+        }
+
+        // Initial resize and add listener for window resize
+        window.addEventListener('load', resizeCanvas);
+        window.addEventListener('resize', resizeCanvas);
+
+        let time = 0;
+        const numLines = 50;
+        let lineAmplitude; // This will be set by resizeCanvas initially
+        const lineFrequency = 0.05;
+        const lineSpeed = 0.005;
+
+        function drawGlyph() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'rgba(10, 10, 10, 0.0)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            time += lineSpeed;
+
+            for (let i = 0; i < numLines; i++) {
+                ctx.beginPath();
+                const offset = i * (Math.PI * 2 / numLines);
+                
+                const colorHue = (time * 100 + i * 5) % 360;
+                ctx.strokeStyle = `hsla(${colorHue}, 80%, 60%, 0.7)`;
+                
+                ctx.lineWidth = 1.5;
+
+                for (let x = 0; x < canvas.width; x += 5) {
+                    const y = Math.sin(x * lineFrequency + time + offset) * (lineAmplitude * (Math.sin(time * 0.1 + i * 0.1) * 0.5 + 0.5)) + canvas.height / 2;
+                    if (x === 0) {
+                        ctx.moveTo(x, y);
+                    } else {
+                        ctx.lineTo(x, y);
+                    }
+                }
+                ctx.stroke();
+            }
+
+            animationFrameId = requestAnimationFrame(drawGlyph);
+        }
+
+        window.onload = function () {
+            resizeCanvas();
+            drawGlyph();
+        };
+
+
+        // --- Vault Navigation Logic ---
+        const vaultStatusDisplay = document.getElementById('vaultStatus'); // Note: This ID does not exist in the HTML, so this variable will be null.
+        
+        window.loadTerminal = function(url) {
+            const vaultFrame = document.getElementById('vault-frame');
+            if (vaultFrame) {
+                vaultFrame.src = url;
+            }
+            // Logic to apply 'ring' class for active button (based on previous implementation attempt)
+            document.querySelectorAll('.terminal-btn').forEach(btn => {
+                const btnOnClickString = btn.getAttribute('onclick'); // Get the actual onclick attribute string
+                if (btnOnClickString && btnOnClickString.includes(url)) { // Check if its onclick references the current URL
+                    btn.classList.add('ring');
+                } else {
+                    btn.classList.remove('ring');
+                }
+            });
+            console.log("🧬 Terminal loaded:", url);
+        };
+        // Removed non-existent element listeners to prevent errors.
+
+        // --- Aetherium Console (Placeholder for LLM Integration) ---
+        // These elements and the associated logic are commented out as they were not in the primary HTML structure
+        // If an Aetherium Console is needed, the HTML elements must be added back first.
+        // const consoleOutput = document.getElementById('consoleOutput');
+        // const consoleInput = document.getElementById('consoleInput');
+        // const consoleLoading = document.getElementById('consoleLoading');
+        // let chatHistory = []; 
+
+        // function appendToConsole(message, role) {
+        //     const outputElement = document.getElementById('consoleOutput');
+        //     if (outputElement) {
+        //         const line = document.createElement('div');
+        //         line.classList.add(role === 'user' ? 'text-blue-400' : 'text-green-400');
+        //         line.textContent = `${role === 'user' ? 'USER: ' : 'AETHERIUM: '}${message}`;
+        //         outputElement.appendChild(line);
+        //         outputElement.scrollTop = outputElement.scrollHeight;
+        //     }
+        // }
+
+        // if (consoleInput) {
+        //     consoleInput.addEventListener('keydown', async (event) => {
+        //         if (event.key === 'Enter' && consoleInput.value.trim() !== '') {
+        //             const command = consoleInput.value.trim();
+        //             appendToConsole(command, 'user');
+        //             consoleInput.value = '';
+
+        //             if (consoleLoading) consoleLoading.classList.remove('hidden');
+
+        //             try {
+        //                 const prompt = `You are the Aetherium Console, an intelligent system. Respond to the following command. Keep responses concise and in character, using a futuristic, slightly cryptic tone. Avoid overly long explanations. If asked about "Treaty juice noodle sticks", acknowledge it as a key energetic concept within the Treaty Grid, symbolizing the flowing essence of alliances. Previous conversation: ${chatHistory.map(entry => `${entry.role}: ${entry.parts[0].text}`).join('\n')}\nUser command: ${command}`;
+        //                 const payload = { contents: chatHistory.concat([{ role: "user", parts: [{ text: prompt }] }]) };
+        //                 const apiKey = "";
+        //                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+        //                 const response = await fetch(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+        //                 const result = await response.json();
+
+        //                 if (result.candidates && result.candidates.length > 0 && result.candidates[0].content && result.candidates[0].content.parts && result.candidates[0].content.parts.length > 0) {
+        //                     const text = result.candidates[0].content.parts[0].text;
+        //                     appendToConsole(text, 'ai');
+        //                 } else {
+        //                     appendToConsole("Error: Unable to process command. Response structure unexpected.", 'ai');
+        //                     console.error("LLM response error:", result);
+        //                 }
+        //             } catch (error) {
+        //                 appendToConsole(`Error: Communication breakdown. System error: ${error.message}`, 'ai');
+        //                 console.error("Fetch error:", error);
+        //             } finally {
+        //                 if (consoleLoading) consoleLoading.classList.add('hidden');
+        //                 consoleInput.focus();
+        //             }
+        //         }
+        //     });
+        // }
+
+
+        // --- Treaty Grid Logic (Elements not present in this HTML, kept for reference if added later) ---
+        // const treatyNodes = document.querySelectorAll('.treaty-node');
+        // const treatyNodeInfoDisplay = document.getElementById('treatyNodeInfo');
+        /*
+        if (treatyNodes.length > 0 && treatyNodeInfoDisplay) {
+            let currentActiveNode = null;
+            treatyNodes.forEach(node => {
+                node.addEventListener('click', () => {
+                    if (currentActiveNode) {
+                        currentActiveNode.classList.remove('active');
+                    }
+                    node.classList.add('active');
+                    currentActiveNode = node;
+                    const nodeName = node.getAttribute('data-node-name');
+                    const nodeInfo = node.getAttribute('data-node-info');
+                    if (treatyNodeInfoDisplay) treatyNodeInfoDisplay.textContent = `Selected Node: ${nodeName}. ${nodeInfo}`;
+                });
+            });
+        }
+        */
+
+        // Script for Share Signal (mock price update)
+        function updateSharePrice() {
+            const mockPrice = (80 + Math.random() * 10).toFixed(2);
+            const priceElement = document.getElementById('price');
+            const timestampElement = document.getElementById('timestamp');
+            if (priceElement) priceElement.innerText = `$${mockPrice}`;
+            if (timestampElement) timestampElement.innerText = new Date().toLocaleTimeString();
+        }
+        // Update every 9 seconds
+        setInterval(updateSharePrice, 9000);
+        // Initial call to display price immediately
+        updateSharePrice();
+
+        // Chart.js for Seedwave Growth
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('brandChart')?.getContext('2d');
+            if (ctx) {
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                        datasets: [{
+                            label: 'Treaty Brands Activated',
+                            data: [3, 7, 13, 21],
+                            borderWidth: 2,
+                            borderColor: '#0071e3',
+                            tension: 0.4,
+                            fill: true,
+                            backgroundColor: 'rgba(0, 113, 227, 0.1)',
+                            pointRadius: 4,
+                            pointBackgroundColor: '#0071e3',
+                            pointBorderColor: '#fff',
+                            pointHoverRadius: 6
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                grid: {
+                                    color: '#e8e8ed',
+                                    drawBorder: false
+                                },
+                                ticks: {
+                                    color: '#6e6e73'
+                                }
+                            },
+                            x: {
+                                grid: {
+                                    color: '#e8e8ed',
+                                    drawBorder: false
+                                },
+                                ticks: {
+                                    color: '#6e6e73'
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false,
+                                labels: {
+                                    color: '#424245'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+
+        // Define the comprehensive sectorList from admin-portal for consistent slugs and display names
+        const sectorList = {
+            "agriculture": "🌱 Agriculture & Biotech",
+            "fsf": "🥦 Food, Soil & Farming",
+            "banking": "🏦 Banking & Finance",
+            "creative": "🖋️ Creative Tech",
+            "logistics": "📦 Logistics & Packaging",
+            "education": "📚 Education & IP",
+            "fashion": "✂ Fashion & Identity",
+            "gaming": "🎮 Gaming & Simulation",
+            "health-hygiene": "🧴 Health & Hygiene", // Updated glyph for main index
+            "housing": "🏛️ Housing & Infrastructure",
+            "justice": "⚖ Justice & Ethics",
+            "knowledge": "🧠 Knowledge & Archives",
+            "micromesh": "☰ Micro-Mesh Logistics",
+            "media": "🎬 Motion, Media & Sonic",
+            "nutrition": "✿ Nutrition & Food Chain",
+            "packaging": "📦 Packaging & Materials",
+            "quantum": "✴️ Quantum Protocols",
+            "ritual": "☯ Ritual & Culture",
+            "saas": "🔑 SaaS & Licensing",
+            "trade": "🧺 Trade Systems",
+            "utilities": "🔋 Utilities & Energy",
+            "voice": "🎙️️ Voice & Audio",
+            "webless": "📡 Webless Tech & Nodes",
+            "nft": "🔁 NFT & Ownership",
+            "zerowaste": "♻️ Zero Waste",
+            "professional": "🧾 Professional Services",
+            "ai-logic": "🧠 AI, Logic & Grid Systems",
+            "mining": "⛏️ Mining & Resources",
+            "payroll": "💰 Payroll Core Systems", // Added payroll
+            "wildlife": "🚁 Wildlife Sector", // Ensure wildlife is present
+            "admin": "⚙️ Admin & Manual Sync Panel",
+            "global-index": "🌐 Global Brand Index"
+        };
+
+
+        // Dynamically generate the sectorMap based on the comprehensive sectorList
+        const sectorMap = {};
+        for (const slug in sectorList) {
+            // Exclude admin and global-index as they are not public sectors in this context
+            if (slug !== 'admin' && slug !== 'global-index') {
+                // Special handling for wildlife dashboard, otherwise default to index.html
+                const fileName = (slug === 'wildlife') ? 'dashboard.html' : 'index.html';
+                sectorMap[slug] = `/public/sectors/${slug}/${fileName}`;
+            }
+        }
+
+        // Get the container for sector glyphs
+        const sectorGlyphsContainer = document.getElementById('sector-glyphs-container');
+        if (sectorGlyphsContainer) {
+            // Clear existing hardcoded glyphs
+            sectorGlyphsContainer.innerHTML = '';
+
+            // Sort sectors alphabetically by their display name for consistent order
+            const sortedSectorSlugs = Object.keys(sectorList).sort((a, b) => {
+                const nameA = sectorList[a];
+                const nameB = sectorList[b];
+                // Exclude admin and global-index from sorting and rendering in this section
+                if (a === 'admin' || a === 'global-index') return 1;
+                if (b === 'admin' || b === 'global-index') return -1;
+                return nameA.localeCompare(nameB);
+            });
+
+            sortedSectorSlugs.forEach(slug => {
+                // Only render public sectors (not admin or global-index)
+                if (slug !== 'admin' && slug !== 'global-index') {
+                    const display = sectorList[slug];
+                    const url = sectorMap[slug];
+
+                    const glyphLink = document.createElement('a');
+                    glyphLink.href = url;
+                    glyphLink.className = "glyph";
+                    glyphLink.setAttribute('data-vault', slug);
+                    glyphLink.innerHTML = display; // display includes the emoji and text
+
+                    glyphLink.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const clickedSectorSlug = e.currentTarget.getAttribute('data-vault');
+                        const iframeUrl = sectorMap[clickedSectorSlug];
+                        const sectorContentContainer = document.getElementById('sector-content-container');
+
+                        if (iframeUrl) {
+                            // Extract display name from sectorList for the loading message
+                            const loadingMessageText = sectorList[clickedSectorSlug] || clickedSectorSlug.charAt(0).toUpperCase() + clickedSectorSlug.slice(1).replace('-', ' ');
+                            sectorContentContainer.innerHTML =
+                                `<div class="text-gray-600 text-sm mb-2">🔄 Loading sector: ${loadingMessageText}...</div>
+                                <iframe src="${iframeUrl}" class="w-full h-[900px] border-none rounded-xl bg-gray-100"></iframe>`;
+                        } else {
+                            sectorContentContainer.innerHTML =
+                                `<div class="text-red-500 text-sm mb-2">Error: Sector URL not found for ${clickedSectorSlug}.</div>`;
+                        }
+                    });
+                    sectorGlyphsContainer.appendChild(glyphLink);
+                }
+            });
+        }
+
+        // Hamburger menu toggle for mobile
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainNav = document.querySelector('.main-nav');
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
+
+            if (hamburgerMenu && mainNav) {
+                hamburgerMenu.addEventListener('click', () => {
+                    mainNav.classList.toggle('active');
+                });
+            }
+
+            // Close mobile nav on link click
+            document.querySelectorAll('.main-nav .nav-list a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                    }
+                });
+            });
+
+            // Smooth scrolling for internal links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href && href.length > 1) { // Check if it's not just '#'
+                        e.preventDefault();
+                        const targetElement = document.querySelector(href);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script src="omnigrid-app.js"></script>
+</body>
+</html>

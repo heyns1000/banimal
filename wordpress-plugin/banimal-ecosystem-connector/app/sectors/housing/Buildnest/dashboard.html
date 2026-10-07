@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAA.zone – BuildNest™ Sector Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f8f9fb;
+      color: #1f1f1f;
+    }
+
+    header {
+      background: #111;
+      color: #fff;
+      padding: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .sidebar {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .content {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .module-card {
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      transition: 0.2s ease-in-out;
+    }
+
+    .module-card:hover {
+      border-color: #0070f3;
+      background: #f0f8ff;
+    }
+
+    .cta-panel {
+      margin-top: 2rem;
+      background: #eef6ff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .cta-panel button {
+      background: #0070f3;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .ledger-log {
+      background: #000;
+      color: #0f0;
+      padding: 1rem;
+      font-family: monospace;
+      border-radius: 8px;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      max-height: 250px;
+      overflow-y: scroll;
+    }
+
+    .baobab-map {
+      margin-top: 2rem;
+      border: 2px dashed #555;
+      padding: 1.5rem;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">FAA.zone – BuildNest™</div>
+    <div>VaultID: BN-2203-FLX | Signal Echo Layer: 12B | Verified Node</div>
+  </header>
+
+  <div class="main-grid">
+    <aside class="sidebar">
+      <h2>Core Modules</h2>
+      <div class="module-card">ScrollClaim™: Dynamic Land Access Tokenization</div>
+      <div class="module-card">PlotVault™: Immutable Ownership Ledger</div>
+      <div class="module-card">GridPermit™: Real-Time Zoning + Electric Sync</div>
+      <div class="module-card">LandNode™: Distributed Infra Kernel</div>
+
+      <h2>Pricing Plans</h2>
+      <div class="module-card">Basic GridSync™ – $99/mo | 1 PlotNode + Audit Logs</div>
+      <div class="module-card">Enterprise SmartNest™ – $999/mo | 12+ Nodes, ScrollPortals™, API Hooks</div>
+
+      <div class="cta-panel">
+        <p>Deploy new housing instance</p>
+        <button>Initialize BuildNest™</button>
+      </div>
+    </aside>
+
+    <section class="content">
+      <h2>Sector Dashboard & Codex</h2>
+      <p>This interface anchors all infrastructure activities via FAA-verified protocols and SmartGrid-compatible logic. Direct deployments reference VaultMesh™ assets and Atom-Level™ permission logs.</p>
+
+      <div class="ledger-log">
+        [2025-05-27 12:45:00] LedgerTx Initiated: VaultMesh.Commit(PlotVault#XZ2E)
+        <br>[2025-05-27 12:46:11] GridPermit™ Signal Registered: Node: FLUX-440A, Status: Active
+        <br>[2025-05-27 12:47:55] AncestryMap Update: ScrollPortals.synapse ↔ PlotXZ2E
+        <br>[2025-05-27 12:48:42] FinalizeClaim: ScrollClaim+PlotVault Merged
+      </div>
+
+      <div class="baobab-map">
+        <strong>Baobab Lineage Visualization:</strong>
+        <p>[Root: Baobab-12A] → [Node: PlotXZ2E] → [GridPermit: FLUX-440A] → [ScrollPortals: syn-9981]</p>
+      </div>
+
+      <canvas id="infraChart" width="400" height="150"></canvas>
+      <canvas id="exchangeChart" width="400" height="150" style="margin-top: 2rem;"></canvas>
+      <script>
+        const ctx1 = document.getElementById('infraChart').getContext('2d');
+        new Chart(ctx1, {
+          type: 'bar',
+          data: {
+            labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+            datasets: [{
+              label: 'Deployments (Public Housing)',
+              data: [12, 19, 7, 15],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+
+        const ctx2 = document.getElementById('exchangeChart').getContext('2d');
+        const labels2 = Array.from({ length: 60 }, (_, i) => `T-${(59 - i) * 9}s`);
+        const fcuUSD = Array.from({ length: 60 }, () => 1.20 + (Math.random() * 0.2 - 0.1));
+        const fcuBid = Array.from({ length: 60 }, () => 0.031 + (Math.random() * 0.005 - 0.0025));
+
+        new Chart(ctx2, {
+          type: 'line',
+          data: {
+            labels: labels2,
+            datasets: [
+              {
+                label: 'FCU → USD',
+                data: fcuUSD,
+                borderColor: 'blue',
+                fill: false,
+              },
+              {
+                label: 'FCU → Bidcoin',
+                data: fcuBid,
+                borderColor: 'orange',
+                fill: false,
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              y: {
+                beginAtZero: false
+              }
+            }
+          }
+        });
+      </script>
+
+    </section>
+  </div>
+    <script src="../../../omnigrid-app.js" data-concept="1"></script>
+</body>
+
+</html>

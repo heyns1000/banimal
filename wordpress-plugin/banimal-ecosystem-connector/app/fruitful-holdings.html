@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fruitful Holdings — Global Business Plan</title>
+<meta name="description" content="Fruitful Holdings Global Business Plan 2026 — Crate Dance Showcase, Red Bull partnership, R391M revenue target across 8+ markets.">
+<meta property="og:title" content="Fruitful Crate Dance Showcase — Business Plan 2026">
+<meta property="og:description" content="Empowering communities. Amplifying creativity. Building a sovereign global movement from Mahalapye, Botswana to every dancefloor on Earth.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+html, body { margin:0; padding:0; background:#060608; color:#EEEAF0; font-family:'Barlow',sans-serif; overflow-x:hidden; scroll-behavior:smooth; }
+:root {
+  --orange:#FF5A1F;
+  --orange2:#FF8C42;
+  --red:#E31E24;
+  --gold:#F5C842;
+  --green:#29E06F;
+  --blue:#00B4FF;
+  --panel:#0D0D12;
+  --card:#111118;
+  --line:rgba(255,255,255,0.06);
+  --text:#EEEAF0;
+  --muted:rgba(238,234,240,0.45);
+}
+*, *::before, *::after { box-sizing:border-box; }
+
+body::before {
+  content:''; position:fixed; inset:0; pointer-events:none; z-index:1000;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity:.3;
+}
+
+.cur { position:fixed; width:10px; height:10px; background:var(--orange); border-radius:50%; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); mix-blend-mode:difference; transition:transform .08s; }
+.cur-ring { position:fixed; width:32px; height:32px; border:1px solid var(--orange); border-radius:50%; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); transition:all .15s ease; opacity:.6; }
+@media (hover: none) { .cur, .cur-ring { display:none; } }
+
+.hero {
+  min-height:100vh; display:flex; flex-direction:column; justify-content:flex-end;
+  padding:48px 56px; position:relative; overflow:hidden;
+  background:#060608;
+}
+
+.hero-img {
+  position:absolute; inset:0;
+  background: url('./hero-bg.jpg') center center / cover no-repeat;
+  filter:saturate(0.7);
+}
+
+.hero-img::after {
+  content:'';
+  position:absolute; inset:0;
+  background:
+    linear-gradient(to top, rgba(6,6,8,0.97) 0%, rgba(6,6,8,0.75) 45%, rgba(6,6,8,0.35) 80%, rgba(6,6,8,0.2) 100%),
+    linear-gradient(135deg, rgba(255,90,31,0.12) 0%, transparent 60%);
+}
+
+.hero-grid {
+  position:absolute; inset:0; z-index:1;
+  background-image: repeating-linear-gradient(0deg,transparent,transparent 79px,rgba(255,90,31,.03) 80px),
+                    repeating-linear-gradient(90deg,transparent,transparent 79px,rgba(255,90,31,.03) 80px);
+  pointer-events:none;
+}
+
+.hero-bg-num {
+  position:absolute; top:-80px; right:-20px; z-index:2;
+  font-family:'Anton',sans-serif; font-size:420px; line-height:1;
+  color:rgba(255,90,31,.06); letter-spacing:-15px; pointer-events:none;
+  animation:bg-pulse 6s ease-in-out infinite;
+}
+@keyframes bg-pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+.hero-tag {
+  font-family:'Barlow Condensed',sans-serif; font-size:11px;
+  letter-spacing:.35em; text-transform:uppercase; color:var(--orange);
+  margin-bottom:20px; display:flex; align-items:center; gap:12px; position:relative; z-index:2;
+}
+.hero-tag::before { content:''; display:block; width:36px; height:1px; background:var(--orange); }
+
+.hero h1 {
+  font-family:'Anton',sans-serif;
+  font-size:clamp(72px,13vw,160px);
+  line-height:.9; letter-spacing:1px;
+  margin:0 0 8px; position:relative; z-index:2;
+}
+.hero h1 .o  { color:var(--orange); }
+.hero h1 .r  { color:var(--red); }
+.hero h1 .g  { color:transparent; -webkit-text-stroke:1px var(--gold); }
+
+.hero-sub {
+  font-size:16px; color:var(--muted); max-width:520px; line-height:1.8;
+  margin-bottom:60px; position:relative; z-index:2;
+}
+
+.hero-bottom { display:flex; justify-content:space-between; align-items:flex-end; position:relative; z-index:2; }
+
+.hero-kpi { display:flex; gap:52px; }
+.kpi-item .n { font-family:'Anton',sans-serif; font-size:52px; line-height:1; color:var(--text); display:block; }
+.kpi-item .n em { color:var(--orange); font-style:normal; }
+.kpi-item .l { font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin-top:4px; display:block; }
+
+.hero-cred { text-align:right; }
+.hero-cred .c1 { font-family:'Anton',sans-serif; font-size:28px; color:var(--gold); letter-spacing:2px; }
+.hero-cred .c2 { font-size:11px; color:var(--muted); letter-spacing:.15em; margin-top:4px; }
+
+.tick { overflow:hidden; background:var(--orange); padding:10px 0; }
+.tick-inner { display:flex; animation:tick 22s linear infinite; white-space:nowrap; }
+.tick-inner span { font-family:'Anton',sans-serif; font-size:13px; letter-spacing:.1em; color:#060608; padding:0 28px; text-transform:uppercase; }
+.tick-inner .s { color:rgba(0,0,0,.3); }
+@keyframes tick { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+section { padding:80px 56px; background:#060608; position:relative; }
+section+section { border-top:1px solid var(--line); }
+
+.sec-tag {
+  font-family:'Barlow Condensed',sans-serif; font-size:10px;
+  letter-spacing:.3em; text-transform:uppercase; color:var(--orange);
+  margin-bottom:40px; display:flex; align-items:center; gap:12px;
+}
+.sec-tag::after { content:''; display:block; height:1px; width:50px; background:var(--orange); }
+
+h2.big {
+  font-family:'Anton',sans-serif; font-size:clamp(40px,6vw,80px);
+  line-height:.95; margin-bottom:32px; letter-spacing:.5px;
+}
+h2.big .o { color:var(--orange); }
+h2.big .r { color:var(--red); }
+h2.big .y { color:var(--gold); }
+h2.big .g { color:transparent; -webkit-text-stroke:1px var(--green); }
+
+.vision-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:40px; }
+.v-card { background:var(--card); padding:36px 28px; position:relative; overflow:hidden; transition:background .3s; }
+.v-card:hover { background:#15151F; }
+.v-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; }
+.v-card:nth-child(1)::before { background:var(--orange); }
+.v-card:nth-child(2)::before { background:var(--red); }
+.v-card:nth-child(3)::before { background:var(--gold); }
+.v-card:nth-child(4)::before { background:var(--green); }
+.v-card:nth-child(5)::before { background:var(--blue); }
+.v-card:nth-child(6)::before { background:var(--orange2); }
+.v-card .v-ico { font-size:28px; margin-bottom:14px; display:block; }
+.v-card h3 { font-family:'Anton',sans-serif; font-size:20px; color:var(--text); letter-spacing:.5px; margin-bottom:10px; }
+.v-card p { font-size:12px; color:var(--muted); line-height:1.7; margin:0; }
+
+.rev-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:40px; }
+.rev-block { background:var(--card); padding:32px 28px; }
+.rev-block .rn { font-family:'Barlow Condensed',sans-serif; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin-bottom:12px; display:block; }
+.rev-block .ra { font-family:'Anton',sans-serif; font-size:48px; line-height:1; display:block; margin-bottom:8px; }
+.rev-block:nth-child(1) .ra { color:var(--orange); }
+.rev-block:nth-child(2) .ra { color:var(--red); }
+.rev-block:nth-child(3) .ra { color:var(--gold); }
+.rev-block:nth-child(4) .ra { color:var(--green); }
+.rev-block:nth-child(5) .ra { color:var(--blue); }
+.rev-block:nth-child(6) .ra { color:var(--orange2); }
+.rev-block .rd { font-size:12px; color:var(--muted); line-height:1.6; }
+
+.rev-total {
+  background:rgba(255,90,31,.06); border:1px solid rgba(255,90,31,.2);
+  padding:36px 40px; margin-top:1px;
+  display:flex; justify-content:space-between; align-items:center;
+}
+.rev-total .rl .rll { font-family:'Barlow Condensed',sans-serif; font-size:11px; letter-spacing:.25em; text-transform:uppercase; color:var(--orange); display:block; margin-bottom:4px; }
+.rev-total .rl .rls { font-size:12px; color:var(--muted); }
+.rev-total .rnum { font-family:'Anton',sans-serif; font-size:72px; color:var(--orange); line-height:1; text-shadow:0 0 60px rgba(255,90,31,.4); }
+
+.fr-table { width:100%; border-collapse:collapse; margin-top:40px; }
+.fr-table th { font-family:'Barlow Condensed',sans-serif; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--orange); text-align:left; padding:14px 18px; background:var(--card); border-bottom:1px solid var(--line); }
+.fr-table td { padding:16px 18px; border-bottom:1px solid var(--line); font-size:12px; color:var(--muted); background:#060608; vertical-align:top; }
+.fr-table tr:hover td { background:rgba(255,90,31,.02); }
+.fr-table .fy { font-family:'Anton',sans-serif; font-size:16px; color:var(--text); }
+.fr-table .fv { font-family:'Anton',sans-serif; font-size:22px; color:var(--green); }
+
+.franchise-fee-grid {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:1px; background:var(--line); border:1px solid var(--line); margin-top:32px;
+}
+.franchise-fee-grid > div { background:var(--card); padding:28px; }
+
+.rb-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:40px; }
+.rb-panel { background:var(--card); padding:40px 36px; }
+.rb-panel.highlight { background:rgba(227,30,36,.05); border-left:2px solid var(--red); }
+.rb-panel .rbi { font-size:32px; margin-bottom:14px; display:block; }
+.rb-panel h4 { font-family:'Anton',sans-serif; font-size:22px; color:var(--text); letter-spacing:.5px; margin-bottom:12px; }
+.rb-panel p { font-size:13px; color:var(--muted); line-height:1.7; margin:0 0 12px; }
+.rb-panel ul { list-style:none; padding:0; margin:0; }
+.rb-panel ul li { font-size:12px; color:rgba(238,234,240,.5); padding:6px 0; border-top:1px solid rgba(255,255,255,.04); display:flex; gap:8px; align-items:flex-start; }
+.rb-panel ul li::before { content:'→'; color:var(--red); flex-shrink:0; }
+
+.mkt-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:40px; }
+.mkt-card { background:var(--card); padding:28px 24px; }
+.mkt-card .flag { font-size:32px; display:block; margin-bottom:12px; }
+.mkt-card h4 { font-family:'Anton',sans-serif; font-size:18px; color:var(--text); margin-bottom:8px; letter-spacing:.5px; }
+.mkt-card p { font-size:11px; color:var(--muted); line-height:1.6; margin:0; }
+.mkt-card .mkt-tag { font-family:'Barlow Condensed',sans-serif; font-size:9px; letter-spacing:.2em; text-transform:uppercase; padding:3px 8px; border:1px solid; margin-top:12px; display:inline-block; }
+.phase-1 .mkt-tag { color:var(--orange); border-color:rgba(255,90,31,.4); }
+.phase-2 .mkt-tag { color:var(--gold); border-color:rgba(245,200,66,.4); }
+
+.phases { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:40px; }
+.phase { background:var(--card); padding:32px 26px; }
+.phase-bar { height:3px; margin-bottom:24px; border-radius:2px; }
+.phase:nth-child(1) .phase-bar { background:var(--orange); width:100%; }
+.phase:nth-child(2) .phase-bar { background:var(--gold); width:75%; }
+.phase:nth-child(3) .phase-bar { background:var(--red); width:50%; }
+.phase:nth-child(4) .phase-bar { background:var(--green); width:25%; }
+.phase .pl { font-family:'Barlow Condensed',sans-serif; font-size:9px; letter-spacing:.25em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; display:block; }
+.phase h4 { font-family:'Anton',sans-serif; font-size:18px; color:var(--text); margin-bottom:14px; letter-spacing:.5px; }
+.phase ul { list-style:none; padding:0; margin:0; }
+.phase ul li { font-size:11px; color:var(--muted); padding:5px 0; border-top:1px solid rgba(255,255,255,.04); line-height:1.5; }
+
+.tier-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:40px; }
+.tier { background:var(--card); padding:36px 28px; position:relative; }
+.tier.platinum { background:rgba(245,200,66,.04); border-top:2px solid var(--gold); }
+.tier.gold-t    { background:rgba(255,90,31,.04); border-top:2px solid var(--orange); }
+.tier.silver-t  { background:rgba(0,180,255,.04); border-top:2px solid var(--blue); }
+.tier .tier-inv { font-family:'Anton',sans-serif; font-size:52px; line-height:1; margin-bottom:8px; display:block; }
+.platinum .tier-inv { color:var(--gold); }
+.gold-t .tier-inv    { color:var(--orange); }
+.silver-t .tier-inv  { color:var(--blue); }
+.tier h4 { font-family:'Anton',sans-serif; font-size:18px; letter-spacing:1px; color:var(--text); margin-bottom:14px; }
+.tier ul { list-style:none; padding:0; margin:0; }
+.tier ul li { font-size:12px; color:var(--muted); padding:6px 0; border-top:1px solid rgba(255,255,255,.04); display:flex; gap:8px; }
+.tier ul li::before { content:'✓'; flex-shrink:0; }
+.platinum li::before { color:var(--gold); }
+.gold-t li::before   { color:var(--orange); }
+.silver-t li::before { color:var(--blue); }
+
+.fin-table { width:100%; border-collapse:collapse; margin-top:40px; }
+.fin-table th { font-family:'Barlow Condensed',sans-serif; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--orange); text-align:left; padding:14px 18px; background:var(--card); border-bottom:1px solid var(--line); }
+.fin-table td { padding:14px 18px; border-bottom:1px solid var(--line); font-size:12px; color:var(--muted); background:#060608; }
+.fin-table tr:hover td { background:rgba(255,90,31,.02); }
+.fin-table .source { color:var(--text); font-weight:500; }
+.fin-table .amt { font-family:'Anton',sans-serif; font-size:18px; }
+.yr1 .amt { color:var(--orange); }
+.yr2 .amt { color:var(--gold); }
+.yr3 .amt { color:var(--green); }
+.fin-table .total-row td { background:rgba(255,90,31,.05); border-top:1px solid rgba(255,90,31,.3); }
+.fin-table .total-row .amt { font-size:24px; color:var(--orange); }
+.fin-table .yr45-row td { background:rgba(245,200,66,.04); border-top:1px dashed rgba(245,200,66,.2); }
+.fin-table .yr45-row .amt { font-size:18px; color:var(--gold); }
+.fin-table .grand-row td { background:rgba(255,90,31,.08); border-top:2px solid rgba(255,90,31,.4); }
+.fin-table .grand-row .amt { font-size:28px; color:var(--orange); }
+
+.cta { padding:80px 56px; text-align:center; position:relative; overflow:hidden; background:#060608; }
+.ring { position:absolute; border-radius:50%; border:1px solid; pointer-events:none; top:50%; left:50%; transform:translate(-50%,-50%); animation:ring-out 5s ease-out infinite; }
+.ring:nth-child(1) { width:300px; height:300px; border-color:rgba(255,90,31,.15); animation-delay:0s; }
+.ring:nth-child(2) { width:500px; height:500px; border-color:rgba(255,90,31,.08); animation-delay:1.2s; }
+.ring:nth-child(3) { width:700px; height:700px; border-color:rgba(255,90,31,.04); animation-delay:2.4s; }
+@keyframes ring-out { 0%{transform:translate(-50%,-50%) scale(.85); opacity:1} 100%{transform:translate(-50%,-50%) scale(1.15); opacity:0} }
+
+.cta-tag { font-family:'Barlow Condensed',sans-serif; font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--orange); margin-bottom:24px; position:relative; z-index:2; }
+.cta h2 { font-family:'Anton',sans-serif; font-size:clamp(48px,9vw,110px); line-height:.9; color:var(--text); margin-bottom:24px; position:relative; z-index:2; }
+.cta h2 .o { color:var(--orange); text-shadow:0 0 60px rgba(255,90,31,.5); }
+.cta h2 .r { color:var(--red); }
+.cta-sub { font-size:15px; color:var(--muted); max-width:480px; margin:0 auto 60px; line-height:1.8; position:relative; z-index:2; }
+
+.cta-cards { display:flex; gap:1px; background:var(--line); border:1px solid var(--line); max-width:800px; margin:0 auto; position:relative; z-index:2; }
+.cta-card { background:var(--card); padding:28px 32px; flex:1; text-align:left; }
+.cta-card .cl { font-family:'Barlow Condensed',sans-serif; font-size:9px; letter-spacing:.25em; text-transform:uppercase; color:var(--orange); display:block; margin-bottom:6px; }
+.cta-card .cv { font-family:'Anton',sans-serif; font-size:18px; color:var(--text); letter-spacing:.5px; display:block; }
+.cta-card .cs { font-size:11px; color:var(--muted); margin-top:4px; }
+
+footer { background:#0A0A0F; border-top:1px solid var(--line); padding:28px 56px; display:flex; justify-content:space-between; align-items:center; }
+footer .fb { font-family:'Anton',sans-serif; font-size:18px; letter-spacing:2px; color:var(--orange); }
+footer .fc { font-size:10px; color:rgba(238,234,240,.2); letter-spacing:.15em; }
+
+.hero-logo { width:60px; height:66px; position:relative; z-index:2; display:block; margin-bottom:18px; }
+.footer-logo { width:34px; height:37px; flex-shrink:0; }
+
+.reveal { opacity:0; transform:translateY(20px); transition:opacity .6s ease, transform .6s ease; }
+.reveal.on { opacity:1; transform:translateY(0); }
+
+@media print {
+  body::before, .cur, .cur-ring, .tick, .ring { display:none; }
+  html, body { background:#fff; color:#111; }
+  .hero { background:#fff; min-height:auto; padding:32px; }
+  .hero-grid, .hero-bg-num, .hero-img { display:none; }
+  section { padding:32px; background:#fff; border-top:1px solid #ddd; }
+  .v-card, .rev-block, .rb-panel, .mkt-card, .phase, .tier, .cta-card { background:#f7f7f7; }
+  .rev-total { background:#fff3ee; }
+  .cta { background:#fff; }
+  footer { background:#f0f0f0; }
+  .reveal { opacity:1; transform:none; }
+  a { color:#FF5A1F; }
+}
+
+@media (max-width:768px) {
+  .hero, section, .cta { padding:48px 24px; }
+  .vision-grid, .rev-grid, .rb-grid, .mkt-grid, .phases, .tier-grid { grid-template-columns:1fr; }
+  .franchise-fee-grid { grid-template-columns:1fr; }
+  .hero-kpi { flex-wrap:wrap; gap:24px; }
+  .hero-bottom { flex-direction:column; gap:32px; align-items:flex-start; }
+  .rev-total { flex-direction:column; gap:16px; text-align:center; }
+  .cta-cards { flex-direction:column; }
+  footer { flex-direction:column; gap:8px; text-align:center; }
+}
+</style>
+</head>
+<body>
+
+<div class="cur" id="cur"></div>
+<div class="cur-ring" id="curRing"></div>
+
+<div class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-bg-num">391M</div>
+
+  <div class="hero-logo">
+    <svg viewBox="0 0 220 240" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <path d="M118 28 Q128 8 135 14" stroke="#E83558" stroke-width="13" stroke-linecap="round"/>
+      <path d="M110 35 Q72 35 56 72 Q40 108 54 136" stroke="#E83558" stroke-width="14" stroke-linecap="round" fill="none"/>
+      <path d="M110 35 Q148 35 164 72 Q180 108 166 136" stroke="#E83558" stroke-width="14" stroke-linecap="round" fill="none"/>
+      <path d="M54 136 Q80 162 110 162 Q140 162 166 136" stroke="#E83558" stroke-width="14" stroke-linecap="round" fill="none"/>
+      <path d="M56 118 Q36 128 28 122" stroke="#E83558" stroke-width="13" stroke-linecap="round"/>
+      <path d="M164 118 Q184 128 192 122" stroke="#E83558" stroke-width="13" stroke-linecap="round"/>
+      <path d="M54 136 Q42 155 52 172 Q62 188 78 184 Q92 190 110 186" stroke="#E83558" stroke-width="14" stroke-linecap="round" fill="none"/>
+      <path d="M166 136 Q178 155 168 172 Q158 188 142 184 Q128 190 110 186" stroke="#E83558" stroke-width="14" stroke-linecap="round" fill="none"/>
+      <path d="M88 175 Q110 165 132 175" stroke="#E83558" stroke-width="13" stroke-linecap="round"/>
+      <ellipse cx="88" cy="95" rx="9" ry="13" fill="#E83558"/>
+      <ellipse cx="132" cy="95" rx="9" ry="13" fill="#E83558"/>
+    </svg>
+  </div>
+
+  <div class="hero-tag">Fruitful Holdings (Pty) Ltd — Business Plan 2026</div>
+
+  <h1>
+    <span class="o">CRATE</span><br>
+    <span class="g">DANCE</span><br>
+    <span class="r">GLOBAL</span>
+  </h1>
+
+  <p class="hero-sub">
+    Empowering communities. Amplifying creativity. Building a sovereign global movement from Mahalapye, Botswana to every dancefloor on Earth — anchored by Red Bull, powered by Ubuntu.
+  </p>
+
+  <div class="hero-bottom">
+    <div class="hero-kpi">
+      <div class="kpi-item"><span class="n">R391<em>M</em></span><span class="l">5-Year Revenue</span></div>
+      <div class="kpi-item"><span class="n">8<em>+</em></span><span class="l">Global Markets</span></div>
+      <div class="kpi-item"><span class="n">10K<em>+</em></span><span class="l">Youth Trained</span></div>
+      <div class="kpi-item"><span class="n">1K<em>+</em></span><span class="l">Jobs Created</span></div>
+    </div>
+    <div class="hero-cred">
+      <div class="c1">FRUITFUL HOLDINGS</div>
+      <div class="c2">Heyns Schoeman (Zollie) · Founder &amp; CEO</div>
+    </div>
+  </div>
+</div>
+
+<div class="tick">
+  <div class="tick-inner">
+    <span>Crate Dance Showcase</span><span class="s">✦</span><span>Red Bull Partnership</span><span class="s">✦</span><span>Sekelbos Tank</span><span class="s">✦</span><span>Ubuntu Commerce</span><span class="s">✦</span><span>13,713 Brands</span><span class="s">✦</span><span>R391M Revenue</span><span class="s">✦</span><span>8 Markets</span><span class="s">✦</span><span>Youth Empowerment</span><span class="s">✦</span><span>Franchise Global</span><span class="s">✦</span><span>Fruitful Planet Change</span><span class="s">✦</span>
+    <span>Crate Dance Showcase</span><span class="s">✦</span><span>Red Bull Partnership</span><span class="s">✦</span><span>Sekelbos Tank</span><span class="s">✦</span><span>Ubuntu Commerce</span><span class="s">✦</span><span>13,713 Brands</span><span class="s">✦</span><span>R391M Revenue</span><span class="s">✦</span><span>8 Markets</span><span class="s">✦</span><span>Youth Empowerment</span><span class="s">✦</span><span>Franchise Global</span><span class="s">✦</span><span>Fruitful Planet Change</span><span class="s">✦</span>
+  </div>
+</div>
+
+<section>
+  <div class="sec-tag reveal">The Vision</div>
+  <h2 class="big reveal">WHAT WE<br><span class="o">ARE</span><br>BUILDING</h2>
+  <p class="reveal" style="color:var(--muted);max-width:700px;font-size:14px;line-height:1.8">Fruitful Holdings is a social enterprise fusing entertainment with community impact — creating platforms that uplift, inspire and connect.</p>
+  <div class="vision-grid">
+    <div class="v-card reveal"><span class="v-ico">🕺</span><h3>CRATE DANCE SHOWCASE</h3><p>Global street dance competition giving youth from underserved communities a world stage. Regional auditions → National finale → International expansion. Red Bull presenting sponsor.</p></div>
+    <div class="v-card reveal"><span class="v-ico">🏺</span><h3>SEKELBOS TANK</h3><p>Vendor-driven artisan marketplace empowering local crafters, vendors and small businesses with access to global markets. 20% commission model, franchise-ready.</p></div>
+    <div class="v-card reveal"><span class="v-ico">🌍</span><h3>FRUITFUL PLANET CHANGE</h3><p>Social impact engine raising awareness on poverty, inequality and unemployment through creative expression. Youth development programs integrated into every event.</p></div>
+    <div class="v-card reveal"><span class="v-ico">🏪</span><h3>TUPPERWARE GOING FRUITFUL</h3><p>Repurposing Tupperware consultant networks as Fruitful direct sales agents at housewarming parties, kids' events and community gatherings.</p></div>
+    <div class="v-card reveal"><span class="v-ico">📱</span><h3>TECHNOLOGY PLATFORM</h3><p>Online registration, virtual auditions, live streaming, POS systems via RA Cellular, data analytics for audience growth and sponsorship impact measurement.</p></div>
+    <div class="v-card reveal"><span class="v-ico">🎓</span><h3>TALENT DEVELOPMENT</h3><p>Mentorship framework connecting dancers to industry leaders. Training in choreography, stage presence, social media marketing, entrepreneurship and financial literacy.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-tag reveal">Financial Model</div>
+  <h2 class="big reveal">SIX STREAMS.<br><span class="y">ONE MACHINE.</span></h2>
+  <div class="rev-grid">
+    <div class="rev-block reveal"><span class="rn">Ticket Sales</span><span class="ra">R15M</span><p class="rd">10 events Year 1 × R1.5M avg. Grows to R60M in Year 3.</p></div>
+    <div class="rev-block reveal"><span class="rn">Sponsorship</span><span class="ra">R5M</span><p class="rd">Red Bull exclusive presenting. Platinum R1M, Gold R500K, Silver R250K per event.</p></div>
+    <div class="rev-block reveal"><span class="rn">Merchandise</span><span class="ra">R1M</span><p class="rd">Red Bull × Fruitful co-branded. T-shirts, caps, accessories online + at events.</p></div>
+    <div class="rev-block reveal"><span class="rn">Content Licensing</span><span class="ra">R2M</span><p class="rd">Netflix, Showmax, YouTube deal pipeline. Grows to R6M Year 3.</p></div>
+    <div class="rev-block reveal"><span class="rn">Franchise Fees</span><span class="ra">R3M</span><p class="rd">R250K–R500K upfront per region + 10% royalty. Grows to R20M Year 3.</p></div>
+    <div class="rev-block reveal"><span class="rn">Vendor Fees (Sekelbos)</span><span class="ra">R3M</span><p class="rd">300 vendors × booth fees + 20% commission. Scales to 1,000 vendors.</p></div>
+  </div>
+  <div class="rev-total reveal">
+    <div class="rl"><span class="rll">5-Year Total Revenue Target</span><span class="rls">Years 1–3: R206M · Years 4–5: R185M · 5× upside with global scale</span></div>
+    <span class="rnum">R391M</span>
+  </div>
+</section>
+
+<section>
+  <div class="sec-tag reveal">Year-by-Year Projections</div>
+  <h2 class="big reveal">THE NUMBERS<br><span class="g">COMPOUND</span></h2>
+  <table class="fin-table reveal">
+    <thead><tr><th>Revenue Source</th><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>3-Year Total</th></tr></thead>
+    <tbody>
+      <tr class="yr1"><td class="source">Event Ticket Sales</td><td class="amt">R15M</td><td class="amt" style="color:var(--gold)">R30M</td><td class="amt" style="color:var(--green)">R60M</td><td class="amt" style="color:var(--text)">R105M</td></tr>
+      <tr><td class="source">Sponsorship &amp; Partnerships</td><td>R5M</td><td>R6M</td><td>R12M</td><td>R23M</td></tr>
+      <tr><td class="source">Merchandise Sales</td><td>R1M</td><td>R2.5M</td><td>R5M</td><td>R8.5M</td></tr>
+      <tr><td class="source">Content Licensing</td><td>R2M</td><td>R4M</td><td>R6M</td><td>R12M</td></tr>
+      <tr><td class="source">Franchise Fees &amp; Royalties</td><td>R3M</td><td>R10M</td><td>R20M</td><td>R33M</td></tr>
+      <tr><td class="source">Vendor Fees (Sekelbos Tank)</td><td>R3M</td><td>R7.5M</td><td>R12M</td><td>R22.5M</td></tr>
+      <tr class="total-row"><td class="source" style="color:var(--orange)">3-YEAR TOTAL</td><td class="amt">R29M</td><td class="amt" style="color:var(--gold)">R62M</td><td class="amt" style="color:var(--green)">R115M</td><td class="amt">R206M</td></tr>
+      <tr class="yr45-row"><td class="source" style="color:var(--gold)">Year 4–5 (International Scale)</td><td colspan="3" style="color:var(--muted);font-size:11px">40+ events/year · 20+ countries · accelerated franchise royalties · streaming deals</td><td class="amt">R185M</td></tr>
+      <tr class="grand-row"><td class="source" style="color:var(--orange)">5-YEAR GRAND TOTAL</td><td colspan="3" style="color:var(--muted);font-size:11px">Conservative baseline · 5× upside modelled for Years 4–5</td><td class="amt">R391M</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <div class="sec-tag reveal">Strategic Partnership</div>
+  <h2 class="big reveal">RED BULL<br><span class="r">FITS LIKE</span><br>A GLOVE</h2>
+  <div class="rb-grid">
+    <div class="rb-panel reveal"><span class="rbi">🎯</span><h4>SHARED VALUES</h4><p>Both brands champion youth empowerment, creativity, street culture and social impact.</p><ul><li>Youth 16–30 demographic alignment</li><li>Street culture + dance roots</li><li>Community grassroots engagement</li><li>High-energy live experiences</li></ul></div>
+    <div class="rb-panel highlight reveal"><span class="rbi">💰</span><h4>INVESTMENT ASK: R20M</h4><p>Multi-year exclusive presenting sponsorship across all Fruitful Crate Dance Showcase events globally.</p><ul><li>Exclusive global presenting sponsor rights</li><li>Co-branded content via Red Bull Media House</li><li>Red Bull activation zones at every event</li><li>R30.75M projected return over 3 years</li></ul></div>
+    <div class="rb-panel reveal"><span class="rbi">📡</span><h4>MEDIA &amp; CONTENT</h4><p>Red Bull Media House produces event content broadcast on Red Bull TV, YouTube and digital platforms globally.</p><ul><li>Live streaming of all major events</li><li>Behind-the-scenes documentary series</li><li>Content licensing to Netflix, Showmax, YouTube</li></ul></div>
+    <div class="rb-panel reveal"><span class="rbi">🌐</span><h4>FRANCHISE GROWTH SUPPORT</h4><p>Red Bull's global network accelerates franchisee recruitment and event success across new markets.</p><ul><li>Franchisee recruitment through Red Bull channels</li><li>Co-funding events in new markets</li><li>Product sampling + VIP activation at every event</li></ul></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-tag reveal">Sponsorship Packages</div>
+  <h2 class="big reveal">PICK YOUR<br><span class="o">LEVEL</span></h2>
+  <div class="tier-grid">
+    <div class="tier platinum reveal"><span class="tier-inv">R1M</span><h4>PLATINUM — PER EVENT</h4><ul><li>Presenting sponsor — all branding</li><li>25% logo placement on all materials</li><li>Exclusive VIP backstage access</li><li>5-minute speaking slot at opening</li><li>5 social posts across 3 platforms</li><li>TV mentions + event coverage</li><li>500 units co-branded merchandise</li></ul></div>
+    <div class="tier gold-t reveal"><span class="tier-inv">R500K</span><h4>GOLD — PER EVENT</h4><ul><li>15% logo placement on all materials</li><li>Second-tier branding in digital ads</li><li>2 VIP tickets per event</li><li>Brand mention at event introduction</li><li>3 Instagram social media posts</li></ul></div>
+    <div class="tier silver-t reveal"><span class="tier-inv">R250K</span><h4>SILVER — PER EVENT</h4><ul><li>Logo on key event signage</li><li>Social media mentions + shout-outs</li><li>Brand presence on event merchandise</li><li>In-kind support option available</li></ul></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-tag reveal">Franchise Model</div>
+  <h2 class="big reveal">REPLICATE.<br><span class="y">SCALE.</span><br>EARN.</h2>
+  <table class="fr-table reveal">
+    <thead><tr><th>Year</th><th>Franchise Regions</th><th>Revenue per Region</th><th>Total Franchise Revenue</th><th>Key Markets</th></tr></thead>
+    <tbody>
+      <tr><td class="fy">Year 1</td><td>5 regions</td><td class="fv">R2.8M</td><td class="fv">R14M</td><td>SA · Kenya · Nigeria · Brazil · Mexico</td></tr>
+      <tr><td class="fy">Year 2</td><td>15 regions</td><td class="fv" style="color:var(--gold)">R3.2M</td><td class="fv" style="color:var(--gold)">R32M</td><td>+ India · Indonesia · UK · Germany · UAE</td></tr>
+      <tr><td class="fy">Year 3</td><td>20+ regions</td><td class="fv" style="color:var(--orange)">R4M</td><td class="fv" style="color:var(--orange)">R80M</td><td>Full Africa · Asia · South America · Europe</td></tr>
+    </tbody>
+  </table>
+  <div class="franchise-fee-grid reveal">
+    <div><div style="font-family:'Anton',sans-serif;font-size:40px;color:var(--orange);line-height:1">R250K<br><span style="font-size:20px">–R500K</span></div><div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:8px">Upfront franchise fee</div></div>
+    <div><div style="font-family:'Anton',sans-serif;font-size:40px;color:var(--gold);line-height:1">10%</div><div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:8px">Gross revenue royalty — 7% Fruitful · 3% Red Bull</div></div>
+    <div><div style="font-family:'Anton',sans-serif;font-size:40px;color:var(--green);line-height:1">3yr</div><div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:8px">Initial contract · renewable 5-year extensions</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-tag reveal">Expansion Roadmap</div>
+  <h2 class="big reveal">FROM SA<br><span class="o">TO THE</span><br>WORLD</h2>
+  <div class="mkt-grid">
+    <div class="mkt-card phase-1 reveal"><span class="flag">🇿🇦</span><h4>SOUTH AFRICA</h4><p>Base market. Vibrant youth culture, 40% pop under 25. Red Bull well-established.</p><span class="mkt-tag">Phase 1 — Launch</span></div>
+    <div class="mkt-card phase-1 reveal"><span class="flag">🇳🇬</span><h4>NIGERIA</h4><p>Largest African economy. Afrobeats + hip-hop scene globally dominant. 50% pop under 30.</p><span class="mkt-tag">Phase 1 — Launch</span></div>
+    <div class="mkt-card phase-1 reveal"><span class="flag">🇰🇪</span><h4>KENYA</h4><p>Strong urban dance culture in Nairobi. Red Bull present. 30%+ youth unemployment.</p><span class="mkt-tag">Phase 1 — Launch</span></div>
+    <div class="mkt-card phase-1 reveal"><span class="flag">🇧🇷</span><h4>BRAZIL</h4><p>Funk, hip-hop, samba globally recognised. São Paulo + Rio = massive event markets.</p><span class="mkt-tag">Phase 1 — Launch</span></div>
+    <div class="mkt-card phase-2 reveal"><span class="flag">🇲🇽</span><h4>MEXICO</h4><p>Strong street event culture, young population, growing urban entertainment interest.</p><span class="mkt-tag">Phase 1 — Launch</span></div>
+    <div class="mkt-card phase-2 reveal"><span class="flag">🇮🇳</span><h4>INDIA</h4><p>Rapidly growing youth market adopting hip-hop + street dance. Delhi, Mumbai, Bangalore.</p><span class="mkt-tag">Phase 2 — Expand</span></div>
+    <div class="mkt-card phase-2 reveal"><span class="flag">🇬🇧</span><h4>UNITED KINGDOM</h4><p>Cultural diversity, established street dance scene. London + Manchester urban youth market.</p><span class="mkt-tag">Phase 2 — Expand</span></div>
+    <div class="mkt-card phase-2 reveal"><span class="flag">🇦🇺</span><h4>AUSTRALIA</h4><p>Multicultural pop, growing youth arts culture. Strong demand for international event brands.</p><span class="mkt-tag">Phase 2 — Expand</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-tag reveal">Implementation Roadmap</div>
+  <h2 class="big reveal">FROM TODAY<br>TO <span class="r">GLOBAL</span><br>ICON</h2>
+  <div class="phases">
+    <div class="phase reveal"><div class="phase-bar"></div><span class="pl">Phase 1 — Year 1</span><h4>AWARENESS &amp; LAUNCH</h4><ul><li>Brand identity + CI finalized</li><li>Red Bull partnership formalized</li><li>5 regional showcases SA</li><li>National grand finale</li><li>Franchise manual completed</li><li>Trademark filed — SA + USA</li></ul></div>
+    <div class="phase reveal"><div class="phase-bar"></div><span class="pl">Phase 2 — Year 1–2</span><h4>AFRICA ROLLOUT</h4><ul><li>Nigeria · Kenya · Botswana launch</li><li>5 franchise regions active</li><li>Sekelbos Tank vendor network built</li><li>Content licensing deals signed</li><li>Red Bull co-branded merch launched</li></ul></div>
+    <div class="phase reveal"><div class="phase-bar"></div><span class="pl">Phase 3 — Year 2–3</span><h4>INTERNATIONAL SCALE</h4><ul><li>Brazil · Mexico · India expand</li><li>15 franchise regions active</li><li>Digital platform + virtual auditions live</li><li>Netflix / Showmax content deal</li><li>Red Bull event activations global</li></ul></div>
+    <div class="phase reveal"><div class="phase-bar"></div><span class="pl">Phase 4 — Year 3–5</span><h4>GLOBAL EMPIRE</h4><ul><li>20+ countries · 40 events/year</li><li>R391M revenue achieved</li><li>10,000 youth trained</li><li>1,000+ jobs created</li><li>Fruitful = global brand icon</li></ul></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-tag reveal">Legal &amp; Trademark</div>
+  <h2 class="big reveal">PROTECT<br><span class="y">THE BRAND</span></h2>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:40px" class="reveal">
+    <div style="background:var(--card);padding:24px"><div style="font-size:20px;margin-bottom:10px">🇿🇦</div><div style="font-family:'Anton',sans-serif;font-size:16px;color:var(--text)">SOUTH AFRICA</div><div style="font-size:11px;color:var(--muted);margin-top:6px">Class 35 + 41 · R5,000/class · Priority filing</div></div>
+    <div style="background:var(--card);padding:24px"><div style="font-size:20px;margin-bottom:10px">🇳🇬</div><div style="font-family:'Anton',sans-serif;font-size:16px;color:var(--text)">NIGERIA</div><div style="font-size:11px;color:var(--muted);margin-top:6px">Class 35 + 41 · Retail + entertainment services</div></div>
+    <div style="background:var(--card);padding:24px"><div style="font-size:20px;margin-bottom:10px">🇧🇷</div><div style="font-family:'Anton',sans-serif;font-size:16px;color:var(--text)">BRAZIL</div><div style="font-size:11px;color:var(--muted);margin-top:6px">Class 35 + 41 · Event organisation rights</div></div>
+    <div style="background:var(--card);padding:24px"><div style="font-size:20px;margin-bottom:10px">🇬🇧</div><div style="font-family:'Anton',sans-serif;font-size:16px;color:var(--text)">UNITED KINGDOM</div><div style="font-size:11px;color:var(--muted);margin-top:6px">Class 35 + 41 · Entertainment + merchandise</div></div>
+  </div>
+  <div style="margin-top:24px;padding:28px 32px;background:rgba(245,200,66,.04);border:1px solid rgba(245,200,66,.2)" class="reveal">
+    <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Trademark Brands — Filing via Adams &amp; Adams</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px">
+      <span style="font-size:12px;padding:6px 14px;border:1px solid rgba(245,200,66,.3);color:var(--gold)">Fruitful™</span>
+      <span style="font-size:12px;padding:6px 14px;border:1px solid rgba(245,200,66,.3);color:var(--gold)">Fruitful.Planet.Change™</span>
+      <span style="font-size:12px;padding:6px 14px;border:1px solid rgba(245,200,66,.3);color:var(--gold)">Fruitful Sekelbos Tank™</span>
+      <span style="font-size:12px;padding:6px 14px;border:1px solid rgba(245,200,66,.3);color:var(--gold)">Fruitful Crate Dance Showcase™</span>
+      <span style="font-size:12px;padding:6px 14px;border:1px solid rgba(245,200,66,.3);color:var(--gold)">Fruitful Home™</span>
+    </div>
+  </div>
+  <div style="margin-top:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)" class="reveal">
+    <div style="background:rgba(255,90,31,.05);padding:32px 28px;border-top:2px solid var(--orange)"><div style="font-size:24px;margin-bottom:12px">🏛️</div><div style="font-family:'Anton',sans-serif;font-size:18px;color:var(--orange);letter-spacing:.5px;margin-bottom:10px">FAA™ ADVANCED ALGORITHM™</div><div style="font-size:12px;color:var(--muted);line-height:1.7">Registered trademark under <strong style="color:var(--text)">Heyns Schoeman™</strong> — ensuring exclusive rights globally across all FAA™-branded verticals.</div></div>
+    <div style="background:rgba(245,200,66,.04);padding:32px 28px;border-top:2px solid var(--gold)"><div style="font-size:24px;margin-bottom:12px">⚗️</div><div style="font-family:'Anton',sans-serif;font-size:18px;color:var(--gold);letter-spacing:.5px;margin-bottom:10px">PATENTS PENDING</div><div style="font-size:12px;color:var(--muted);line-height:1.7">Patent filings in progress for <strong style="color:var(--text)">proprietary optimization algorithms</strong> and <strong style="color:var(--text)">predictive modeling techniques</strong>.</div></div>
+    <div style="background:rgba(0,180,255,.04);padding:32px 28px;border-top:2px solid var(--blue)"><div style="font-size:24px;margin-bottom:12px">🌐</div><div style="font-family:'Anton',sans-serif;font-size:18px;color:var(--blue);letter-spacing:.5px;margin-bottom:10px">GLOBAL IP COVERAGE</div><div style="font-size:12px;color:var(--muted);line-height:1.7">FAA™ IP protection active across <strong style="color:var(--text)">EU · U.S. · South Africa</strong>. Aligned with FAA's Atom-Level Verification™ and AI Compliance strategies.</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-tag reveal">Corporate Structure</div>
+  <h2 class="big reveal">ONE ENTITY.<br><span class="o">MANY</span><br>BRANDS.</h2>
+  <p class="reveal" style="color:var(--muted);max-width:700px;font-size:14px;line-height:1.8">Fruitful Holdings (Pty) Ltd is the parent company that owns and controls all FAA™ brands. Each brand trades under Fruitful Holdings using a <strong style="color:var(--text)">t/a (trading as)</strong> structure.</p>
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:40px" class="reveal">
+    <div style="background:rgba(255,90,31,.06);padding:36px;border-left:3px solid var(--orange)"><div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--orange);margin-bottom:16px">Parent Company</div><div style="font-family:'Anton',sans-serif;font-size:32px;color:var(--text);line-height:1.1;margin-bottom:16px">FRUITFUL HOLDINGS<br>(PTY) LTD</div><div style="font-size:12px;color:var(--muted);line-height:1.7">Sole legal entity. Holds all trademarks, IP, bank accounts and VAT registration. Every brand is a division — reducing cost while maximising legal protection.</div></div>
+    <div style="background:var(--card);padding:36px"><div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:16px">Trading Brands (t/a)</div><div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:13px;color:var(--muted);padding:10px 14px;background:rgba(255,255,255,.03);border-left:2px solid var(--orange)"><span style="color:var(--text)">Fruitful Holdings (Pty) Ltd</span> t/a <strong style="color:var(--orange)">FAA E-Commerce Solutions</strong></div><div style="font-size:13px;color:var(--muted);padding:10px 14px;background:rgba(255,255,255,.03);border-left:2px solid var(--gold)"><span style="color:var(--text)">Fruitful Holdings (Pty) Ltd</span> t/a <strong style="color:var(--gold)">FAA Data Systems</strong></div><div style="font-size:13px;color:var(--muted);padding:10px 14px;background:rgba(255,255,255,.03);border-left:2px solid var(--red)"><span style="color:var(--text)">Fruitful Holdings (Pty) Ltd</span> t/a <strong style="color:var(--red)">FAA Advanced Algorithm™</strong></div><div style="font-size:13px;color:var(--muted);padding:10px 14px;background:rgba(255,255,255,.03);border-left:2px solid var(--green)"><span style="color:var(--text)">Fruitful Holdings (Pty) Ltd</span> t/a <strong style="color:var(--green)">Crate Dance Showcase</strong></div><div style="font-size:13px;color:var(--muted);padding:10px 14px;background:rgba(255,255,255,.03);border-left:2px solid var(--blue)"><span style="color:var(--text)">Fruitful Holdings (Pty) Ltd</span> t/a <strong style="color:var(--blue)">Sekelbos Tank</strong></div></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-tag reveal">IP Ownership &amp; Protection</div>
+  <h2 class="big reveal">YOUR NAME.<br><span class="y">YOUR IP.</span><br>FOREVER.</h2>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:40px" class="reveal">
+    <div style="background:var(--card);padding:36px 28px"><div style="font-size:28px;margin-bottom:16px">🔐</div><div style="font-family:'Anton',sans-serif;font-size:18px;color:var(--text);margin-bottom:12px;letter-spacing:.5px">FOUNDER RETENTION</div><div style="font-size:12px;color:var(--muted);line-height:1.7">Heyns Schoeman™ retains full ownership of all FAA™ IP. Brands are <strong style="color:var(--text)">licensed or traded</strong> through Fruitful Holdings — never surrendered.</div></div>
+    <div style="background:var(--card);padding:36px 28px"><div style="font-size:28px;margin-bottom:16px">🛡️</div><div style="font-family:'Anton',sans-serif;font-size:18px;color:var(--text);margin-bottom:12px;letter-spacing:.5px">UMBRELLA COVERAGE</div><div style="font-size:12px;color:var(--muted);line-height:1.7">Each brand has legal rights to use the FAA™ IP. One trademark registration. Unlimited brand expressions. Zero duplication of legal cost.</div></div>
+    <div style="background:var(--card);padding:36px 28px"><div style="font-size:28px;margin-bottom:16px">🤖</div><div style="font-family:'Anton',sans-serif;font-size:18px;color:var(--text);margin-bottom:12px;letter-spacing:.5px">FAA GROWTH ALIGNMENT</div><div style="font-size:12px;color:var(--muted);line-height:1.7">Fully aligned with FAA's <strong style="color:var(--orange)">Atom-Level Verification™</strong> and <strong style="color:var(--orange)">AI Compliance</strong> strategies powering global expansion.</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-tag reveal">VAT &amp; Accounting</div>
+  <h2 class="big reveal">ONE REG.<br><span class="g">ALL BRANDS.</span><br>ZERO WASTE.</h2>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:40px" class="reveal">
+    <div style="background:var(--card);padding:36px 28px;border-top:2px solid var(--green)"><div style="font-family:'Anton',sans-serif;font-size:48px;color:var(--green);line-height:1;margin-bottom:12px">1</div><div style="font-family:'Anton',sans-serif;font-size:16px;color:var(--text);letter-spacing:.5px;margin-bottom:10px">SINGLE VAT REGISTRATION</div><div style="font-size:12px;color:var(--muted);line-height:1.7">One registration covers all FAA™ brands. Tax filings consolidated, reducing admin cost as the brand portfolio scales.</div></div>
+    <div style="background:var(--card);padding:36px 28px;border-top:2px solid var(--blue)"><div style="font-size:28px;margin-bottom:12px">🏦</div><div style="font-family:'Anton',sans-serif;font-size:16px;color:var(--text);letter-spacing:.5px;margin-bottom:10px">UNIFIED FINANCIALS</div><div style="font-size:12px;color:var(--muted);line-height:1.7">Each brand maintains <strong style="color:var(--text)">distinct bank accounts</strong> internally — but all sit under one legal entity. Manage each stream independently without multiplying company structures.</div></div>
+    <div style="background:var(--card);padding:36px 28px;border-top:2px solid var(--gold)"><div style="font-size:28px;margin-bottom:12px">📉</div><div style="font-family:'Anton',sans-serif;font-size:16px;color:var(--text);letter-spacing:.5px;margin-bottom:10px">REDUCED OVERHEAD</div><div style="font-size:12px;color:var(--muted);line-height:1.7">Eliminates cost of maintaining separate companies per brand — directing savings back into growth, events and market expansion.</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-tag reveal">Brand Expansion &amp; Autonomy</div>
+  <h2 class="big reveal">BUILT TO<br><span class="r">SPIN</span><br>OFF.</h2>
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:40px" class="reveal">
+    <div style="background:var(--card);padding:40px 36px"><div style="font-size:28px;margin-bottom:16px">📈</div><h4 style="font-family:'Anton',sans-serif;font-size:22px;color:var(--text);letter-spacing:.5px;margin-bottom:14px">SCALABILITY</h4><p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0">Each brand grows within the Fruitful Holdings structure. If a specific brand becomes large enough for <strong style="color:var(--text)">IPO or operational independence</strong>, it can be spun off without disrupting the parent — while retaining FAA™ IP licensing.</p></div>
+    <div style="background:var(--card);padding:40px 36px"><div style="font-size:28px;margin-bottom:16px">🔄</div><h4 style="font-family:'Anton',sans-serif;font-size:22px;color:var(--text);letter-spacing:.5px;margin-bottom:14px">TWO PATHS FORWARD</h4><div style="display:flex;flex-direction:column;gap:14px"><div style="padding:16px 20px;background:rgba(41,224,111,.06);border-left:2px solid var(--green)"><div style="font-family:'Anton',sans-serif;font-size:14px;color:var(--green);margin-bottom:6px">PATH A — STAY UNIFIED</div><div style="font-size:12px;color:var(--muted);line-height:1.6">Continue expanding all brands under Fruitful Holdings (Pty) Ltd. One entity, multiple revenue streams, maximum legal simplicity.</div></div><div style="padding:16px 20px;background:rgba(255,90,31,.06);border-left:2px solid var(--orange)"><div style="font-family:'Anton',sans-serif;font-size:14px;color:var(--orange);margin-bottom:6px">PATH B — SPIN OFF &amp; LIST</div><div style="font-size:12px;color:var(--muted);line-height:1.6">Transfer high-growth brands into separate companies for IPO or external investment — retaining FAA™ IP licensing.</div></div></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-tag reveal">Fruitful Portals</div>
+  <h2 class="big reveal">BUY ARTISAN.<br><span class="o">CREATE APPS.</span><br><span class="g">EAT PANCAKES.</span></h2>
+  <p class="reveal" style="color:var(--muted);max-width:700px;font-size:14px;line-height:1.8">Fruitful Portals started in the South African bush — a self-service kiosk that let rural artisans sell their crafts to travellers passing through. A handmade hat bought at a bush portal might end up on a head in New York.</p>
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:40px" class="reveal">
+    <div style="background:var(--card);padding:40px 36px;border-top:2px solid var(--orange)"><div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--orange);margin-bottom:16px">Our Story</div><h4 style="font-family:'Anton',sans-serif;font-size:28px;color:var(--text);letter-spacing:.5px;margin-bottom:16px">TECH MEETS<br><span style="color:var(--orange)">TRADITION</span></h4><p style="font-size:13px;color:var(--muted);line-height:1.8;margin:0">Fruitful Portals are self-service kiosks selling authentic South African handcrafted goods — hats, t-shirts, wire art, pottery — while you sip coffee and build live apps on the Baobab Terminal. Each Portal brings South African craftsmanship from Johannesburg to Tokyo, New York to Botswana.</p></div>
+    <div style="background:rgba(255,90,31,.04);padding:40px 36px"><div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:24px">Portal Stats</div><div style="display:flex;flex-direction:column;gap:20px"><div style="display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:16px;border-bottom:1px solid var(--line)"><div><div style="font-family:'Anton',sans-serif;font-size:52px;color:var(--orange);line-height:1">12+</div><div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:4px">Global Portals</div></div><div style="text-align:right"><div style="font-family:'Anton',sans-serif;font-size:52px;color:var(--green);line-height:1">120+</div><div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:4px">Artisan Products</div></div></div><div style="display:flex;justify-content:space-between;align-items:flex-end"><div><div style="font-family:'Anton',sans-serif;font-size:52px;color:var(--gold);line-height:1">$3.50</div><div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:4px">Pancakes</div></div><div style="text-align:right;max-width:180px"><div style="font-size:12px;color:var(--muted);line-height:1.6">Flagship: SA Bush · New York · Expanding globally</div></div></div></div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-top:none;margin-top:1px" class="reveal">
+    <div style="background:var(--card);padding:24px 20px"><div style="font-size:22px;margin-bottom:10px">👒</div><div style="font-family:'Anton',sans-serif;font-size:15px;color:var(--text);margin-bottom:6px">FRUITFUL SAFARI HAT</div><div style="font-family:'Anton',sans-serif;font-size:20px;color:var(--orange)">$39 USD</div><div style="font-size:11px;color:var(--muted);margin-top:6px">Hand-stitched with Ndebele-pattern band</div></div>
+    <div style="background:var(--card);padding:24px 20px"><div style="font-size:22px;margin-bottom:10px">🏺</div><div style="font-family:'Anton',sans-serif;font-size:15px;color:var(--text);margin-bottom:6px">HANDMADE POTTERY</div><div style="font-family:'Anton',sans-serif;font-size:20px;color:var(--gold)">$69 USD</div><div style="font-size:11px;color:var(--muted);margin-top:6px">Pottery from Elim · Wire art from Soweto</div></div>
+    <div style="background:var(--card);padding:24px 20px"><div style="font-size:22px;margin-bottom:10px">👶</div><div style="font-family:'Anton',sans-serif;font-size:15px;color:var(--text);margin-bottom:6px">CHILDREN'S ROMPERS</div><div style="font-family:'Anton',sans-serif;font-size:20px;color:var(--green)">$39 USD</div><div style="font-size:11px;color:var(--muted);margin-top:6px">Boutique crocheted · Traditional lore sets $35</div></div>
+    <div style="background:var(--card);padding:24px 20px"><div style="font-size:22px;margin-bottom:10px">☕</div><div style="font-family:'Anton',sans-serif;font-size:15px;color:var(--text);margin-bottom:6px">PANCAKES + COFFEE</div><div style="font-family:'Anton',sans-serif;font-size:20px;color:var(--blue)">$5 USD</div><div style="font-size:11px;color:var(--muted);margin-top:6px">Build your app while your pancakes cook</div></div>
+  </div>
+  <div style="margin-top:24px;padding:36px 40px;background:rgba(41,224,111,.04);border:1px solid rgba(41,224,111,.15);text-align:center" class="reveal">
+    <div style="font-family:'Anton',sans-serif;font-size:clamp(20px,4vw,38px);color:var(--text);line-height:1.2">THE BAOBAB STANDS FOR<br><span style="color:var(--green)">A THOUSAND YEARS.</span></div>
+    <div style="font-size:12px;color:var(--muted);margin-top:14px">Visit a Fruitful Portal near you — or launch the Baobab Terminal now and build something while your pancakes cook.</div>
+    <div style="margin-top:16px;font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--green)">Crafted in South Africa · Made in the Bush · Sold to the World</div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-tag reveal">HotStack™ Vibe Builder</div>
+  <h2 class="big reveal">WHAT DO YOU<br><span class="r">WANT TO</span><br>BUILD TODAY?</h2>
+  <p class="reveal" style="color:var(--muted);max-width:700px;font-size:14px;line-height:1.8">HotStack™ Vibe Builder is the FAA.ZONE Ecosystem's live coding platform — pulling real ecosystem data to help entrepreneurs build, launch and scale digital products in minutes.</p>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:40px" class="reveal">
+    <div style="background:var(--card);padding:36px 28px;border-top:2px solid var(--red)"><div style="font-size:28px;margin-bottom:14px">✦</div><div style="font-family:'Anton',sans-serif;font-size:18px;color:var(--text);letter-spacing:.5px;margin-bottom:10px">VIBE — IDEATE</div><div style="font-size:12px;color:var(--muted);line-height:1.7">Start with a prompt. HotStack™ translates your vision into a live app concept using real FAA.ZONE ecosystem data.</div></div>
+    <div style="background:var(--card);padding:36px 28px;border-top:2px solid var(--orange)"><div style="font-size:28px;margin-bottom:14px">⚡</div><div style="font-family:'Anton',sans-serif;font-size:18px;color:var(--text);letter-spacing:.5px;margin-bottom:10px">STACK — BUILD</div><div style="font-size:12px;color:var(--muted);line-height:1.7">20 templates · 4 featured · 9 categories. Commerce, Dashboards, Portals. Pick a template, customise it, launch in seconds.</div></div>
+    <div style="background:var(--card);padding:36px 28px;border-top:2px solid var(--green)"><div style="font-size:28px;margin-bottom:14px">🚀</div><div style="font-family:'Anton',sans-serif;font-size:18px;color:var(--text);letter-spacing:.5px;margin-bottom:10px">BUILD — LAUNCH</div><div style="font-size:12px;color:var(--muted);line-height:1.7">Deploy live instantly. Your app enters the FAA.ZONE ecosystem — accessible across 12+ global portal locations.</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-tag reveal">FAA™ Ecosystem</div>
+  <h2 class="big reveal">120<br><span class="y">BRANDS.</span><br>ONE ECOSYSTEM.</h2>
+  <p class="reveal" style="color:var(--muted);max-width:700px;font-size:14px;line-height:1.8">The FAA™ Ecosystem is a groundbreaking network of 120 transformative brands reshaping the future of business, technology and society — driving a movement that is <strong style="color:var(--text)">limitless, sustainable and inclusive</strong>.</p>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:40px" class="reveal">
+    <div style="background:var(--card);padding:32px 24px;text-align:center"><div style="font-family:'Anton',sans-serif;font-size:56px;color:var(--orange);line-height:1">120</div><div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:8px">Transformative Brands</div></div>
+    <div style="background:var(--card);padding:32px 24px;text-align:center"><div style="font-family:'Anton',sans-serif;font-size:56px;color:var(--gold);line-height:1">6+</div><div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:8px">Global Continents</div></div>
+    <div style="background:var(--card);padding:32px 24px;text-align:center"><div style="font-family:'Anton',sans-serif;font-size:56px;color:var(--green);line-height:1">∞</div><div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:8px">Scalable Industries</div></div>
+    <div style="background:var(--card);padding:32px 24px;text-align:center"><div style="font-family:'Anton',sans-serif;font-size:56px;color:var(--blue);line-height:1">1</div><div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:8px">Unified IP Owner</div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-top:none" class="reveal">
+    <div style="background:var(--card);padding:40px 36px"><div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:20px">FAA™ Global System Layers</div><div style="display:flex;flex-direction:column;gap:0"><div style="padding:12px 0;border-bottom:1px solid var(--line);display:flex;gap:14px;align-items:center"><div style="width:8px;height:8px;border-radius:50%;background:var(--orange);flex-shrink:0"></div><div><span style="font-family:'Anton',sans-serif;font-size:13px;color:var(--text)">ATOM LEVEL</span> <span style="font-size:11px;color:var(--muted)">— Core compliance + verification</span></div></div><div style="padding:12px 0;border-bottom:1px solid var(--line);display:flex;gap:14px;align-items:center"><div style="width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0"></div><div><span style="font-family:'Anton',sans-serif;font-size:13px;color:var(--text)">MOLECULE</span> <span style="font-size:11px;color:var(--muted)">— Brand groupings + market units</span></div></div><div style="padding:12px 0;border-bottom:1px solid var(--line);display:flex;gap:14px;align-items:center"><div style="width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0"></div><div><span style="font-family:'Anton',sans-serif;font-size:13px;color:var(--text)">SEED COMPLIANCE</span> <span style="font-size:11px;color:var(--muted)">— Legal and governance seed layer</span></div></div><div style="padding:12px 0;border-bottom:1px solid var(--line);display:flex;gap:14px;align-items:center"><div style="width:8px;height:8px;border-radius:50%;background:var(--blue);flex-shrink:0"></div><div><span style="font-family:'Anton',sans-serif;font-size:13px;color:var(--text)">LEGAL GOVERNANCE</span> <span style="font-size:11px;color:var(--muted)">— Cornerstone global compliance brand</span></div></div><div style="padding:12px 0;display:flex;gap:14px;align-items:center"><div style="width:8px;height:8px;border-radius:50%;background:var(--red);flex-shrink:0"></div><div><span style="font-family:'Anton',sans-serif;font-size:13px;color:var(--text)">FAA™ COMPLIANCE</span> <span style="font-size:11px;color:var(--muted)">— AI + algorithmic compliance systems</span></div></div></div></div>
+    <div style="background:rgba(245,200,66,.04);padding:40px 36px;border-left:2px solid var(--gold)"><div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:20px">FAA™ Legal Governance™</div><h4 style="font-family:'Anton',sans-serif;font-size:20px;color:var(--text);letter-spacing:.5px;margin-bottom:14px">GLOBAL COMPLIANCE.<br><span style="color:var(--gold)">BUILT IN.</span></h4><p style="font-size:13px;color:var(--muted);line-height:1.8;margin:0 0 16px">FAA™ Legal Governance™ ensures businesses operate legally on a global scale — providing compliance frameworks across all 120 FAA™ ecosystem brands.</p><div style="padding:16px 20px;background:rgba(245,200,66,.06);border-left:2px solid var(--gold);font-size:12px;color:var(--muted);line-height:1.7;font-style:italic">"FAA™ systems ensure global business sustainability."<br><span style="font-size:11px;color:rgba(238,234,240,.3);margin-top:6px;display:block">تضمن استدامة الأعمال على FAA™ أنظمة المستوى العالمي</span></div><div style="margin-top:20px"><div style="font-size:12px;color:var(--muted);line-height:1.7"><strong style="color:var(--text)">Family Empowerment · Business Synergy · Sustainable Growth.</strong> The FAA™ ecosystem is engineered to last generations — not quarters.</div></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-tag reveal">Social Impact</div>
+  <h2 class="big reveal">CHANGE<br><span class="g">LIVES.</span><br>MEASURE IT.</h2>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:40px" class="reveal">
+    <div style="background:var(--card);padding:36px 28px;text-align:center"><div style="font-family:'Anton',sans-serif;font-size:64px;color:var(--green);line-height:1">10K</div><div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:8px">Youth trained by Year 3</div></div>
+    <div style="background:var(--card);padding:36px 28px;text-align:center"><div style="font-family:'Anton',sans-serif;font-size:64px;color:var(--orange);line-height:1">1K+</div><div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:8px">Jobs created</div></div>
+    <div style="background:var(--card);padding:36px 28px;text-align:center"><div style="font-family:'Anton',sans-serif;font-size:64px;color:var(--gold);line-height:1">8+</div><div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:8px">Countries activated</div></div>
+  </div>
+</section>
+
+<section style="background:#060608">
+  <div class="sec-tag reveal">Brand Philosophy</div>
+  <h2 class="big reveal">SEEDS<br><span class="g">PLANTED.</span><br>FUTURES GROWN.</h2>
+  <p class="reveal" style="color:var(--muted);max-width:700px;font-size:14px;line-height:1.8">Fruitful is not just a brand name. It is a law of nature applied to business, community and human potential. Everything you repeatedly do is a seed you plant in the garden of your destiny.</p>
+  <div style="margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)" class="reveal">
+    <div style="background:var(--card);padding:48px 40px"><div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--green);margin-bottom:28px">The Truth About Seeds</div><div style="font-size:15px;color:var(--muted);line-height:2;font-style:italic">Some seeds sprout quickly.<br>Some take time.<br>Some grow roots long before they grow fruits.<br><br><span style="color:var(--text);font-style:normal">But the truth is the same:</span><br><strong style="color:var(--green)">Nothing grows without being planted.</strong><br><strong style="color:var(--green)">And nothing planted fails to grow.</strong></div></div>
+    <div style="background:rgba(41,224,111,.03);padding:48px 40px;border-left:2px solid var(--green)"><div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--green);margin-bottom:28px">What We Plant</div><div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04)"><span style="font-size:13px;color:var(--muted)">Plant <strong style="color:var(--text)">purpose</strong></span><span style="font-family:'Anton',sans-serif;font-size:13px;color:var(--green)">→ HARVEST MEANING</span></div><div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04)"><span style="font-size:13px;color:var(--muted)">Plant <strong style="color:var(--text)">creativity</strong></span><span style="font-family:'Anton',sans-serif;font-size:13px;color:var(--green)">→ HARVEST CULTURE</span></div><div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04)"><span style="font-size:13px;color:var(--muted)">Plant <strong style="color:var(--text)">community</strong></span><span style="font-family:'Anton',sans-serif;font-size:13px;color:var(--green)">→ HARVEST LOYALTY</span></div><div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04)"><span style="font-size:13px;color:var(--muted)">Plant <strong style="color:var(--text)">consistency</strong></span><span style="font-family:'Anton',sans-serif;font-size:13px;color:var(--green)">→ HARVEST TRUST</span></div><div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0"><span style="font-size:13px;color:var(--muted)">Plant <strong style="color:var(--text)">Fruitful</strong></span><span style="font-family:'Anton',sans-serif;font-size:13px;color:var(--orange)">→ HARVEST THE WORLD</span></div></div></div>
+  </div>
+  <div style="margin-top:1px;display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-top:none" class="reveal">
+    <div style="background:var(--card);padding:28px 22px"><div style="font-family:'Anton',sans-serif;font-size:36px;color:rgba(255,90,31,.2);line-height:1;margin-bottom:12px">01</div><div style="font-family:'Anton',sans-serif;font-size:13px;color:var(--orange);letter-spacing:.5px;margin-bottom:10px">WE PLANT INTENTIONALLY</div><div style="font-size:11px;color:var(--muted);line-height:1.6">Small things become big things. Every decision is a deliberate seed.</div></div>
+    <div style="background:var(--card);padding:28px 22px"><div style="font-family:'Anton',sans-serif;font-size:36px;color:rgba(229,30,36,.2);line-height:1;margin-bottom:12px">02</div><div style="font-family:'Anton',sans-serif;font-size:13px;color:var(--red);letter-spacing:.5px;margin-bottom:10px">WE THINK LONG TERM</div><div style="font-size:11px;color:var(--muted);line-height:1.6">Nothing is just anything. Everything accumulates. One showcase becomes a global movement.</div></div>
+    <div style="background:var(--card);padding:28px 22px"><div style="font-family:'Anton',sans-serif;font-size:36px;color:rgba(245,200,66,.2);line-height:1;margin-bottom:12px">03</div><div style="font-family:'Anton',sans-serif;font-size:13px;color:var(--gold);letter-spacing:.5px;margin-bottom:10px">PRINCIPLES OVER EMOTIONS</div><div style="font-size:11px;color:var(--muted);line-height:1.6">A seed planted in anger grows into regret. We build on principles — not impulse.</div></div>
+    <div style="background:var(--card);padding:28px 22px"><div style="font-family:'Anton',sans-serif;font-size:36px;color:rgba(41,224,111,.2);line-height:1;margin-bottom:12px">04</div><div style="font-family:'Anton',sans-serif;font-size:13px;color:var(--green);letter-spacing:.5px;margin-bottom:10px">CHOICES CREATE OUTCOMES</div><div style="font-size:11px;color:var(--muted);line-height:1.6">The present is simply the past in bloom. Today's investment is tomorrow's empire.</div></div>
+    <div style="background:var(--card);padding:28px 22px"><div style="font-family:'Anton',sans-serif;font-size:36px;color:rgba(0,180,255,.2);line-height:1;margin-bottom:12px">05</div><div style="font-family:'Anton',sans-serif;font-size:13px;color:var(--blue);letter-spacing:.5px;margin-bottom:10px">LIFE IS CONSISTENT</div><div style="font-size:11px;color:var(--muted);line-height:1.6">It always gives back what you put in — never more, never less. Fruitful puts in everything.</div></div>
+  </div>
+  <div style="margin-top:40px;padding:52px 48px;text-align:center;background:rgba(41,224,111,.04);border:1px solid rgba(41,224,111,.15);position:relative;overflow:hidden" class="reveal">
+    <div style="font-family:'Anton',sans-serif;font-size:clamp(22px,4vw,44px);color:var(--text);line-height:1.2;position:relative;z-index:1">YOUR LIFE TODAY IS A MIRROR OF<br><span style="color:var(--green)">YESTERDAY'S SEEDS.</span><br><span style="color:var(--orange)">FRUITFUL IS THE SEED</span><br><span style="color:var(--text)">WE PLANT FOR THE WORLD.</span></div>
+    <div style="margin-top:24px;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--muted)">Heyns Schoeman · Founder &amp; CEO · Fruitful Holdings</div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+  <p class="cta-tag">One movement. One decision. Global impact.</p>
+  <h2><span class="o">EMPOWER.</span><br><span class="r">INSPIRE.</span><br>CHANGE THE WORLD.</h2>
+  <p class="cta-sub">The Fruitful Crate Dance Showcase is ready. The franchise model is built. Red Bull is the missing spark. Together, we build the most powerful youth culture movement out of Africa.</p>
+  <div class="cta-cards">
+    <div class="cta-card"><span class="cl">Founder</span><span class="cv">Heyns Schoeman</span><p class="cs">CEO · Fruitful Holdings (Pty) Ltd</p></div>
+    <div class="cta-card"><span class="cl">Initial Funding Ask</span><span class="cv">R20,000,000</span><p class="cs">Red Bull exclusive presenting sponsorship</p></div>
+    <div class="cta-card"><span class="cl">Revenue Target</span><span class="cv">R391,000,000</span><p class="cs">5-year projected total across all streams</p></div>
+    <div class="cta-card"><span class="cl">Legal</span><span class="cv">Adams &amp; Adams</span><p class="cs">Trademark filing — 8 countries in progress</p></div>
+  </div>
+</section>
+
+<footer>
+  <div style="display:flex;align-items:center;gap:14px">
+    <div class="footer-logo">
+      <svg viewBox="0 0 220 240" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <path d="M118 28 Q128 8 135 14" stroke="#FF5A1F" stroke-width="13" stroke-linecap="round"/>
+        <path d="M110 35 Q72 35 56 72 Q40 108 54 136" stroke="#FF5A1F" stroke-width="14" stroke-linecap="round"/>
+        <path d="M110 35 Q148 35 164 72 Q180 108 166 136" stroke="#FF5A1F" stroke-width="14" stroke-linecap="round"/>
+        <path d="M54 136 Q80 162 110 162 Q140 162 166 136" stroke="#FF5A1F" stroke-width="14" stroke-linecap="round"/>
+        <path d="M56 118 Q36 128 28 122" stroke="#FF5A1F" stroke-width="13" stroke-linecap="round"/>
+        <path d="M164 118 Q184 128 192 122" stroke="#FF5A1F" stroke-width="13" stroke-linecap="round"/>
+        <path d="M54 136 Q42 155 52 172 Q62 188 78 184 Q92 190 110 186" stroke="#FF5A1F" stroke-width="14" stroke-linecap="round"/>
+        <path d="M166 136 Q178 155 168 172 Q158 188 142 184 Q128 190 110 186" stroke="#FF5A1F" stroke-width="14" stroke-linecap="round"/>
+        <path d="M88 175 Q110 165 132 175" stroke="#FF5A1F" stroke-width="13" stroke-linecap="round"/>
+        <ellipse cx="88" cy="95" rx="9" ry="13" fill="#FF5A1F"/>
+        <ellipse cx="132" cy="95" rx="9" ry="13" fill="#FF5A1F"/>
+      </svg>
+    </div>
+    <div class="fb">FRUITFUL HOLDINGS × RED BULL × GLOBAL</div>
+  </div>
+  <div class="fc">Empowering Communities · Amplifying Creativity · Building a Global Movement · 2026</div>
+</footer>
+
+<script>
+if (window.matchMedia('(hover: hover)').matches) {
+  const cur = document.getElementById('cur');
+  const ring = document.getElementById('curRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  (function anim() {
+    rx += (mx - rx) * .15; ry += (my - ry) * .15;
+    cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(anim);
+  })();
+}
+const revEls = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) { setTimeout(() => e.target.classList.add('on'), i * 55); obs.unobserve(e.target); }
+  });
+}, { threshold: .08 });
+revEls.forEach(el => obs.observe(el));
+[
+  document.querySelector('.hero-tag'),
+  document.querySelector('.hero h1'),
+  document.querySelector('.hero-sub'),
+  document.querySelector('.hero-bottom')
+].forEach((el, i) => {
+  if (!el) return;
+  el.style.cssText = 'opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease;transition-delay:' + (i * .12) + 's';
+  requestAnimationFrame(() => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; });
+});
+</script>
+</body>
+</html>

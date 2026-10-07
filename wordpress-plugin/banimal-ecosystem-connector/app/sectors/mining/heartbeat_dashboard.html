@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAA.Zone | Mining Sector Heartbeat</title>
+  <script>
+    let counter = 9;
+    function updateHeartbeat() {
+      counter--;
+      if (counter <= 0) {
+        counter = 9;
+      }
+      document.getElementById('heartbeat-ticker').innerText = counter + "s";
+    }
+    setInterval(updateHeartbeat, 1000);
+  </script>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #0c0c0c; color: #00ffcc; text-align: center; padding: 20px; }
+    h1 { font-size: 2em; }
+    .sector-table { margin: 20px auto; border-collapse: collapse; width: 90%; }
+    .sector-table th, .sector-table td { border: 1px solid #00ffcc; padding: 10px; }
+    .sector-table th { background-color: #003333; }
+    .heartbeat { font-size: 3em; margin: 20px; color: #00ffcc; }
+  </style>
+</head>
+<body>
+
+<h1>🧬 FAA.Zone Mining Sector | VaultPulse Heartbeat Dashboard</h1>
+
+<div class="heartbeat">
+  Heartbeat Ticker: <span id="heartbeat-ticker">9s</span>
+</div>
+
+<table class="sector-table">
+  <tr>
+    <th>Mining Node</th>
+    <th>OmniSeed Status</th>
+    <th>VaultPulse Status</th>
+    <th>VaultSeal Treaty</th>
+  </tr>
+  <tr><td>Orexcel</td><td>🌱 Sprouted</td><td>🫀 Active</td><td>🛡️ Secured</td></tr>
+  <tr><td>Minerva</td><td>🌱 Sprouted</td><td>🫀 Active</td><td>🛡️ Secured</td></tr>
+  <tr><td>Digium</td><td>🌱 Sprouted</td><td>🫀 Active</td><td>🛡️ Secured</td></tr>
+  <tr><td>MineForge</td><td>🌱 Sprouted</td><td>🫀 Active</td><td>🛡️ Secured</td></tr>
+  <tr><td>MineralVision</td><td>🌱 Sprouted</td><td>🫀 Active</td><td>🛡️ Secured</td></tr>
+</table>
+
+<p style="margin-top: 30px;">VaultMesh TreatyMesh Status: ✅ Aligned and Operational</p>
+
+    <script src="../../omnigrid-app.js" data-concept="1"></script>
+</body>
+</html>

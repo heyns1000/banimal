@@ -1,0 +1,382 @@
+{
+ "source": "owner concept pages: the description around each link",
+ "count": 32,
+ "pages": {
+  "sectors/ai-logic-grid/AIverseSignal.html": {
+   "title": "AIverse Signal",
+   "label": "Enter AIverse",
+   "paragraphs": [
+    "GridPulse Nodes, LayerLock Systems, GPT Interlinks, Protocol Metrics"
+   ],
+   "source": "sectors/ai-logic/overview.html"
+  },
+  "sectors/ai-logic-grid/GridNest.html": {
+   "title": "GridNest AI",
+   "label": "Enter GridNest",
+   "paragraphs": [
+    "DataMesh Visualizers, LogicSync Pads, GridPoint Cores, NestLogic Routers"
+   ],
+   "source": "sectors/ai-logic/overview.html"
+  },
+  "sectors/ai-logic-grid/LogicMirror.html": {
+   "title": "LogicMirror Co.",
+   "label": "Enter LogicMirror",
+   "paragraphs": [
+    "DecisionMesh Scrolls, Reflex Mapping Units, ThoughtLayer Logs, AILog Indexers"
+   ],
+   "source": "sectors/ai-logic/overview.html"
+  },
+  "sectors/ai-logic-grid/OmniThread.html": {
+   "title": "OmniThread OS",
+   "label": "Enter OmniThread",
+   "paragraphs": [
+    "SequenceMuxers, ThreadIQ Logs, AsyncGrid Panels, OmniWeave Threads"
+   ],
+   "source": "sectors/ai-logic/overview.html"
+  },
+  "sectors/ai-logic-grid/PathLink.html": {
+   "title": "PathLink Index",
+   "label": "Enter PathLink",
+   "paragraphs": [
+    "ScrollPath AI, Connective Threads, OmniLogic Tunnels, RouteEcho Engines"
+   ],
+   "source": "sectors/ai-logic/overview.html"
+  },
+  "sectors/ai-logic-grid/SignalCore.html": {
+   "title": "SignalCore GPT",
+   "label": "Enter SignalCore",
+   "paragraphs": [
+    "EchoLayer Nodes, LivePath Predictors, ScrollLogic Index, GPT Pulse Handlers"
+   ],
+   "source": "sectors/ai-logic/overview.html"
+  },
+  "sectors/ai-logic-grid/ThreadAxis.html": {
+   "title": "ThreadAxis Hub",
+   "label": "Enter ThreadAxis",
+   "paragraphs": [
+    "AxisChain Scrolls, LogicLink Binders, ScrollCompression Nodes, AxisMux Arrays"
+   ],
+   "source": "sectors/ai-logic/overview.html"
+  },
+  "sectors/ai-logic-grid/VaultNeuronX.html": {
+   "title": "VaultNeuronX",
+   "label": "Enter VaultNeuronX",
+   "paragraphs": [
+    "Neuron Maps, API Key Binders, LogicScroll Monitors, VaultGPT Processors"
+   ],
+   "source": "sectors/ai-logic/overview.html"
+  },
+  "sectors/education/ai-feedback.html": {
+   "title": "Interactive AI Feedback",
+   "label": "View Feedback",
+   "paragraphs": [
+    "Receive AI-driven feedback on your child’s performance and learning habits."
+   ],
+   "source": "sectors/education/smart-toys/modularview.html"
+  },
+  "sectors/education/alerts.html": {
+   "title": "Recent Updates & Alerts",
+   "label": "Check All Alerts",
+   "paragraphs": [
+    "New Toy Module Released: Download the latest interactive holographic stories!",
+    "Progress Milestone: Your child has unlocked 'Advanced Level Math'."
+   ],
+   "source": "sectors/education/smart-toys/modularview.html"
+  },
+  "sectors/education/family-learning.html": {
+   "title": "Family Learning Experience",
+   "label": "Explore Family Learning",
+   "paragraphs": [
+    "Incorporate family interactions into learning with group activities."
+   ],
+   "source": "sectors/education/smart-toys/modularview.html"
+  },
+  "sectors/education/parent-dashboard.html": {
+   "title": "Parental Dashboard",
+   "label": "View Insights",
+   "paragraphs": [
+    "View your child’s overall performance, activity logs, and more."
+   ],
+   "source": "sectors/education/smart-toys/modularview.html"
+  },
+  "sectors/education/smart-toys/full-grid.html": {
+   "title": "🌍 Explore the Full Smart Toys™ Grid",
+   "label": "🚀 Explore Full Smart Toys™ Grid",
+   "paragraphs": [
+    "Discover how OmniScroll education artifacts expand Treaty Seedwave growth worldwide."
+   ],
+   "source": "sectors/education/smart-toys/dashboard.html"
+  },
+  "sectors/education/smart-toys/modules.html": {
+   "title": "Start Learning",
+   "label": "Start Learning",
+   "paragraphs": [
+    "Explore various learning modules for your child to start engaging with."
+   ],
+   "source": "sectors/education/smart-toys/modularview.html"
+  },
+  "sectors/education/smart-toys/progress.html": {
+   "title": "Learning Progress",
+   "label": "View Full Progress",
+   "paragraphs": [
+    "Track your child's progress across different subjects and activities.",
+    "Level 3: Science Master"
+   ],
+   "source": "sectors/education/smart-toys/modularview.html"
+  },
+  "sectors/education/smart-toys/saas-licensing.html": {
+   "title": "🛰️ SaaS Licensing Treaty Active",
+   "label": "SaaS Licensing Treaty Active",
+   "paragraphs": [
+    "Smart Toys™ are now available for OmniSaaS deployment across Treaty Education Sectors."
+   ],
+   "source": "sectors/education/smart-toys/dashboard.html"
+  },
+  "sectors/education/smart-toys/settings.html": {
+   "title": "Modify Settings",
+   "label": "Modify Settings",
+   "paragraphs": [
+    "Modify interactive settings, volume controls, and more for each toy."
+   ],
+   "source": "sectors/education/smart-toys/modularview.html"
+  },
+  "sectors/housing/Buildnest/gridpermit.html": {
+   "title": "GridPermit™",
+   "label": "Learn More",
+   "paragraphs": [
+    "Issues secure scroll-bound permits for construction and zoning."
+   ],
+   "source": "sectors/housing/Buildnest/index.html"
+  },
+  "sectors/housing/Buildnest/landnode.html": {
+   "title": "LandNode™",
+   "label": "Learn More",
+   "paragraphs": [
+    "Validates physical build events tied to grid and FAA orbital overlays."
+   ],
+   "source": "sectors/housing/Buildnest/index.html"
+  },
+  "sectors/housing/Buildnest/scrollclaim.html": {
+   "title": "ScrollClaim™",
+   "label": "Learn More",
+   "paragraphs": [
+    "Immutable registration of housing rights; built on ScrollSync™ chain."
+   ],
+   "source": "sectors/housing/Buildnest/index.html"
+  },
+  "sectors/housing/realestate/overview.html": {
+   "title": "📖 What is FAA Real Estate AI™?",
+   "label": "What is FAA Real Estate AI™?",
+   "paragraphs": [
+    "FAA Real Estate AI™ is an autonomous, AI-powered system that instantly calculates valuations, forecasts market trends, and automates real estate transactions for banks, agents, developers, and investors."
+   ],
+   "source": "sectors/housing/realestate/dashboard.html"
+  },
+  "sectors/housing/realestate/valuation-speed.html": {
+   "title": "Speed of Valuation",
+   "label": "Speed of Valuation",
+   "paragraphs": [
+    "Speed of Valuation Instant AI-generated reports Manual process takes days/weeks"
+   ],
+   "source": "sectors/housing/realestate/dashboard.html"
+  },
+  "sectors/media/sonicgrid/aude-drap.html": {
+   "title": "Aude Drap™",
+   "label": "Explore Aude Drap",
+   "paragraphs": [
+    "Intelligent audio transcription and semantic analysis for diverse media formats."
+   ],
+   "source": "sectors/media/sonicgrid/index.html"
+  },
+  "sectors/media/sonicgrid/ciprode.html": {
+   "title": "Ciprode™",
+   "label": "Explore Ciprode",
+   "paragraphs": [
+    "Code-based audio synthesis and procedural sound design environment."
+   ],
+   "source": "sectors/media/sonicgrid/index.html"
+  },
+  "sectors/media/sonicgrid/handere.html": {
+   "title": "Handere™",
+   "label": "Learn About Handere",
+   "paragraphs": [
+    "Real-time audio rendering engine with customizable effects and mastering capabilities."
+   ],
+   "source": "sectors/media/sonicgrid/index.html"
+  },
+  "sectors/media/sonicgrid/mationa.html": {
+   "title": "Mationa™",
+   "label": "Discover Mationa",
+   "paragraphs": [
+    "Automated motion graphics and animation generation from audio cues."
+   ],
+   "source": "sectors/media/sonicgrid/index.html"
+  },
+  "sectors/media/sonicgrid/medatsce.html": {
+   "title": "Medatsce™",
+   "label": "Discover Medatsce",
+   "paragraphs": [
+    "Centralized metadata management and intelligent content indexing for media assets."
+   ],
+   "source": "sectors/media/sonicgrid/index.html"
+  },
+  "sectors/media/sonicgrid/melondies.html": {
+   "title": "MelonDies™",
+   "label": "Explore MelonDies",
+   "paragraphs": [
+    "Generative art and visual effects creation driven by audio input."
+   ],
+   "source": "sectors/media/sonicgrid/index.html"
+  },
+  "sectors/media/sonicgrid/sonic-grid.html": {
+   "title": "FAA™ Motion, Media & Sonic Dashboard",
+   "label": "Go to Sonic Grid™ Public Page →",
+   "paragraphs": [
+    "A comprehensive overview of all motion, media, and sonic products and services within the FAA.zone ecosystem."
+   ],
+   "source": "sectors/media/sonicgrid/index.html"
+  },
+  "sectors/media/sonicgrid/soundbeard.html": {
+   "title": "Soundbeard™",
+   "label": "Learn About Soundbeard",
+   "paragraphs": [
+    "AI-powered sound recognition and intelligent audio tagging for large libraries."
+   ],
+   "source": "sectors/media/sonicgrid/index.html"
+  },
+  "sectors/media/sonicgrid/visudan.html": {
+   "title": "Visudan™",
+   "label": "View Visudan",
+   "paragraphs": [
+    "Dynamic data visualization tools for complex audio and media metrics."
+   ],
+   "source": "sectors/media/sonicgrid/index.html"
+  },
+  "sectors/media/sonicgrid/wullvision.html": {
+   "title": "WullVision™",
+   "label": "Discover WullVision",
+   "paragraphs": [
+    "Advanced visual analytics for media synchronization and content understanding."
+   ],
+   "source": "sectors/media/sonicgrid/index.html"
+  }
+ },
+ "notBuilt": [
+  "ai-routing.html",
+  "brands/codenest/editor-blog.html",
+  "brands/codenest/editor-checkout.html",
+  "brands/codenest/editor-landing.html",
+  "brands/codenest/editor-microsite.html",
+  "deployment-kenya.html",
+  "distributor-portal.html",
+  "ethics.html",
+  "features.html",
+  "fruitful.america.html",
+  "login/label.html",
+  "login/node.html",
+  "login/payroll.html",
+  "node-reports.html",
+  "node-setup.html",
+  "products-and-service.html",
+  "public/ethics-grid.html",
+  "public/global-sovereign-ai.html",
+  "public/omnisynced.html",
+  "public/treatymesh-validated.html",
+  "public/vaultchain-protocol.html",
+  "scrollstack.html",
+  "sectors/ai-logic/codenest/editor-checkout.html",
+  "sectors/ai-logic/codenest/editor-landing.html",
+  "sectors/ai-logic/codenest/editor-microsite.html",
+  "sectors/education/smart-toys/ai-parental-dashboard.html",
+  "sectors/education/smart-toys/ar-enhanced-interactive-books.html",
+  "sectors/education/smart-toys/core-subjects.html",
+  "sectors/education/smart-toys/emotional-intelligence-storytelling.html",
+  "sectors/education/smart-toys/gamified-educational-apps.html",
+  "sectors/education/smart-toys/interactive-holographic-story-units.html",
+  "sectors/education/smart-toys/multilingual-framework.html",
+  "sectors/education/smart-toys/omni-scroll-infinite-ledger.html",
+  "sectors/education/smart-toys/smart-learning-companions.html",
+  "sectors/education/smart-toys/smart-pens-ai-feedback.html",
+  "sectors/education/smart-toys/speech-recognition-engine.html",
+  "sectors/education/smart-toys/vaultmint-certified.html",
+  "sectors/housing/avg-hardware-purchase.html",
+  "sectors/housing/avg-unit-price.html",
+  "sectors/housing/ceilingtech.html",
+  "sectors/housing/cornex-dashboard.html",
+  "sectors/housing/cornex-ecosystem.html",
+  "sectors/housing/cornex/avg-hardware-purchase.html",
+  "sectors/housing/cornex/avg-unit-price.html",
+  "sectors/housing/cornex/ethics.html",
+  "sectors/housing/cornex/node-reports.html",
+  "sectors/housing/cornex/payment-terms.html",
+  "sectors/housing/cornex/top-provinces.html",
+  "sectors/housing/cornicecraft.html",
+  "sectors/housing/designaura.html",
+  "sectors/housing/ethics.html",
+  "sectors/housing/node-reports.html",
+  "sectors/housing/payment-terms.html",
+  "sectors/housing/realestate/agent-insights.html",
+  "sectors/housing/realestate/ai-disruption.html",
+  "sectors/housing/realestate/api-access.html",
+  "sectors/housing/realestate/buyer-prediction.html",
+  "sectors/housing/realestate/competitive-edge.html",
+  "sectors/housing/realestate/forecast-dashboard.html",
+  "sectors/housing/realestate/pricing-accuracy.html",
+  "sectors/housing/realestate/pricing-saas.html",
+  "sectors/housing/realestate/realestate-replay.html",
+  "sectors/housing/realestate/risk-matrix.html",
+  "sectors/housing/realestate/valuation-grid.html",
+  "sectors/housing/realestate/vault-upload.html",
+  "sectors/housing/sectors/housing/BuildNest/VaultFrame/buildnet.html",
+  "sectors/housing/sectors/housing/BuildNest/VaultFrame/civicpath.html",
+  "sectors/housing/sectors/housing/BuildNest/VaultFrame/claimboard.html",
+  "sectors/housing/sectors/housing/BuildNest/VaultFrame/infragrid.html",
+  "sectors/housing/sectors/housing/BuildNest/VaultFrame/permitcast.html",
+  "sectors/housing/sectors/housing/BuildNest/VaultFrame/scrollclaim.html",
+  "sectors/housing/sectors/housing/BuildNest/VaultFrame/urbantrace.html",
+  "sectors/housing/sectors/housing/BuildNest/VaultFrame/vaultframe-core.html",
+  "sectors/housing/top-provinces.html",
+  "sectors/housing/trimstyle.html",
+  "sectors/media/sonicgrid/admin-dashboard.html",
+  "sectors/media/sonicgrid/data-analytics.html",
+  "sectors/media/sonicgrid/global-settings.html",
+  "sectors/media/sonicgrid/system-monitoring.html",
+  "sectors/media/sonicgrid/user-management.html",
+  "sectors/mining/MineNest/NestTrack/auth.html",
+  "sectors/mining/digium-legal.html",
+  "sectors/mining/faa-reports.html",
+  "sectors/mining/mineforge-legal.html",
+  "sectors/mining/mineralvision-legal.html",
+  "sectors/mining/minerva-legal.html",
+  "sectors/mining/orexcel-legal.html",
+  "sectors/packaging-logistics-dashboard.html",
+  "sectors/packaging-logistics/routemesh/about.html",
+  "sectors/packaging-logistics/routemesh/auth.html",
+  "sectors/packaging-logistics/routemesh/clauses.html",
+  "sectors/packaging-logistics/routemesh/features.html",
+  "sectors/packaging-logistics/routemesh/metrics.html",
+  "sectors/packaging-logistics/routemesh/pricing.html",
+  "sectors/packaging-logistics/routemesh/terms.html",
+  "sectors/payroll/ai/bonuslogic.html",
+  "sectors/payroll/ai/paypredict.html",
+  "sectors/payroll/ai/scrollsentinel.html",
+  "sectors/payroll/ai/timedrift.html",
+  "sectors/wildlife/ethics.html",
+  "sectors/wildlife/node-reports.html",
+  "sectors/wildlife/nodes/celestial-aligner.html",
+  "sectors/wildlife/nodes/drone-sentinel.html",
+  "sectors/wildlife/nodes/energy-beacon.html",
+  "sectors/wildlife/nodes/fauna-tag.html",
+  "sectors/wildlife/nodes/geo-lens.html",
+  "sectors/wildlife/nodes/human-input-port.html",
+  "sectors/wildlife/nodes/plastic-crisis.html",
+  "sectors/wildlife/nodes/poacher-jammer.html",
+  "sectors/wildlife/nodes/security-perimeter.html",
+  "sectors/wildlife/wildlife-price.html",
+  "vaultmesh.html",
+  "vrugtige-planet-verandering.html",
+  "wildlife-dashboard.html",
+  "wildlife-price.html",
+  "wolrd-first-7000-brands.html"
+ ]
+}

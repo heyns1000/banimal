@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🦍Fruitful Innovations - Your Future, Today</title>
+<link rel="icon" href="favicon.ico">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+/* Base Styles - Apple inspired cleanliness */
+:root {
+--text-color-light: #1d1d1f;
+--text-color-dark: #f5f5f7;
+--bg-color-light: #ffffff; /* Changed default light background to pure white */
+--bg-color-dark: #1a1a1c;
+--card-bg-light: #ffffff;
+--card-bg-dark: #2a2a2e;
+--border-color-light: #e8e8ed;
+--border-color-dark: #3a3a3e;
+--primary-color: #0071e3; /* Apple Blue */
+--secondary-color: #30d158; /* Apple Green */
+--tertiary-color: #ff3b30; /* Vibrant Red for specific accents */
+--muted-text-light: #6e6e73;
+--muted-text-dark: #a0b0b5; /* Adjusted for better contrast in dark mode subtitles */
+
+/* HotStack Specific Colors (defined globally for use in JS and local styles) */
+--hotstack-yellow: #ffcc00; /* Original HotStack yellow */
+}
+
+body {
+font-family: 'Inter', sans-serif;
+background-color: var(--bg-color-light); /* Using the white variable */
+color: var(--text-color-light);
+line-height: 1.4;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+margin: 0;
+padding: 0;
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode styles */
+body.dark-mode {
+background-color: var(--bg-color-dark);
+color: var(--text-color-dark);
+}
+.dark-mode header {
+background-color: var(--card-bg-dark);
+border-bottom-color: var(--border-color-dark);
+box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+}
+.dark-mode .logo-group {
+color: var(--text-color-dark);
+}
+.dark-mode .logo-separator {
+color: var(--muted-text-dark);
+}
+.dark-mode .logo-omnigrid {
+color: var(--text-color-dark);
+}
+.dark-mode .nav-list a {
+color: var(--muted-text-dark);
+}
+.dark-mode .nav-list a:hover {
+color: var(--primary-color);
+}
+.dark-mode .hamburger-menu {
+color: var(--text-color-dark);
+}
+/* Ensure specific sections also adapt to dark mode for backgrounds */
+.dark-mode #shareprice,
+.dark-mode #seedwave,
+.dark-mode section.bg-gray-700,
+.dark-mode #vault-access,
+.dark-mode #treaty,
+.dark-mode #vaultmesh,
+.dark-mode #about,
+.dark-mode #cta,
+.dark-mode footer,
+.dark-mode #ads-section { /* HotStack section background is handled separately below */
+    background-color: var(--bg-color-dark); /* Use dark background for all sections */
+    color: var(--text-color-dark);
+}
+.dark-mode section h2, .dark-mode section h3 {
+    color: var(--text-color-dark);
+}
+.dark-mode section p {
+    color: var(--muted-text-dark);
+}
+.dark-mode #seedwave .w-full.max-w-4xl,
+.dark-mode #vault-access .w-full.h-\[800px\] {
+    background-color: var(--card-bg-dark); /* Darker card/iframe background */
+    border-color: var(--border-color-dark);
+}
+.dark-mode .terminal-btn {
+    background-color: var(--card-bg-dark);
+    color: var(--text-color-dark);
+    border-color: var(--border-color-dark);
+}
+.dark-mode .terminal-btn:hover {
+    background-color: #3a3a3e;
+    color: var(--text-color-dark);
+}
+.dark-mode .glyph {
+    background-color: var(--card-bg-dark);
+    color: var(--text-color-dark);
+    border-color: var(--border-color-dark);
+}
+.dark-mode .glyph:hover {
+    background-color: #3a3a3e;
+    color: var(--text-color-dark);
+}
+.dark-mode footer a {
+    color: var(--muted-text-dark);
+}
+.dark-mode footer a:hover {
+    color: var(--text-color-dark);
+}
+
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+}
+
+/* Header - Minimalist and clean */
+header {
+background-color: #ffffff;
+border-bottom: 1px solid #e8e8ed;
+padding-top: 1rem;
+padding-bottom: 1rem;
+box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+position: sticky;
+top: 0;
+z-index: 50;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px 0;
+/* Added transition for smoother day/night toggle */
+transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header-content {
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 100%;
+}
+
+.logo-group {
+display: flex;
+align-items: center;
+gap: 10px;
+color: var(--text-color-light);
+transition: color 0.3s ease;
+}
+
+.logo-group .logo-link {
+text-decoration: none;
+color: inherit;
+display: flex;
+align-items: center;
+gap: 5px;
+}
+.logo-fruitful {
+color: var(--primary-color);
+font-size: 1.6rem;
+font-weight: 800;
+}
+.logo-separator {
+color: var(--muted-text-light);
+font-size: 1.4rem;
+font-weight: 600;
+}
+.logo-omnigrid {
+color: var(--text-color-light);
+font-size: 1.4rem;
+font-weight: 600;
+}
+
+.main-nav {
+display: flex;
+align-items: center;
+gap: 20px;
+}
+
+.nav-list {
+display: flex;
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+.nav-list a {
+text-decoration: none;
+color: var(--muted-text-light);
+font-weight: 500;
+font-size: 0.95rem;
+transition: color 0.3s ease;
+}
+.nav-list a:hover {
+color: var(--primary-color);
+}
+
+.nav-actions {
+display: flex;
+align-items: center;
+gap: 15px;
+}
+
+/* Styling for header CTA buttons */
+.header-cta-button {
+display: inline-block;
+padding: 8px 16px;
+background-color: var(--primary-color);
+color: white;
+text-decoration: none;
+border-radius: 20px;
+font-weight: 600;
+font-size: 0.85rem;
+transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, color 0.3s ease; /* Added color transition */
+box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+line-height: 1.2;
+}
+.header-cta-button:hover {
+background-color: #0066cc;
+transform: translateY(-1px);
+box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+.header-cta-button.secondary {
+background-color: #e8e8ed;
+color: #424245;
+box-shadow: none;
+border: 1px solid #dcdcdc;
+}
+.header-cta-button.secondary:hover {
+background-color: #dcdcdc;
+color: #1d1d1f;
+box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* Enhanced Day/Night Toggle Button in Dark Mode */
+body.dark-mode .header-cta-button.secondary {
+    background-color: var(--primary-color); /* Primary blue in dark mode */
+    color: white; /* White text */
+    border-color: var(--primary-color); /* Blue border */
+    box-shadow: 0 1px 5px rgba(0, 113, 227, 0.4); /* Subtle blue glow */
+}
+body.dark-mode .header-cta-button.secondary:hover {
+    background-color: #0066cc; /* Darker blue on hover */
+    border-color: #0066cc;
+    box-shadow: 0 2px 8px rgba(0, 113, 227, 0.6);
+}
+
+
+.hamburger-menu {
+display: none;
+background: none;
+border: none;
+font-size: 1.5rem;
+cursor: pointer;
+color: var(--text-color-light);
+transition: color 0.3s ease;
+}
+
+/* Moved Hero Content Section */
+.innovate-connect-thrive-section {
+padding: 4rem 1.5rem;
+text-align: center;
+color: var(--text-color-light);
+background-color: var(--bg-color-light);
+border-bottom: 1px solid var(--border-color-light);
+/* Added transition for smoother day/night toggle */
+transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+body.dark-mode .innovate-connect-thrive-section {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+    border-bottom-color: var(--border-color-dark);
+}
+body.dark-mode .innovate-connect-thrive-section h2 {
+    color: var(--text-color-dark);
+}
+body.dark-mode .innovate-connect-thrive-section h2 span {
+    color: var(--primary-color); /* Keep primary color for accent */
+}
+
+
+/* Hero Section (now just canvas background) */
+.hero-canvas-section {
+position: relative;
+min-height: 100vh; /* Increased height to ensure full vertical space */
+background-color: var(--bg-color-light); /* Explicitly use variable */
+overflow: hidden;
+display: flex;
+justify-content: center;
+align-items: center;
+/* Added transition for smoother day/night toggle */
+transition: background-color 0.3s ease;
+}
+body.dark-mode .hero-canvas-section {
+    background-color: var(--bg-color-dark);
+}
+
+.hero-canvas-section #rhythmicCanvas {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+display: block;
+z-index: 0;
+background-color: transparent;
+}
+.hero-canvas-overlay {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: radial-gradient(circle at center, rgba(0, 113, 227, 0.05) 0%, transparent 70%);
+pointer-events: none;
+z-index: 1;
+animation: subtlePulse 5s infinite ease-in-out alternate;
+}
+
+@keyframes subtlePulse {
+0% { opacity: 0.5; transform: scale(1); }
+100% { opacity: 0.7; transform: scale(1.03); }
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+header {
+flex-direction: column;
+padding-bottom: 10px;
+align-items: flex-start;
+background-color: #ffffff;
+}
+.header-content {
+flex-direction: column;
+align-items: flex-start;
+}
+.logo-group {
+margin-bottom: 15px;
+}
+.logo-group .logo-link {
+gap: 5px;
+}
+.logo-fruitful {
+font-size: 1.4rem;
+}
+
+.main-nav {
+display: none;
+flex-direction: column;
+position: static;
+width: 100%;
+background-color: var(--card-bg-light);
+border-top: 1px solid var(--border-color-light);
+padding: 10px 0;
+box-shadow: none;
+}
+.dark-mode .main-nav {
+background-color: var(--card-bg-dark);
+border-top-color: var(--border-color-dark);
+}
+.main-nav.active {
+display: flex;
+background-color: #ffffff;
+}
+.nav-list {
+flex-direction: column;
+text-align: center;
+width: 100%;
+gap: 10px;
+}
+.nav-list li {
+width: 100%;
+}
+.nav-list a {
+display: block;
+padding: 8px 0;
+}
+.nav-actions {
+flex-direction: column;
+gap: 10px;
+width: 100%;
+padding-top: 10px;
+border-top: 1px solid var(--border-color-light);
+margin-top: 10px;
+}
+.dark-mode .nav-actions {
+border-top-color: var(--border-color-dark);
+}
+.nav-actions .cta-button {
+width: calc(100% - 40px);
+margin: 0 20px;
+text-align: center;
+}
+
+.hamburger-menu {
+display: block;
+position: absolute;
+top: 15px;
+right: 20px;
+z-index: 1001;
+color: var(--text-color-light);
+}
+
+.hero-section h1 {
+font-size: 2.8rem;
+}
+.hero-section p {
+font-size: 1rem;
+}
+.hero-cta-button {
+padding: 0.7rem 1.5rem;
+font-size: 0.9rem;
+}
+section {
+padding: 4rem 1.5rem;
+background-color: #ffffff;
+}
+section h2, section h3 {
+font-size: 1.8rem;
+margin-bottom: 1.5rem;
+}
+section p {
+font-size: 1rem;
+}
+.feature-grid {
+grid-template-columns: 1fr;
+}
+#shareprice h2 {
+font-size: 1.5rem;
+}
+#price {
+font-size: 2.5rem;
+}
+#vault-access .w-full.h-\[800px\] {
+height: 500px;
+}
+.terminal-btn {
+padding: 0.8rem 1rem;
+font-size: 0.9rem;
+}
+#treaty blockquote {
+font-size: 1.2rem;
+}
+#vaultmesh h2, #vaultmesh h3 {
+font-size: 1.8rem;
+}
+#vaultmesh p, #vaultmesh ul li {
+font-size: 0.95rem;
+}
+#cta h3 {
+font-size: 2rem;
+}
+#cta p {
+font-size: 1rem;
+}
+}
+
+/* HotStack Section Styles - Encapsulated */
+#hotstack-section {
+    /* Main container for HotStack, ensuring its own background and layout */
+    background-color: #1a1a1c; /* Directly use the dark background color from original HotStack */
+    color: var(--text-color-dark); /* Light text color for the entire section */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Full viewport height */
+    padding: 1rem; /* Responsive padding around the content-container */
+    overflow: hidden; /* Hide canvas overflow to prevent scrollbars from animation */
+    position: relative; /* For canvas positioning relative to this section */
+    width: 100%; /* Explicitly ensure it takes full width */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+#hotstack-section #omnidropCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Behind content */
+    background-color: transparent; /* Ensure it's transparent to show section background */
+}
+
+#hotstack-section .content-container {
+    position: relative;
+    z-index: 1; /* Above canvas */
+    background-color: rgba(14, 14, 14, 0.85); /* Slightly transparent dark background for content */
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5); /* Stronger shadow for depth */
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid rgba(255, 204, 0, 0.3); /* Subtle gold border */
+    backdrop-filter: blur(4px); /* Frosted glass effect */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#hotstack-section header {
+    margin-bottom: 2rem;
+    background-color: transparent; /* Ensure no white background from global header */
+}
+#hotstack-section .main-logo {
+    font-size: 2.5rem;
+    line-height: 1;
+    display: flex; /* Use flexbox to align spans */
+    justify-content: center;
+    align-items: baseline; /* Align text baselines */
+    gap: 0.5rem; /* Space between segments */
+}
+
+/* Specific styling for the "Fruitful" part of the HotStack logo */
+#hotstack-section .logo-fruitful-hotstack {
+    color: var(--text-color-dark); /* Use --text-color-dark for full white */
+    font-weight: 900; /* Extra bold for Fruitful */
+}
+
+/* Specific styling for the separator "|" in the HotStack logo */
+#hotstack-section .logo-separator-hotstack {
+    color: var(--muted-text-dark); /* Use muted-text-dark for the subtle grey */
+    font-size: 1em; /* Adjusted to match visual weight from screenshot */
+    font-weight: 300; /* Lighter weight */
+}
+
+/* Specific styling for the "HotStack™" part of the HotStack logo */
+#hotstack-section .logo-hotstack {
+    color: var(--hotstack-yellow); /* HotStack yellow */
+    font-size: 0.9em; /* Slightly smaller than Fruitful, but larger than separator */
+    letter-spacing: -0.02em; /* Tighter spacing */
+    font-weight: 900; /* Extra bold for HotStack */
+}
+
+
+#hotstack-section .subtitle {
+    font-size: 1.1rem; /* Slightly smaller font size */
+    font-weight: 400;
+    color: var(--muted-text-dark); /* Use muted-text-dark for subtitle */
+    margin-top: 0.5rem;
+    line-height: 1.3; /* Tighter line height */
+}
+
+#hotstack-section .countdown {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin: 1.5rem 0;
+    color: var(--hotstack-yellow); /* Direct hex for countdown */
+    letter-spacing: 0.05em;
+}
+
+#hotstack-section .features {
+    max-width: 450px;
+    text-align: left;
+    margin: 0 auto 2rem auto;
+    color: var(--text-color-dark); /* Use text-color-dark for features text */
+}
+#hotstack-section .features ul {
+    padding-left: 1.5rem;
+    list-style-type: none;
+}
+#hotstack-section .features li {
+    margin-bottom: 0.75rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+#hotstack-section .features li::before {
+    content: '⚡';
+    position: absolute;
+    left: 0;
+    color: var(--hotstack-yellow); /* Direct hex for lightning bolt */
+    font-size: 1.1em;
+    line-height: 1;
+}
+
+#hotstack-section .cta-button {
+    background-color: var(--hotstack-yellow); /* Direct hex for button background */
+    color: var(--bg-color-dark); /* Direct hex for button text */
+    padding: 1.2rem 2.5rem;
+    border: none;
+    font-weight: 800;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(255, 204, 0, 0.4);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+}
+#hotstack-section .cta-button:hover {
+    background-color: #ffe066;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(255, 204, 0, 0.6);
+}
+#hotstack-section .cta-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+#hotstack-section footer {
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    color: #888; /* Direct hex for footer text */
+}
+
+/* Drag and Drop Zone Styling */
+#hotstack-section .drop-zone {
+    border: 2px dashed var(--hotstack-yellow); /* Direct hex for border */
+    border-radius: 8px;
+    padding: 2rem;
+    margin-top: 2rem;
+    color: #b0b0b0; /* Direct hex for text */
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+    background-color: rgba(255, 204, 0, 0.05);
+}
+#hotstack-section .drop-zone.highlight {
+    background-color: rgba(255, 204, 0, 0.15);
+    border-color: var(--hotstack-yellow);
+    box-shadow: 0 0 15px rgba(255, 204, 0, 0.6);
+    transform: scale(1.02);
+}
+#hotstack-section .drop-zone p {
+    margin: 0;
+    line-height: 1.4;
+}
+
+#hotstack-section .drop-zone .upload-button {
+    background-color: var(--hotstack-yellow); /* Direct hex for button background */
+    color: var(--bg-color-dark); /* Direct hex for button text */
+    padding: 0.75rem 1.5rem;
+    border: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#hotstack-section .drop-zone .upload-button:hover {
+    background-color: #ffe066;
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    #hotstack-section .content-container {
+        padding: 1.5rem;
+    }
+    #hotstack-section .main-logo {
+        font-size: 2rem;
+    }
+    #hotstack-section .subtitle {
+        font-size: 1rem;
+    }
+    #hotstack-section .countdown {
+        font-size: 3rem;
+    }
+    #hotstack-section .features {
+        font-size: 0.9rem;
+        max-width: 100%;
+    }
+    #hotstack-section .cta-button {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+    #hotstack-section .features li {
+        padding-left: 1.2rem;
+    }
+    #hotstack-section .features li::before {
+        font-size: 1em;
+    }
+    .drop-zone {
+        padding: 1.5rem;
+        font-size: 1rem;
+    }
+}
+</style>
+</head>
+<body class="light-mode">
+
+<header class="main-header">
+<div class="container header-content">
+<div class="logo-group">
+<a href="index.html" class="logo-link">
+<span class="logo-fruitful">Fruitful™</span>
+</a>
+<button class="hamburger-menu" aria-label="Toggle navigation">
+<i class="fas fa-bars"></i>
+</button>
+</div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="https://faa.zone/contact-us.html">✉️ Contact Us</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <!-- New Template Selector -->
+                    <div class="template-selector flex items-center gap-2">
+                        <label for="pulseDesign" class="text-muted-text-light text-sm font-medium">Pulse Design:</label>
+                        <select id="pulseDesign" class="px-3 py-1 rounded-md border border-gray-300 bg-white text-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <!-- Options will be populated by JavaScript -->
+                        </select>
+                    </div>
+                    <button id="dayNightToggle" class="header-cta-button secondary">
+                        <i class="fas fa-moon"></i> Day/Night
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="innovate-connect-thrive" class="innovate-connect-thrive-section">
+            <h2 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+                Innovate. Connect. <span class="text-blue-600">Thrive.</span>
+            </h2>
+            <div class="cta-group">
+                <a href="https://fruitful.faa.zone/omnigrid.html" class="hero-cta-button">
+                    🕸️ Explore Omnigrid
+                        </a> 
+                        <a href="https://vaultmesh.faa.zone/index.html" class="hero-cta-button cta-button-secondary">
+                            🌐 VaultMesh™
+                        </a> 
+            </div>
+        </section>
+
+        <section class="hero-canvas-section">
+            <canvas id="rhythmicCanvas"></canvas>
+            <div class="hero-canvas-overlay"></div>
+        </section>
+
+        <!-- HotStack Section - Inserted Here -->
+        <section id="hotstack-section">
+            <!-- Canvas for background animation -->
+            <canvas id="omnidropCanvas"></canvas>
+
+            <!-- Main content container -->
+            <div class="content-container">
+                <header>
+                    <h1 class="main-logo">
+                        <span class="logo-fruitful-hotstack">Fruitful</span>
+                        <span class="logo-separator-hotstack">|</span>
+                        <span class="logo-hotstack">HotStack™</span>
+                    </h1>
+                    <h2 class="subtitle">Omnidrop Your Digital Presence. Live in Minutes. Branded Forever.</h2>
+                </header>
+
+                <!-- Countdown Timer Display -->
+                <p class="countdown" id="timer">03:00</p>
+
+                <!-- Features List -->
+                <div class="features">
+                    <h3>What Your Omnidrop Activates:</h3>
+                    <ul>
+                        <li>🚀 **Rapid Deployment:** Your Scroll goes Live in under 180 seconds via Omnidrop Signal.</li>
+                        <li>📦 **Integrated Ecosystem:** Auto DNS Hook + Curated Template Packs for seamless launch.</li>
+                        <li>🧠 **Intelligent Foundation:** Powered by ScrollStack™, VaultDNS™, and MeshNest™ protocols.</li>
+                        <li>💰 **Treaty-Linked Economy:** Includes a Royalty-Linked License from Fruitful Global's Treaty Grid.</li>
+                        <li>🔒 **ClaimRoot™ Verified:** Secure, traceable site ownership for every deployed scroll.</li>
+                    </ul>
+                </div>
+
+                <!-- Call to Action Button -->
+                <a id="claimButton" href="codenest_desktop_dashboard.html#new-project" class="cta-button">
+                    <i class="fas fa-arrow-right mr-2"></i> Enter Fruitful | CodeNest™
+                </a>
+
+                <!-- Drag and Drop Zone -->
+                <div id="dropZone" class="drop-zone">
+                    <p><i class="fas fa-cloud-upload-alt mr-2"></i> Drag & Drop HTML/PDF here to Omnidrop into CodeNest™</p>
+                    <p class="text-sm mt-1 text-gray-500">(Adheres to the 3-minute rule for rapid ingestion)</p>
+                    <input type="file" id="fileInput" accept=".html,.pdf" class="hidden">
+                    <button id="uploadButton" class="upload-button">
+                        <i class="fas fa-folder-open mr-2"></i> Or Click to Upload
+                    </button>
+                </div>
+
+                <!-- Footer -->
+                <footer>
+                    Powered by Fruitful Global | ScrollSynced | Vault-Verified
+                </footer>
+            </div>
+
+            <!-- Custom Modal for Alerts (hidden by default) -->
+            <div id="customModal" class="custom-modal-overlay">
+                <div class="custom-modal-content">
+                    <p id="customModalMessage"></p>
+                </div>
+            </div>
+        </section>
+        <!-- End HotStack Section -->
+
+        <!-- New Advertisement Section - Updated for Noodle Juice / Gorilla Comb Pulse -->
+        <section id="ads-section" class="py-16 px-6 text-center bg-gray-50 border-t border-b border-gray-200">
+            <div class="container max-w-3xl mx-auto">
+                <h3 class="text-4xl font-extrabold mb-4 text-gray-900">Experience the Noodle Juice Flow! 🦍</h3>
+                <p class="text-lg text-gray-600 mb-8">
+                    Dive into the rhythmic pulse of Fruitful Innovations. Our "Gorilla Comb Pulse" technology delivers an innovative flow, connecting you to the future with unparalleled precision and vibrant energy.
+                </p>
+                <a href="#" class="header-cta-button text-lg px-8 py-3">
+                    Discover Your Pulse <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="py-8 px-6 md:px-12 text-center">
+        © 2025 FAA.zone™ Treaty System™. All Rights Reserved. Powered by 🦍 glyphs + Vault API. Synced with Seedwave™.
+        <div class="mt-4 flex justify-center space-x-4">
+            <a href="terms-of-service.html" class="text-muted-text-light hover:text-text-color-light">Terms of Service</a>
+            <span class="text-muted-text-light">|</span>
+            <a href="privacy-policy.html" class="text-muted-text-light hover:text-text-color-light">Privacy Policy</a>
+            <span class="text-muted-text-light">|</span>
+            <a href="cookies.html" class="text-muted-text-light hover:text-text-color-light">Cookies</a>
+        </div>
+    </footer>
+
+    <script>
+        // --- API Keys (kept for completeness, but not used in this simplified version) ---
+        const PAYPAL_SDK_KEY = "BAAGdPecRsf6dw_nIrWqUen0GdU0UsBZapp1Gn62xkPdD-Vqc-4lqWAidKK8LOObXux8pHJGjXknZoar6Q";
+        const PAYPAL_HOSTED_BUTTON_STARTER = "EMWGPGHNN8Y8E";
+        const PAYPAL_HOSTED_BUTTON_PRO = "QGU3ZUQCMD49Q";
+        const PAYPAL_HOSTED_BUTTON_ENTERPRISE = "9C88S44F93M5J";
+        const PAYPAL_HOSTED_BUTTON_BANIMAL = "YOUR_BANIMAL_BANIMAL_PAYPAL_BUTTON_ID_HERE";
+        const GOOGLE_MAPS_API_KEY = "";
+        const SPOTIFY_ACCESS_0TOKEN = "";
+        const GEMINI_AI_API_API_KEY = "";
+        const XERO_CLIENT_ID = "";
+        const XERO_CLIENT_SECRET = ""; 
+        const XERO_REDIRECT_URI = "https://seedwave.faa.zone/admin_panel_xero.html";
+        const XERO_WEBHOOK_KEY = "2fd5LQV0TQDI3572Er/sg66zqEbl8mFWRyfX3XkoKFZGRLK2cZPGpWV/j4yMTU7aUpbgBCfeZkuHnQIwD/0igw==";
+
+
+        // --- Rhythmic Canvas Glyph Drawing Logic ---
+        const canvas = document.getElementById('rhythmicCanvas');
+        const ctx = canvas.getContext('2d');
+        let animationFrameId;
+        let currentTemplate = null; // Stores the currently active template object
+
+        // State variables for complex animations that need to persist across frames
+        let shootingPulses = [];
+        let particles = [];
+        let radialBursts = [];
+        let nodePulseGraphSharedData = {
+            totalWidth: 0, // Will be set dynamically by resize
+            height: 0,     // Will be set dynamically by resize
+            points: [],
+            numPoints: 150,
+            time: 0,
+            amplitude: 0.3,
+            frequency: 0.02,
+            speed: 0.05,
+            electricityPoints: [],
+            maxElectricityPoints: 200,
+            electricitySpawnRate: 0.8,
+            electricityDecayRate: 0.03,
+            electricityLength: 10,
+            knittingDepth: 0.2,
+            knittingFrequency: 0.1,
+            knittingPhaseOffset: 0
+        };
+
+
+        // Define different pulse design templates with categories
+        const glyphTemplates = [
+            {
+                category: "Subtle",
+                name: "Calm Ripple",
+                type: "noodle", // Explicitly define type for original noodle pulse
+                numLines: 60,
+                lineFrequency: 0.004,
+                lineSpeed: 0.0005,
+                lineAmplitudeFactor: 0.2
+            },
+            {
+                category: "Subtle",
+                name: "Gentle Flow",
+                type: "noodle",
+                numLines: 70,
+                lineFrequency: 0.005,
+                lineSpeed: 0.0008,
+                lineAmplitudeFactor: 0.25
+            },
+            {
+                category: "Dynamic",
+                name: "Subtle Waves",
+                type: "noodle",
+                numLines: 80,
+                lineFrequency: 0.008,
+                lineSpeed: 0.001,
+                lineAmplitudeFactor: 0.3
+            },
+            {
+                category: "Dynamic",
+                name: "Vibrant Flow",
+                type: "noodle",
+                numLines: 120,
+                lineFrequency: 0.006,
+                lineSpeed: 0.002,
+                lineAmplitudeFactor: 0.4
+            },
+            {
+                category: "Dynamic",
+                name: "Energetic Pulse",
+                type: "noodle",
+                numLines: 150,
+                lineFrequency: 0.01,
+                lineSpeed: 0.003,
+                lineAmplitudeFactor: 0.5
+            },
+            {
+                category: "Dynamic",
+                name: "Noodle Juice Pulse", // Template based on the first screenshot
+                type: "noodle",
+                numLines: 180, // High density
+                lineFrequency: 0.018, // Tightly packed waves
+                lineSpeed: 0.0025, // Moderate flow
+                lineAmplitudeFactor: 0.45 // Significant vertical extent
+            },
+            {
+                category: "Dynamic",
+                name: "Gorilla Comb Pulse", // New template based on the second screenshot (updated)
+                type: "noodle",
+                numLines: 200,
+                lineFrequency: 0.01,
+                lineSpeed: 0.001,
+                lineAmplitudeFactor: 0.48,
+                colorAdjust: { baseHueOffset: 150, hueRange: 30 }
+            },
+            // --- NEW SEEDWAVE INSPIRED PULSE TEMPLATES ---
+            {
+                category: "Seedwave Inspired",
+                name: "Seedwave Rhythmic",
+                type: "seedwave-rhythmic",
+                numRhythmicLines: 40,
+                rhythmicLineAmplitude: 0.5, // Factor of canvas.height
+                rhythmicLineFrequency: 0.1,
+                rhythmicLineSpeed: 0.015,
+                colorAdjust: { baseHueOffset: 0, hueRange: 360 } // Full spectrum vibrant colors
+            },
+            {
+                category: "Seedwave Inspired",
+                name: "Seedwave Concentric",
+                type: "seedwave-concentric",
+                numWaves: 20,
+                waveSpeed: 0.02,
+                waveThickness: 4,
+                waveSpacing: 12,
+                corePulseSpeed: 10,
+                colorAdjust: { baseHueOffset: 200, hueRange: 100 } // Blue/purple range for a different feel
+            },
+            {
+                category: "Seedwave Inspired",
+                name: "Seedwave Shooting",
+                type: "seedwave-shooting",
+                shootingPulseSpawnRate: 0.05,
+                maxShootingPulses: 30,
+                colorAdjust: { baseHueOffset: 60, hueRange: 120 } // Yellow to green range
+            },
+            {
+                category: "Seedwave Inspired",
+                name: "Seedwave Particles",
+                type: "seedwave-particles",
+                numParticles: 150,
+                particleDecay: 0.002,
+                particleSpeedFactor: 1,
+                connectionDistance: 120,
+                colorAdjust: { baseHueOffset: 240, hueRange: 60 } // Blue range
+            },
+            {
+                category: "Seedwave Inspired",
+                name: "Seedwave Radial Burst",
+                type: "seedwave-radialBurst",
+                burstSpawnRate: 0.05,
+                maxBursts: 15,
+                colorAdjust: { baseHueOffset: 300, hueRange: 60 } // Pink/purple range
+            },
+            {
+                category: "Seedwave Inspired",
+                name: "Seedwave Hyperspace",
+                type: "seedwave-hyperspace",
+                gridSpacing: 25,
+                warpStrength: 20,
+                warpSpeed: 0.06,
+                colorAdjust: { baseHueOffset: 0, hueRange: 0 } // Pure white/grey
+            },
+            {
+                category: "Seedwave Inspired",
+                name: "Seedwave Node Flow",
+                type: "seedwave-nodeFlow",
+                numLines: 100,
+                lineFrequency: 0.015,
+                lineSpeed: 0.003,
+                lineAmplitudeFactor: 0.42,
+                colorAdjust: { baseHueOffset: 180, hueRange: 60 } // Cyan to green range, similar to original Node Pulse
+            },
+            {
+                category: "Abstract",
+                name: "Dense Swirl",
+                type: "noodle",
+                numLines: 200,
+                lineFrequency: 0.012,
+                lineSpeed: 0.004,
+                lineAmplitudeFactor: 0.35
+            },
+            {
+                category: "Abstract",
+                name: "Slow Bloom",
+                type: "noodle",
+                numLines: 90,
+                lineFrequency: 0.003,
+                lineSpeed: 0.0007,
+                lineAmplitudeFactor: 0.45
+            },
+            {
+                category: "Abstract",
+                name: "Rapid Warp",
+                type: "noodle",
+                numLines: 180,
+                lineFrequency: 0.015,
+                lineSpeed: 0.005,
+                lineAmplitudeFactor: 0.4
+            }
+        ];
+
+        // --- Core Drawing Functions for different pulse types ---
+
+        // Original Noodle Pulse drawing logic
+        function drawOriginalNoodlePulse(canvas, ctx, time, template) {
+            const { numLines, lineFrequency, lineSpeed, lineAmplitudeFactor, colorAdjust } = template;
+
+            // Clear canvas with subtle trail
+            const overlayAlpha = 0.05;
+            ctx.fillStyle = `rgba(255, 255, 255, ${overlayAlpha})`; 
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Time update is handled by the main drawGlyph loop
+            // time += lineSpeed; // This is now handled globally by drawGlyph's time increment
+
+            const centerX = canvas.width / 2;
+            const noodleTargetWidthRatio = 0.6;
+            const noodleWidth = canvas.width * noodleTargetWidthRatio;
+            const noodleStartX = centerX - (noodleWidth / 2);
+            const noodleEndX = centerX + (noodleWidth / 2);
+            const lineAmplitude = canvas.height * lineAmplitudeFactor;
+
+            for (let i = 0; i < numLines; i++) {
+                ctx.beginPath();
+                const offset = i * (Math.PI * 2 / numLines) * 2; 
+                
+                let colorHue;
+                if (colorAdjust) {
+                    colorHue = (colorAdjust.baseHueOffset + (Math.sin(time * 0.1 + i * 0.01) * 0.5 + 0.5) * colorAdjust.hueRange) % 360;
+                } else {
+                    colorHue = (time * 50 + i * 2.5) % 360; 
+                }
+
+                const saturation = 100;
+                const lightness = 50 + Math.cos(time * 0.1 + i * 0.01) * 10;
+                const opacity = 1.0;
+                ctx.strokeStyle = `hsla(${colorHue}, ${saturation}%, ${lightness}%, ${opacity})`;
+                ctx.lineWidth = 2.0;
+
+                for (let x = 0; x < canvas.width; x += 5) {
+                    let effectiveAmplitudeScale = 0;
+                    if (x >= noodleStartX && x <= noodleEndX) {
+                        const normalizedNoodleX = (x - noodleStartX) / noodleWidth;
+                        effectiveAmplitudeScale = Math.pow(Math.cos((normalizedNoodleX - 0.5) * Math.PI), 2.0);
+                    }
+
+                    const y = Math.sin(x * lineFrequency + time + offset) * (lineAmplitude * (0.9 + Math.sin(time * 0.03 + i * 0.015) * 0.1) * effectiveAmplitudeScale)
+                                     + Math.sin(x * (lineFrequency * 2.5) + time * 0.8 + offset * 0.7) * (lineAmplitude * 0.15 * effectiveAmplitudeScale)
+                                     + Math.cos(x * (lineFrequency * 1.2) + time * 0.6 + offset * 1.3) * (lineAmplitude * 0.1 * effectiveAmplitudeScale)
+                                     + Math.sin(x * (lineFrequency * 3.0) + time * 1.0 + offset * 0.4) * (lineAmplitude * 0.08 * effectiveAmplitudeScale)
+                                     + canvas.height / 2;
+                    if (x === 0) {
+                        ctx.moveTo(x, y);
+                    } else {
+                        ctx.lineTo(x, y);
+                    }
+                }
+                ctx.stroke();
+            }
+        }
+
+        // Seedwave Rhythmic Pulse drawing logic
+        function drawRhythmicPulse(canvas, ctx, time, template) {
+            const { numRhythmicLines, rhythmicLineAmplitude, rhythmicLineFrequency, rhythmicLineSpeed, colorAdjust } = template;
+
+            ctx.fillStyle = 'rgba(10, 10, 13, 0.15)'; // Dark background trail
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            const amplitude = canvas.height * rhythmicLineAmplitude;
+
+            for (let i = 0; i < numRhythmicLines; i++) {
+                ctx.beginPath();
+                const offset = i * (Math.PI * 2 / numRhythmicLines);
+                
+                let colorHue;
+                if (colorAdjust) {
+                    colorHue = (colorAdjust.baseHueOffset + (time * 200 + i * 15) * (colorAdjust.hueRange / 360)) % 360;
+                } else {
+                    colorHue = (time * 200 + i * 15) % 360;
+                }
+                ctx.strokeStyle = `hsla(${colorHue}, 95%, 75%, 0.9)`;
+                ctx.lineWidth = 2.5;
+
+                for (let x = 0; x < canvas.width; x += 2) {
+                    const y = Math.sin(x * rhythmicLineFrequency + time + offset) * (amplitude * (Math.sin(time * 0.3 + i * 0.15) * 0.5 + 0.5)) + canvas.height / 2;
+                    if (x === 0) {
+                        ctx.moveTo(x, y);
+                    } else {
+                        ctx.lineTo(x, y);
+                    }
+                }
+                ctx.stroke();
+            }
+        }
+
+        // Seedwave Concentric Waves drawing logic
+        function drawConcentricWaves(canvas, ctx, time, template) {
+            const { numWaves, waveSpeed, waveThickness, waveSpacing, corePulseSpeed, colorAdjust } = template;
+
+            ctx.fillStyle = 'rgba(10, 10, 13, 0.15)'; // Dark background trail
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+
+            for (let i = 0; i < numWaves; i++) {
+                ctx.beginPath();
+                const radius = (time * waveSpacing + i * waveSpacing) % (Math.max(canvas.width, canvas.height) / 1.2) + 5;
+                
+                let hue;
+                if (colorAdjust) {
+                    hue = (colorAdjust.baseHueOffset + (i * 20 + time * 100) * (colorAdjust.hueRange / 360)) % 360;
+                } else {
+                    hue = (i * 20 + time * 100) % 360;
+                }
+                ctx.strokeStyle = `hsla(${hue}, 95%, 80%, ${0.95 - (radius / (Math.max(canvas.width, canvas.height) / 1.2))})`;
+                ctx.lineWidth = waveThickness;
+                ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+                ctx.stroke();
+
+                if (i < 7) {
+                    ctx.beginPath();
+                    ctx.arc(centerX, centerY, radius * 0.25, 0, Math.PI * 2);
+                    ctx.fillStyle = `hsla(${hue + 70}, 100%, 85%, ${0.6 - (radius / (Math.max(canvas.width, canvas.height) / 1.2)) * 0.6})`;
+                    ctx.fill();
+                }
+            }
+
+            const coreRadius = 20 + Math.sin(time * corePulseSpeed) * 8;
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, coreRadius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(0, 227, 147, ${0.95 + Math.sin(time * corePulseSpeed) * 0.05})`;
+            ctx.shadowBlur = 30;
+            ctx.shadowColor = 'rgba(0, 227, 147, 1.0)';
+            ctx.fill();
+            ctx.shadowBlur = 0;
+        }
+
+        // Shooting Pulse class for Seedwave Shooting
+        class ShootingPulse {
+            constructor(canvas) {
+                this.canvas = canvas;
+                this.x = Math.random() * this.canvas.width;
+                this.y = Math.random() * this.canvas.height;
+                this.initialRadius = 1;
+                this.currentRadius = this.initialRadius;
+                this.maxRadius = Math.random() * 150 + 80;
+                this.speed = Math.random() * 4 + 2;
+                this.alpha = 1;
+                this.decayRate = Math.random() * 0.012 + 0.006;
+                this.color = `hsl(${Math.random() * 360}, 100%, 80%)`;
+                this.numRings = Math.floor(Math.random() * 6) + 5;
+                this.glowStrength = Math.random() * 25 + 15;
+            }
+            update() {
+                this.currentRadius += this.speed;
+                this.alpha -= this.decayRate;
+                return this.alpha > 0 && this.currentRadius < this.maxRadius;
+            }
+            draw(ctx) {
+                ctx.save();
+                ctx.globalAlpha = this.alpha;
+                ctx.strokeStyle = this.color;
+                ctx.lineWidth = 2.5;
+                for (let i = 0; i < this.numRings; i++) {
+                    const ringRadius = this.currentRadius - (i * (this.currentRadius / this.numRings));
+                    if (ringRadius > this.initialRadius) {
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, ringRadius, 0, Math.PI * 2);
+                        ctx.stroke();
+                    }
+                }
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.initialRadius * 3, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.shadowBlur = this.glowStrength;
+                ctx.shadowColor = this.color;
+                ctx.fill();
+                ctx.shadowBlur = 0;
+                ctx.restore();
+            }
+        }
+
+        function drawShootingPulses(canvas, ctx, time, template) {
+            const { shootingPulseSpawnRate, maxShootingPulses } = template;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'rgba(10, 10, 13, 0.15)'; // Dark background trail
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            if (Math.random() < shootingPulseSpawnRate && shootingPulses.length < maxShootingPulses) {
+                shootingPulses.push(new ShootingPulse(canvas));
+            }
+
+            for (let i = shootingPulses.length - 1; i >= 0; i--) {
+                const pulse = shootingPulses[i];
+                if (pulse.update()) {
+                    pulse.draw(ctx);
+                } else {
+                    shootingPulses.splice(i, 1);
+                }
+            }
+        }
+
+        // Particle class for Seedwave Particles
+        class Particle {
+            constructor(canvas) {
+                this.canvas = canvas;
+                this.x = Math.random() * this.canvas.width;
+                this.y = Math.random() * this.canvas.height;
+                this.size = Math.random() * 2.5 + 1.5;
+                this.speedX = (Math.random() * 2 - 1);
+                this.speedY = (Math.random() * 2 - 1);
+                this.color = `hsl(${Math.random() * 360}, 100%, 80%)`;
+                this.alpha = 1;
+                this.decay = 0.002;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                this.alpha -= this.decay;
+                if (this.alpha < 0 || this.x < -20 || this.x > this.canvas.width + 20 || this.y < -20 || this.y > this.canvas.height + 20) {
+                    this.alpha = 1;
+                    this.x = Math.random() * this.canvas.width;
+                    this.y = Math.random() * this.canvas.height;
+                    this.speedX = (Math.random() * 2 - 1);
+                    this.speedY = (Math.random() * 2 - 1);
+                }
+            }
+            draw(ctx) {
+                ctx.fillStyle = this.color;
+                ctx.globalAlpha = this.alpha;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function drawParticlesWithConnections(canvas, ctx, time, template) {
+            const { numParticles, connectionDistance } = template;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'rgba(10, 10, 13, 0.15)'; // Dark background trail
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            if (particles.length === 0) {
+                for (let i = 0; i < numParticles; i++) {
+                    particles.push(new Particle(canvas));
+                }
+            }
+
+            for (let i = particles.length - 1; i >= 0; i--) {
+                particles[i].update();
+                particles[i].draw(ctx);
+
+                for (let j = i; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < connectionDistance) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(0, 123, 255, ${particles[i].alpha * particles[j].alpha * (1 - (distance / connectionDistance)) * 1.0})`;
+                        ctx.lineWidth = 0.8;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            ctx.globalAlpha = 1;
+        }
+
+        // RadialBurst class for Seedwave Radial Burst
+        class RadialBurst {
+            constructor(canvas) {
+                this.canvas = canvas;
+                this.x = Math.random() * this.canvas.width;
+                this.y = Math.random() * this.canvas.height;
+                this.radius = 0;
+                this.maxRadius = Math.random() * 200 + 100;
+                this.speed = Math.random() * 5 + 3;
+                this.alpha = 1;
+                this.decay = Math.random() * 0.01 + 0.005;
+                this.numLines = Math.floor(Math.random() * 20) + 15;
+                this.color = `hsl(${Math.random() * 360}, 100%, 80%)`;
+            }
+
+            update() {
+                this.radius += this.speed;
+                this.alpha -= this.decay;
+                return this.alpha > 0;
+            }
+
+            draw(ctx) {
+                ctx.save();
+                ctx.globalAlpha = this.alpha;
+                ctx.strokeStyle = this.color;
+                ctx.lineWidth = 2;
+
+                for (let i = 0; i < this.numLines; i++) {
+                    const angle = (Math.PI * 2 / this.numLines) * i;
+                    const startX = this.x + Math.cos(angle) * this.radius * 0.1;
+                    const startY = this.y + Math.sin(angle) * this.radius * 0.1;
+                    const endX = this.x + Math.cos(angle) * this.radius;
+                    const endY = this.y + Math.sin(angle) * this.radius;
+
+                    ctx.beginPath();
+                    ctx.moveTo(startX, startY);
+                    ctx.lineTo(endX, endY);
+                    ctx.stroke();
+                }
+                ctx.restore();
+            }
+        }
+
+        function drawRadialBursts(canvas, ctx, time, template) {
+            const { burstSpawnRate, maxBursts } = template;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'rgba(10, 10, 13, 0.15)'; // Dark background trail
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            if (Math.random() < burstSpawnRate && radialBursts.length < maxBursts) {
+                radialBursts.push(new RadialBurst(canvas));
+            }
+
+            for (let i = radialBursts.length - 1; i >= 0; i--) {
+                const burst = radialBursts[i];
+                if (burst.update()) {
+                    burst.draw(ctx);
+                } else {
+                    radialBursts.splice(i, 1);
+                }
+            }
+        }
+
+        // Hyperspace Warp drawing logic (remains white)
+        function drawHyperspaceWarp(canvas, ctx, time, template) {
+            const { gridSpacing, warpStrength, warpSpeed } = template;
+
+            ctx.fillStyle = 'rgba(10, 10, 13, 0.18)'; // Dark background trail
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // time is already incremented by drawGlyph
+            // time += warpSpeed; // No, this is handled by main drawGlyph time
+
+            const lineCountX = Math.ceil(canvas.width / gridSpacing);
+            const lineCountY = Math.ceil(canvas.height / gridSpacing);
+
+            ctx.strokeStyle = `rgba(255, 255, 255, ${0.7 + (Math.sin(time * 0.8) + 1) / 2 * 0.3})`; // Kept white
+            ctx.lineWidth = 1.5;
+
+            // Draw horizontal lines
+            for (let i = 0; i <= lineCountY; i++) {
+                const y = i * gridSpacing;
+                ctx.beginPath();
+                ctx.moveTo(0, y + Math.sin(time + y * 0.03) * warpStrength);
+                ctx.lineTo(canvas.width, y + Math.sin(time + y * 0.03) * warpStrength);
+                ctx.stroke();
+            }
+
+            // Draw vertical lines
+            for (let i = 0; i <= lineCountX; i++) {
+                const x = i * gridSpacing;
+                ctx.beginPath();
+                ctx.moveTo(x + Math.cos(time + x * 0.03) * warpStrength, 0);
+                ctx.lineTo(x + Math.cos(time + x * 0.03) * warpStrength, canvas.height);
+                ctx.stroke();
+            }
+        }
+
+        // Seedwave Node Flow drawing logic (a variation of the original noodle)
+        function drawNodeFlowPulse(canvas, ctx, time, template) {
+            const { numLines, lineFrequency, lineSpeed, lineAmplitudeFactor, colorAdjust } = template;
+
+            const overlayAlpha = 0.05;
+            ctx.fillStyle = `rgba(255, 255, 255, ${overlayAlpha})`; 
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            const centerX = canvas.width / 2;
+            const noodleTargetWidthRatio = 0.6;
+            const noodleWidth = canvas.width * noodleTargetWidthRatio;
+            const noodleStartX = centerX - (noodleWidth / 2);
+            const noodleEndX = centerX + (noodleWidth / 2);
+            const lineAmplitude = canvas.height * lineAmplitudeFactor;
+
+            for (let i = 0; i < numLines; i++) {
+                ctx.beginPath();
+                const offset = i * (Math.PI * 2 / numLines) * 2; 
+                
+                let colorHue;
+                if (colorAdjust) {
+                    colorHue = (colorAdjust.baseHueOffset + (Math.sin(time * 0.1 + i * 0.01) * 0.5 + 0.5) * colorAdjust.hueRange) % 360;
+                } else {
+                    colorHue = (time * 50 + i * 2.5) % 360; 
+                }
+
+                const saturation = 100;
+                const lightness = 50 + Math.cos(time * 0.1 + i * 0.01) * 10;
+                const opacity = 1.0;
+                ctx.strokeStyle = `hsla(${colorHue}, ${saturation}%, ${lightness}%, ${opacity})`;
+
+                ctx.lineWidth = 2.0;
+
+                for (let x = 0; x < canvas.width; x += 5) {
+                    let effectiveAmplitudeScale = 0;
+                    if (x >= noodleStartX && x <= noodleEndX) {
+                        const normalizedNoodleX = (x - noodleStartX) / noodleWidth;
+                        effectiveAmplitudeScale = Math.pow(Math.cos((normalizedNoodleX - 0.5) * Math.PI), 2.0);
+                    }
+
+                    const y = Math.sin(x * lineFrequency + time + offset) * (lineAmplitude * (0.9 + Math.sin(time * 0.03 + i * 0.015) * 0.1) * effectiveAmplitudeScale)
+                                     + Math.sin(x * (lineFrequency * 2.5) + time * 0.8 + offset * 0.7) * (lineAmplitude * 0.15 * effectiveAmplitudeScale)
+                                     + Math.cos(x * (lineFrequency * 1.2) + time * 0.6 + offset * 1.3) * (lineAmplitude * 0.1 * effectiveAmplitudeScale)
+                                     + Math.sin(x * (lineFrequency * 3.0) + time * 1.0 + offset * 0.4) * (lineAmplitude * 0.08 * effectiveAmplitudeScale)
+                                     + canvas.height / 2;
+                    if (x === 0) {
+                        ctx.moveTo(x, y);
+                    } else {
+                        ctx.lineTo(x, y);
+                    }
+                }
+                ctx.stroke();
+            }
+        }
+
+
+        let time = 0; // Global time for all animations
+        let lineAmplitude; // This will be set by resizeCanvas initially
+
+        // Main animation loop dispatcher
+        function drawGlyph() {
+            // Increment global time
+            time += currentTemplate.lineSpeed || currentTemplate.rhythmicLineSpeed || currentTemplate.waveSpeed || currentTemplate.warpSpeed || 0.002; // Use template speed or default
+
+            // Clear canvas based on current template's background needs
+            if (currentTemplate.type === 'hyperspace' || currentTemplate.type === 'shooting' || currentTemplate.type === 'particles' || currentTemplate.type === 'radialBurst' || currentTemplate.type === 'seedwave-rhythmic' || currentTemplate.type === 'seedwave-concentric') {
+                ctx.fillStyle = 'rgba(10, 10, 13, 0.15)'; // Darker trail for these types
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            } else {
+                const overlayAlpha = 0.05; // Default subtle trail for noodle types
+                ctx.fillStyle = `rgba(255, 255, 255, ${overlayAlpha})`; 
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            }
+
+
+            // Call the appropriate drawing function based on the current template type
+            switch (currentTemplate.type) {
+                case "noodle":
+                    drawOriginalNoodlePulse(canvas, ctx, time, currentTemplate);
+                    break;
+                case "seedwave-rhythmic":
+                    drawRhythmicPulse(canvas, ctx, time, currentTemplate);
+                    break;
+                case "seedwave-concentric":
+                    drawConcentricWaves(canvas, ctx, time, currentTemplate);
+                    break;
+                case "seedwave-shooting":
+                    drawShootingPulses(canvas, ctx, time, currentTemplate);
+                    break;
+                case "seedwave-particles":
+                    drawParticlesWithConnections(canvas, ctx, time, currentTemplate);
+                    break;
+                case "seedwave-radialBurst":
+                    drawRadialBursts(canvas, ctx, time, currentTemplate);
+                    break;
+                case "seedwave-hyperspace":
+                    drawHyperspaceWarp(canvas, ctx, time, currentTemplate);
+                    break;
+                case "seedwave-nodeFlow":
+                    drawNodeFlowPulse(canvas, ctx, time, currentTemplate);
+                    break;
+                default:
+                    // Fallback to original noodle if type is not recognized
+                    drawOriginalNoodlePulse(canvas, ctx, time, currentTemplate);
+                    break;
+            }
+
+            animationFrameId = requestAnimationFrame(drawGlyph);
+        }
+
+        // Function to apply a selected template
+        function applyTemplate(templateName) {
+            const template = glyphTemplates.find(t => t.name === templateName);
+            if (template) {
+                currentTemplate = template; // Set the current template
+                
+                // Reset state for complex animations when switching templates
+                shootingPulses = [];
+                particles = [];
+                radialBursts = [];
+                nodePulseGraphSharedData.electricityPoints = []; // Reset electricity for node flow
+
+                resizeCanvas(); // Recalculate amplitude based on new factor
+                // Restart animation if it's already running to apply changes immediately
+                if (animationFrameId) {
+                    cancelAnimationFrame(animationFrameId);
+                }
+                drawGlyph();
+            }
+        }
+
+        // Set canvas size for responsiveness
+        function resizeCanvas() {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+            if (canvas.width < 300) canvas.width = 300;
+            if (canvas.height < 150) canvas.height = 150;
+            // Recalculate lineAmplitude based on current template's factor
+            if (currentTemplate && currentTemplate.lineAmplitudeFactor) {
+                lineAmplitude = canvas.height * currentTemplate.lineAmplitudeFactor;
+            } else if (currentTemplate && currentTemplate.rhythmicLineAmplitude) {
+                // For rhythmic, amplitude is a factor of height
+                lineAmplitude = canvas.height * currentTemplate.rhythmicLineAmplitude;
+            } else {
+                lineAmplitude = canvas.height * 0.4; // Default fallback
+            }
+        }
+
+        window.onload = function () {
+            resizeCanvas();
+            // Populate the dropdown with templates
+            const pulseDesignSelect = document.getElementById('pulseDesign');
+            
+            // Get unique categories and sort them
+            const categories = [...new Set(glyphTemplates.map(t => t.category))].sort();
+
+            categories.forEach(category => {
+                const optgroup = document.createElement('optgroup');
+                optgroup.label = category;
+                
+                // Filter templates by category and sort them by name
+                const templatesInCategory = glyphTemplates.filter(t => t.category === category).sort((a, b) => a.name.localeCompare(b.name));
+                
+                templatesInCategory.forEach(template => {
+                    const option = document.createElement('option');
+                    option.value = template.name;
+                    option.textContent = template.name;
+                    optgroup.appendChild(option);
+                });
+                pulseDesignSelect.appendChild(optgroup);
+            });
+
+            // Apply the default template (e.g., "Vibrant Flow")
+            applyTemplate("Vibrant Flow");
+
+            // Add event listener for template selection
+            pulseDesignSelect.addEventListener('change', (event) => {
+                applyTemplate(event.target.value);
+            });
+
+            loadDayNightPreference(); // Load day/night preference on load
+
+            // --- HotStack Specific JS Initialization ---
+            // Initialize Omnidrop canvas and particles
+            initOmnidropCanvas();
+            // Start Omnidrop animation loop
+            animateOmnidropCanvas();
+            // Start the countdown timer
+            startCountdown();
+        };
+
+
+        // --- Day/Night Toggle Logic ---
+        const dayNightToggle = document.getElementById('dayNightToggle');
+        if (dayNightToggle) {
+            dayNightToggle.addEventListener('click', () => {
+                const isDarkMode = !document.body.classList.contains('dark-mode'); // Determine target mode first
+                document.body.classList.toggle('dark-mode');
+                localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+                dayNightToggle.innerHTML = isDarkMode ? '<i class="fas fa-sun"></i> Day/Night' : '<i class="fas fa-moon"></i> Day/Night';
+            });
+        }
+
+        function loadDayNightPreference() {
+            const savedTheme = localStorage.getItem('theme');
+            const dayNightToggle = document.getElementById('dayNightToggle');
+            const isDarkMode = savedTheme === 'dark'; // Determine initial dark mode state
+
+            if (isDarkMode) {
+                document.body.classList.add('dark-mode');
+                if (dayNightToggle) dayNightToggle.innerHTML = '<i class="fas fa-sun"></i> Day/Night';
+            } else {
+                document.body.classList.remove('dark-mode');
+                if (dayNightToggle) dayNightToggle.innerHTML = '<i class="fas fa-moon"></i> Day/Night';
+            }
+        }
+
+        // Hamburger menu toggle for mobile
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainNav = document.querySelector('.main-nav');
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
+
+            if (hamburgerMenu && mainNav) {
+                hamburgerMenu.addEventListener('click', () => {
+                    mainNav.classList.toggle('active');
+                });
+            }
+
+            // Close mobile nav on link click
+            document.querySelectorAll('.main-nav .nav-list a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                    }
+                });
+            });
+
+            // Smooth scrolling for internal links (kept for any potential future internal links)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href && href.length > 1) {
+                        e.preventDefault();
+                        const targetElement = document.querySelector(href);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+
+            // --- HotStack Specific DOMContentLoaded Logic ---
+            const dropZone = document.getElementById('dropZone');
+            const fileInput = document.getElementById('fileInput');
+            const uploadButton = document.getElementById('uploadButton');
+
+            if (dropZone) { // Ensure dropZone exists before adding listeners
+                dropZone.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    dropZone.classList.add('highlight');
+                });
+
+                dropZone.addEventListener('dragleave', (e) => {
+                    e.preventDefault();
+                    dropZone.classList.remove('highlight');
+                });
+
+                dropZone.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    dropZone.classList.remove('highlight');
+                    const files = e.dataTransfer.files;
+                    if (files.length > 0) {
+                        processFile(files[0]);
+                    }
+                });
+            }
+
+            if (uploadButton && fileInput) { // Ensure buttons exist
+                uploadButton.addEventListener('click', () => {
+                    if (hotStackTime <= 0) { // Use hotStackTime here
+                        showCustomModal("Omnidrop Window Closed!", "The 3-minute Omnidrop window has expired. Please refresh the page to start a new ingestion timer.", true);
+                        return;
+                    }
+                    fileInput.click();
+                });
+
+                fileInput.addEventListener('change', (e) => {
+                    const files = e.target.files;
+                    if (files.length > 0) {
+                        processFile(files[0]);
+                    }
+                    e.target.value = null;
+                });
+            }
+        });
+
+        // --- HotStack Specific JS Functions and Classes ---
+
+        // Custom Modal Functions (replaces any previous simpler versions)
+        function showCustomModal(title, message, autoDismiss = true) {
+            const modal = document.getElementById('customModal');
+            const modalMessage = document.getElementById('customModalMessage');
+            if (modal && modalMessage) {
+                modalMessage.innerHTML = `<strong>${title}</strong><br>${message}`;
+                modal.classList.add('active');
+
+                if (autoDismiss) {
+                    setTimeout(() => {
+                        hideCustomModal();
+                    }, 3000);
+                }
+            }
+        }
+
+        function hideCustomModal() {
+            const modal = document.getElementById('customModal');
+            if (modal) {
+                modal.classList.remove('active');
+            }
+        }
+
+        // Countdown Timer Logic
+        let hotStackTime = 180; // Initial time in seconds (3 minutes) for HotStack
+        let hotStackInterval;
+        const timerElement = document.getElementById("timer");
+        const claimButton = document.getElementById("claimButton");
+        const hotStackDropZone = document.getElementById('dropZone'); // Renamed to avoid conflict
+        const hotStackUploadButton = document.getElementById('uploadButton'); // Renamed to avoid conflict
+
+        function startCountdown() {
+            if (!timerElement || !claimButton || !hotStackDropZone || !hotStackUploadButton) return;
+
+            hotStackInterval = setInterval(() => {
+                const minutes = String(Math.floor(hotStackTime / 60)).padStart(2, "0");
+                const seconds = String(hotStackTime % 60).padStart(2, "0");
+                timerElement.textContent = `${minutes}:${seconds}`;
+
+                if (hotStackTime <= 0) {
+                    clearInterval(hotStackInterval);
+                    timerElement.textContent = "00:00";
+                    showCustomModal("Time's Up!", "The instant Omnidrop window has closed. Please refresh to activate a new claim timer.");
+                    claimButton.classList.add('opacity-60', 'cursor-not-allowed'); 
+                    claimButton.style.pointerEvents = 'none';
+                    hotStackDropZone.style.pointerEvents = 'none';
+                    hotStackDropZone.classList.remove('cursor-pointer');
+                    hotStackUploadButton.disabled = true;
+                }
+                hotStackTime--;
+            }, 1000);
+        }
+
+        // Omnidrop Canvas Animation Logic
+        const omnidropCanvas = document.getElementById('omnidropCanvas');
+        const omnidropCtx = omnidropCanvas ? omnidropCanvas.getContext('2d') : null;
+        let omnidropAnimationFrameId;
+        let omnidropParticles = [];
+        const omnidropParticleCount = 100;
+        const omnidropParticleSize = 3;
+        const omnidropParticleSpeed = 2;
+
+        class OmnidropParticle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.size = omnidropParticleSize;
+                this.speed = omnidropParticleSpeed + Math.random() * 1.5;
+                this.opacity = Math.random() * 0.5 + 0.5;
+                this.color = `rgba(255, 204, 0, ${this.opacity})`;
+            }
+
+            draw() {
+                if (!omnidropCtx) return;
+                omnidropCtx.beginPath();
+                omnidropCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                omnidropCtx.fillStyle = this.color;
+                omnidropCtx.fill();
+            }
+
+            update() {
+                this.y += this.speed;
+                if (this.y > omnidropCanvas.height) {
+                    this.y = -this.size;
+                    this.x = Math.random() * omnidropCanvas.width;
+                    this.opacity = Math.random() * 0.5 + 0.5;
+                    this.color = `rgba(255, 204, 0, ${this.opacity})`;
+                }
+                this.draw();
+            }
+        }
+
+        function initOmnidropCanvas() {
+            if (!omnidropCanvas || !omnidropCtx) return;
+            // Set canvas dimensions to match its parent section
+            const hotstackSection = document.getElementById('hotstack-section');
+            if (hotstackSection) {
+                omnidropCanvas.width = hotstackSection.offsetWidth;
+                omnidropCanvas.height = hotstackSection.offsetHeight;
+            } else {
+                // Fallback if section not found, though it should be
+                omnidropCanvas.width = window.innerWidth;
+                omnidropCanvas.height = window.innerHeight;
+            }
+            
+            omnidropParticles = [];
+            for (let i = 0; i < omnidropParticleCount; i++) {
+                omnidropParticles.push(new OmnidropParticle(Math.random() * omnidropCanvas.width, Math.random() * omnidropCanvas.height));
+            }
+        }
+
+        function animateOmnidropCanvas() {
+            if (!omnidropCtx) return;
+            omnidropAnimationFrameId = requestAnimationFrame(animateOmnidropCanvas);
+            omnidropCtx.clearRect(0, 0, omnidropCanvas.width, omnidropCanvas.height);
+
+            // Draw a semi-transparent dark background for the trail effect, matching the section's background
+            omnidropCtx.fillStyle = 'rgba(26, 26, 28, 0.1)'; /* Using --bg-color-dark (1a1a1c) with transparency */
+            omnidropCtx.fillRect(0, 0, omnidropCanvas.width, omnidropCanvas.height);
+
+
+            for (let i = 0; i < omnidropParticles.length; i++) {
+                omnidropParticles[i].update();
+            }
+        }
+
+        // File Processing Function
+        function processFile(file) {
+            if (hotStackTime <= 0) {
+                showCustomModal("Omnidrop Window Closed!", "The 3-minute Omnidrop window has expired. Please refresh the page to start a new ingestion timer.", true);
+                return;
+            }
+
+            if (file.type === 'text/html' || file.type === 'application/pdf') {
+                showCustomModal("Omnidrop Initiated!", `"${file.name}" is being omnidropped into CodeNest™! (Simulated rapid ingestion adhering to 3-minute rule)`, true);
+            } else {
+                showCustomModal("Invalid File Type", "Only HTML or PDF files can be omnidropped.", true);
+            }
+        }
+
+        // Event listener for responsive Omnidrop canvas
+        window.addEventListener('resize', initOmnidropCanvas);
+
+    </script>
+
+    <script src="omnigrid-app.js"></script>
+</body>
+</html>
