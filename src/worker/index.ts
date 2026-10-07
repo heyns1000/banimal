@@ -19,11 +19,18 @@ const app = new Hono<{ Bindings: Env }>()
 app.use(
   '/*',
   cors({
-    origin: [
-      'https://banimal.co.za',
-      'https://banimal.faa.zone',
-      'https://www.banimal.co.za',
-    ],
+    // Fixed storefronts, plus any extra site (e.g. the WordPress shop) listed in the
+    // ALLOWED_ORIGINS variable as comma-separated origins, so adding one needs no code change.
+    origin: (origin, c) => {
+      const fixed = [
+        'https://banimal.co.za',
+        'https://banimal.faa.zone',
+        'https://www.banimal.co.za',
+        'https://fruitful.faa.zone',
+      ]
+      const extra = String((c.env as { ALLOWED_ORIGINS?: string } | undefined)?.ALLOWED_ORIGINS || '').split(',').map((o) => o.trim()).filter(Boolean)
+      return fixed.includes(origin) || extra.includes(origin) ? origin : null
+    },
     allowHeaders: ['Content-Type', 'Authorization'],
     allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true,
