@@ -4,11 +4,11 @@ Tags: banimal, woocommerce, cloudflare
 Requires at least: 5.9
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 5.1.1
+Stable tag: 5.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Thin, signed WordPress client for the Banimal Cloudflare Worker.
+Thin, signed WordPress client for the Banimal Cloudflare Worker, with the full Fruitful™ OmniGrid™ app built in.
 
 == Description ==
 
@@ -21,7 +21,27 @@ payments (Paystack), and delivery (BobGo).
 See wordpress-plugin/banimal-ecosystem-connector/legacy/README.md for why
 this is a full rewrite rather than a patch of the 4.7.x line.
 
+== Installation ==
+
+1. In WordPress go to Plugins → Add New → Upload Plugin, choose the zip, then Install Now and Activate.
+2. Settings → Permalinks must be anything except Plain (the app lives at /fruitful-app/).
+3. Open Banimal → Fruitful™ App, or visit https://your-site/fruitful-app/ and add that link to your menu.
+4. Embed any app page in a post or page with [fruitful_app page="ecosystem.html" height="85vh"].
+
 == Changelog ==
+
+= 5.2.0 =
+* The full Fruitful™ OmniGrid™ app ships inside the plugin (app/) and is served from the site at
+  /fruitful-app/: every page, terminal, A–Z index and data file runs under the site's own domain,
+  so the app no longer lives apart from the site.
+* No 404s: a missing app page redirects to the nearest real page above it, ending at the app home.
+* Static files only: app/ is served by an extension whitelist, never executed as PHP, and nothing
+  outside app/ or starting with a dot can be requested.
+* New [fruitful_app] shortcode and a Banimal → Fruitful™ App admin screen.
+* Rewrite rules are refreshed once per version, so upload-and-replace updates need no reactivation.
+* The bundle is built by bin/bundle-fruitful-app.py, which refuses to build if a brand mark differs
+  from its pinned original or any file carries a secret or a personal contact detail.
+
 
 = 5.1.1 =
 * Hardened `class-brand-guide.php`: a palette entry's hex value is now
