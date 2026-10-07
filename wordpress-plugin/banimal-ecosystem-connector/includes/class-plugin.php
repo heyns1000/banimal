@@ -11,6 +11,7 @@ class Banimal_Plugin {
     private $diagnostics;
     private $id_finder;
     private $brand_guide;
+    private $fruitful_app;
 
     public static function instance() {
         if (self::$instance === null) {
@@ -31,6 +32,7 @@ class Banimal_Plugin {
         $this->diagnostics = new Banimal_Admin_Diagnostics($this->worker_client);
         $this->id_finder = new Banimal_Id_Finder();
         $this->brand_guide = new Banimal_Brand_Guide($this->worker_client);
+        $this->fruitful_app = new Banimal_Fruitful_App();
 
         add_action('admin_menu', [$this, 'add_admin_menu']);
     }

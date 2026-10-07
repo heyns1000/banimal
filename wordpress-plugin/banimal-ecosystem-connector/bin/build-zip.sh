@@ -24,7 +24,9 @@ ABS_OUT_ZIP="$(cd "$OUT_DIR" && pwd)/$(basename "$OUT_ZIP")"
   zip -r -q "$ABS_OUT_ZIP" "$SLUG" \
     -x "$SLUG/legacy/*" \
     -x "$SLUG/bin/*" \
-    -x "$SLUG/dist/*"
+    -x "$SLUG/dist/*" \
+    -x "$SLUG/.gitignore" \
+    -x "*/.DS_Store"
 )
 
 echo "Built $ABS_OUT_ZIP"
