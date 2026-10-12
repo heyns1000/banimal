@@ -175,12 +175,12 @@ export default function BaobabEcoStack() {
         
         {/* Left: EcoStack Growth Matrix */}
         <div className="lg:col-span-8 space-y-6">
-          <PulseCard variant="premium" intensity="low" className="bg-stone-950/80 border border-stone-800 p-2 rounded-full flex items-center backdrop-blur-sm">
+          <PulseCard variant="premium" intensity="low" className="bg-stone-950/80 border border-stone-800 p-2 rounded-full flex items-center backdrop-blur-xs">
             <Search className="ml-4 w-4 h-4 text-stone-600" />
             <input 
               type="text" 
               placeholder={`Search the Forest (${licenses.length} Growth Nodes)...`}
-              className="w-full bg-transparent py-3 px-4 focus:outline-none text-sm font-bold placeholder:text-stone-800"
+              className="w-full bg-transparent py-3 px-4 focus:outline-hidden text-sm font-bold placeholder:text-stone-800"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
@@ -250,7 +250,7 @@ export default function BaobabEcoStack() {
 
         {/* Right: Growth Intelligence & Sovereignty */}
         <div className="lg:col-span-4 space-y-6">
-          <PulseCard variant="premium" intensity="medium" className="bg-stone-950 border border-stone-800 p-8 rounded-[2rem] relative overflow-hidden group">
+          <PulseCard variant="premium" intensity="medium" className="bg-stone-950 border border-stone-800 p-8 rounded-4xl relative overflow-hidden group">
             <div className="absolute top-0 right-0 p-6">
               <Zap 
                 className={`w-5 h-5 ${isRooted ? 'animate-pulse' : ''}`}
@@ -360,7 +360,7 @@ export default function BaobabEcoStack() {
             </PulseButton>
           </PulseCard>
 
-          <PulseCard variant="glow" intensity="medium" className="bg-gradient-to-br from-stone-900/40 to-black border border-stone-800 p-8 rounded-[2rem] relative overflow-hidden group">
+          <PulseCard variant="glow" intensity="medium" className="bg-linear-to-br from-stone-900/40 to-black border border-stone-800 p-8 rounded-4xl relative overflow-hidden group">
             <div className="flex items-center gap-4 mb-4">
               <div 
                 className="p-3 rounded-2xl"

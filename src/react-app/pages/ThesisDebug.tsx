@@ -121,7 +121,7 @@ export default function ThesisDebug() {
                 <Terminal className="w-4 h-4 text-stone-500" />
                 <span className="text-xs font-bold uppercase tracking-widest text-stone-300">System Log Trace</span>
               </div>
-              <span className="text-[10px] text-green-500 bg-green-500/10 px-2 py-0.5 rounded font-mono">LIVE_STREAM</span>
+              <span className="text-[10px] text-green-500 bg-green-500/10 px-2 py-0.5 rounded-sm font-mono">LIVE_STREAM</span>
             </div>
             
             <div className="space-y-2 overflow-y-auto max-h-[400px]">
@@ -137,7 +137,7 @@ export default function ThesisDebug() {
             </div>
 
             {/* Scanline Effect */}
-            <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-stone-500/5 to-transparent h-24 w-full animate-scan"></div>
+            <div className="absolute inset-0 pointer-events-none bg-linear-to-b from-transparent via-stone-500/5 to-transparent h-24 w-full animate-scan"></div>
           </div>
 
           <div className="grid grid-cols-3 gap-4">
@@ -211,7 +211,7 @@ export default function ThesisDebug() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-red-950/20 to-stone-950 border border-stone-800 p-6 rounded-2xl text-center">
+          <div className="bg-linear-to-br from-red-950/20 to-stone-950 border border-stone-800 p-6 rounded-2xl text-center">
             <Zap className="w-6 h-6 text-yellow-600 mx-auto mb-2" />
             <p className="text-[10px] font-black text-stone-500 uppercase mb-1">Great Wall Integrity</p>
             <p className="text-xl font-black text-white italic">永不崩塌</p>

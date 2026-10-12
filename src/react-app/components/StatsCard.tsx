@@ -13,7 +13,7 @@ export default function StatsCard({ icon: Icon, value, label, gradient, sublabel
   return (
     <div className="custom-card p-6 rounded-2xl">
       <div className="flex items-start justify-between mb-4">
-        <div className={`p-3 rounded-xl bg-gradient-to-br ${gradient}`}>
+        <div className={`p-3 rounded-xl bg-linear-to-br ${gradient}`}>
           <Icon className="w-6 h-6 text-white" />
         </div>
       </div>

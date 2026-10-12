@@ -141,7 +141,7 @@ export default function Omnigrid() {
     <Layout>
       {/* Hero Section with Billboard */}
       <div className="mb-12">
-        <div className="premium-card p-10 bg-gradient-to-br from-stone-900 via-gray-900 to-stone-900 text-white">
+        <div className="premium-card p-10 bg-linear-to-br from-stone-900 via-gray-900 to-stone-900 text-white">
           <div className="flex items-center justify-between mb-8">
             <div>
               <div className="inline-block px-4 py-1 border border-yellow-500/50 rounded-full text-yellow-500 text-xs font-bold tracking-widest uppercase mb-4">
@@ -154,14 +154,14 @@ export default function Omnigrid() {
                 120 Brands. $100 Billion Vision. 1000-Year Legacy.
               </p>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm px-6 py-4 rounded-2xl border border-white/20 text-center">
+            <div className="bg-white/10 backdrop-blur-xs px-6 py-4 rounded-2xl border border-white/20 text-center">
               <div className="text-4xl font-black text-yellow-500 mb-1">{gridStats.complianceScore}%</div>
               <div className="text-sm text-gray-300">Compliance</div>
             </div>
           </div>
 
           {/* Live Billboard */}
-          <div className="bg-gray-800/80 backdrop-blur-sm p-8 rounded-2xl border-l-4 border-red-700">
+          <div className="bg-gray-800/80 backdrop-blur-xs p-8 rounded-2xl border-l-4 border-red-700">
             <p className="text-xs text-red-500 font-bold uppercase tracking-widest mb-4">Live Slogan Directive</p>
             <h2 
               key={billboardIndex}
@@ -172,27 +172,27 @@ export default function Omnigrid() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-6 gap-4 mt-8">
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-gray-300 mb-1">Brands</div>
               <div className="text-3xl font-black">{gridStats.totalBrands}</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-gray-300 mb-1">Target</div>
               <div className="text-3xl font-black">${gridStats.valuationTarget}B</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-gray-300 mb-1">Languages</div>
               <div className="text-3xl font-black">{gridStats.languages}</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-gray-300 mb-1">Units</div>
               <div className="text-3xl font-black">{(gridStats.assetUnits / 1000).toFixed(0)}K</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-gray-300 mb-1">Compliance</div>
               <div className="text-3xl font-black text-green-400">{gridStats.complianceScore}%</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-gray-300 mb-1">Nodes</div>
               <div className="text-3xl font-black">{gridStats.globalNodes}</div>
             </div>
@@ -208,7 +208,7 @@ export default function Omnigrid() {
             const Icon = metric.icon;
             return (
               <div key={index} className="premium-card p-6">
-                <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${metric.gradient} mb-4`}>
+                <div className={`inline-flex p-4 rounded-2xl bg-linear-to-br ${metric.gradient} mb-4`}>
                   <Icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{metric.title}</h3>
@@ -288,7 +288,7 @@ export default function Omnigrid() {
           <select
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
-            className="px-6 py-3 border-2 border-gray-200 rounded-xl focus:border-yellow-500 focus:outline-none font-medium"
+            className="px-6 py-3 border-2 border-gray-200 rounded-xl focus:border-yellow-500 focus:outline-hidden font-medium"
           >
             <option value="all">All Categories</option>
             <option value="governance">Governance</option>
@@ -358,7 +358,7 @@ export default function Omnigrid() {
               <div className="space-y-2 mb-6">
                 {tier.benefits.map((benefit, idx) => (
                   <div key={idx} className="flex items-center gap-2 text-sm text-gray-700">
-                    <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
+                    <CheckCircle className="w-4 h-4 text-green-600 shrink-0" />
                     <span>{benefit}</span>
                   </div>
                 ))}
@@ -377,9 +377,9 @@ export default function Omnigrid() {
       </div>
 
       {/* Repository Integration */}
-      <div className="premium-card p-10 bg-gradient-to-br from-yellow-50 to-amber-50">
+      <div className="premium-card p-10 bg-linear-to-br from-yellow-50 to-amber-50">
         <div className="flex items-start gap-6 mb-8">
-          <div className="flex-shrink-0 w-20 h-20 gradient-gold rounded-2xl flex items-center justify-center">
+          <div className="shrink-0 w-20 h-20 gradient-gold rounded-2xl flex items-center justify-center">
             <Grid3x3 className="w-10 h-10 text-white" />
           </div>
           <div className="flex-1">

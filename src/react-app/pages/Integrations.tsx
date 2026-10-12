@@ -58,7 +58,7 @@ export default function Integrations() {
         {/* Header */}
         <div className="mb-12 animate-fade-in">
           <h1 className="text-4xl md:text-6xl font-bold mb-4 font-serif">
-            <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
               🌐 Global Integration Network
             </span>
           </h1>
@@ -71,25 +71,25 @@ export default function Integrations() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 animate-slide-up">
           <div className="premium-card p-8 text-center rounded-2xl border-2 border-blue-200">
             <div className="text-5xl font-black mb-3">
-              <span className="bg-gradient-to-br from-blue-500 to-cyan-600 bg-clip-text text-transparent">8</span>
+              <span className="bg-linear-to-br from-blue-500 to-cyan-600 bg-clip-text text-transparent">8</span>
             </div>
             <div className="text-sm text-gray-600 font-semibold uppercase tracking-wide">Payment Gateways</div>
           </div>
           <div className="premium-card p-8 text-center rounded-2xl border-2 border-purple-200">
             <div className="text-5xl font-black mb-3">
-              <span className="bg-gradient-to-br from-purple-500 to-pink-600 bg-clip-text text-transparent">3</span>
+              <span className="bg-linear-to-br from-purple-500 to-pink-600 bg-clip-text text-transparent">3</span>
             </div>
             <div className="text-sm text-gray-600 font-semibold uppercase tracking-wide">E-Commerce</div>
           </div>
           <div className="premium-card p-8 text-center rounded-2xl border-2 border-green-200">
             <div className="text-5xl font-black mb-3">
-              <span className="bg-gradient-to-br from-green-500 to-emerald-600 bg-clip-text text-transparent">4</span>
+              <span className="bg-linear-to-br from-green-500 to-emerald-600 bg-clip-text text-transparent">4</span>
             </div>
             <div className="text-sm text-gray-600 font-semibold uppercase tracking-wide">Cloud Services</div>
           </div>
           <div className="premium-card p-8 text-center rounded-2xl border-2 border-orange-200">
             <div className="text-5xl font-black mb-3">
-              <span className="bg-gradient-to-br from-orange-500 to-red-600 bg-clip-text text-transparent">2</span>
+              <span className="bg-linear-to-br from-orange-500 to-red-600 bg-clip-text text-transparent">2</span>
             </div>
             <div className="text-sm text-gray-600 font-semibold uppercase tracking-wide">AI Services</div>
           </div>
@@ -106,10 +106,10 @@ export default function Integrations() {
                 style={{ animationDelay: `${catIndex * 0.1}s` }}
               >
                 {/* Category Header */}
-                <div className={`bg-gradient-to-r ${category.color} p-8 text-white relative overflow-hidden`}>
+                <div className={`bg-linear-to-r ${category.color} p-8 text-white relative overflow-hidden`}>
                   <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80')] bg-cover bg-center"></div>
                   <div className="relative flex items-center gap-4">
-                    <div className="p-4 bg-white/20 backdrop-blur-sm rounded-2xl">
+                    <div className="p-4 bg-white/20 backdrop-blur-xs rounded-2xl">
                       <Icon className="w-10 h-10" />
                     </div>
                     <h2 className="text-3xl font-black font-serif">{category.category}</h2>
@@ -117,7 +117,7 @@ export default function Integrations() {
                 </div>
 
                 {/* Services Grid */}
-                <div className="p-8 bg-gradient-to-br from-white to-gray-50">
+                <div className="p-8 bg-linear-to-br from-white to-gray-50">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {category.services.map((service, serviceIndex) => (
                       <div
@@ -137,7 +137,7 @@ export default function Integrations() {
                         </div>
                         <div className="flex items-center gap-2 text-xs">
                           <CheckCircle className="w-4 h-4 text-green-500" />
-                          <span className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-3 py-1 rounded-lg font-bold uppercase tracking-wide">
+                          <span className="bg-linear-to-r from-green-500 to-emerald-600 text-white px-3 py-1 rounded-lg font-bold uppercase tracking-wide">
                             {service.status}
                           </span>
                         </div>
@@ -151,16 +151,16 @@ export default function Integrations() {
         </div>
 
         {/* How to Configure */}
-        <div className="mt-12 premium-card bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 rounded-3xl p-10 text-white shadow-2xl">
+        <div className="mt-12 premium-card bg-linear-to-br from-indigo-600 via-purple-600 to-pink-600 rounded-3xl p-10 text-white shadow-2xl">
           <h2 className="text-3xl font-black mb-8 flex items-center gap-3 font-serif">
-            <div className="p-3 bg-white/20 backdrop-blur-sm rounded-2xl">
+            <div className="p-3 bg-white/20 backdrop-blur-xs rounded-2xl">
               <Webhook className="w-8 h-8" />
             </div>
             How to Configure Integrations
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="flex gap-5">
-              <div className="flex-shrink-0 w-12 h-12 glass rounded-2xl flex items-center justify-center font-black text-2xl text-gray-900">
+              <div className="shrink-0 w-12 h-12 glass rounded-2xl flex items-center justify-center font-black text-2xl text-gray-900">
                 1
               </div>
               <div>
@@ -171,7 +171,7 @@ export default function Integrations() {
               </div>
             </div>
             <div className="flex gap-5">
-              <div className="flex-shrink-0 w-12 h-12 glass rounded-2xl flex items-center justify-center font-black text-2xl text-gray-900">
+              <div className="shrink-0 w-12 h-12 glass rounded-2xl flex items-center justify-center font-black text-2xl text-gray-900">
                 2
               </div>
               <div>
@@ -182,7 +182,7 @@ export default function Integrations() {
               </div>
             </div>
             <div className="flex gap-5">
-              <div className="flex-shrink-0 w-12 h-12 glass rounded-2xl flex items-center justify-center font-black text-2xl text-gray-900">
+              <div className="shrink-0 w-12 h-12 glass rounded-2xl flex items-center justify-center font-black text-2xl text-gray-900">
                 3
               </div>
               <div>
@@ -193,7 +193,7 @@ export default function Integrations() {
               </div>
             </div>
             <div className="flex gap-5">
-              <div className="flex-shrink-0 w-12 h-12 glass rounded-2xl flex items-center justify-center font-black text-2xl text-gray-900">
+              <div className="shrink-0 w-12 h-12 glass rounded-2xl flex items-center justify-center font-black text-2xl text-gray-900">
                 4
               </div>
               <div>
@@ -210,42 +210,42 @@ export default function Integrations() {
         <div className="mt-12 premium-card rounded-3xl p-10 shadow-2xl">
           <h2 className="text-3xl font-black text-gray-900 mb-8 font-serif">✨ Why Use Banimal Integrations?</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="flex flex-col items-center text-center p-6 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl border-2 border-blue-200">
+            <div className="flex flex-col items-center text-center p-6 bg-linear-to-br from-blue-50 to-cyan-50 rounded-2xl border-2 border-blue-200">
               <div className="text-5xl mb-4">🔒</div>
               <h3 className="font-bold text-gray-900 mb-3 text-lg">Secure Credentials</h3>
               <p className="text-sm text-gray-600 leading-relaxed">
                 All API keys are encrypted and stored securely using WordPress security standards
               </p>
             </div>
-            <div className="flex flex-col items-center text-center p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl border-2 border-purple-200">
+            <div className="flex flex-col items-center text-center p-6 bg-linear-to-br from-purple-50 to-pink-50 rounded-2xl border-2 border-purple-200">
               <div className="text-5xl mb-4">⚡</div>
               <h3 className="font-bold text-gray-900 mb-3 text-lg">Unified Interface</h3>
               <p className="text-sm text-gray-600 leading-relaxed">
                 Access all services through a single consistent API without managing multiple SDKs
               </p>
             </div>
-            <div className="flex flex-col items-center text-center p-6 bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl border-2 border-green-200">
+            <div className="flex flex-col items-center text-center p-6 bg-linear-to-br from-green-50 to-emerald-50 rounded-2xl border-2 border-green-200">
               <div className="text-5xl mb-4">🔄</div>
               <h3 className="font-bold text-gray-900 mb-3 text-lg">Auto Sync</h3>
               <p className="text-sm text-gray-600 leading-relaxed">
                 Data automatically syncs across configured cloud storage and GitHub repositories
               </p>
             </div>
-            <div className="flex flex-col items-center text-center p-6 bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl border-2 border-orange-200">
+            <div className="flex flex-col items-center text-center p-6 bg-linear-to-br from-orange-50 to-red-50 rounded-2xl border-2 border-orange-200">
               <div className="text-5xl mb-4">📊</div>
               <h3 className="font-bold text-gray-900 mb-3 text-lg">Central Monitoring</h3>
               <p className="text-sm text-gray-600 leading-relaxed">
                 Monitor all integrations from a single dashboard with health checks and logs
               </p>
             </div>
-            <div className="flex flex-col items-center text-center p-6 bg-gradient-to-br from-yellow-50 to-amber-50 rounded-2xl border-2 border-yellow-200">
+            <div className="flex flex-col items-center text-center p-6 bg-linear-to-br from-yellow-50 to-amber-50 rounded-2xl border-2 border-yellow-200">
               <div className="text-5xl mb-4">🌍</div>
               <h3 className="font-bold text-gray-900 mb-3 text-lg">Global Payments</h3>
               <p className="text-sm text-gray-600 leading-relaxed">
                 Accept payments from customers worldwide through 8+ payment gateways
               </p>
             </div>
-            <div className="flex flex-col items-center text-center p-6 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl border-2 border-indigo-200">
+            <div className="flex flex-col items-center text-center p-6 bg-linear-to-br from-indigo-50 to-purple-50 rounded-2xl border-2 border-indigo-200">
               <div className="text-5xl mb-4">🔌</div>
               <h3 className="font-bold text-gray-900 mb-3 text-lg">Webhook Integration</h3>
               <p className="text-sm text-gray-600 leading-relaxed">

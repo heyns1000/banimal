@@ -153,7 +153,7 @@ export default function FruitfulAPI() {
           <PulseCard 
             variant="glow" 
             intensity="high"
-            className="bg-gradient-to-br from-yellow-950/20 to-stone-950 border border-yellow-900/30 p-6 rounded-2xl relative overflow-hidden group"
+            className="bg-linear-to-br from-yellow-950/20 to-stone-950 border border-yellow-900/30 p-6 rounded-2xl relative overflow-hidden group"
           >
             <div className="relative z-10">
               <h4 className="text-xs font-black text-yellow-600 uppercase mb-2">TreatyHook™ Status</h4>

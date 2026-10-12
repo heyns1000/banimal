@@ -90,7 +90,7 @@ export default function ApiDocumentation() {
         {/* Header */}
         <div className="mb-12 animate-fade-in">
           <h1 
-            className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent"
+            className="text-4xl md:text-5xl font-bold mb-4 bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent"
             style={{
               transform: `scale(${0.98 + (breathIntensity * 0.02)})`,
               transition: 'transform 0.3s ease'
@@ -116,7 +116,7 @@ export default function ApiDocumentation() {
         >
           <div className="flex items-start gap-4">
             <AlertCircle 
-              className="w-8 h-8 flex-shrink-0 mt-1"
+              className="w-8 h-8 shrink-0 mt-1"
               style={{
                 color: pulseColor,
                 transform: `scale(${0.95 + (breathIntensity * 0.1)})`,
@@ -177,7 +177,7 @@ export default function ApiDocumentation() {
                 <div className="flex items-start justify-between gap-4 mb-3">
                   <div>
                     <div className="flex items-center gap-3 mb-2">
-                      <span className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-lg font-mono font-semibold text-sm">
+                      <span className="bg-white/20 backdrop-blur-xs px-3 py-1 rounded-lg font-mono font-semibold text-sm">
                         {endpoint.method}
                       </span>
                       <span className="text-2xl">📋</span>
@@ -228,7 +228,7 @@ export default function ApiDocumentation() {
                       {endpoint.features.map((feature, i) => (
                         <li key={i} className="flex gap-2 text-gray-700">
                           <Check 
-                            className="w-5 h-5 flex-shrink-0 mt-0.5"
+                            className="w-5 h-5 shrink-0 mt-0.5"
                             style={{ 
                               color: pulseColor,
                               opacity: 0.8 + (breathIntensity * 0.2)
@@ -259,7 +259,7 @@ export default function ApiDocumentation() {
                           {endpoint.parameters.map((param, i) => (
                             <tr key={i} className="border-t border-gray-200">
                               <td className="p-3">
-                                <code className="bg-gray-100 px-2 py-1 rounded text-xs font-mono">
+                                <code className="bg-gray-100 px-2 py-1 rounded-sm text-xs font-mono">
                                   {param.name}
                                   {param.required && <span style={{ color: pulseColor }}>*</span>}
                                 </code>
@@ -365,7 +365,7 @@ export default function ApiDocumentation() {
           <PulseCard variant="glow" intensity="low" className="border rounded-lg p-6 mb-6" style={{ borderColor: `${pulseColor}44` }}>
             <h4 className="font-semibold text-gray-900 mb-3">ℹ️ Webhook Format</h4>
             <p className="text-gray-700 mb-3 text-sm">Enter comma-separated URLs:</p>
-            <code className="block bg-white p-3 rounded border text-sm" style={{ borderColor: `${pulseColor}44` }}>
+            <code className="block bg-white p-3 rounded-sm border text-sm" style={{ borderColor: `${pulseColor}44` }}>
               https://hook1.example.com,https://hook2.example.com
             </code>
           </PulseCard>
@@ -399,7 +399,7 @@ export default function ApiDocumentation() {
                 key={i}
                 variant="glow" 
                 intensity="low"
-                className="bg-white/10 backdrop-blur-sm rounded-lg p-4"
+                className="bg-white/10 backdrop-blur-xs rounded-lg p-4"
                 style={{
                   opacity: 0.9 + (breathIntensity * 0.1),
                   transform: `scale(${0.98 + (breathIntensity * 0.02)})`,
@@ -412,7 +412,7 @@ export default function ApiDocumentation() {
             ))}
           </div>
           
-          <PulseCard variant="default" intensity="low" className="mt-8 p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
+          <PulseCard variant="default" intensity="low" className="mt-8 p-6 bg-white/10 backdrop-blur-xs rounded-2xl border border-white/20">
             <h3 className="font-bold text-xl mb-4">⚠️ Security Best Practices:</h3>
             <ul className="space-y-3 text-white/90">
               {[

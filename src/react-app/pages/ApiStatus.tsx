@@ -45,7 +45,7 @@ export default function ApiStatus() {
         {/* Header */}
         <div className="mb-12 animate-fade-in">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 font-serif">
-            <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
               📊 API Status Dashboard
             </span>
           </h1>
@@ -55,11 +55,11 @@ export default function ApiStatus() {
         </div>
 
         {/* Overall Status */}
-        <div className="premium-card bg-gradient-to-br from-green-50 via-emerald-50 to-green-50 border-2 border-green-300 rounded-3xl p-10 mb-10 animate-slide-up shadow-2xl">
+        <div className="premium-card bg-linear-to-br from-green-50 via-emerald-50 to-green-50 border-2 border-green-300 rounded-3xl p-10 mb-10 animate-slide-up shadow-2xl">
           <div className="flex flex-col md:flex-row items-center gap-6 mb-6">
             <div className="relative">
               <div className="absolute inset-0 bg-green-500 rounded-full blur-xl opacity-40 animate-pulse"></div>
-              <div className="relative bg-gradient-to-br from-green-500 to-emerald-600 text-white rounded-full p-5 shadow-xl">
+              <div className="relative bg-linear-to-br from-green-500 to-emerald-600 text-white rounded-full p-5 shadow-xl">
                 <CheckCircle className="w-12 h-12" />
               </div>
             </div>
@@ -99,7 +99,7 @@ export default function ApiStatus() {
             {healthChecks.map((check, index) => {
               const Icon = check.icon;
               return (
-                <div key={index} className="group flex items-center justify-between p-6 bg-gradient-to-r from-gray-50 to-white rounded-2xl border-2 border-gray-200 hover:border-green-400 hover:shadow-lg transition-all">
+                <div key={index} className="group flex items-center justify-between p-6 bg-linear-to-r from-gray-50 to-white rounded-2xl border-2 border-gray-200 hover:border-green-400 hover:shadow-lg transition-all">
                   <div className="flex items-center gap-4">
                     <div className="p-2 bg-green-50 rounded-xl group-hover:scale-110 transition-transform">
                       <Icon className="w-6 h-6 text-green-600" />
@@ -111,7 +111,7 @@ export default function ApiStatus() {
                       <div className="text-sm font-mono text-gray-600 font-semibold">{check.latency}</div>
                       <div className="text-xs text-gray-500">Response Time</div>
                     </div>
-                    <span className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-5 py-2 rounded-xl text-sm font-bold shadow-lg">
+                    <span className="bg-linear-to-r from-green-500 to-emerald-600 text-white px-5 py-2 rounded-xl text-sm font-bold shadow-lg">
                       ✓ Healthy
                     </span>
                   </div>
@@ -131,7 +131,7 @@ export default function ApiStatus() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {integrationStatus.map((integration, index) => (
-              <div key={index} className="group p-6 bg-gradient-to-br from-white to-gray-50 rounded-2xl border-2 border-gray-200 hover:border-yellow-400 hover:shadow-xl transition-all">
+              <div key={index} className="group p-6 bg-linear-to-br from-white to-gray-50 rounded-2xl border-2 border-gray-200 hover:border-yellow-400 hover:shadow-xl transition-all">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-3">
                     <span className="text-4xl group-hover:scale-110 transition-transform">{integration.emoji}</span>
@@ -139,8 +139,8 @@ export default function ApiStatus() {
                   </div>
                   <span className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wide ${
                     integration.status === 'configured' 
-                      ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-lg' 
-                      : 'bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 shadow-lg'
+                      ? 'bg-linear-to-r from-green-500 to-emerald-600 text-white shadow-lg' 
+                      : 'bg-linear-to-r from-yellow-400 to-orange-500 text-gray-900 shadow-lg'
                   }`}>
                     {integration.status}
                   </span>
@@ -163,7 +163,7 @@ export default function ApiStatus() {
             Test API Endpoints
           </h2>
           <div className="space-y-5">
-            <button className="w-full bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white px-8 py-6 rounded-2xl font-bold text-lg hover:shadow-2xl transform hover:scale-105 transition-all flex items-center justify-center gap-3 group">
+            <button className="w-full bg-linear-to-r from-indigo-600 via-purple-600 to-pink-600 text-white px-8 py-6 rounded-2xl font-bold text-lg hover:shadow-2xl transform hover:scale-105 transition-all flex items-center justify-center gap-3 group">
               <Play className="w-6 h-6 group-hover:animate-pulse" />
               Test Supply Chain Endpoint
               <span className="ml-auto text-sm opacity-75">POST /automated-supply</span>
@@ -189,15 +189,15 @@ export default function ApiStatus() {
         {/* Recent Activity */}
         <div className="premium-card rounded-3xl p-8 animate-slide-up shadow-2xl" style={{ animationDelay: '0.4s' }}>
           <h2 className="text-3xl font-black text-gray-900 mb-8 flex items-center gap-3 font-serif">
-            <div className="p-3 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl">
+            <div className="p-3 bg-linear-to-br from-blue-500 to-cyan-500 rounded-2xl">
               <Activity className="w-7 h-7 text-white" />
             </div>
             Recent Activity Log
           </h2>
           <div className="space-y-4">
             {recentActivity.map((activity, index) => (
-              <div key={index} className="flex items-start gap-4 p-5 bg-gradient-to-r from-gray-50 to-white rounded-2xl border-2 border-gray-200 hover:border-blue-300 hover:shadow-md transition-all">
-                <div className="flex-shrink-0 mt-1">
+              <div key={index} className="flex items-start gap-4 p-5 bg-linear-to-r from-gray-50 to-white rounded-2xl border-2 border-gray-200 hover:border-blue-300 hover:shadow-md transition-all">
+                <div className="shrink-0 mt-1">
                   {getActivityIcon(activity.type)}
                 </div>
                 <div className="flex-1">

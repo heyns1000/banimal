@@ -40,7 +40,7 @@ export default function Layout({ children }: LayoutProps) {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-amber-50 to-gray-50">
+    <div className="min-h-screen bg-linear-to-br from-gray-50 via-amber-50 to-gray-50">
       {/* Header */}
       <header 
         className="glass sticky top-0 z-50 border-b border-gray-200/50 shadow-lg transition-all duration-300"
@@ -54,13 +54,13 @@ export default function Layout({ children }: LayoutProps) {
             <Link to="/" className="flex items-center gap-4 group">
               <div className="relative">
                 <div 
-                  className="absolute inset-0 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-2xl blur-lg opacity-40 group-hover:opacity-60 transition-all duration-300"
+                  className="absolute inset-0 bg-linear-to-br from-yellow-400 to-amber-600 rounded-2xl blur-lg opacity-40 group-hover:opacity-60 transition-all duration-300"
                   style={{
                     opacity: 0.4 + (breathIntensity * 0.3)
                   }}
                 ></div>
                 <div 
-                  className="relative text-5xl transform group-hover:scale-110 transition-all duration-300 bg-gradient-to-br from-yellow-500 to-amber-600 p-3 rounded-2xl shadow-lg"
+                  className="relative text-5xl transform group-hover:scale-110 transition-all duration-300 bg-linear-to-br from-yellow-500 to-amber-600 p-3 rounded-2xl shadow-lg"
                   style={{
                     transform: `scale(${0.95 + (breathIntensity * 0.05)})`,
                     boxShadow: `0 0 ${20 * breathIntensity}px ${pulseColor}44`
@@ -71,7 +71,7 @@ export default function Layout({ children }: LayoutProps) {
               </div>
               <div>
                 <h1 className="text-2xl font-black font-serif">
-                  <span className="bg-gradient-to-r from-gray-900 via-amber-900 to-gray-900 bg-clip-text text-transparent">
+                  <span className="bg-linear-to-r from-gray-900 via-amber-900 to-gray-900 bg-clip-text text-transparent">
                     Banimal Ecosystem
                   </span>
                 </h1>
@@ -92,7 +92,7 @@ export default function Layout({ children }: LayoutProps) {
                     to={item.href}
                     className={`flex items-center gap-2 px-5 py-3 rounded-xl font-medium transition-all duration-300 ${
                       isActive(item.href)
-                        ? 'bg-gradient-to-r from-yellow-400 to-amber-500 text-gray-900 shadow-lg font-bold'
+                        ? 'bg-linear-to-r from-yellow-400 to-amber-500 text-gray-900 shadow-lg font-bold'
                         : 'text-gray-700 hover:bg-white/60 hover:shadow-md'
                     }`}
                     style={isActive(item.href) ? {
@@ -130,7 +130,7 @@ export default function Layout({ children }: LayoutProps) {
                     onClick={() => setMobileMenuOpen(false)}
                     className={`flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 ${
                       isActive(item.href)
-                        ? 'bg-gradient-to-r from-yellow-400 to-amber-500 text-gray-900 shadow-lg font-bold'
+                        ? 'bg-linear-to-r from-yellow-400 to-amber-500 text-gray-900 shadow-lg font-bold'
                         : 'text-gray-700 hover:bg-white/60 hover:shadow-md'
                     }`}
                     style={isActive(item.href) ? {
@@ -153,7 +153,7 @@ export default function Layout({ children }: LayoutProps) {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white mt-20">
+      <footer className="bg-linear-to-br from-gray-900 via-purple-900 to-gray-900 text-white mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
             <div>

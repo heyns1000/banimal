@@ -30,7 +30,7 @@ export default function Languages() {
         {/* Header */}
         <div className="mb-12 animate-fade-in">
           <h1 className="text-4xl md:text-6xl font-bold mb-4 font-serif">
-            <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
               🌍 Global Language Network
             </span>
           </h1>
@@ -50,14 +50,14 @@ export default function Languages() {
           </div>
           <div className="premium-card p-8 text-center rounded-2xl border-2 border-purple-200">
             <div className="text-6xl font-black mb-3">
-              <span className="bg-gradient-to-br from-purple-500 to-pink-600 bg-clip-text text-transparent">5.2B</span>
+              <span className="bg-linear-to-br from-purple-500 to-pink-600 bg-clip-text text-transparent">5.2B</span>
             </div>
             <div className="text-sm text-gray-600 font-semibold uppercase tracking-wide">Target Reach</div>
             <div className="mt-2 text-xs text-gray-500">When Complete</div>
           </div>
           <div className="premium-card p-8 text-center rounded-2xl border-2 border-blue-200">
             <div className="text-6xl font-black mb-3">
-              <span className="bg-gradient-to-br from-blue-500 to-cyan-600 bg-clip-text text-transparent">14</span>
+              <span className="bg-linear-to-br from-blue-500 to-cyan-600 bg-clip-text text-transparent">14</span>
             </div>
             <div className="text-sm text-gray-600 font-semibold uppercase tracking-wide">Total Languages</div>
             <div className="mt-2 text-xs text-gray-500">2 Active + 12 Coming</div>
@@ -65,11 +65,11 @@ export default function Languages() {
         </div>
 
         {/* New Feature Banner */}
-        <div className="premium-card bg-gradient-to-br from-green-50 via-emerald-50 to-green-50 border-2 border-green-300 rounded-3xl p-10 mb-12 animate-slide-up shadow-2xl" style={{ animationDelay: '0.1s' }}>
+        <div className="premium-card bg-linear-to-br from-green-50 via-emerald-50 to-green-50 border-2 border-green-300 rounded-3xl p-10 mb-12 animate-slide-up shadow-2xl" style={{ animationDelay: '0.1s' }}>
           <div className="flex flex-col md:flex-row items-center gap-6">
             <div className="relative">
               <div className="absolute inset-0 bg-green-500 rounded-full blur-xl opacity-40 animate-pulse"></div>
-              <div className="relative bg-gradient-to-br from-green-500 to-emerald-600 text-white rounded-full p-5 shadow-xl">
+              <div className="relative bg-linear-to-br from-green-500 to-emerald-600 text-white rounded-full p-5 shadow-xl">
                 <Globe className="w-12 h-12" />
               </div>
             </div>
@@ -91,19 +91,19 @@ export default function Languages() {
 
         {/* Available Languages */}
         <div className="premium-card rounded-3xl overflow-hidden shadow-2xl mb-12 animate-slide-up" style={{ animationDelay: '0.2s' }}>
-          <div className="bg-gradient-to-r from-green-500 via-emerald-500 to-green-600 p-8 text-white relative overflow-hidden">
+          <div className="bg-linear-to-r from-green-500 via-emerald-500 to-green-600 p-8 text-white relative overflow-hidden">
             <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80')] bg-cover bg-center"></div>
             <div className="relative flex items-center gap-4">
-              <div className="p-4 bg-white/20 backdrop-blur-sm rounded-2xl">
+              <div className="p-4 bg-white/20 backdrop-blur-xs rounded-2xl">
                 <CheckCircle className="w-10 h-10" />
               </div>
               <h2 className="text-3xl font-black font-serif">✅ Active Language Support</h2>
             </div>
           </div>
-          <div className="p-8 bg-gradient-to-br from-white to-gray-50">
+          <div className="p-8 bg-linear-to-br from-white to-gray-50">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {availableLanguages.map((lang, index) => (
-                <div key={index} className="group premium-card bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border-2 border-green-300 hover:scale-105 transition-all duration-300">
+                <div key={index} className="group premium-card bg-linear-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border-2 border-green-300 hover:scale-105 transition-all duration-300">
                   <div className="flex items-center gap-5 mb-5">
                     <span className="text-6xl group-hover:scale-110 transition-transform">{lang.flag}</span>
                     <div className="flex-1">
@@ -115,7 +115,7 @@ export default function Languages() {
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
                       <div className="flex-1 bg-green-200 rounded-full h-3">
-                        <div className="bg-gradient-to-r from-green-500 to-emerald-600 h-3 rounded-full shadow-lg" style={{ width: `${lang.completion}%` }}></div>
+                        <div className="bg-linear-to-r from-green-500 to-emerald-600 h-3 rounded-full shadow-lg" style={{ width: `${lang.completion}%` }}></div>
                       </div>
                       <span className="text-sm font-black text-green-700">{lang.completion}%</span>
                     </div>
@@ -135,10 +135,10 @@ export default function Languages() {
 
         {/* Coming Soon Languages */}
         <div className="premium-card rounded-3xl overflow-hidden shadow-2xl mb-12 animate-slide-up" style={{ animationDelay: '0.3s' }}>
-          <div className="bg-gradient-to-r from-purple-500 via-pink-500 to-purple-600 p-8 text-white relative overflow-hidden">
+          <div className="bg-linear-to-r from-purple-500 via-pink-500 to-purple-600 p-8 text-white relative overflow-hidden">
             <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80')] bg-cover bg-center"></div>
             <div className="relative flex items-center gap-4">
-              <div className="p-4 bg-white/20 backdrop-blur-sm rounded-2xl">
+              <div className="p-4 bg-white/20 backdrop-blur-xs rounded-2xl">
                 <Clock className="w-10 h-10" />
               </div>
               <div>
@@ -147,7 +147,7 @@ export default function Languages() {
               </div>
             </div>
           </div>
-          <div className="p-8 bg-gradient-to-br from-white to-gray-50">
+          <div className="p-8 bg-linear-to-br from-white to-gray-50">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {comingSoonLanguages.map((lang, index) => (
                 <div key={index} className="group premium-card rounded-2xl p-6 border-2 border-gray-200 hover:border-purple-400 hover:scale-105 transition-all duration-300">
@@ -163,7 +163,7 @@ export default function Languages() {
                       <Target className="w-4 h-4" />
                       <span className="font-semibold">{lang.speakers} potential reach</span>
                     </div>
-                    <code className="block bg-gray-100 px-3 py-1 rounded text-xs font-mono">{lang.code}</code>
+                    <code className="block bg-gray-100 px-3 py-1 rounded-sm text-xs font-mono">{lang.code}</code>
                   </div>
                 </div>
               ))}
@@ -172,16 +172,16 @@ export default function Languages() {
         </div>
 
         {/* How to Change Language */}
-        <div className="premium-card bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 rounded-3xl p-10 text-white mb-12 shadow-2xl animate-slide-up" style={{ animationDelay: '0.4s' }}>
+        <div className="premium-card bg-linear-to-br from-indigo-600 via-purple-600 to-pink-600 rounded-3xl p-10 text-white mb-12 shadow-2xl animate-slide-up" style={{ animationDelay: '0.4s' }}>
           <h2 className="text-3xl font-black mb-8 font-serif flex items-center gap-3">
-            <div className="p-3 bg-white/20 backdrop-blur-sm rounded-2xl">
+            <div className="p-3 bg-white/20 backdrop-blur-xs rounded-2xl">
               🎯
             </div>
             How to Switch Languages
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="flex gap-5">
-              <div className="flex-shrink-0 w-14 h-14 glass rounded-2xl flex items-center justify-center font-black text-2xl text-gray-900">
+              <div className="shrink-0 w-14 h-14 glass rounded-2xl flex items-center justify-center font-black text-2xl text-gray-900">
                 1
               </div>
               <div>
@@ -192,7 +192,7 @@ export default function Languages() {
               </div>
             </div>
             <div className="flex gap-5">
-              <div className="flex-shrink-0 w-14 h-14 glass rounded-2xl flex items-center justify-center font-black text-2xl text-gray-900">
+              <div className="shrink-0 w-14 h-14 glass rounded-2xl flex items-center justify-center font-black text-2xl text-gray-900">
                 2
               </div>
               <div>
@@ -203,7 +203,7 @@ export default function Languages() {
               </div>
             </div>
             <div className="flex gap-5">
-              <div className="flex-shrink-0 w-14 h-14 glass rounded-2xl flex items-center justify-center font-black text-2xl text-gray-900">
+              <div className="shrink-0 w-14 h-14 glass rounded-2xl flex items-center justify-center font-black text-2xl text-gray-900">
                 3
               </div>
               <div>
@@ -214,7 +214,7 @@ export default function Languages() {
               </div>
             </div>
             <div className="flex gap-5">
-              <div className="flex-shrink-0 w-14 h-14 glass rounded-2xl flex items-center justify-center font-black text-2xl text-gray-900">
+              <div className="shrink-0 w-14 h-14 glass rounded-2xl flex items-center justify-center font-black text-2xl text-gray-900">
                 4
               </div>
               <div>
@@ -252,22 +252,22 @@ export default function Languages() {
                   <h3 className="font-bold text-green-900 mb-3 text-lg">🎁 Contributor Benefits</h3>
                   <ul className="space-y-2 text-green-800 text-sm">
                     <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="w-5 h-5 shrink-0 mt-0.5" />
                       <span>Credit with profile link</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="w-5 h-5 shrink-0 mt-0.5" />
                       <span>Early feature access</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="w-5 h-5 shrink-0 mt-0.5" />
                       <span>Community recognition</span>
                     </li>
                   </ul>
                 </div>
               </div>
 
-              <div className="bg-gradient-to-r from-yellow-50 to-amber-50 border-2 border-yellow-300 rounded-2xl p-6">
+              <div className="bg-linear-to-r from-yellow-50 to-amber-50 border-2 border-yellow-300 rounded-2xl p-6">
                 <h3 className="font-bold text-yellow-900 mb-3 flex items-center gap-2">
                   <span className="text-2xl">⚡</span>
                   Translation Impact

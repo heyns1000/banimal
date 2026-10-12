@@ -151,40 +151,40 @@ export default function GlobalDeployment() {
     <Layout>
       {/* Hero Section */}
       <div className="mb-12">
-        <div className="premium-card p-10 bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 text-white">
+        <div className="premium-card p-10 bg-linear-to-br from-blue-900 via-purple-900 to-indigo-900 text-white">
           <div className="flex items-center justify-between mb-8">
             <div>
               <h1 className="text-5xl font-black mb-3 font-serif">🌍 Global Deployment Command</h1>
               <p className="text-xl text-purple-200">Fruitful-Global-Deployment × Banimal Ecosystem Integration</p>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm px-6 py-4 rounded-2xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs px-6 py-4 rounded-2xl border border-white/20">
               <div className="text-4xl font-black text-green-400 mb-1">{deploymentStats.uptime}</div>
               <div className="text-sm text-purple-200">System Uptime</div>
             </div>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-2xl font-black text-white mb-1">{deploymentStats.totalDeployments}</div>
               <div className="text-xs text-purple-200">Deployments</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-2xl font-black text-white mb-1">{deploymentStats.activeRegions}</div>
               <div className="text-xs text-purple-200">Countries</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-2xl font-black text-white mb-1">{deploymentStats.totalUsers}</div>
               <div className="text-xs text-purple-200">Global Users</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-2xl font-black text-white mb-1">{deploymentStats.brandsDeployed.toLocaleString()}</div>
               <div className="text-xs text-purple-200">Brands Live</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-2xl font-black text-white mb-1">{deploymentStats.dailyTransactions}</div>
               <div className="text-xs text-purple-200">Daily Txns</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-2xl font-black text-green-400 mb-1">152%</div>
               <div className="text-xs text-purple-200">Target Hit</div>
             </div>
@@ -200,7 +200,7 @@ export default function GlobalDeployment() {
             const Icon = stage.icon;
             return (
               <div key={index} className="premium-card p-6">
-                <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${
+                <div className={`inline-flex p-4 rounded-2xl bg-linear-to-br ${
                   stage.color === 'green' ? 'from-green-500 to-emerald-600' :
                   stage.color === 'blue' ? 'from-blue-500 to-cyan-600' :
                   stage.color === 'purple' ? 'from-purple-500 to-pink-600' :
@@ -230,7 +230,7 @@ export default function GlobalDeployment() {
           <select
             value={selectedRegion}
             onChange={(e) => setSelectedRegion(e.target.value)}
-            className="px-6 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none font-medium"
+            className="px-6 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-hidden font-medium"
           >
             <option value="all">All Regions</option>
             {regions.map(r => <option key={r.code} value={r.code}>{r.name}</option>)}
@@ -242,7 +242,7 @@ export default function GlobalDeployment() {
             .filter(r => selectedRegion === 'all' || r.code === selectedRegion)
             .map((region, index) => (
             <div key={index} className="premium-card overflow-hidden">
-              <div className="bg-gradient-to-br from-blue-600 to-indigo-600 p-6 text-white">
+              <div className="bg-linear-to-br from-blue-600 to-indigo-600 p-6 text-white">
                 <div className="flex items-start justify-between mb-4">
                   <div className="text-5xl">{region.emoji}</div>
                   <div className={`px-3 py-1 rounded-full text-xs font-bold ${
@@ -298,7 +298,7 @@ export default function GlobalDeployment() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {integrationFeatures.map((feature, index) => (
             <div key={index} className="premium-card p-6">
-              <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.color} flex items-center justify-center text-4xl mb-4`}>
+              <div className={`w-16 h-16 rounded-2xl bg-linear-to-br ${feature.color} flex items-center justify-center text-4xl mb-4`}>
                 {feature.emoji}
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.name}</h3>
@@ -326,9 +326,9 @@ export default function GlobalDeployment() {
       </div>
 
       {/* Repository Integration */}
-      <div className="premium-card p-10 bg-gradient-to-br from-gray-50 to-purple-50">
+      <div className="premium-card p-10 bg-linear-to-br from-gray-50 to-purple-50">
         <div className="flex items-start gap-6 mb-8">
-          <div className="flex-shrink-0 w-20 h-20 gradient-purple rounded-2xl flex items-center justify-center text-4xl">
+          <div className="shrink-0 w-20 h-20 gradient-purple rounded-2xl flex items-center justify-center text-4xl">
             <Rocket className="w-10 h-10 text-white" />
           </div>
           <div className="flex-1">
@@ -404,7 +404,7 @@ export default function GlobalDeployment() {
           </div>
         </div>
 
-        <div className="bg-gradient-to-r from-purple-600 to-blue-600 p-6 rounded-2xl text-white">
+        <div className="bg-linear-to-r from-purple-600 to-blue-600 p-6 rounded-2xl text-white">
           <div className="flex items-center justify-between">
             <div>
               <h3 className="text-2xl font-bold mb-2">🚀 Repository Status: SYNCED</h3>
@@ -426,21 +426,21 @@ export default function GlobalDeployment() {
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-white/90 backdrop-blur-sm p-8 rounded-2xl">
+          <div className="bg-white/90 backdrop-blur-xs p-8 rounded-2xl">
             <div className="text-5xl mb-4 text-center">🌱</div>
             <h3 className="text-2xl font-bold mb-3 text-center">Foundation</h3>
             <p className="text-center text-gray-700 mb-4">13,713 brands across 3 systems ready for deployment</p>
             <div className="text-center font-bold text-purple-600">152% Target Achievement</div>
           </div>
           
-          <div className="bg-white/90 backdrop-blur-sm p-8 rounded-2xl">
+          <div className="bg-white/90 backdrop-blur-xs p-8 rounded-2xl">
             <div className="text-5xl mb-4 text-center">🚀</div>
             <h3 className="text-2xl font-bold mb-3 text-center">Distribution</h3>
             <p className="text-center text-gray-700 mb-4">847 deployments across 193 countries globally</p>
             <div className="text-center font-bold text-blue-600">5.2B Users Connected</div>
           </div>
           
-          <div className="bg-white/90 backdrop-blur-sm p-8 rounded-2xl">
+          <div className="bg-white/90 backdrop-blur-xs p-8 rounded-2xl">
             <div className="text-5xl mb-4 text-center">💎</div>
             <h3 className="text-2xl font-bold mb-3 text-center">Domination</h3>
             <p className="text-center text-gray-700 mb-4">Global infrastructure with 99.99% uptime</p>

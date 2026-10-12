@@ -133,7 +133,7 @@ export default function OmnigridEngine() {
     <Layout>
       {/* Hero Section */}
       <div className="mb-12">
-        <div className="premium-card p-10 bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900 text-white">
+        <div className="premium-card p-10 bg-linear-to-br from-indigo-900 via-purple-900 to-blue-900 text-white">
           <div className="flex items-center justify-between mb-8">
             <div>
               <div className="inline-block px-4 py-1 border border-blue-400/50 rounded-full text-blue-400 text-xs font-bold tracking-widest uppercase mb-4">
@@ -178,19 +178,19 @@ export default function OmnigridEngine() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-purple-200 mb-1">Total Brands</div>
               <div className="text-3xl font-black">{engineStats.totalBrands.toLocaleString()}</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-purple-200 mb-1">Repositories</div>
               <div className="text-3xl font-black">{engineStats.repositories}+</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-purple-200 mb-1">Pulse Interval</div>
               <div className="text-3xl font-black">{engineStats.pulseInterval}s</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-purple-200 mb-1">Dimensions</div>
               <div className="text-3xl font-black">{engineStats.dimensions}D</div>
             </div>
@@ -201,7 +201,7 @@ export default function OmnigridEngine() {
       {/* Current Phase */}
       {currentPhase !== 'idle' && (
         <div className="mb-12">
-          <div className="premium-card p-8 bg-gradient-to-r from-blue-50 to-purple-50">
+          <div className="premium-card p-8 bg-linear-to-r from-blue-50 to-purple-50">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 font-serif">Engine Status</h2>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               {phases.map((phase) => (
@@ -246,7 +246,7 @@ export default function OmnigridEngine() {
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-4">
                   <div
-                    className="bg-gradient-to-r from-blue-600 to-purple-600 h-4 rounded-full transition-all duration-300"
+                    className="bg-linear-to-r from-blue-600 to-purple-600 h-4 rounded-full transition-all duration-300"
                     style={{ width: `${intakeProgress}%` }}
                   />
                 </div>
@@ -299,7 +299,7 @@ export default function OmnigridEngine() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {systems.map((system, index) => (
             <div key={index} className="premium-card overflow-hidden">
-              <div className={`bg-gradient-to-br ${system.gradient} p-6 text-white`}>
+              <div className={`bg-linear-to-br ${system.gradient} p-6 text-white`}>
                 <div className="text-5xl mb-4">{system.emoji}</div>
                 <h3 className="text-2xl font-bold mb-2">{system.name}</h3>
                 <div className="flex items-center gap-2 text-sm">
@@ -324,7 +324,7 @@ export default function OmnigridEngine() {
                 </div>
                 {pulseActive && (
                   <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div className="bg-gradient-to-r from-blue-600 to-purple-600 h-2 rounded-full animate-pulse w-full" />
+                    <div className="bg-linear-to-r from-blue-600 to-purple-600 h-2 rounded-full animate-pulse w-full" />
                   </div>
                 )}
               </div>
@@ -383,24 +383,24 @@ export default function OmnigridEngine() {
       </div>
 
       {/* Core Protocols */}
-      <div className="premium-card p-10 bg-gradient-to-br from-gray-900 to-indigo-900 text-white">
+      <div className="premium-card p-10 bg-linear-to-br from-gray-900 to-indigo-900 text-white">
         <h2 className="text-3xl font-bold mb-8 font-serif">Core Protocols Active</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20">
+          <div className="bg-white/10 backdrop-blur-xs p-6 rounded-2xl border border-white/20">
             <Zap className="w-8 h-8 text-yellow-400 mb-3" />
             <h3 className="text-xl font-bold mb-2">PulseTrade™</h3>
             <p className="text-sm text-purple-200">9-second heartbeat synchronization across all systems</p>
             <div className="mt-4 text-2xl font-black text-yellow-400">{pulseCount} pulses</div>
           </div>
 
-          <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20">
+          <div className="bg-white/10 backdrop-blur-xs p-6 rounded-2xl border border-white/20">
             <Grid3x3 className="w-8 h-8 text-blue-400 mb-3" />
             <h3 className="text-xl font-bold mb-2">Cube Lattice</h3>
             <p className="text-sm text-purple-200">Multi-dimensional data organization structure</p>
             <div className="mt-4 text-2xl font-black text-blue-400">10,000 nodes</div>
           </div>
 
-          <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20">
+          <div className="bg-white/10 backdrop-blur-xs p-6 rounded-2xl border border-white/20">
             <Waves className="w-8 h-8 text-purple-400 mb-3" />
             <h3 className="text-xl font-bold mb-2">Vortex Ant™</h3>
             <p className="text-sm text-purple-200">0.08 short distance bio-inspired routing</p>

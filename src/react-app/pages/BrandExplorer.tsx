@@ -175,7 +175,7 @@ export default function BrandExplorer() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search by brand name, category, or description..."
-                className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:border-yellow-500 focus:outline-none text-gray-900 font-medium"
+                className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:border-yellow-500 focus:outline-hidden text-gray-900 font-medium"
               />
             </div>
           </div>
@@ -186,7 +186,7 @@ export default function BrandExplorer() {
             <select
               value={selectedSystem}
               onChange={(e) => setSelectedSystem(e.target.value)}
-              className="w-full px-4 py-4 border-2 border-gray-200 rounded-2xl focus:border-yellow-500 focus:outline-none text-gray-900 font-medium"
+              className="w-full px-4 py-4 border-2 border-gray-200 rounded-2xl focus:border-yellow-500 focus:outline-hidden text-gray-900 font-medium"
             >
               <option value="all">All Systems ({systems.reduce((sum, s) => sum + s.total_brands, 0).toLocaleString()})</option>
               {systems.map(system => (
@@ -203,7 +203,7 @@ export default function BrandExplorer() {
             <select
               value={selectedTier}
               onChange={(e) => setSelectedTier(e.target.value)}
-              className="w-full px-4 py-4 border-2 border-gray-200 rounded-2xl focus:border-yellow-500 focus:outline-none text-gray-900 font-medium"
+              className="w-full px-4 py-4 border-2 border-gray-200 rounded-2xl focus:border-yellow-500 focus:outline-hidden text-gray-900 font-medium"
             >
               <option value="all">All Tiers</option>
               {tiers.map(tier => (
@@ -308,10 +308,10 @@ export default function BrandExplorer() {
                 )}
 
                 <div className="flex items-center gap-3">
-                  <span className={`px-4 py-2 rounded-full text-xs font-bold bg-gradient-to-r ${getSystemBadge(brand.system)} text-white`}>
+                  <span className={`px-4 py-2 rounded-full text-xs font-bold bg-linear-to-r ${getSystemBadge(brand.system)} text-white`}>
                     {getSystemName(brand.system)}
                   </span>
-                  <span className={`px-4 py-2 rounded-full text-xs font-bold bg-gradient-to-r ${getTierBadge(brand.tier)} text-white`}>
+                  <span className={`px-4 py-2 rounded-full text-xs font-bold bg-linear-to-r ${getTierBadge(brand.tier)} text-white`}>
                     {brand.tier.charAt(0).toUpperCase() + brand.tier.slice(1)}
                   </span>
                 </div>

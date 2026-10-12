@@ -109,7 +109,7 @@ export default function NexusNair() {
               }}
             >
               <div 
-                className="absolute h-[2px] w-full top-0 left-0 bg-gradient-to-r from-transparent via-yellow-600 to-transparent transition-opacity duration-300"
+                className="absolute h-[2px] w-full top-0 left-0 bg-linear-to-r from-transparent via-yellow-600 to-transparent transition-opacity duration-300"
                 style={{ 
                   animation: 'scan 4s linear infinite',
                   opacity: breathIntensity
@@ -134,7 +134,7 @@ export default function NexusNair() {
                 {pulseStages.map((stage, idx) => (
                   <div
                     key={idx}
-                    className={`h-12 rounded flex items-center justify-center text-[10px] transition-all duration-500 cursor-default`}
+                    className={`h-12 rounded-sm flex items-center justify-center text-[10px] transition-all duration-500 cursor-default`}
                     style={{
                       backgroundColor: isActive(stage.step) ? `${pulseColor}33` : '#1c1917',
                       color: isActive(stage.step) ? '#000' : '#9ca3af',
@@ -214,7 +214,7 @@ export default function NexusNair() {
                 {Array.from({ length: 40 }).map((_, i) => (
                   <div
                     key={i}
-                    className={`h-6 rounded-sm border border-stone-800/50 transition-all duration-300 hover:scale-125 cursor-pointer`}
+                    className={`h-6 rounded-xs border border-stone-800/50 transition-all duration-300 hover:scale-125 cursor-pointer`}
                     style={{
                       backgroundColor: Math.random() > 0.87 ? '#44403c' : `${pulseColor}33`,
                       borderColor: Math.random() > 0.87 ? '#44403c' : pulseColor,
@@ -242,7 +242,7 @@ export default function NexusNair() {
             </PulseCard>
 
             {/* Brand Ecosystem Audit */}
-            <PulseCard variant="premium" intensity="high" className="bg-white text-black p-6 rounded-xl border-l-[12px]" style={{ borderColor: pulseColor }}>
+            <PulseCard variant="premium" intensity="high" className="bg-white text-black p-6 rounded-xl border-l-12" style={{ borderColor: pulseColor }}>
               <div className="flex justify-between items-start mb-6">
                 <div className="transition-all duration-300">
                   <h3 className="text-xl font-black italic transition-colors duration-300 hover:text-yellow-600">EMPIRE AUDIT</h3>
@@ -302,13 +302,13 @@ export default function NexusNair() {
                 BareCart™ Vortex
               </h3>
               <div className="space-y-4">
-                <div className="p-3 bg-stone-950 rounded border border-stone-800 transition-all duration-300 hover:border-red-700/50 hover:bg-stone-900 hover:scale-105">
+                <div className="p-3 bg-stone-950 rounded-sm border border-stone-800 transition-all duration-300 hover:border-red-700/50 hover:bg-stone-900 hover:scale-105">
                   <div className="flex justify-between items-center">
                     <span className="text-[10px] font-bold transition-colors duration-300 hover:text-red-500">Banimal License</span>
                     <span className="text-xs font-mono transition-colors duration-300 hover:text-red-500">$5,000</span>
                   </div>
                 </div>
-                <div className="p-3 bg-stone-950 rounded border border-stone-800 opacity-50 transition-all duration-300 hover:opacity-70 hover:border-stone-700 hover:scale-105">
+                <div className="p-3 bg-stone-950 rounded-sm border border-stone-800 opacity-50 transition-all duration-300 hover:opacity-70 hover:border-stone-700 hover:scale-105">
                   <div className="flex justify-between items-center">
                     <span className="text-[10px] font-bold">Zero-Waste Stock</span>
                     <span className="text-xs font-mono">0.08 Dist</span>

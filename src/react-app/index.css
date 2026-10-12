@@ -1,15 +1,77 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;900&family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;900&family=Roboto:wght@300;400;500;700&display=swap')
+layer(base);
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-:root {
-  --banimal-gold: #D4AF37;
-  --banimal-green: #2D5A27;
-  --banimal-purple: #6B46C1;
-  --banimal-sand: #F5F5DC;
-  --banimal-dark: #1A1A1A;
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility animate-fade-in {
+  animation: fadeIn 0.8s ease-out;
+}
+
+@utility animate-slide-up {
+  animation: slideUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+@utility animate-bounce-subtle {
+  animation: bounceSubtle 2s ease-in-out infinite;
+}
+
+@utility animate-shine {
+  animation: shine 3s linear infinite;
+}
+
+@utility gold-gradient-text {
+  background: linear-gradient(45deg, #b8860b, #d4af37, #ffd700, #b8860b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: shine 3s linear infinite;
+}
+
+@utility custom-card {
+  @apply bg-white border border-gray-200 shadow-lg transition-all duration-300;
+
+  &:hover {
+    @apply transform -translate-y-1 shadow-2xl;
+    border-color: var(--banimal-gold);
+  }
+}
+
+@utility animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@utility animate-slide-in {
+  animation: slide-in 0.3s ease-out;
+}
+
+@layer utilities {
+  :root {
+    --banimal-gold: #d4af37;
+    --banimal-green: #2d5a27;
+    --banimal-purple: #6b46c1;
+    --banimal-sand: #f5f5dc;
+    --banimal-dark: #1a1a1a;
+  }
 }
 
 @layer base {
@@ -33,41 +95,6 @@
 }
 
 @layer utilities {
-  .animate-fade-in {
-    animation: fadeIn 0.8s ease-out;
-  }
-
-  .animate-slide-up {
-    animation: slideUp 0.6s ease-out;
-    animation-fill-mode: both;
-  }
-
-  .animate-bounce-subtle {
-    animation: bounceSubtle 2s ease-in-out infinite;
-  }
-
-  .animate-shine {
-    animation: shine 3s linear infinite;
-  }
-
-  .gold-gradient-text {
-    background: linear-gradient(45deg, #B8860B, #D4AF37, #FFD700, #B8860B);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    background-size: 200% auto;
-    animation: shine 3s linear infinite;
-  }
-
-  .custom-card {
-    @apply bg-white border border-gray-200 shadow-lg transition-all duration-300;
-  }
-
-  .custom-card:hover {
-    @apply transform -translate-y-1 shadow-2xl;
-    border-color: var(--banimal-gold);
-  }
-
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -112,10 +139,6 @@
     }
   }
 
-  .animate-pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
-  }
-
   @keyframes slide-in {
     from {
       opacity: 0;
@@ -125,10 +148,6 @@
       opacity: 1;
       transform: translateX(0);
     }
-  }
-
-  .animate-slide-in {
-    animation: slide-in 0.3s ease-out;
   }
 }
 

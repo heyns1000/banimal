@@ -233,7 +233,7 @@ export default function PlanetChange() {
     <Layout>
       {/* Hero Section */}
       <div className="mb-12">
-        <div className="premium-card p-10 bg-gradient-to-br from-green-900 via-emerald-900 to-teal-900 text-white">
+        <div className="premium-card p-10 bg-linear-to-br from-green-900 via-emerald-900 to-teal-900 text-white">
           <div className="flex items-center justify-between mb-8">
             <div>
               <h1 className="text-5xl font-black mb-3 font-serif flex items-center gap-4">
@@ -241,39 +241,39 @@ export default function PlanetChange() {
               </h1>
               <p className="text-xl text-green-200">Global Environmental Impact Tracking & Sustainability Dashboard</p>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm px-6 py-4 rounded-2xl border border-white/20 text-center">
+            <div className="bg-white/10 backdrop-blur-xs px-6 py-4 rounded-2xl border border-white/20 text-center">
               <div className="text-4xl font-black text-green-400 mb-1">{planetStats.impactScore}</div>
               <div className="text-sm text-green-200">Impact Score</div>
             </div>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-green-200 mb-1">Carbon Offset</div>
               <div className="text-2xl font-black">{(planetStats.carbonOffset / 1000).toFixed(0)}K</div>
               <div className="text-xs text-green-300">tons CO₂</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-green-200 mb-1">Trees Planted</div>
               <div className="text-2xl font-black">{(planetStats.treesPlanted / 1000000).toFixed(2)}M</div>
               <div className="text-xs text-green-300">globally</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-green-200 mb-1">Plastic Recycled</div>
               <div className="text-2xl font-black">{(planetStats.plasticRecycled / 1000).toFixed(0)}K</div>
               <div className="text-xs text-green-300">tons</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-green-200 mb-1">Water Saved</div>
               <div className="text-2xl font-black">{(planetStats.waterSaved / 1000000).toFixed(1)}M</div>
               <div className="text-xs text-green-300">liters</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-green-200 mb-1">Clean Energy</div>
               <div className="text-2xl font-black">{(planetStats.energySaved / 1000).toFixed(0)}K</div>
               <div className="text-xs text-green-300">MWh</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-green-200 mb-1">Zones Active</div>
               <div className="text-2xl font-black">12</div>
               <div className="text-xs text-green-300">global</div>
@@ -291,7 +291,7 @@ export default function PlanetChange() {
             const TrendIcon = metric.trend === 'up' ? TrendingUp : TrendingDown;
             return (
               <div key={index} className="premium-card p-6">
-                <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${metric.color} mb-4`}>
+                <div className={`inline-flex p-4 rounded-2xl bg-linear-to-br ${metric.color} mb-4`}>
                   <Icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{metric.title}</h3>
@@ -319,7 +319,7 @@ export default function PlanetChange() {
           <select
             value={selectedZone}
             onChange={(e) => setSelectedZone(e.target.value)}
-            className="px-6 py-3 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:outline-none font-medium"
+            className="px-6 py-3 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:outline-hidden font-medium"
           >
             <option value="global">All Zones</option>
             {globalZones.map(z => <option key={z.code} value={z.code}>{z.name}</option>)}
@@ -331,7 +331,7 @@ export default function PlanetChange() {
             .filter(z => selectedZone === 'global' || z.code === selectedZone)
             .map((zone, index) => (
             <div key={index} className="premium-card overflow-hidden">
-              <div className="bg-gradient-to-br from-green-600 to-emerald-600 p-6 text-white">
+              <div className="bg-linear-to-br from-green-600 to-emerald-600 p-6 text-white">
                 <div className="flex items-start justify-between mb-4">
                   <div className="text-5xl">{zone.emoji}</div>
                   <div className={`px-3 py-1 rounded-full text-xs font-bold ${
@@ -400,7 +400,7 @@ export default function PlanetChange() {
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2">
                   <div 
-                    className="bg-gradient-to-r from-green-500 to-emerald-600 h-2 rounded-full transition-all"
+                    className="bg-linear-to-r from-green-500 to-emerald-600 h-2 rounded-full transition-all"
                     style={{ width: `${initiative.progress}%` }}
                   />
                 </div>
@@ -468,9 +468,9 @@ export default function PlanetChange() {
       </div>
 
       {/* Repository Integration */}
-      <div className="premium-card p-10 bg-gradient-to-br from-green-900 to-emerald-900 text-white">
+      <div className="premium-card p-10 bg-linear-to-br from-green-900 to-emerald-900 text-white">
         <div className="flex items-start gap-6 mb-8">
-          <div className="flex-shrink-0 w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center text-4xl">
+          <div className="shrink-0 w-20 h-20 bg-white/20 backdrop-blur-xs rounded-2xl flex items-center justify-center text-4xl">
             🌍
           </div>
           <div className="flex-1">
@@ -485,19 +485,19 @@ export default function PlanetChange() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20">
+          <div className="bg-white/10 backdrop-blur-xs p-6 rounded-2xl border border-white/20">
             <Wind className="w-8 h-8 text-green-400 mb-3" />
             <h3 className="text-xl font-bold mb-2">Live Impact Tracking</h3>
             <p className="text-sm text-green-200">Real-time environmental metrics updated every 5 minutes</p>
           </div>
 
-          <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20">
+          <div className="bg-white/10 backdrop-blur-xs p-6 rounded-2xl border border-white/20">
             <Globe className="w-8 h-8 text-blue-400 mb-3" />
             <h3 className="text-xl font-bold mb-2">12 Global Zones</h3>
             <p className="text-sm text-green-200">Comprehensive coverage across all major regions</p>
           </div>
 
-          <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20">
+          <div className="bg-white/10 backdrop-blur-xs p-6 rounded-2xl border border-white/20">
             <CheckCircle className="w-8 h-8 text-yellow-400 mb-3" />
             <h3 className="text-xl font-bold mb-2">Verified Impact</h3>
             <p className="text-sm text-green-200">Third-party certification of all environmental claims</p>

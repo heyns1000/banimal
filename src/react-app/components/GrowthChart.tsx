@@ -139,7 +139,7 @@ export default function GrowthChart() {
       <div className="h-80">
         <Line ref={chartRef} data={data} options={options} />
       </div>
-      <div className="mt-6 p-4 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-xl border border-yellow-200">
+      <div className="mt-6 p-4 bg-linear-to-r from-yellow-50 to-amber-50 rounded-xl border border-yellow-200">
         <p className="text-sm text-yellow-900 italic">
           The Banimal Ecosystem demonstrates exponential growth through comprehensive multi-platform integration and automated supply chain management.
         </p>

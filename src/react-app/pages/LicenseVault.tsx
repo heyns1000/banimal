@@ -211,7 +211,7 @@ export default function LicenseVault() {
         <PulseCard 
           variant="premium" 
           intensity="high" 
-          className="mb-12 p-10 bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 text-white relative overflow-hidden"
+          className="mb-12 p-10 bg-linear-to-br from-purple-900 via-indigo-900 to-blue-900 text-white relative overflow-hidden"
         >
           <div 
             className="absolute top-0 right-0 w-64 h-64 bg-yellow-500/10 rounded-full blur-3xl"
@@ -277,7 +277,7 @@ export default function LicenseVault() {
               <PulseCard 
                 variant="glow" 
                 intensity="medium"
-                className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20"
+                className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20"
               >
                 <Lock 
                   className="w-6 h-6 mb-2 text-purple-400"
@@ -302,7 +302,7 @@ export default function LicenseVault() {
               <PulseCard 
                 variant="default" 
                 intensity="low"
-                className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20"
+                className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20"
               >
                 <DollarSign className="w-6 h-6 mb-2 text-green-400" />
                 <div className="text-sm text-purple-200 mb-1">Total Revenue</div>
@@ -312,7 +312,7 @@ export default function LicenseVault() {
               <PulseCard 
                 variant="default" 
                 intensity="low"
-                className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20"
+                className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20"
               >
                 <Zap className="w-6 h-6 mb-2 text-yellow-400" />
                 <div className="text-sm text-purple-200 mb-1">Sync Speed</div>
@@ -322,7 +322,7 @@ export default function LicenseVault() {
               <PulseCard 
                 variant="default" 
                 intensity="low"
-                className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20"
+                className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20"
               >
                 <CheckCircle className="w-6 h-6 mb-2 text-blue-400" />
                 <div className="text-sm text-purple-200 mb-1">Zero Waste</div>
@@ -438,7 +438,7 @@ export default function LicenseVault() {
                         className={`w-full font-bold py-3 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 ${
                           inCart 
                             ? 'bg-green-600 hover:bg-green-700 text-white' 
-                            : 'bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white'
+                            : 'bg-linear-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white'
                         }`}
                         style={{
                           transform: inCart ? `scale(${0.95 + (breathIntensity * 0.05)})` : 'scale(1)'
@@ -470,7 +470,7 @@ export default function LicenseVault() {
               <PulseCard 
                 variant="premium" 
                 intensity="high"
-                className="p-6 bg-gradient-to-br from-red-50 to-orange-50 border-l-4 rounded-2xl"
+                className="p-6 bg-linear-to-br from-red-50 to-orange-50 border-l-4 rounded-2xl"
                 style={{ borderColor: pulseColor }}
               >
                 <div className="flex items-center gap-3 mb-4">
@@ -591,7 +591,7 @@ export default function LicenseVault() {
                     <button
                       onClick={processCheckout}
                       disabled={checkoutLoading}
-                      className="w-full bg-gradient-to-r from-red-700 to-orange-600 hover:from-red-800 hover:to-orange-700 disabled:opacity-50 text-white font-black py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2"
+                      className="w-full bg-linear-to-r from-red-700 to-orange-600 hover:from-red-800 hover:to-orange-700 disabled:opacity-50 text-white font-black py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2"
                       style={{
                         transform: checkoutLoading ? 'scale(1)' : `scale(${0.98 + (breathIntensity * 0.02)})`
                       }}
@@ -616,7 +616,7 @@ export default function LicenseVault() {
               <PulseCard 
                 variant="glow" 
                 intensity="medium"
-                className="p-6 bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl"
+                className="p-6 bg-linear-to-br from-purple-50 to-indigo-50 rounded-2xl"
               >
                 <div className="flex items-center gap-2 mb-3">
                   <GitBranch 
@@ -665,7 +665,7 @@ export default function LicenseVault() {
         <PulseCard 
           variant="premium" 
           intensity="medium"
-          className="mt-12 p-8 bg-gradient-to-br from-gray-900 to-purple-900 text-white rounded-2xl"
+          className="mt-12 p-8 bg-linear-to-br from-gray-900 to-purple-900 text-white rounded-2xl"
         >
           <div className="flex items-center justify-between">
             <div>
