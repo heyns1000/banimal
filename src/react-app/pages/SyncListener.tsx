@@ -105,7 +105,7 @@ export default function SyncListener() {
           <button
             onClick={() => setIsListening(!isListening)}
             className={`px-8 py-4 rounded-2xl font-bold text-white shadow-lg transform hover:scale-105 transition-all ${
-              isListening ? 'bg-gradient-to-r from-green-500 to-emerald-600' : 'bg-gradient-to-r from-gray-500 to-gray-600'
+              isListening ? 'bg-linear-to-r from-green-500 to-emerald-600' : 'bg-linear-to-r from-gray-500 to-gray-600'
             }`}
           >
             {isListening ? '⏸ Pause Listening' : '▶ Resume Listening'}

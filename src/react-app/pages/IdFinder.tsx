@@ -21,7 +21,7 @@ export default function IdFinder() {
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12 animate-fade-in">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
             🔍 ID Finder
           </h1>
           <p className="text-lg text-gray-600">
@@ -30,7 +30,7 @@ export default function IdFinder() {
         </div>
 
         {/* Introduction */}
-        <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-6 sm:p-8 mb-8 border border-indigo-200/50">
+        <div className="bg-white/90 backdrop-blur-xs rounded-2xl shadow-xl p-6 sm:p-8 mb-8 border border-indigo-200/50">
           <p className="text-center text-gray-700 text-base sm:text-lg leading-relaxed">
             To connect your data using the Banimal API, you need the right WordPress IDs. 
             This interactive guide will show you exactly where to find them.
@@ -38,7 +38,7 @@ export default function IdFinder() {
         </div>
 
         {/* Step 1: ID Type Selection */}
-        <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-6 sm:p-8 mb-8 border border-indigo-200/50 animate-slide-up">
+        <div className="bg-white/90 backdrop-blur-xs rounded-2xl shadow-xl p-6 sm:p-8 mb-8 border border-indigo-200/50 animate-slide-up">
           <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 text-center mb-6">
             Step 1: What ID do you need to find?
           </h2>
@@ -83,7 +83,7 @@ export default function IdFinder() {
         </div>
 
         {/* Step 2: Visual Guide */}
-        <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-6 sm:p-8 mb-8 border border-indigo-200/50 animate-slide-up" style={{ animationDelay: '0.1s' }}>
+        <div className="bg-white/90 backdrop-blur-xs rounded-2xl shadow-xl p-6 sm:p-8 mb-8 border border-indigo-200/50 animate-slide-up" style={{ animationDelay: '0.1s' }}>
           <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 text-center mb-8">
             Step 2: Follow the Visual Guide
           </h2>
@@ -96,7 +96,7 @@ export default function IdFinder() {
               </h3>
               <ol className="space-y-4 text-gray-700 text-sm sm:text-base">
                 <li className="flex gap-3 p-3 rounded-lg hover:bg-indigo-50 transition-colors">
-                  <span className="font-bold text-indigo-600 text-lg flex-shrink-0">1.</span>
+                  <span className="font-bold text-indigo-600 text-lg shrink-0">1.</span>
                   <span>
                     {selectedType === 'user' 
                       ? "In the WordPress sidebar, click on Users → All Users"
@@ -104,13 +104,13 @@ export default function IdFinder() {
                   </span>
                 </li>
                 <li className="flex gap-3 p-3 rounded-lg hover:bg-indigo-50 transition-colors">
-                  <span className="font-bold text-indigo-600 text-lg flex-shrink-0">2.</span>
+                  <span className="font-bold text-indigo-600 text-lg shrink-0">2.</span>
                   <span>
                     Find the {selectedType === 'user' ? 'user' : 'product'} you need and hover over {selectedType === 'user' ? 'their name' : 'its name'}
                   </span>
                 </li>
                 <li className="flex gap-3 p-3 rounded-lg hover:bg-indigo-50 transition-colors">
-                  <span className="font-bold text-indigo-600 text-lg flex-shrink-0">3.</span>
+                  <span className="font-bold text-indigo-600 text-lg shrink-0">3.</span>
                   <span>
                     Look at the bottom left of your browser (or the address bar when you click Edit). You'll see the URL.
                   </span>
@@ -119,7 +119,7 @@ export default function IdFinder() {
             </div>
 
             {/* Visual Example */}
-            <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl p-6 border border-gray-300 shadow-inner">
+            <div className="bg-linear-to-br from-gray-100 to-gray-200 rounded-xl p-6 border border-gray-300 shadow-inner">
               <p className="text-xs sm:text-sm font-semibold text-gray-600 mb-4 text-center uppercase tracking-wide">
                 WordPress Admin Menu
               </p>
@@ -129,7 +129,7 @@ export default function IdFinder() {
                   WordPress
                 </div>
                 <div className="p-4 space-y-2">
-                  <div className="bg-slate-600 rounded px-4 py-2 text-gray-300 hover:bg-slate-550 transition-colors cursor-pointer">
+                  <div className="bg-slate-600 rounded-sm px-4 py-2 text-gray-300 hover:bg-slate-550 transition-colors cursor-pointer">
                     Dashboard
                   </div>
                   <div className={`rounded px-4 py-2 flex items-center gap-2 transition-all duration-300 cursor-pointer ${
@@ -140,7 +140,7 @@ export default function IdFinder() {
                     <span className="text-lg">👤</span>
                     <span>Users</span>
                   </div>
-                  <div className="bg-slate-600 rounded px-4 py-2 text-gray-400 text-sm flex items-center gap-2 hover:bg-slate-550 transition-colors cursor-pointer">
+                  <div className="bg-slate-600 rounded-sm px-4 py-2 text-gray-400 text-sm flex items-center gap-2 hover:bg-slate-550 transition-colors cursor-pointer">
                     <span>🛒</span>
                     <span>WooCommerce</span>
                   </div>
@@ -152,7 +152,7 @@ export default function IdFinder() {
                     <span className="text-lg">📦</span>
                     <span>Products</span>
                   </div>
-                  <div className="bg-slate-600 rounded px-4 py-2 text-gray-300 hover:bg-slate-550 transition-colors cursor-pointer">
+                  <div className="bg-slate-600 rounded-sm px-4 py-2 text-gray-300 hover:bg-slate-550 transition-colors cursor-pointer">
                     Settings
                   </div>
                 </div>
@@ -162,7 +162,7 @@ export default function IdFinder() {
         </div>
 
         {/* Step 3: Find ID in URL */}
-        <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-6 sm:p-8 border border-indigo-200/50 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+        <div className="bg-white/90 backdrop-blur-xs rounded-2xl shadow-xl p-6 sm:p-8 border border-indigo-200/50 animate-slide-up" style={{ animationDelay: '0.2s' }}>
           <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 text-center mb-6">
             Step 3: Find the ID in the URL
           </h2>
@@ -171,15 +171,15 @@ export default function IdFinder() {
           </p>
           
           {/* URL Example */}
-          <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl p-6 mb-6 border border-gray-300 shadow-inner">
+          <div className="bg-linear-to-br from-gray-100 to-gray-200 rounded-xl p-6 mb-6 border border-gray-300 shadow-inner">
             <p className="text-xs sm:text-sm font-semibold text-gray-600 mb-3 text-center uppercase tracking-wide">
               Example URL
             </p>
-            <div className="flex items-center justify-center gap-1 font-mono text-xs sm:text-sm flex-wrap bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
+            <div className="flex items-center justify-center gap-1 font-mono text-xs sm:text-sm flex-wrap bg-white rounded-lg p-4 border border-gray-200 shadow-xs">
               <span className="text-gray-600">yoursite.com/wp-admin/</span>
               <span className="text-gray-600">{selectedType === 'user' ? 'user-edit.php?' : 'post.php?'}</span>
               <div className="relative group">
-                <span className="bg-gradient-to-r from-orange-400 to-orange-500 text-white px-3 py-1 rounded font-bold shadow-md">
+                <span className="bg-linear-to-r from-orange-400 to-orange-500 text-white px-3 py-1 rounded-sm font-bold shadow-md">
                   {exampleID}
                 </span>
                 <button
@@ -196,7 +196,7 @@ export default function IdFinder() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6 border-2 border-green-200 shadow-sm">
+          <div className="bg-linear-to-r from-green-50 to-emerald-50 rounded-xl p-6 border-2 border-green-200 shadow-xs">
             <p className="text-center text-gray-800 font-semibold text-lg flex items-center justify-center gap-2">
               <span className="text-2xl">✓</span>
               <span>This number is the ID you need to connect your data using the Banimal API.</span>
@@ -205,7 +205,7 @@ export default function IdFinder() {
         </div>
 
         {/* Pro Tip */}
-        <div className="bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl p-8 text-white">
+        <div className="bg-linear-to-br from-indigo-600 to-purple-600 rounded-2xl p-8 text-white">
           <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
             <span>💡</span>
             Pro Tip

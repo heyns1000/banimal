@@ -193,7 +193,7 @@ export default function EnterprisePayroll() {
     <Layout>
       {/* Hero Section */}
       <div className="mb-12">
-        <div className="premium-card p-10 bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 text-white">
+        <div className="premium-card p-10 bg-linear-to-br from-blue-900 via-indigo-900 to-purple-900 text-white">
           <div className="flex items-center justify-between mb-8">
             <div>
               <div className="inline-block px-4 py-1 border border-blue-400/50 rounded-full text-blue-400 text-xs font-bold tracking-widest uppercase mb-4">
@@ -207,26 +207,26 @@ export default function EnterprisePayroll() {
                 Comprehensive Analysis of Leading Enterprise Payroll Systems
               </p>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm px-6 py-4 rounded-2xl border border-white/20 text-center">
+            <div className="bg-white/10 backdrop-blur-xs px-6 py-4 rounded-2xl border border-white/20 text-center">
               <div className="text-4xl font-black text-blue-400 mb-1">5</div>
               <div className="text-sm text-blue-200">Systems Analyzed</div>
             </div>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-blue-200 mb-1">UI Components</div>
               <div className="text-3xl font-black">200+</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-blue-200 mb-1">Best Practices</div>
               <div className="text-3xl font-black">47</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-blue-200 mb-1">Key Metrics</div>
               <div className="text-3xl font-black">8</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-blue-200 mb-1">Countries</div>
               <div className="text-3xl font-black">193+</div>
             </div>
@@ -274,7 +274,7 @@ export default function EnterprisePayroll() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {systems.map((system) => (
             <div key={system.id} className="premium-card overflow-hidden">
-              <div className={`bg-gradient-to-br ${system.color} p-6 text-white`}>
+              <div className={`bg-linear-to-br ${system.color} p-6 text-white`}>
                 <div className="text-5xl mb-4">{system.emoji}</div>
                 <h3 className="text-2xl font-bold mb-2">{system.name}</h3>
                 <div className="flex items-center gap-2">
@@ -288,7 +288,7 @@ export default function EnterprisePayroll() {
                   <div className="space-y-2">
                     {system.strengths.map((strength, idx) => (
                       <div key={idx} className="flex items-start gap-2 text-sm text-gray-700">
-                        <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                        <CheckCircle className="w-4 h-4 text-green-600 shrink-0 mt-0.5" />
                         <span>{strength}</span>
                       </div>
                     ))}
@@ -299,7 +299,7 @@ export default function EnterprisePayroll() {
                   <div className="space-y-2">
                     {system.weaknesses.map((weakness, idx) => (
                       <div key={idx} className="flex items-start gap-2 text-sm text-gray-700">
-                        <AlertTriangle className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
+                        <AlertTriangle className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
                         <span>{weakness}</span>
                       </div>
                     ))}
@@ -391,7 +391,7 @@ export default function EnterprisePayroll() {
                   <div className="flex flex-wrap gap-2">
                     <div className="text-xs text-gray-500 font-bold">ADOPTED BY:</div>
                     {rec.systems.map((sys, idx) => (
-                      <span key={idx} className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs font-medium">
+                      <span key={idx} className="px-2 py-1 bg-gray-100 text-gray-700 rounded-sm text-xs font-medium">
                         {sys}
                       </span>
                     ))}
@@ -404,9 +404,9 @@ export default function EnterprisePayroll() {
       </div>
 
       {/* ROI & Business Impact */}
-      <div className="premium-card p-10 bg-gradient-to-br from-green-50 to-emerald-50">
+      <div className="premium-card p-10 bg-linear-to-br from-green-50 to-emerald-50">
         <div className="flex items-start gap-6 mb-8">
-          <div className="flex-shrink-0 w-20 h-20 bg-green-600 rounded-2xl flex items-center justify-center">
+          <div className="shrink-0 w-20 h-20 bg-green-600 rounded-2xl flex items-center justify-center">
             <TrendingUp className="w-10 h-10 text-white" />
           </div>
           <div className="flex-1">

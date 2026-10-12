@@ -81,7 +81,7 @@ export default function EcosystemDashboard() {
     <Layout>
       {/* Hero Section */}
       <div className="mb-12">
-        <PulseCard variant="premium" intensity="high" className="p-10 bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white">
+        <PulseCard variant="premium" intensity="high" className="p-10 bg-linear-to-br from-gray-900 via-purple-900 to-gray-900 text-white">
           <div className="flex items-center justify-between mb-6">
             <div>
               <h1 
@@ -120,7 +120,7 @@ export default function EcosystemDashboard() {
 
           {/* Master Stats */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <PulseCard variant="glow" intensity="medium" className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+            <PulseCard variant="glow" intensity="medium" className="bg-white/10 backdrop-blur-xs rounded-2xl p-6 border border-white/20">
               <div 
                 className="text-4xl font-black mb-2"
                 style={{
@@ -134,17 +134,17 @@ export default function EcosystemDashboard() {
               <div className="text-sm text-gray-300 font-semibold">Total Brands</div>
               <div className="text-xs text-purple-200 mt-1">Across 3 Systems</div>
             </PulseCard>
-            <PulseCard variant="default" intensity="low" className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+            <PulseCard variant="default" intensity="low" className="bg-white/10 backdrop-blur-xs rounded-2xl p-6 border border-white/20">
               <div className="text-4xl font-black text-green-400 mb-2">{systems.length}</div>
               <div className="text-sm text-gray-300 font-semibold">Active Systems</div>
               <div className="text-xs text-purple-200 mt-1">100% Operational</div>
             </PulseCard>
-            <PulseCard variant="default" intensity="low" className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+            <PulseCard variant="default" intensity="low" className="bg-white/10 backdrop-blur-xs rounded-2xl p-6 border border-white/20">
               <div className="text-4xl font-black text-blue-400 mb-2">{pulsePhase}</div>
               <div className="text-sm text-gray-300 font-semibold">Pulse Phase</div>
               <div className="text-xs text-purple-200 mt-1">9s Engine</div>
             </PulseCard>
-            <PulseCard variant="default" intensity="low" className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+            <PulseCard variant="default" intensity="low" className="bg-white/10 backdrop-blur-xs rounded-2xl p-6 border border-white/20">
               <div className="text-4xl font-black text-purple-400 mb-2">{grainCount.toLocaleString()}</div>
               <div className="text-sm text-gray-300 font-semibold">Grain Count</div>
               <div className="text-xs text-purple-200 mt-1">Live Counter</div>
@@ -160,7 +160,7 @@ export default function EcosystemDashboard() {
           {systems.map((system, index) => (
             <PulseCard key={index} variant="premium" intensity="medium" className="overflow-hidden">
               <div 
-                className={`bg-gradient-to-br ${system.gradient} p-6 text-white`}
+                className={`bg-linear-to-br ${system.gradient} p-6 text-white`}
                 style={{
                   opacity: 0.9 + (breathIntensity * 0.1)
                 }}
@@ -175,7 +175,7 @@ export default function EcosystemDashboard() {
                   >
                     {system.emoji}
                   </div>
-                  <div className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold">
+                  <div className="bg-white/20 backdrop-blur-xs px-3 py-1 rounded-full text-xs font-bold">
                     {system.tier}
                   </div>
                 </div>
@@ -229,7 +229,7 @@ export default function EcosystemDashboard() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <PulseCard variant="glow" intensity="medium" className="p-6">
             <div 
-              className="inline-flex p-4 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 mb-4"
+              className="inline-flex p-4 rounded-2xl bg-linear-to-br from-blue-500 to-cyan-500 mb-4"
               style={{
                 transform: `scale(${0.95 + (breathIntensity * 0.05)})`,
                 transition: 'transform 0.3s ease'
@@ -243,7 +243,7 @@ export default function EcosystemDashboard() {
           
           <PulseCard variant="glow" intensity="medium" className="p-6">
             <div 
-              className="inline-flex p-4 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-500 mb-4"
+              className="inline-flex p-4 rounded-2xl bg-linear-to-br from-green-500 to-emerald-500 mb-4"
               style={{
                 transform: `scale(${0.95 + (breathIntensity * 0.05)})`,
                 transition: 'transform 0.3s ease'
@@ -257,7 +257,7 @@ export default function EcosystemDashboard() {
           
           <PulseCard variant="glow" intensity="medium" className="p-6">
             <div 
-              className="inline-flex p-4 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 mb-4"
+              className="inline-flex p-4 rounded-2xl bg-linear-to-br from-purple-500 to-pink-500 mb-4"
               style={{
                 transform: `scale(${0.95 + (breathIntensity * 0.05)})`,
                 transition: 'transform 0.3s ease'
@@ -271,7 +271,7 @@ export default function EcosystemDashboard() {
           
           <PulseCard variant="glow" intensity="medium" className="p-6">
             <div 
-              className="inline-flex p-4 rounded-2xl bg-gradient-to-br from-orange-500 to-red-500 mb-4"
+              className="inline-flex p-4 rounded-2xl bg-linear-to-br from-orange-500 to-red-500 mb-4"
               style={{
                 transform: `scale(${0.95 + (breathIntensity * 0.05)})`,
                 transition: 'transform 0.3s ease'
@@ -297,7 +297,7 @@ export default function EcosystemDashboard() {
               transition: 'all 0.3s ease'
             }}
           >
-            <div className="flex-shrink-0">
+            <div className="shrink-0">
               <div 
                 className="w-12 h-12 rounded-full flex items-center justify-center"
                 style={{
@@ -323,7 +323,7 @@ export default function EcosystemDashboard() {
               opacity: 0.7 + (breathIntensity * 0.3)
             }}
           >
-            <div className="flex-shrink-0">
+            <div className="shrink-0">
               <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
                 <Database className="w-6 h-6 text-green-600" />
               </div>
@@ -343,7 +343,7 @@ export default function EcosystemDashboard() {
               opacity: 0.7 + (breathIntensity * 0.3)
             }}
           >
-            <div className="flex-shrink-0">
+            <div className="shrink-0">
               <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
                 <Activity className="w-6 h-6 text-blue-600" />
               </div>

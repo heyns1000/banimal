@@ -61,7 +61,7 @@ export default function Configuration() {
         {/* Header */}
         <div className="mb-12 animate-fade-in">
           <h1 className="text-4xl md:text-6xl font-bold mb-4 font-serif">
-            <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
               ⚙️ Configuration Hub
             </span>
           </h1>
@@ -71,11 +71,11 @@ export default function Configuration() {
         </div>
 
         {/* Important Notice */}
-        <div className="premium-card bg-gradient-to-br from-yellow-50 via-orange-50 to-yellow-50 border-2 border-yellow-300 rounded-3xl p-10 mb-12 animate-slide-up shadow-2xl">
+        <div className="premium-card bg-linear-to-br from-yellow-50 via-orange-50 to-yellow-50 border-2 border-yellow-300 rounded-3xl p-10 mb-12 animate-slide-up shadow-2xl">
           <div className="flex flex-col md:flex-row items-start gap-6">
             <div className="relative">
               <div className="absolute inset-0 bg-yellow-500 rounded-full blur-xl opacity-40 animate-pulse"></div>
-              <div className="relative bg-gradient-to-br from-yellow-500 to-orange-600 text-white rounded-full p-5 shadow-xl">
+              <div className="relative bg-linear-to-br from-yellow-500 to-orange-600 text-white rounded-full p-5 shadow-xl">
                 <AlertCircle className="w-12 h-12" />
               </div>
             </div>
@@ -89,22 +89,22 @@ export default function Configuration() {
                 <p className="font-bold text-gray-900 mb-4 text-lg">📋 Configuration Steps:</p>
                 <ol className="space-y-3">
                   <li className="flex gap-4">
-                    <span className="flex-shrink-0 w-8 h-8 gradient-gold rounded-full flex items-center justify-center font-black text-gray-900">1</span>
+                    <span className="shrink-0 w-8 h-8 gradient-gold rounded-full flex items-center justify-center font-black text-gray-900">1</span>
                     <div>
                       <span className="font-semibold text-gray-900">Log into WordPress admin at </span>
                       <code className="bg-white px-3 py-1 rounded-lg font-mono text-sm">banimal.co.za/wp-admin</code>
                     </div>
                   </li>
                   <li className="flex gap-4">
-                    <span className="flex-shrink-0 w-8 h-8 gradient-gold rounded-full flex items-center justify-center font-black text-gray-900">2</span>
+                    <span className="shrink-0 w-8 h-8 gradient-gold rounded-full flex items-center justify-center font-black text-gray-900">2</span>
                     <span className="text-gray-700">Navigate to <strong className="text-gray-900">Banimal → Configuration</strong> in the sidebar</span>
                   </li>
                   <li className="flex gap-4">
-                    <span className="flex-shrink-0 w-8 h-8 gradient-gold rounded-full flex items-center justify-center font-black text-gray-900">3</span>
+                    <span className="shrink-0 w-8 h-8 gradient-gold rounded-full flex items-center justify-center font-black text-gray-900">3</span>
                     <span className="text-gray-700">Enter your API keys and credentials</span>
                   </li>
                   <li className="flex gap-4">
-                    <span className="flex-shrink-0 w-8 h-8 gradient-gold rounded-full flex items-center justify-center font-black text-gray-900">4</span>
+                    <span className="shrink-0 w-8 h-8 gradient-gold rounded-full flex items-center justify-center font-black text-gray-900">4</span>
                     <span className="text-gray-700">Click <strong className="text-gray-900">Save Configuration</strong></span>
                   </li>
                 </ol>
@@ -124,10 +124,10 @@ export default function Configuration() {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* Section Header */}
-                <div className={`bg-gradient-to-r ${section.color} p-8 text-white relative overflow-hidden`}>
+                <div className={`bg-linear-to-r ${section.color} p-8 text-white relative overflow-hidden`}>
                   <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80')] bg-cover bg-center"></div>
                   <div className="relative flex items-center gap-4 mb-2">
-                    <div className="p-4 bg-white/20 backdrop-blur-sm rounded-2xl">
+                    <div className="p-4 bg-white/20 backdrop-blur-xs rounded-2xl">
                       <Icon className="w-10 h-10" />
                     </div>
                     <div>
@@ -141,10 +141,10 @@ export default function Configuration() {
                 </div>
 
                 {/* Fields */}
-                <div className="p-8 bg-gradient-to-br from-white to-gray-50">
+                <div className="p-8 bg-linear-to-br from-white to-gray-50">
                   <div className="space-y-4">
                     {section.fields.map((field, i) => (
-                      <div key={i} className="group flex items-center gap-4 p-5 bg-gradient-to-r from-gray-50 to-white rounded-2xl border-2 border-gray-200 hover:border-indigo-300 hover:shadow-lg transition-all">
+                      <div key={i} className="group flex items-center gap-4 p-5 bg-linear-to-r from-gray-50 to-white rounded-2xl border-2 border-gray-200 hover:border-indigo-300 hover:shadow-lg transition-all">
                         <div className="p-2 bg-indigo-50 rounded-xl group-hover:scale-110 transition-transform">
                           <Settings className="w-6 h-6 text-indigo-600" />
                         </div>
@@ -159,9 +159,9 @@ export default function Configuration() {
         </div>
 
         {/* Security Features */}
-        <div className="mt-12 premium-card bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 rounded-3xl p-10 text-white shadow-2xl animate-slide-up" style={{ animationDelay: '0.4s' }}>
+        <div className="mt-12 premium-card bg-linear-to-br from-indigo-600 via-purple-600 to-pink-600 rounded-3xl p-10 text-white shadow-2xl animate-slide-up" style={{ animationDelay: '0.4s' }}>
           <h2 className="text-3xl font-black mb-8 flex items-center gap-3 font-serif">
-            <div className="p-3 bg-white/20 backdrop-blur-sm rounded-2xl">
+            <div className="p-3 bg-white/20 backdrop-blur-xs rounded-2xl">
               <Shield className="w-10 h-10" />
             </div>
             🔒 Enterprise Security Standards
@@ -205,7 +205,7 @@ export default function Configuration() {
             </div>
           </div>
           
-          <div className="mt-8 p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
+          <div className="mt-8 p-6 bg-white/10 backdrop-blur-xs rounded-2xl border border-white/20">
             <h3 className="font-bold text-xl mb-4">⚠️ Security Best Practices:</h3>
             <ul className="space-y-3 text-indigo-100">
               <li className="flex items-start gap-3">
@@ -233,7 +233,7 @@ export default function Configuration() {
           <h2 className="text-3xl font-black text-gray-900 mb-8 font-serif">🚀 Quick Setup Guide</h2>
           <div className="space-y-8">
             <div className="flex gap-6">
-              <div className="flex-shrink-0">
+              <div className="shrink-0">
                 <div className="w-16 h-16 gradient-purple rounded-2xl flex items-center justify-center font-black text-3xl text-white shadow-lg">
                   1
                 </div>
@@ -253,7 +253,7 @@ export default function Configuration() {
             </div>
 
             <div className="flex gap-6">
-              <div className="flex-shrink-0">
+              <div className="shrink-0">
                 <div className="w-16 h-16 gradient-gold rounded-2xl flex items-center justify-center font-black text-3xl text-white shadow-lg">
                   2
                 </div>
@@ -268,7 +268,7 @@ export default function Configuration() {
             </div>
 
             <div className="flex gap-6">
-              <div className="flex-shrink-0">
+              <div className="shrink-0">
                 <div className="w-16 h-16 gradient-green rounded-2xl flex items-center justify-center font-black text-3xl text-white shadow-lg">
                   3
                 </div>
@@ -283,8 +283,8 @@ export default function Configuration() {
             </div>
 
             <div className="flex gap-6">
-              <div className="flex-shrink-0">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center font-black text-3xl text-white shadow-lg">
+              <div className="shrink-0">
+                <div className="w-16 h-16 bg-linear-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center font-black text-3xl text-white shadow-lg">
                   4
                 </div>
               </div>

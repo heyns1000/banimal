@@ -188,7 +188,7 @@ export default function BaobabPortal() {
     <Layout>
       {/* Hero Section */}
       <div className="mb-12">
-        <div className="premium-card p-10 bg-gradient-to-br from-green-900 via-teal-900 to-emerald-900 text-white">
+        <div className="premium-card p-10 bg-linear-to-br from-green-900 via-teal-900 to-emerald-900 text-white">
           <div className="flex items-center justify-between mb-8">
             <div>
               <div className="inline-block px-4 py-1 border border-green-400/50 rounded-full text-green-400 text-xs font-bold tracking-widest uppercase mb-4">
@@ -202,34 +202,34 @@ export default function BaobabPortal() {
                 Gateway to the 1000-Year Ecosystem • Atom-Level Security
               </p>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm px-6 py-4 rounded-2xl border border-white/20 text-center">
+            <div className="bg-white/10 backdrop-blur-xs px-6 py-4 rounded-2xl border border-white/20 text-center">
               <div className="text-4xl font-black text-green-400 mb-1">{portalStats.uptime}%</div>
               <div className="text-sm text-green-200">Uptime</div>
             </div>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-green-200 mb-1">Total Access</div>
               <div className="text-3xl font-black">{portalStats.totalAccess.toLocaleString()}</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-green-200 mb-1">Active Users</div>
               <div className="text-3xl font-black">{portalStats.activeUsers.toLocaleString()}</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-green-200 mb-1">Data Transfer</div>
               <div className="text-3xl font-black">{portalStats.dataTransferred}</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-green-200 mb-1">Security Score</div>
               <div className="text-3xl font-black text-green-400">{portalStats.securityScore}</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-green-200 mb-1">Compliance</div>
               <div className="text-lg font-black">{portalStats.compliance}</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-green-200 mb-1">Status</div>
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
@@ -383,7 +383,7 @@ export default function BaobabPortal() {
                   <div>
                     <div className="text-5xl mb-3">{level.icon}</div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-2">{level.level}</h3>
-                    <div className="text-3xl font-black bg-gradient-to-r {level.color} bg-clip-text text-transparent">
+                    <div className="text-3xl font-black bg-linear-to-r {level.color} bg-clip-text text-transparent">
                       {level.price}
                     </div>
                   </div>
@@ -397,13 +397,13 @@ export default function BaobabPortal() {
                   <div className="text-sm font-bold text-gray-700 mb-3">PERMISSIONS</div>
                   {level.permissions.map((permission, idx) => (
                     <div key={idx} className="flex items-center gap-2 text-sm text-gray-700">
-                      <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
+                      <CheckCircle className="w-4 h-4 text-green-600 shrink-0" />
                       <span>{permission}</span>
                     </div>
                   ))}
                 </div>
 
-                <button className={`w-full py-3 rounded-xl font-bold text-sm uppercase tracking-wider transition-all bg-gradient-to-r ${level.color} text-white hover:shadow-2xl`}>
+                <button className={`w-full py-3 rounded-xl font-bold text-sm uppercase tracking-wider transition-all bg-linear-to-r ${level.color} text-white hover:shadow-2xl`}>
                   Request Access
                 </button>
               </div>
@@ -498,9 +498,9 @@ export default function BaobabPortal() {
       )}
 
       {/* Repository Integration */}
-      <div className="mt-12 premium-card p-10 bg-gradient-to-br from-green-50 to-emerald-50">
+      <div className="mt-12 premium-card p-10 bg-linear-to-br from-green-50 to-emerald-50">
         <div className="flex items-start gap-6 mb-8">
-          <div className="flex-shrink-0 w-20 h-20 bg-green-600 rounded-2xl flex items-center justify-center">
+          <div className="shrink-0 w-20 h-20 bg-green-600 rounded-2xl flex items-center justify-center">
             <TreePine className="w-10 h-10 text-white" />
           </div>
           <div className="flex-1">

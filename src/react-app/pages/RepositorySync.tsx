@@ -110,7 +110,7 @@ export default function RepositorySync() {
     <Layout>
       {/* Header */}
       <div className="mb-12">
-        <div className="premium-card p-10 bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900 text-white">
+        <div className="premium-card p-10 bg-linear-to-br from-indigo-900 via-purple-900 to-blue-900 text-white">
           <div className="flex items-center justify-between mb-8">
             <div>
               <h1 className="text-5xl font-black mb-3 font-serif flex items-center gap-4">
@@ -130,30 +130,30 @@ export default function RepositorySync() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-purple-200 mb-1">Repositories</div>
               <div className="text-3xl font-black">{syncStats.repositories}</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-purple-200 mb-1">Total Brands</div>
               <div className="text-3xl font-black">{syncStats.totalBrands.toLocaleString()}</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-purple-200 mb-1">Deployments</div>
               <div className="text-3xl font-black">{syncStats.deploymentsActive}</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-purple-200 mb-1">Regions</div>
               <div className="text-3xl font-black">{syncStats.regionsConnected}</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-purple-200 mb-1">Status</div>
               <div className="flex items-center gap-2 mt-1">
                 <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
                 <span className="text-lg font-bold">Healthy</span>
               </div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl border border-white/20">
               <div className="text-sm text-purple-200 mb-1">Last Sync</div>
               <div className="text-lg font-bold">
                 {lastSyncTime.toLocaleTimeString()}
@@ -198,7 +198,7 @@ export default function RepositorySync() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {brandSystems.map((system, index) => (
             <div key={index} className="premium-card overflow-hidden">
-              <div className="bg-gradient-to-br from-purple-600 to-indigo-600 p-6 text-white">
+              <div className="bg-linear-to-br from-purple-600 to-indigo-600 p-6 text-white">
                 <div className="text-5xl mb-4">{system.emoji}</div>
                 <h3 className="text-2xl font-bold mb-2">{system.name}</h3>
                 <div className="flex items-center gap-2 text-sm opacity-90">
@@ -279,9 +279,9 @@ export default function RepositorySync() {
       {/* Five Repository Integration */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
         {/* Repository 1: Fruitful-global-deployment */}
-        <div className="premium-card p-8 bg-gradient-to-br from-blue-900 to-indigo-900 text-white">
+        <div className="premium-card p-8 bg-linear-to-br from-blue-900 to-indigo-900 text-white">
           <div className="flex items-start gap-4 mb-6">
-            <div className="flex-shrink-0 w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center">
+            <div className="shrink-0 w-16 h-16 bg-white/20 backdrop-blur-xs rounded-2xl flex items-center justify-center">
               <Package className="w-8 h-8" />
             </div>
             <div className="flex-1">
@@ -294,11 +294,11 @@ export default function RepositorySync() {
           </div>
           
           <div className="grid grid-cols-2 gap-4 mb-6">
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl">
               <div className="text-xs text-blue-200 mb-1">Brands Deployed</div>
               <div className="text-2xl font-black">13,713</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl">
               <div className="text-xs text-blue-200 mb-1">Active Regions</div>
               <div className="text-2xl font-black">193</div>
             </div>
@@ -311,9 +311,9 @@ export default function RepositorySync() {
         </div>
 
         {/* Repository 2: FruitfulPlanetChange */}
-        <div className="premium-card p-8 bg-gradient-to-br from-green-900 to-emerald-900 text-white">
+        <div className="premium-card p-8 bg-linear-to-br from-green-900 to-emerald-900 text-white">
           <div className="flex items-start gap-4 mb-6">
-            <div className="flex-shrink-0 w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center text-3xl">
+            <div className="shrink-0 w-16 h-16 bg-white/20 backdrop-blur-xs rounded-2xl flex items-center justify-center text-3xl">
               🌍
             </div>
             <div className="flex-1">
@@ -326,11 +326,11 @@ export default function RepositorySync() {
           </div>
           
           <div className="grid grid-cols-2 gap-4 mb-6">
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl">
               <div className="text-xs text-green-200 mb-1">Impact Metrics</div>
               <div className="text-2xl font-black">47</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl">
               <div className="text-xs text-green-200 mb-1">Global Zones</div>
               <div className="text-2xl font-black">12</div>
             </div>
@@ -343,9 +343,9 @@ export default function RepositorySync() {
         </div>
 
         {/* Repository 3: Omnigrid */}
-        <div className="premium-card p-8 bg-gradient-to-br from-yellow-900 to-amber-900 text-white">
+        <div className="premium-card p-8 bg-linear-to-br from-yellow-900 to-amber-900 text-white">
           <div className="flex items-start gap-4 mb-6">
-            <div className="flex-shrink-0 w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center text-3xl">
+            <div className="shrink-0 w-16 h-16 bg-white/20 backdrop-blur-xs rounded-2xl flex items-center justify-center text-3xl">
               🌳
             </div>
             <div className="flex-1">
@@ -358,11 +358,11 @@ export default function RepositorySync() {
           </div>
           
           <div className="grid grid-cols-2 gap-4 mb-6">
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl">
               <div className="text-xs text-yellow-200 mb-1">Brands</div>
               <div className="text-2xl font-black">120</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl">
               <div className="text-xs text-yellow-200 mb-1">Target</div>
               <div className="text-2xl font-black">$100B</div>
             </div>
@@ -375,9 +375,9 @@ export default function RepositorySync() {
         </div>
 
         {/* Repository 4: Baobab Portal */}
-        <div className="premium-card p-8 bg-gradient-to-br from-teal-900 to-green-900 text-white">
+        <div className="premium-card p-8 bg-linear-to-br from-teal-900 to-green-900 text-white">
           <div className="flex items-start gap-4 mb-6">
-            <div className="flex-shrink-0 w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center text-3xl">
+            <div className="shrink-0 w-16 h-16 bg-white/20 backdrop-blur-xs rounded-2xl flex items-center justify-center text-3xl">
               🌲
             </div>
             <div className="flex-1">
@@ -390,11 +390,11 @@ export default function RepositorySync() {
           </div>
           
           <div className="grid grid-cols-2 gap-4 mb-6">
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl">
               <div className="text-xs text-teal-200 mb-1">Active Users</div>
               <div className="text-2xl font-black">8,947</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl">
               <div className="text-xs text-teal-200 mb-1">Uptime</div>
               <div className="text-2xl font-black">99.98%</div>
             </div>
@@ -407,9 +407,9 @@ export default function RepositorySync() {
         </div>
 
         {/* Repository 5: LicenseVault */}
-        <div className="premium-card p-8 bg-gradient-to-br from-purple-900 to-pink-900 text-white lg:col-span-2">
+        <div className="premium-card p-8 bg-linear-to-br from-purple-900 to-pink-900 text-white lg:col-span-2">
           <div className="flex items-start gap-4 mb-6">
-            <div className="flex-shrink-0 w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center text-3xl">
+            <div className="shrink-0 w-16 h-16 bg-white/20 backdrop-blur-xs rounded-2xl flex items-center justify-center text-3xl">
               🔐
             </div>
             <div className="flex-1">
@@ -422,19 +422,19 @@ export default function RepositorySync() {
           </div>
           
           <div className="grid grid-cols-4 gap-4 mb-6">
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl">
               <div className="text-xs text-purple-200 mb-1">Total Licenses</div>
               <div className="text-2xl font-black">8</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl">
               <div className="text-xs text-purple-200 mb-1">Sync Speed</div>
               <div className="text-2xl font-black text-yellow-400">0.08s</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl">
               <div className="text-xs text-purple-200 mb-1">Zero Waste</div>
               <div className="text-2xl font-black text-green-400">100%</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl">
+            <div className="bg-white/10 backdrop-blur-xs p-4 rounded-xl">
               <div className="text-xs text-purple-200 mb-1">BareCart Ready</div>
               <div className="text-2xl font-black">✓</div>
             </div>
@@ -448,22 +448,22 @@ export default function RepositorySync() {
       </div>
 
       {/* Unified Sync Features */}
-      <div className="premium-card p-10 bg-gradient-to-br from-gray-900 to-purple-900 text-white">
+      <div className="premium-card p-10 bg-linear-to-br from-gray-900 to-purple-900 text-white">
         <h2 className="text-3xl font-bold mb-8 font-serif">Unified Sync Infrastructure</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20">
+          <div className="bg-white/10 backdrop-blur-xs p-6 rounded-2xl border border-white/20">
             <CheckCircle className="w-8 h-8 text-green-400 mb-3" />
             <h3 className="text-xl font-bold mb-2">Five Repository Auto Sync</h3>
             <p className="text-sm text-purple-200">All five repositories sync with 0.08s restructure timing</p>
           </div>
 
-          <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20">
+          <div className="bg-white/10 backdrop-blur-xs p-6 rounded-2xl border border-white/20">
             <TrendingUp className="w-8 h-8 text-blue-400 mb-3" />
             <h3 className="text-xl font-bold mb-2">99.98% Success Rate</h3>
             <p className="text-sm text-purple-200">Proven reliability across all sync operations</p>
           </div>
 
-          <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20">
+          <div className="bg-white/10 backdrop-blur-xs p-6 rounded-2xl border border-white/20">
             <AlertCircle className="w-8 h-8 text-yellow-400 mb-3" />
             <h3 className="text-xl font-bold mb-2">Cross-Repo Coordination</h3>
             <p className="text-sm text-purple-200">Intelligent conflict resolution across 5 repositories including LicenseVault→BareCart™</p>

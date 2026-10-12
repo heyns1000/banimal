@@ -67,11 +67,11 @@ export default function HomePage() {
   return (
     <Layout>
       {/* Hero Section with Billboard */}
-      <div className="relative bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white overflow-hidden rounded-3xl mb-16 shadow-2xl">
+      <div className="relative bg-linear-to-br from-gray-900 via-purple-900 to-gray-900 text-white overflow-hidden rounded-3xl mb-16 shadow-2xl">
         <div className="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80')] bg-cover bg-center"></div>
         <div className="relative px-8 py-20 md:py-28">
           <div className="text-center max-w-5xl mx-auto">
-            <div className="mb-6 inline-block px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm font-bold tracking-widest uppercase">
+            <div className="mb-6 inline-block px-4 py-2 bg-white/10 backdrop-blur-xs border border-white/20 rounded-full text-sm font-bold tracking-widest uppercase">
               🔒 Atom-Level Compliance | Phase: {pulsePhase}
             </div>
             <h1 className="text-4xl md:text-7xl font-black mb-6 leading-tight font-serif">
@@ -85,7 +85,7 @@ export default function HomePage() {
             </p>
             
             {/* Live Billboard */}
-            <PulseCard variant="glow" intensity="high" className="max-w-3xl mx-auto bg-gray-800/80 backdrop-blur-sm p-8 mb-10 border-l-4">
+            <PulseCard variant="glow" intensity="high" className="max-w-3xl mx-auto bg-gray-800/80 backdrop-blur-xs p-8 mb-10 border-l-4">
               <p className="text-xs text-gray-400 uppercase tracking-widest mb-3">Live Strategic Directive</p>
               <h2 
                 key={billboardIndex}
@@ -214,7 +214,7 @@ export default function HomePage() {
                 className="p-8"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${feature.color} mb-6`}>
+                <div className={`inline-flex p-4 rounded-2xl bg-linear-to-br ${feature.color} mb-6`}>
                   <Icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">{feature.title}</h3>
@@ -257,8 +257,8 @@ export default function HomePage() {
               { num: 3, title: 'Configure integrations', desc: 'Add payment gateways and services' },
               { num: 4, title: 'Save and test', desc: 'Verify setup in API Status' }
             ].map((step) => (
-              <PulseCard key={step.num} variant="glow" intensity="medium" className="flex items-start gap-4 bg-white/10 backdrop-blur-sm p-6 border border-white/20">
-                <div className="flex-shrink-0 w-10 h-10 gradient-gold rounded-full flex items-center justify-center text-gray-900 font-black text-lg">
+              <PulseCard key={step.num} variant="glow" intensity="medium" className="flex items-start gap-4 bg-white/10 backdrop-blur-xs p-6 border border-white/20">
+                <div className="shrink-0 w-10 h-10 gradient-gold rounded-full flex items-center justify-center text-gray-900 font-black text-lg">
                   {step.num}
                 </div>
                 <div>
@@ -306,19 +306,19 @@ export default function HomePage() {
             <h3 className="text-2xl font-bold text-gray-900 mb-4 font-serif">🎉 Global Sync & Pulse System</h3>
             <ul className="space-y-3 text-gray-700">
               <li className="flex items-start gap-3">
-                <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" />
+                <CheckCircle className="w-6 h-6 text-green-500 shrink-0 mt-0.5" />
                 <span>Unified 9s pulse system synchronized across all pages and components</span>
               </li>
               <li className="flex items-start gap-3">
-                <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" />
+                <CheckCircle className="w-6 h-6 text-green-500 shrink-0 mt-0.5" />
                 <span>Breathing UI elements that respond to global ecosystem heartbeat</span>
               </li>
               <li className="flex items-start gap-3">
-                <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" />
+                <CheckCircle className="w-6 h-6 text-green-500 shrink-0 mt-0.5" />
                 <span>Connected buttons, cards, and navigation with shared pulse context</span>
               </li>
               <li className="flex items-start gap-3">
-                <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" />
+                <CheckCircle className="w-6 h-6 text-green-500 shrink-0 mt-0.5" />
                 <span>Real-time grain counting and phase transitions visible globally</span>
               </li>
             </ul>

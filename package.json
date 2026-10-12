@@ -15,28 +15,28 @@
     "zod": "^3.24.3"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "^1.53.1",
-    "@cloudflare/vitest-pool-workers": "^0.22.0",
+    "@cloudflare/vite-plugin": "^1.63.1",
+    "@cloudflare/vitest-pool-workers": "^0.23.0",
     "@cloudflare/workers-types": "^5.20260903.1",
-    "@eslint/js": "9.25.1",
+    "@eslint/js": "^9.39.5",
     "@getmocha/users-service": "^0.0.4",
     "@getmocha/vite-plugins": "latest",
+    "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "22.14.1",
     "@types/react": "19.0.10",
     "@types/react-dom": "19.0.4",
     "@vitejs/plugin-react": "^4.7.0",
-    "autoprefixer": "^10.4.21",
-    "eslint": "9.25.1",
+    "eslint": "^9.39.5",
     "eslint-plugin-react-hooks": "5.2.0",
     "eslint-plugin-react-refresh": "0.4.19",
     "globals": "15.15.0",
     "postcss": "^8.5.26",
-    "tailwindcss": "^3.4.17",
+    "tailwindcss": "^4.3.3",
     "typescript": "5.8.3",
-    "typescript-eslint": "8.31.0",
+    "typescript-eslint": "^8.71.1",
     "vite": "^7.1.3",
     "vitest": "^4.1.11",
-    "wrangler": "^4.125.0"
+    "wrangler": "^4.149.0"
   },
   "scripts": {
     "build": "tsc -b && vite build",
@@ -51,5 +51,11 @@
     "brand:render": "node scripts/render-canonical-docs.mjs --out .rendered-docs",
     "brand:verify": "node scripts/render-canonical-docs.mjs --out .brand-render && node scripts/verify-brand-alignment.mjs --rendered .brand-render",
     "brand:generate-palette": "python3 scripts/generate-palette-assets.py"
+  },
+  "overrides": {
+    "wrangler": "$wrangler",
+    "miniflare": "^5.20261006.1-alpha",
+    "undici": "^7.30.0",
+    "sharp": "^0.35.5"
   }
 }

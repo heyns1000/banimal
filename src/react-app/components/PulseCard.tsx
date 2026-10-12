@@ -24,8 +24,8 @@ export default function PulseCard({
 
   const variantClasses = {
     default: 'bg-white border border-gray-200',
-    premium: 'bg-gradient-to-br from-white to-gray-50 border-2 border-purple-200',
-    glow: 'bg-gradient-to-br from-purple-50 to-indigo-50 border-2'
+    premium: 'bg-linear-to-br from-white to-gray-50 border-2 border-purple-200',
+    glow: 'bg-linear-to-br from-purple-50 to-indigo-50 border-2'
   };
 
   const glowIntensity = breathIntensity * intensityMultiplier[intensity];
