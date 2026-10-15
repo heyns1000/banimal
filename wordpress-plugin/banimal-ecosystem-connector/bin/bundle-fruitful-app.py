@@ -25,7 +25,21 @@ KEEP_EXT = {".html", ".htm", ".js", ".css", ".json", ".png", ".jpg", ".jpeg", ".
 SKIP_FILES = {"package.json", "package-lock.json", "jest.config.js", "tsconfig.json", "vercel.json"}
 SECRET = re.compile(r"(sk_live_[0-9A-Za-z]{10,}|sk_test_[0-9A-Za-z]{10,}|ghp_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{30,}|"
                     r"AKIA[0-9A-Z]{16}|AIza[0-9A-Za-z_\-]{35}|xox[baprs]-[0-9A-Za-z\-]{10,}|-----BEGIN [A-Z ]*PRIVATE KEY-----)")
-PERSONAL = re.compile(r"samperfox|082\s?601\s?3980|0826013980", re.I)
+# Sam Fox's personal contact details (CI rule: never published). Stored as sha256 fingerprints only,
+# so this public file does not itself contain them.
+PERSONAL_SHA256 = {"28baf90c211e25d27f47ed3450230c72d5c1c06998d0ed6e73751b9eceb7fae8", "ff5cdcfd4b7a242d64ec9a9080e594332cf575a0a45b996298dba0cd1e5036ec"}
+
+
+def has_personal(text):
+    for local_part in re.findall(r"([A-Za-z0-9._%+-]+)@", text):
+        if hashlib.sha256(local_part.lower().encode()).hexdigest() in PERSONAL_SHA256:
+            return True
+    for run in re.findall(r"\+?\d[\d\s-]{8,14}\d", text):
+        digits = re.sub(r"\D", "", run)
+        for d in {digits, "0" + digits[2:] if digits.startswith("27") else digits}:
+            if hashlib.sha256(d.encode()).hexdigest() in PERSONAL_SHA256:
+                return True
+    return False
 
 
 def blob_sha(data):
@@ -72,7 +86,7 @@ for rel in files:
         text = open(os.path.join(SRC, rel), encoding="utf-8", errors="replace").read()
         if SECRET.search(text):
             problems.append(f"secret-shaped value in {rel}")
-        if PERSONAL.search(text):
+        if has_personal(text):
             problems.append(f"personal contact detail in {rel}")
 if problems:
     print("REFUSED:\n  " + "\n  ".join(problems))
