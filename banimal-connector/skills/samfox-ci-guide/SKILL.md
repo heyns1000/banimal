@@ -29,7 +29,7 @@ be built by porting this exact content, not by re-deriving brand rules.
 | Legal | Sam Fox · South Africa |
 | Legal entity (locked) | Fruitful Shops (Pty) Ltd |
 | Education | BA Visual Communication, The Open Window, 2010 |
-| Contact | samperfox@gmail.com · 082 601 3980 |
+| Contact | [contact via faa.zone] · [contact via faa.zone] |
 | Web | banimal.co.za · fruitful.faa.zone · behance.net/samford |
 | Marks — ONLY legal | Sam Fox™ · "Drawing like Sam Fox™" · pink "SF" monogram · **no ®, ever** |
 
