@@ -17,15 +17,33 @@ const include = [
   'docs/atlas',
   'docs/index.html',
   'connector-preview.html',
+  'docs/integration/replit-handoff.md',
   'scripts/render-canonical-docs.mjs',
   'scripts/verify-brand-alignment.mjs',
   'scripts/generate-palette-assets.py',
   'wordpress-plugin/banimal-ecosystem-connector',
   'MOTION_LANGUAGE.md',
-  'docs/README.md'
+  'docs/README.md',
+  'src/worker',
+  'src/shared',
+  'package.json',
+  'package-lock.json'
+]
+
+const SENSITIVE_PATTERNS = [
+  /(^|\/)\.env($|\.)/i,
+  /(^|\/)\.dev(vars)?($|\.)/i,
+  /(^|\/)secrets?($|\.)/i,
+  /\.(pem|key|crt|p12)$/i,
 ]
 
 function ensureDir(p) { if (!fs.existsSync(p)) fs.mkdirSync(p, { recursive: true }) }
+
+function escapeShell(s) { return `'${s.replace(/'/g, "'\\''")}'` }
+
+function isSensitive(p) {
+  return SENSITIVE_PATTERNS.some((r) => r.test(p)) || p.includes('node_modules')
+}
 
 function copyPath(rel) {
   const src = path.join(ROOT, rel)
@@ -34,19 +52,26 @@ function copyPath(rel) {
   ensureDir(path.dirname(dst))
   const stat = fs.statSync(src)
   if (stat.isDirectory()) {
-    // fs.cp is available in Node 16+, but to be safe, use exec tar copy
-    execSync(`cp -a ${escapeShell(src)}/ ${escapeShell(dst)}/`)
+    // copy directory while filtering sensitive files
+    const entries = fs.readdirSync(src, { withFileTypes: true })
+    ensureDir(dst)
+    for (const e of entries) {
+      const childRel = path.join(rel, e.name)
+      if (isSensitive(childRel)) { console.warn('excluding sensitive path from copy:', childRel); continue }
+      if (e.isDirectory()) execSync(`cp -a ${escapeShell(path.join(src, e.name))}/ ${escapeShell(path.join(dst, e.name))}/`)
+      else fs.copyFileSync(path.join(src, e.name), path.join(dst, e.name))
+    }
   } else {
+    if (isSensitive(rel)) { console.warn('excluding sensitive file from copy:', rel); return false }
     ensureDir(path.dirname(dst))
     fs.copyFileSync(src, dst)
   }
   return true
 }
 
-function escapeShell(s) { return `'${s.replace(/'/g, "'\\''")}'` }
-
 function walkDir(dir) {
   let out = []
+  if (!fs.existsSync(dir)) return out
   const entries = fs.readdirSync(dir, { withFileTypes: true })
   for (const e of entries) {
     const full = path.join(dir, e.name)
@@ -67,31 +92,64 @@ async function main() {
   ensureDir(TMP)
   ensureDir(OUTDIR)
 
+  const missing = []
   const copied = []
   for (const p of include) {
     const ok = copyPath(p)
     if (ok) copied.push(p)
-    else console.warn(`skip missing: ${p}`)
+    else missing.push(p)
   }
 
+  if (missing.length) {
+    console.error('Missing required inputs for connector distribution:')
+    for (const m of missing) console.error('  -', m)
+    console.error('\nAborting build. Provide the required inputs or adjust include list.')
+    process.exit(2)
+  }
+
+  // If wordpress plugin directory exists, produce a zipped plugin artifact
+  const pluginSrc = path.join(ROOT, 'wordpress-plugin', 'banimal-ecosystem-connector')
+  const pluginZipOut = path.join(OUTDIR, 'banimal-wordpress-plugin.zip')
+  if (fs.existsSync(pluginSrc)) {
+    console.log('Packaging WordPress plugin into', pluginZipOut)
+    try {
+      execSync(`rm -f ${escapeShell(pluginZipOut)} || true`)
+      execSync(`cd ${escapeShell(pluginSrc)} && zip -r ${escapeShell(pluginZipOut)} .`, { stdio: 'inherit' })
+      // Copy zip into TMP so it is also included in the archive
+      ensureDir(path.dirname(path.join(TMP, 'wordpress-plugin.zip')))
+      fs.copyFileSync(pluginZipOut, path.join(TMP, 'wordpress-plugin.zip'))
+    } catch (err) {
+      console.warn('WordPress plugin zip step failed (zip may be missing):', err.message)
+    }
+  }
+
+  // Build inventory by walking the TMP before writing inventory.json so inventory does not list itself.
   const files = walkDir(TMP)
   const inventory = []
   for (const f of files) {
     const rel = path.relative(TMP, f).split(path.sep).join('/')
+    // intentionally exclude any eventual inventory.json that might already exist
+    if (rel === 'inventory.json') continue
     const src = rel // best-effort: the repo path matches rel
     const size = fs.statSync(f).size
     const sha256 = sha256File(f)
     inventory.push({ packagedPath: rel, sourcePath: src, size, sha256 })
   }
 
-  // Write inventory
+  // Write inventory into both OUTDIR and TMP (the inventory.json will be included in archive;
+  // it deliberately does not list itself — documented self-exclusion)
   const manifest = {
     name: 'banimal-connector-distribution',
     version: '0.0.1',
     generatedAt: new Date().toISOString(),
-    files: inventory
+    files: inventory,
+    notes: 'inventory.json is included in the archive but is intentionally excluded from the listed files to avoid self-reference.'
   }
   fs.writeFileSync(path.join(OUTDIR, 'inventory.json'), JSON.stringify(manifest, null, 2))
+  fs.writeFileSync(path.join(TMP, 'inventory.json'), JSON.stringify(manifest, null, 2))
+
+  // Recompute files list to include the newly written inventory.json and any plugin zip
+  const finalFiles = walkDir(TMP)
 
   // Create deterministic tar.gz using system tar with fixed mtime and ordered files
   const archivePath = path.join('dist', 'banimal-connector.tar.gz')
