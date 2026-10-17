@@ -17,7 +17,7 @@
   "devDependencies": {
     "@cloudflare/vite-plugin": "^1.63.1",
     "@cloudflare/vitest-pool-workers": "^0.23.0",
-    "@cloudflare/workers-types": "^5.20260903.1",
+    "@cloudflare/workers-types": "5.20260903.1",
     "@eslint/js": "^9.39.5",
     "@getmocha/users-service": "^0.0.4",
     "@getmocha/vite-plugins": "latest",
@@ -50,7 +50,8 @@
     "plugin:build": "bash wordpress-plugin/banimal-ecosystem-connector/bin/build-zip.sh",
     "brand:render": "node scripts/render-canonical-docs.mjs --out .rendered-docs",
     "brand:verify": "node scripts/render-canonical-docs.mjs --out .brand-render && node scripts/verify-brand-alignment.mjs --rendered .brand-render",
-    "brand:generate-palette": "python3 scripts/generate-palette-assets.py"
+    "brand:generate-palette": "python3 scripts/generate-palette-assets.py",
+    "connector:build": "node scripts/build-connector.mjs"
   },
   "overrides": {
     "wrangler": "$wrangler",
